@@ -1,0 +1,25 @@
+{
+  "name": "3-tutor-session-app",
+  "description": "stream-1 project",
+  "main": "index.js",
+  "authors": [
+    "Daniel Hoksza"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.8",
+    "bourbon": "~4.2.6",
+    "bitters": "~1.2.0",
+    "jquery": "~2.1.4",
+    "d3": "~3.5.12"
+  }
+}

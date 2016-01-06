@@ -1,0 +1,23 @@
+{
+  "name": "3-tutor-session-app",
+  "version": "1.0.0",
+  "description": "angular app",
+  "main": "index.js",
+  "dependencies": {
+    "bower": "^1.7.2",
+    "gulp-concat": "^2.6.0",
+    "gulp": "^3.9.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-ruby-sass": "^2.0.6",
+    "gulp-rename": "^1.2.2",
+    "uglify": "^0.1.5"
+  },
+  "devDependencies": {
+  
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Hoksza",
+  "license": "ISC"
+}
