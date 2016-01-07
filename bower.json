@@ -22,6 +22,7 @@
     "jquery": "~2.1.4",
     "d3": "~3.5.12",
     "neat": "~1.7.2",
-    "font-awesome": "~4.5.0"
+    "font-awesome": "~4.5.0",
+    "normalize-scss": "normalize.scss#~4.0.3"
   }
 }
