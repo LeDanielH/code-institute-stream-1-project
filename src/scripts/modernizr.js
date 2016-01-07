@@ -1,7 +1,3 @@
-var name = "Daniel";
-console.log(name);
-
-
 /*!
  * modernizr v3.2.0
  * Build http://modernizr.com/download?-addtest-fnbind-printshiv-testprop-dontmin
@@ -1427,4 +1423,3 @@ console.log(name);
 ;
 
 })(window, document);
-services.js
