@@ -1,6 +1,6 @@
 {
-  "name": "3-tutor-session-app",
-  "description": "stream-1 project",
+  "name": "stream-1-project",
+  "description": "angular app band website",
   "main": "index.js",
   "authors": [
     "Daniel Hoksza"
@@ -17,12 +17,13 @@
   ],
   "dependencies": {
     "angular": "~1.4.8",
-    "bourbon": "~4.2.6",
     "bitters": "~1.2.0",
-    "jquery": "~2.1.4",
     "d3": "~3.5.12",
-    "neat": "~1.7.2",
     "font-awesome": "~4.5.0",
+    "jquery": "~2.1.4",
+    "bourbon": "~4.2.6",
+    "modernizr": "~3.2.0",
+    "neat": "~1.7.2",
     "normalize-scss": "normalize.scss#~4.0.3"
   }
 }
