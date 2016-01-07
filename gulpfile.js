@@ -7,17 +7,17 @@ var gulp = require('gulp'),
 
 gulp.task('process-styles', function() {
   return sass('src/styles/main.scss', {style: 'compressed'})
-    .pipe(gulp.dest('dest/styles/'))
+    .pipe(gulp.dest('assets/styles/'))
     .pipe(connect.reload())
 })
 
 gulp.task('process-scripts', function() {
   return gulp.src('src/scripts/*.js')
     .pipe(concat('main.js'))
-    .pipe(gulp.dest('dest/scripts/'))
+    .pipe(gulp.dest('assets/scripts/'))
     .pipe(rename({suffix: '.min'}))
     .pipe(uglify())
-    .pipe(gulp.dest('dest/scripts/'))
+    .pipe(gulp.dest('assets/scripts/'))
 })
 
 gulp.task('webserver', function() {
