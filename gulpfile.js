@@ -8,7 +8,9 @@ var gulp = require('gulp'),
 	modernizr = require('gulp-modernizr'),
 	nanohtml = require('gulp-htmlmin'),
 	csspurge = require('gulp-css-purge'),
-	uncss = require('gulp-uncss');
+	uncss = require('gulp-uncss'),
+  imagemin = require('gulp-imagemin'),
+  cache = require('gulp-cache');
 
 gulp.task('process-styles', function () {
 	return sass('src/main.scss', {
@@ -49,7 +51,7 @@ gulp.task('process-scripts', function () {
 		.pipe(uglify())
 		.pipe(gulp.dest('app/scripts/'))
 		.pipe(connect.reload());
-})
+});
 
 gulp.task('process-html', function () {
 	return gulp.src('src/*.html')
@@ -58,7 +60,14 @@ gulp.task('process-html', function () {
 		}))
 		.pipe(gulp.dest('app'))
 		.pipe(connect.reload());
-})
+});
+
+gulp.task('process-images', function() {
+  return gulp.src('src/images/**/*')
+    .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe(gulp.dest('app/images/'))
+    .pipe(connect.reload());
+});
 
 gulp.task('webserver', function () {
 	connect.server({
@@ -66,12 +75,14 @@ gulp.task('webserver', function () {
 		livereload: true,
 		fallback: 'app/index.html'
 	});
-})
+});
 
 gulp.task('watch', function () {
 	gulp.watch('src/scripts/**/*.js', ['process-scripts']);
 	gulp.watch('src/main.scss', ['process-styles']);
-	gulp.watch(['src/**/*.html'], ['html']);
-})
+	gulp.watch(['src/**/*.html'], ['process-html']);
+  gulp.watch('src/images/**/*', ['process-images']);
+});
 
-gulp.task('default', ['process-styles', 'modernizr', 'process-scripts', 'process-html', 'webserver', 'watch']);
+
+gulp.task('default', ['process-styles', 'modernizr', 'process-scripts', 'process-images', 'process-html', 'webserver', 'watch']);
