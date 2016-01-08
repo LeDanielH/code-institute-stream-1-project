@@ -22,7 +22,6 @@
     "font-awesome": "~4.5.0",
     "jquery": "~2.1.4",
     "bourbon": "~4.2.6",
-    "modernizr": "~3.2.0",
     "neat": "~1.7.2",
     "normalize-scss": "normalize.scss#~4.0.3"
   }
