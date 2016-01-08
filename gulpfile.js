@@ -2,34 +2,28 @@ var gulp = require('gulp'),
 	sass = require('gulp-ruby-sass'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
-  nanofy = require('gulp-cssnano'),
+	nanofy = require('gulp-cssnano'),
 	rename = require('gulp-rename'),
 	connect = require('gulp-connect'),
 	modernizr = require('gulp-modernizr'),
-  nanohtml = require('gulp-htmlmin'),
-  csspurge = require('gulp-css-purge'),
-  uncss = require('gulp-uncss');
-  //sourcemaps = require('gulp-sourcemaps');
-	//plumber = require('gulp-plumber');
-
+	nanohtml = require('gulp-htmlmin'),
+	csspurge = require('gulp-css-purge'),
+	uncss = require('gulp-uncss');
 
 gulp.task('process-styles', function () {
 	return sass('src/main.scss', {
 			style: 'expanded'
 		})
-    .pipe(uncss({
-      html: ['src/*.html']
-    }))
-    .pipe(csspurge())
-		// .pipe(plumber())
+		.pipe(uncss({
+			html: ['src/*.html']
+		}))
+		.pipe(csspurge())
 		.pipe(gulp.dest('app/styles/'))
-    .pipe(rename({
-      suffix : '.min'
-    }))
-    //.pipe(sourcemaps.init())
-    .pipe(nanofy())
-    //.pipe(sourcemaps.write())
-    .pipe(gulp.dest('app/styles/'))
+		.pipe(rename({
+			suffix: '.min'
+		}))
+		.pipe(nanofy())
+		.pipe(gulp.dest('app/styles/'))
 		.pipe(connect.reload())
 })
 
@@ -47,24 +41,23 @@ gulp.task('process-scripts', function () {
       'src/scripts/**/*.js'
 
     ])
-		// .pipe(plumber())
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest('app/scripts/'))
 		.pipe(rename({
 			suffix: '.min'
 		}))
-    //.pipe(sourcemaps.init())
 		.pipe(uglify())
-    //.pipe(sourcemaps.write())
 		.pipe(gulp.dest('app/scripts/'))
-    .pipe(connect.reload());
+		.pipe(connect.reload());
 })
 
-gulp.task('process-html', function() {
-  return gulp.src('src/*.html')
-    .pipe(nanohtml({ collapseWhitespace: true }))
-    .pipe(gulp.dest('app'))
-    .pipe(connect.reload());
+gulp.task('process-html', function () {
+	return gulp.src('src/*.html')
+		.pipe(nanohtml({
+			collapseWhitespace: true
+		}))
+		.pipe(gulp.dest('app'))
+		.pipe(connect.reload());
 })
 
 gulp.task('webserver', function () {
