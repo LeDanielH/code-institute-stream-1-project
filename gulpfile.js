@@ -1,5 +1,4 @@
 var gulp = require('gulp'),
-	//sass = require('gulp-ruby-sass'),
   sass = require('gulp-sass'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
@@ -12,6 +11,7 @@ var gulp = require('gulp'),
 	uncss = require('gulp-uncss'),
   imagemin = require('gulp-imagemin'),
   cache = require('gulp-cache'),
+  stripcsscomments = require('gulp-strip-css-comments'),
   gzip = require('gulp-gzip');
 
 
@@ -21,7 +21,8 @@ gulp.task('process-styles', ['process-html'], function () {
     .pipe(uncss({
       html: ['src/**/*.html']
     }))
-		//.pipe(csspurge())
+		.pipe(csspurge())
+    .pipe(stripcsscomments())
 		.pipe(gulp.dest('app/styles/'))
 		.pipe(rename({
 			suffix: '.min'
@@ -31,13 +32,7 @@ gulp.task('process-styles', ['process-html'], function () {
 		.pipe(connect.reload());
 });
 
-// gulp.task('modernizr', function () {
-// 	gulp.src('src/scripts/**/*.js')
-// 		.pipe(modernizr())
-// 		.pipe(gulp.dest('src/scripts/'));
-// });
-
-gulp.task('process-scripts', function () {
+gulp.task('process-scripts', ['modernizr'], function () {
 	return gulp.src([
       'bower_components/jquery/dist/jquery.js',
       'bower_components/angular/angular.js',
@@ -46,7 +41,6 @@ gulp.task('process-scripts', function () {
       'src/scripts/**/*.js'
 
     ])
-    .pipe(modernizr())
 		.pipe(concat('main.js'))
 		.pipe(gulp.dest('app/scripts/'))
 		.pipe(rename({
@@ -55,6 +49,19 @@ gulp.task('process-scripts', function () {
 		.pipe(uglify())
 		.pipe(gulp.dest('app/scripts/'))
 		.pipe(connect.reload());
+});
+
+gulp.task('modernizr', function() {
+  gulp.src([
+      'bower_components/jquery/dist/jquery.js',
+      'bower_components/angular/angular.js',
+      'bower_components/d3/d3.js',
+      'bower_components/gsap/src/uncompressed/TweenMax.js',
+      'src/scripts/**/*.js',
+      '!src/scripts/modernizr.js'
+    ])
+    .pipe(modernizr())
+    .pipe(gulp.dest("src/scripts/"));
 });
 
 gulp.task('process-html', function () {
@@ -82,7 +89,7 @@ gulp.task('webserver', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('src/scripts/**/*.js', ['process-scripts', 'process-html', 'process-styles']);
+	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-styles']);
 	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-styles']);
 	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles']);
   gulp.watch('src/images/**/*', ['process-images']);
