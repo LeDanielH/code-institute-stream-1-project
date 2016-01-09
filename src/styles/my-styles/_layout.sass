@@ -1,7 +1,30 @@
-.container
-	+display(flex)
-	+justify-content(center)
-	.content
+//.container
+//	+display(flex)
+//	+justify-content(center)
+//	.content
+//		+display(flex)
+//		+justify-content(center)
+//		+flex-direction(column)
+
+html
+	body
 		+display(flex)
-		+justify-content(center)
-		+flex-direction(column)
+		+justify-content(space-between)
+	
+		.empty-column
+			+flex(1)
+			width: 200px
+
+		.main-aside
+			+flex(1)
+			position: fixed
+			+display(flex)
+			+flex-direction(column)
+			+justify-content(center)
+			+align-items(center)
+			max-width: 200px
+		
+		.main
+			+flex(5)
+	
+
