@@ -17,13 +17,8 @@
   ],
   "dependencies": {
     "angular": "~1.4.8",
-    "bitters": "~1.2.0",
     "d3": "~3.5.12",
-    "font-awesome": "~4.5.0",
     "jquery": "~2.1.4",
-    "bourbon": "~4.2.6",
-    "neat": "~1.7.2",
-    "normalize-scss": "normalize.scss#~4.0.3",
     "gsap": "~1.18.2"
   }
 }

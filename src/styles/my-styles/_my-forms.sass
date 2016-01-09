@@ -1,0 +1,35 @@
+.choice-wrapper
+	+display(flex)
+	+flex-direction(column)
+	+justify-content(space-around)
+	margin-bottom: $small-spacing
+	.inline-check
+		+display(flex)
+		+align-items(center)
+		span
+			font-family: $font-content
+
+// This is an inline wrapping form
+
+.input-wrap
+	+display(flex)
+	+align-items(center)
+	+justify-content(space-between)
+	+flex-wrap(wrap)
+	input
+		+flex(7)
+		+flex-shrink(1)
+		+flex-basis(220px)
+		+align-self(center)
+	label
+		margin-right: 10px
+		white-space: nowrap
+		+align-self(center)
+		+flex(1)
+		+flex-shrink(2)
+		+flex-basis(140px)
+.form-small
+	max-width: 320px
+
+.form-medium
+	max-width: 640px

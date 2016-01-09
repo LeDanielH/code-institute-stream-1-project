@@ -14,7 +14,7 @@ var gulp = require('gulp'),
   gzip = require('gulp-gzip');
 
 gulp.task('process-styles', function () {
-	return sass('src/main.scss', {
+	return sass('src/styles/main.scss', {
 			style: 'expanded'
 		})
 		.pipe(uncss({
@@ -98,9 +98,9 @@ gulp.task('webserver', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch('src/scripts/**/*.js', ['process-scripts']);
-	gulp.watch('src/main.scss', ['process-styles']);
-	gulp.watch(['src/**/*.html'], ['process-html']);
+	gulp.watch('src/scripts/**/*.js', ['process-scripts', 'process-html', 'process-styles']);
+	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-styles', 'process-html']);
+	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles']);
   gulp.watch('src/images/**/*', ['process-images']);
 });
 
