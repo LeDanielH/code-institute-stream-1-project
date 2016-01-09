@@ -23,6 +23,7 @@
     "jquery": "~2.1.4",
     "bourbon": "~4.2.6",
     "neat": "~1.7.2",
-    "normalize-scss": "normalize.scss#~4.0.3"
+    "normalize-scss": "normalize.scss#~4.0.3",
+    "gsap": "~1.18.2"
   }
 }
