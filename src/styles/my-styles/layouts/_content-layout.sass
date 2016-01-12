@@ -62,7 +62,8 @@
 					margin: 15px
 
 		.column-2
-			+flex(1 1 210px)
+			+position(relative null 0px null null)
+			+flex(1 1 230px)
 			+display(flex)
 			+justify-content(center)
 			.tour-dates
@@ -75,6 +76,7 @@
 					+display(flex)
 					+flex-direction(column)
 					+align-items(center)
+					table-layout: fixed
 					thead
 						width: 100%
 						tr
@@ -91,9 +93,10 @@
 							+justify-content(space-around)
 							border-bottom: 1px solid $light-gray
 							td
-								font-size: 0.8rem
 								border-bottom: 0
 								padding: 5px 0
+								width: 80%
+								text-align: center
 				.text-button-wrapper
 					margin: 15px 0
 		

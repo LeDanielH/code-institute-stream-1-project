@@ -74,7 +74,7 @@ figure {
 
 
 button {
-	color: #fff;
+	color: inherit;
 	font: inherit;
 	margin: 0;
 	overflow: visible;
@@ -85,6 +85,8 @@ button {
 	background-color: #1565c0;
 	border: 0;
 	border-radius: 3px;
+	color: #fff;
+	cursor: pointer;
 	display: inline-block;
 	-webkit-font-smoothing: antialiased;
 	font-weight: 600;
@@ -95,7 +97,6 @@ button {
 	user-select: none;
 	vertical-align: middle;
 	white-space: nowrap;
-	text-transform: uppercase;
 }
 
 
@@ -314,6 +315,9 @@ img::-moz-selection {
 p,small,em,button {
 	font-family: "Roboto", sans-serif;
 }
+button,th {
+	text-transform: uppercase;
+}
 h1 {
 	font-size: 4rem;
 }
@@ -321,12 +325,12 @@ h2,.h2 {
 	font-size: 3rem;
 }
 h3,.h3 {
-	font-size: 1.7rem;
+	font-size: 2rem;
 }
 h4 {
 	font-size: 1.2rem;
 }
-h5 {
+h5,th {
 	font-size: 1.1rem;
 }
 strong {
@@ -768,13 +772,15 @@ html body .main {
 	margin: 15px;
 }
 .container .columns-wrapper .column-2 {
+	position: relative;
+	bottom: 0px;
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
-	-webkit-flex: 1 1 210px;
-	-moz-flex: 1 1 210px;
-	-ms-flex: 1 1 210px;
-	flex: 1 1 210px;
+	-webkit-flex: 1 1 230px;
+	-moz-flex: 1 1 230px;
+	-ms-flex: 1 1 230px;
+	flex: 1 1 230px;
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -848,6 +854,7 @@ html body .main {
 	-o-align-items: center;
 	align-items: center;
 	-ms-flex-align: center;
+	table-layout: fixed;
 }
 .container .columns-wrapper .column-2 .tour-dates table thead {
 	width: 100%;
@@ -898,9 +905,10 @@ html body .main {
 	border-bottom: 1px solid #ddd;
 }
 .container .columns-wrapper .column-2 .tour-dates table tbody tr td {
-	font-size: 0.8rem;
 	border-bottom: 0;
 	padding: 5px 0;
+	width: 80%;
+	text-align: center;
 }
 .container .columns-wrapper .column-2 .tour-dates .text-button-wrapper {
 	margin: 15px 0;
