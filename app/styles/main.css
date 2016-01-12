@@ -51,6 +51,7 @@ a:active,a:hover {
 
 small {
 	font-size: 80%;
+	color: #999;
 }
 
 
@@ -151,7 +152,7 @@ td {
 tr,td,th {
 	vertical-align: middle;
 }
-h2,h3,h4,h5 {
+h1,h2,h3,h4,h5 {
 	font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
 	line-height: 1.2;
 	margin: 0 0 0.75rem;
@@ -263,13 +264,63 @@ img::selection {
 img::-moz-selection {
 	background: transparent;
 }
+.divided {
+	padding: 20px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+}
+.text-button-wrapper {
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	text-align: center;
+}
+.text-button-wrapper > p {
+	margin: 10px 0 0;
+}
 p,small,em,button {
 	font-family: "Roboto", sans-serif;
 }
-h2 {
+h1 {
+	font-size: 4rem;
+}
+h2,.h2 {
 	font-size: 3rem;
 }
-h3 {
+h3,.h3 {
 	font-size: 1.7rem;
 }
 h4 {
@@ -303,9 +354,9 @@ html body {
 	-ms-flex-pack: justify;
 }
 html body .empty-column {
-	min-width: 200px;
+	min-width: 230px;
 }
-html body .main-aside > *:not(.soundcloud-player) {
+html body .main-aside > *:not(.soundcloud-player,.text-button-wrapper) {
 	padding: 10px;
 }
 html body .main-aside {
@@ -345,7 +396,7 @@ html body .main-aside {
 	-o-align-items: center;
 	align-items: center;
 	-ms-flex-align: center;
-	max-width: 200px;
+	max-width: 230px;
 	height: 100vh;
 }
 html body .main {
@@ -493,44 +544,6 @@ html body .main {
 .song-list tbody tr td {
 	border-bottom: 0;
 	padding: 5px 0;
-}
-.text-button-wrapper {
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
-	box-orient: vertical;
-	-webkit-box-direction: normal;
-	-moz-box-direction: normal;
-	box-direction: normal;
-	-webkit-flex-direction: column;
-	-moz-flex-direction: column;
-	flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-box-align: center;
-	-moz-box-align: center;
-	box-align: center;
-	-webkit-align-items: center;
-	-moz-align-items: center;
-	-ms-align-items: center;
-	-o-align-items: center;
-	align-items: center;
-	-ms-flex-align: center;
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
-	text-align: center;
 }
 .text-button-wrapper p {
 	font-size: 0.8rem;
@@ -691,7 +704,7 @@ html body .main {
 	margin: 5px 15px;
 }
 .main-header .band-cover {
-	height: 100vh;
+	height: 50vh;
 	background-image: url("/images/monkees.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -722,31 +735,46 @@ html body .main {
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	-webkit-box-lines: multiple;
+	-moz-box-lines: multiple;
+	box-lines: multiple;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
 .container .columns-wrapper .column-1 {
-	-webkit-box-flex: 4;
-	-moz-box-flex: 4;
-	box-flex: 4;
-	-webkit-flex: 4;
-	-moz-flex: 4;
-	-ms-flex: 4;
-	flex: 4;
+	-webkit-box-flex: 10;
+	-moz-box-flex: 10;
+	box-flex: 10;
+	-webkit-flex: 10 10 400px;
+	-moz-flex: 10 10 400px;
+	-ms-flex: 10 10 400px;
+	flex: 10 10 400px;
 }
-.container .columns-wrapper .column-1 .band-intro {
-	position: relative;
+.container .columns-wrapper .column-1 .content {
+	padding: 15px;
 }
-.container .columns-wrapper .column-1 .band-intro div[class*="member"] {
-	position: absolute;
-	top: 20%;
+.container .columns-wrapper .column-1 .content .blog-post {
+	margin: 15px;
 }
 .container .columns-wrapper .column-2 {
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
-	-webkit-flex: 1;
-	-moz-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
+	-webkit-flex: 1 1 210px;
+	-moz-flex: 1 1 210px;
+	-ms-flex: 1 1 210px;
+	flex: 1 1 210px;
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -765,6 +793,7 @@ html body .main {
 	-ms-flex-pack: center;
 }
 .container .columns-wrapper .column-2 .tour-dates {
+	width: 100%;
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -872,4 +901,41 @@ html body .main {
 	font-size: 0.8rem;
 	border-bottom: 0;
 	padding: 5px 0;
+}
+.container .columns-wrapper .column-2 .tour-dates .text-button-wrapper {
+	margin: 15px 0;
+}
+.main-footer {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	-ms-flex-align: center;
+	background-color: #fff;
+}
+.main-footer nav a {
+	padding: 5px 15px;
+}
+.main-footer small {
+	padding: 5px 15px;
 }

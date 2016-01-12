@@ -24,7 +24,7 @@
 				margin: 5px 15px
 	
 	.band-cover
-		height: 100vh
+		height: 50vh
 		background-image: url("/images/monkees.jpg")
 		background-size: cover
 		background-repeat: no-repeat
@@ -48,18 +48,25 @@
 	
 	.columns-wrapper
 		+display(flex)
+		+justify-content(space-between)
+		+flex-wrap(wrap)
 		.column-1
-			+flex(4)
-			.band-intro
+			+flex(10 10 400px)
+			//.band-intro
 				+position(relative)
 				div[class*="member"]
 					+position(absolute, 20% null null null)
+			.content
+				padding: 15px
+				.blog-post
+					margin: 15px
 
 		.column-2
-			+flex(1)
+			+flex(1 1 210px)
 			+display(flex)
 			+justify-content(center)
 			.tour-dates
+				width: 100%
 				+display(flex)
 				+flex-direction(column)
 				+align-items(center)
@@ -87,8 +94,20 @@
 								font-size: 0.8rem
 								border-bottom: 0
 								padding: 5px 0
+				.text-button-wrapper
+					margin: 15px 0
 		
-						
+.main-footer
+	+display(flex)
+	+justify-content(space-between)
+	+align-items(center)
+	background-color: $base-background-color
+	nav
+		a
+			padding: 5px 15px
+	small
+		padding: 5px 15px
+		
 		
 						
 					
