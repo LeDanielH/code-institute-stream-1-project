@@ -9,14 +9,14 @@ var gulp = require('gulp'),
 	nanohtml = require('gulp-htmlmin'),
 	csspurge = require('gulp-css-purge'),
 	uncss = require('gulp-uncss'),
-  imagemin = require('gulp-imagemin'),
+  //imagemin = require('gulp-imagemin'),
   cache = require('gulp-cache'),
   stripcsscomments = require('gulp-strip-css-comments'),
   gzip = require('gulp-gzip');
 
 
 gulp.task('process-styles', ['process-html'], function () {
-	gulp.src('src/styles/main.scss')
+	gulp.src(['src/styles/**/*.scss', 'src/styles/**/*.sass'])
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
     .pipe(uncss({
       html: ['src/**/*.html']
@@ -31,6 +31,22 @@ gulp.task('process-styles', ['process-html'], function () {
 		.pipe(gulp.dest('app/styles/'))
 		.pipe(connect.reload());
 });
+
+// gulp.task('process-styles', ['process-html'], function() {
+//   gulp.src('src/styles/main.css')
+//   .pipe(uncss({
+//     html: ['src/**/*.html']
+//   }))
+//   .pipe(csspurge())
+//   .pipe(stripcsscomments())
+//   .pipe(gulp.dest('app/styles/'))
+//   .pipe(rename({
+//     suffix: '.min'
+//   }))
+//   .pipe(nanofy())
+//   .pipe(gulp.dest('app/styles/'))
+//   .pipe(connect.reload());
+// });
 
 gulp.task('process-scripts', ['modernizr'], function () {
 	return gulp.src([
@@ -73,12 +89,12 @@ gulp.task('process-html', function () {
 		.pipe(connect.reload());
 });
 
-gulp.task('process-images', function() {
-  return gulp.src('src/images/**/*')
-    .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('app/images/'))
-    .pipe(connect.reload());
-});
+// gulp.task('process-images', function() {
+//   return gulp.src('src/images/**/*')
+//     .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true })))
+//     .pipe(gulp.dest('app/images/'))
+//     .pipe(connect.reload());
+// });
 
 gulp.task('webserver', function () {
 	connect.server({
@@ -90,9 +106,10 @@ gulp.task('webserver', function () {
 
 gulp.task('watch', function () {
 	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-styles']);
-	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-styles']);
+  gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-styles']);
+	//gulp.watch(['src/styles/main.css'], ['process-html', 'process-styles']);
 	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles']);
-  gulp.watch('src/images/**/*', ['process-images']);
+  //gulp.watch('src/images/**/*', ['process-images']);
 });
 
 gulp.task('gzip-js', ['process-html', 'process-styles', 'process-scripts'], function() {
@@ -117,7 +134,7 @@ gulp.task('gzip-html',['process-html', 'process-styles', 'process-scripts'], fun
 gulp.task('default', [
   'process-scripts', 
   'process-styles', 
-  'process-images', 
+  //'process-images', 
   'process-html', 
   'gzip-js',
   'gzip-css', 

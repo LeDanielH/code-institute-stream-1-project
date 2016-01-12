@@ -1,0 +1,23 @@
+html
+	body
+		+display(flex)
+		+justify-content(space-between)
+	
+		.empty-column
+			min-width: 200px
+
+		.main-aside > *:not(.soundcloud-player)
+			padding: 10px
+
+		.main-aside
+			position: fixed
+			+display(flex)
+			+flex-direction(column)
+			+justify-content(space-around)
+			+align-items(center)
+			max-width: 200px
+			height: 100vh
+
+		.main
+			+display(flex)
+			+flex-direction(column)
