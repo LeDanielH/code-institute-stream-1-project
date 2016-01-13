@@ -32,28 +32,8 @@ gulp.task('process-styles', ['process-html'], function () {
 		.pipe(connect.reload());
 });
 
-// gulp.task('process-styles', ['process-html'], function() {
-//   gulp.src('src/styles/main.css')
-//   .pipe(uncss({
-//     html: ['src/**/*.html']
-//   }))
-//   .pipe(csspurge())
-//   .pipe(stripcsscomments())
-//   .pipe(gulp.dest('app/styles/'))
-//   .pipe(rename({
-//     suffix: '.min'
-//   }))
-//   .pipe(nanofy())
-//   .pipe(gulp.dest('app/styles/'))
-//   .pipe(connect.reload());
-// });
-
 gulp.task('process-scripts', ['modernizr'], function () {
 	return gulp.src([
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/angular/angular.js',
-      'bower_components/d3/d3.js',
-      'bower_components/gsap/src/uncompressed/TweenMax.js',
       'src/scripts/**/*.js'
 
     ])
@@ -69,10 +49,6 @@ gulp.task('process-scripts', ['modernizr'], function () {
 
 gulp.task('modernizr', function() {
   gulp.src([
-      'bower_components/jquery/dist/jquery.js',
-      'bower_components/angular/angular.js',
-      'bower_components/d3/d3.js',
-      'bower_components/gsap/src/uncompressed/TweenMax.js',
       'src/scripts/**/*.js',
       '!src/scripts/modernizr.js'
     ])
@@ -107,7 +83,6 @@ gulp.task('webserver', function () {
 gulp.task('watch', function () {
 	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-styles']);
   gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-styles']);
-	//gulp.watch(['src/styles/main.css'], ['process-html', 'process-styles']);
 	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles']);
   //gulp.watch('src/images/**/*', ['process-images']);
 });
@@ -141,4 +116,4 @@ gulp.task('default', [
   'gzip-html',
   'webserver', 
   'watch'
-  ]);
+]);

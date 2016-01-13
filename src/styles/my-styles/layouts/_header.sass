@@ -1,0 +1,42 @@
+nav
+	width: 100%
+	+display(flex)
+	+justify-content(space-between)
+	z-index: 99
+	+flex-wrap(wrap)
+
+	.navigation-links
+		+flex(2 2 500px)
+		+display(flex)
+		+justify-content(flex-start)
+		a
+			padding: 5px $base-padding
+
+	.navigation-icon-links
+		+flex(4 1 200px)
+		+display(flex)
+		+justify-content(flex-end)
+		
+		a
+			padding: 5px $base-padding
+
+.band-cover
+	height: 50vh
+	background-image: url("/images/monkees.jpg")
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+	+position(relative)
+
+	i[class*="fa-chevron"]
+		color: $accent2
+
+	.fa-chevron-left
+		+position(absolute, 50% null null 3%)
+
+
+	.fa-chevron-right
+		+position(absolute, 50% 3% null null)
+
+	.quote-wrapper
+		+position(absolute)
