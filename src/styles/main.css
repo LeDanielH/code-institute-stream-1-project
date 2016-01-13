@@ -3873,19 +3873,9 @@ html body {
       display: -webkit-flex;
       display: -moz-flex;
       display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      box-direction: normal;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      flex-direction: column;
-      -ms-flex-direction: column; }
-    /* line 34, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-    html body .main .container .columns-wrapper {
+      display: flex; }
+    /* line 33, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
+    html body .main .container {
       display: -webkit-box;
       display: -moz-box;
       display: box;
@@ -3910,16 +3900,17 @@ html body {
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
       /* line 38, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-      html body .main .container .columns-wrapper .column-1 {
+      html body .main .container .column-1 {
         -webkit-box-flex: 10;
         -moz-box-flex: 10;
         box-flex: 10;
         -webkit-flex: 10 10 400px;
         -moz-flex: 10 10 400px;
         -ms-flex: 10 10 400px;
-        flex: 10 10 400px; }
-      /* line 41, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-      html body .main .container .columns-wrapper .column-2 {
+        flex: 10 10 400px;
+        padding: 0 7%; }
+      /* line 42, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
+      html body .main .container .column-2 {
         -webkit-box-flex: 1;
         -moz-box-flex: 1;
         box-flex: 1;
@@ -3943,228 +3934,8 @@ html body {
         -o-justify-content: center;
         justify-content: center;
         -ms-flex-pack: center; }
-    /* line 46, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-    html body .main .store-items {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -moz-box-pack: justify;
-      box-pack: justify;
-      -webkit-justify-content: space-between;
-      -moz-justify-content: space-between;
-      -ms-justify-content: space-between;
-      -o-justify-content: space-between;
-      justify-content: space-between;
-      -ms-flex-pack: justify;
-      -webkit-box-lines: multiple;
-      -moz-box-lines: multiple;
-      box-lines: multiple;
-      -webkit-flex-wrap: wrap;
-      -moz-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-      /* line 51, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-      html body .main .store-items .column-1 {
-        padding: 20px;
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        box-orient: vertical;
-        -webkit-box-direction: normal;
-        -moz-box-direction: normal;
-        box-direction: normal;
-        -webkit-flex-direction: column;
-        -moz-flex-direction: column;
-        flex-direction: column;
-        -ms-flex-direction: column;
-        width: 100%;
-        -webkit-box-flex: 10;
-        -moz-box-flex: 10;
-        box-flex: 10;
-        -webkit-flex: 10 10 400px;
-        -moz-flex: 10 10 400px;
-        -ms-flex: 10 10 400px;
-        flex: 10 10 400px; }
-        /* line 57, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-        html body .main .store-items .column-1 .store-items-wrapper {
-          display: -webkit-box;
-          display: -moz-box;
-          display: box;
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-pack: distribute;
-          -moz-box-pack: distribute;
-          box-pack: distribute;
-          -webkit-justify-content: space-around;
-          -moz-justify-content: space-around;
-          -ms-justify-content: space-around;
-          -o-justify-content: space-around;
-          justify-content: space-around;
-          -ms-flex-pack: distribute;
-          -webkit-box-align: center;
-          -moz-box-align: center;
-          box-align: center;
-          -webkit-align-items: center;
-          -moz-align-items: center;
-          -ms-align-items: center;
-          -o-align-items: center;
-          align-items: center;
-          -ms-flex-align: center; }
-          /* line 62, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-          html body .main .store-items .column-1 .store-items-wrapper .store-item {
-            display: -webkit-box;
-            display: -moz-box;
-            display: box;
-            display: -webkit-flex;
-            display: -moz-flex;
-            display: -ms-flexbox;
-            display: flex;
-            -webkit-box-orient: vertical;
-            -moz-box-orient: vertical;
-            box-orient: vertical;
-            -webkit-box-direction: normal;
-            -moz-box-direction: normal;
-            box-direction: normal;
-            -webkit-flex-direction: column;
-            -moz-flex-direction: column;
-            flex-direction: column;
-            -ms-flex-direction: column;
-            -webkit-box-align: center;
-            -moz-box-align: center;
-            box-align: center;
-            -webkit-align-items: center;
-            -moz-align-items: center;
-            -ms-align-items: center;
-            -o-align-items: center;
-            align-items: center;
-            -ms-flex-align: center;
-            text-align: center; }
-        /* line 67, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-        html body .main .store-items .column-1 footer {
-          display: -webkit-box;
-          display: -moz-box;
-          display: box;
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-pack: end;
-          -moz-box-pack: end;
-          box-pack: end;
-          -webkit-justify-content: flex-end;
-          -moz-justify-content: flex-end;
-          -ms-justify-content: flex-end;
-          -o-justify-content: flex-end;
-          justify-content: flex-end;
-          -ms-flex-pack: end; }
-      /* line 71, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
-      html body .main .store-items .column-2 {
-        -webkit-box-flex: 1;
-        -moz-box-flex: 1;
-        box-flex: 1;
-        -webkit-flex: 1 1 230px;
-        -moz-flex: 1 1 230px;
-        -ms-flex: 1 1 230px;
-        flex: 1 1 230px; }
 
 /* line 1, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-nav {
-  width: 100%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-  -moz-box-pack: justify;
-  box-pack: justify;
-  -webkit-justify-content: space-between;
-  -moz-justify-content: space-between;
-  -ms-justify-content: space-between;
-  -o-justify-content: space-between;
-  justify-content: space-between;
-  -ms-flex-pack: justify;
-  z-index: 99;
-  -webkit-box-lines: multiple;
-  -moz-box-lines: multiple;
-  box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-  /* line 8, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-  nav .navigation-links {
-    -webkit-box-flex: 2;
-    -moz-box-flex: 2;
-    box-flex: 2;
-    -webkit-flex: 2 2 500px;
-    -moz-flex: 2 2 500px;
-    -ms-flex: 2 2 500px;
-    flex: 2 2 500px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: start;
-    -moz-box-pack: start;
-    box-pack: start;
-    -webkit-justify-content: flex-start;
-    -moz-justify-content: flex-start;
-    -ms-justify-content: flex-start;
-    -o-justify-content: flex-start;
-    justify-content: flex-start;
-    -ms-flex-pack: start; }
-    /* line 12, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-    nav .navigation-links a {
-      padding: 5px 20px; }
-  /* line 15, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-  nav .navigation-icon-links {
-    -webkit-box-flex: 4;
-    -moz-box-flex: 4;
-    box-flex: 4;
-    -webkit-flex: 4 1 200px;
-    -moz-flex: 4 1 200px;
-    -ms-flex: 4 1 200px;
-    flex: 4 1 200px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: end;
-    -moz-box-pack: end;
-    box-pack: end;
-    -webkit-justify-content: flex-end;
-    -moz-justify-content: flex-end;
-    -ms-justify-content: flex-end;
-    -o-justify-content: flex-end;
-    justify-content: flex-end;
-    -ms-flex-pack: end; }
-    /* line 20, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-    nav .navigation-icon-links a {
-      padding: 5px 20px; }
-
-/* line 23, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
 .band-cover {
   height: 50vh;
   background-image: url("/images/monkees.jpg");
@@ -4172,20 +3943,20 @@ nav {
   background-repeat: no-repeat;
   background-position: center;
   position: relative; }
-  /* line 31, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 9, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover i[class*="fa-chevron"] {
     color: #477998; }
-  /* line 34, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 12, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover .fa-chevron-left {
     position: absolute;
     top: 50%;
     left: 3%; }
-  /* line 38, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 16, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover .fa-chevron-right {
     position: absolute;
     top: 50%;
     right: 3%; }
-  /* line 41, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 19, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover .quote-wrapper {
     position: absolute; }
 
@@ -4351,6 +4122,90 @@ footer {
   display: flex; }
 
 /* line 5, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+nav {
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
+  justify-content: space-between;
+  -ms-flex-pack: justify;
+  z-index: 99;
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
+  /* line 12, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+  nav .navigation-links {
+    -webkit-box-flex: 2;
+    -moz-box-flex: 2;
+    box-flex: 2;
+    -webkit-flex: 2 2 500px;
+    -moz-flex: 2 2 500px;
+    -ms-flex: 2 2 500px;
+    flex: 2 2 500px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+    -moz-box-pack: start;
+    box-pack: start;
+    -webkit-justify-content: flex-start;
+    -moz-justify-content: flex-start;
+    -ms-justify-content: flex-start;
+    -o-justify-content: flex-start;
+    justify-content: flex-start;
+    -ms-flex-pack: start; }
+    /* line 16, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+    nav .navigation-links a {
+      padding: 5px 20px; }
+  /* line 19, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+  nav .navigation-icon-links {
+    -webkit-box-flex: 4;
+    -moz-box-flex: 4;
+    box-flex: 4;
+    -webkit-flex: 4 1 200px;
+    -moz-flex: 4 1 200px;
+    -ms-flex: 4 1 200px;
+    flex: 4 1 200px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
+    /* line 24, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+    nav .navigation-icon-links a {
+      padding: 5px 20px; }
+
+/* line 27, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
 .content {
   padding: 20px;
   display: -webkit-box;
@@ -4388,7 +4243,7 @@ footer {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center; }
-  /* line 11, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+  /* line 33, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
   .content .blog-intro-post {
     margin: 20px;
     display: -webkit-box;
@@ -4409,7 +4264,7 @@ footer {
     flex-direction: column;
     -ms-flex-direction: column;
     max-width: 600px; }
-    /* line 17, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+    /* line 39, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
     .content .blog-intro-post .blog-intro-header {
       display: -webkit-box;
       display: -moz-box;
@@ -4434,17 +4289,17 @@ footer {
       -moz-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-      /* line 21, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+      /* line 43, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
       .content .blog-intro-post .blog-intro-header h2 {
         padding-right: 20px; }
-      /* line 24, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+      /* line 46, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
       .content .blog-intro-post .blog-intro-header .blog-intro-date {
         padding-bottom: 20px; }
-    /* line 28, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+    /* line 50, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
     .content .blog-intro-post .blog-intro-content img {
       float: left;
       margin: 0 20px 20px 0; }
-    /* line 32, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
+    /* line 54, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
     .content .blog-intro-post footer {
       display: -webkit-box;
       display: -moz-box;
@@ -4462,6 +4317,102 @@ footer {
       -o-justify-content: flex-end;
       justify-content: flex-end;
       -ms-flex-pack: end; }
+
+/* line 1, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_footer.sass */
+.store-items {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  padding: 20px;
+  width: 100%; }
+  /* line 6, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_footer.sass */
+  .store-items .store-items-wrapper {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: distribute;
+    -moz-box-pack: distribute;
+    box-pack: distribute;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;
+    -ms-flex-pack: distribute;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center; }
+    /* line 11, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_footer.sass */
+    .store-items .store-items-wrapper .store-item {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      box-orient: vertical;
+      -webkit-box-direction: normal;
+      -moz-box-direction: normal;
+      box-direction: normal;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-direction: column;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+      -ms-flex-align: center;
+      text-align: center; }
+  /* line 16, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_footer.sass */
+  .store-items footer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
 
 /* line 1, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_upcoming-gigs.sass */
 .tour-dates {

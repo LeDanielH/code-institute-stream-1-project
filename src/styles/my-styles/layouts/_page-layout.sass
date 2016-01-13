@@ -28,46 +28,20 @@ html
 			.main-header
 				+position(relative)
 				+display(flex)
-				+flex-direction(column)
+
 
 			.container
-				.columns-wrapper
-					+display(flex)
-					+justify-content(space-between)
-					+flex-wrap(wrap)
-					.column-1
-						+flex(10 10 400px)
-
-					.column-2
-						+flex(1 1 230px)
-						+display(flex)
-						+justify-content(center)
-
-			.store-items
 				+display(flex)
 				+justify-content(space-between)
 				+flex-wrap(wrap)
-	
-				.column-1
-					padding: $base-padding
-					+display(flex)
-					+flex-direction(column)
-					width: 100%
-					+flex(10 10 400px)
-					.store-items-wrapper
-						+display(flex)
-						+justify-content(space-around)
-						+align-items(center)
 
-						.store-item
-							+display(flex)
-							+flex-direction(column)
-							+align-items(center)
-							text-align: center
-					footer
-						+display(flex)
-						+justify-content(flex-end)
-		
+				.column-1
+					+flex(10 10 400px)
+					padding: 0 7%
+
 				.column-2
 					+flex(1 1 230px)
+					+display(flex)
+					+justify-content(center)
+
 					
