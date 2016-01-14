@@ -20,30 +20,37 @@ html
 			max-width: 230px
 			height: 100vh
 
-		.main
+		.container
 			+display(flex)
 			+flex-direction(column)
 			+flex(1)
-	
-			.main-header
-				+position(relative)
-				+display(flex)
+			+calc(padding-right, "20% - 100px")
+			+calc(padding-left, "20% - 100px")
+			
+			header
 
-
-			.container
+			.columns-wrapper
 				+display(flex)
 				+justify-content(space-between)
 				+flex-wrap(wrap)
 
-				.column-1
+				.content
 					+flex(10 10 400px)
 					+calc(padding-right, "15% - 100px")
 					+calc(padding-left, "15% - 100px")
 					//padding: 0 10%
 		
-				.column-2
+				.tour-dates
 					+flex(1 1 230px)
 					+display(flex)
-					+justify-content(center)
-
+			
+				.store-items
+					+display(flex)
+					+flex-direction(column)
+					padding: $base-padding
+					width: 100%
+					+flex(10 10 400px)
+	
+				.footer-buddy
+					+flex(1 1 230px)
 					

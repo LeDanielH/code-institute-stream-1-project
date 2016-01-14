@@ -277,48 +277,14 @@ a:active,a:focus,a:hover {
 .band-cover {
 	background-color: #510D0A;
 	position: relative;
-	height: 50vh;
+	height: calc(50vh - 100px);
 	background-image: url("/images/monkees.jpg");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: cover;
 }
-.main-aside,.tour-dates,.store-items,.blog-intro-post,nav {
+.main-aside,.tour-dates,.store-items,.blog-intro-post,nav,.text-button-wrapper,.footer-buddy {
 	background-color: rgba(255, 255, 255, 0.7);
-}
-.text-button-wrapper {
-	background-color: #fff;
-	width: 100%;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
-	box-orient: vertical;
-	-webkit-box-direction: normal;
-	-moz-box-direction: normal;
-	box-direction: normal;
-	-webkit-flex-direction: column;
-	-moz-flex-direction: column;
-	flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-box-align: center;
-	-moz-box-align: center;
-	box-align: center;
-	-webkit-align-items: center;
-	-moz-align-items: center;
-	-ms-align-items: center;
-	-o-align-items: center;
-	align-items: center;
-	-ms-flex-align: center;
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
-	text-align: center;
 }
 .content {
 	background-color: rgba(255, 255, 255, 0.3);
@@ -410,6 +376,45 @@ img::-moz-selection {
 }
 .divided-no-border {
 	padding: 20px;
+}
+.text-button-wrapper {
+	width: 100%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	text-align: center;
 }
 .text-button-wrapper > p {
 	margin: 10px 0 0;
@@ -534,7 +539,7 @@ html body .main-aside {
 	max-width: 230px;
 	height: 100vh;
 }
-html body .main {
+html body .container {
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -559,18 +564,12 @@ html body .main {
 	-moz-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
+	padding-right: -webkit-calc(20% - 100px);
+	padding-right: calc(20% - 100px);
+	padding-left: -webkit-calc(20% - 100px);
+	padding-left: calc(20% - 100px);
 }
-html body .main .main-header {
-	position: relative;
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-}
-html body .main .container {
+html body .container .columns-wrapper {
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -595,7 +594,7 @@ html body .main .container {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
-html body .main .container .column-1 {
+html body .container .columns-wrapper .content {
 	-webkit-box-flex: 10;
 	-moz-box-flex: 10;
 	box-flex: 10;
@@ -608,7 +607,7 @@ html body .main .container .column-1 {
 	padding-left: -webkit-calc(15% - 100px);
 	padding-left: calc(15% - 100px);
 }
-html body .main .container .column-2 {
+html body .container .columns-wrapper .tour-dates {
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
@@ -623,15 +622,43 @@ html body .main .container .column-2 {
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: center;
-	-moz-box-pack: center;
-	box-pack: center;
-	-webkit-justify-content: center;
-	-moz-justify-content: center;
-	-ms-justify-content: center;
-	-o-justify-content: center;
-	justify-content: center;
-	-ms-flex-pack: center;
+}
+html body .container .columns-wrapper .store-items {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	padding: 20px;
+	width: 100%;
+	-webkit-box-flex: 10;
+	-moz-box-flex: 10;
+	box-flex: 10;
+	-webkit-flex: 10 10 400px;
+	-moz-flex: 10 10 400px;
+	-ms-flex: 10 10 400px;
+	flex: 10 10 400px;
+}
+html body .container .columns-wrapper .footer-buddy {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1 1 230px;
+	-moz-flex: 1 1 230px;
+	-ms-flex: 1 1 230px;
+	flex: 1 1 230px;
 }
 .band-cover i[class*="fa-chevron"] {
 	color: #477998;
@@ -793,13 +820,17 @@ html body .main .container .column-2 {
 	width: 80%;
 }
 footer {
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
 	display: flex;
+	display: flex;
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	box-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-justify-content: flex-end;
+	-ms-justify-content: flex-end;
+	-o-justify-content: flex-end;
+	justify-content: flex-end;
+	-ms-flex-pack: end;
 }
 nav {
 	width: 100%;
@@ -958,28 +989,7 @@ nav .navigation-icon-links a {
 	justify-content: flex-end;
 	-ms-flex-pack: end;
 }
-.store-items {
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
-	box-orient: vertical;
-	-webkit-box-direction: normal;
-	-moz-box-direction: normal;
-	box-direction: normal;
-	-webkit-flex-direction: column;
-	-moz-flex-direction: column;
-	flex-direction: column;
-	-ms-flex-direction: column;
-	padding: 20px;
-	width: 100%;
-}
-.store-items .store-items-wrapper {
+.store-items-wrapper {
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -1006,7 +1016,7 @@ nav .navigation-icon-links a {
 	align-items: center;
 	-ms-flex-align: center;
 }
-.store-items .store-items-wrapper .store-item {
+.store-items-wrapper .store-item {
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -1034,24 +1044,6 @@ nav .navigation-icon-links a {
 	align-items: center;
 	-ms-flex-align: center;
 	text-align: center;
-}
-.store-items footer {
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: end;
-	-moz-box-pack: end;
-	box-pack: end;
-	-webkit-justify-content: flex-end;
-	-moz-justify-content: flex-end;
-	-ms-justify-content: flex-end;
-	-o-justify-content: flex-end;
-	justify-content: flex-end;
-	-ms-flex-pack: end;
 }
 .tour-dates {
 	width: 100%;
