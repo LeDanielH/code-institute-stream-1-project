@@ -1,20 +1,40 @@
 .band-cover
 	+position(relative)
-	+calc(height, "50vh - 100px")
+	//+calc(height, "50vh - 100px")
 	background-image: url("/images/monkees.jpg")
 	background-repeat: no-repeat
 	background-position: center
-	background-size: cover
-
-	i[class*="fa-chevron"]
-		color: $accent2
+	background-size: contain
+	height: 25vw
 
 	.fa-chevron-left
-		+position(absolute, 50% null null 3%)
+		+position(absolute, 48% null null 3%)
 
 
 	.fa-chevron-right
-		+position(absolute, 50% 3% null null)
+		+position(absolute, 48% 3% null null)
 
 	.quote-wrapper
-		+position(absolute)
+		+position(absolute, null 20px 20px null)
+	
+.main-navigation
+	//+flex(1)
+	white-space: nowrap
+	+display(flex)
+	+justify-content(space-around)
+	+align-items(center)
+
+	a
+		height: 40px
+		+flex(1)
+		width: 100%
+		+display(flex)
+		+justify-content(center)
+		+align-items(center)
+
+	#nav-sign-out
+		+display(none)
+	
+@media (max-width: 1116px)
+	.main-navigation
+		+flex-direction(column)

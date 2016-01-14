@@ -5,30 +5,46 @@ $success-color: #e6efc2
 
 $accent1: #C4D6B0
 $accent2: #477998
-$accent3: #510D0A
-$lighten: lighten($accent2, 10%)
+// favorite $accent3: #32292F
+$accent3: rgba(35, 29, 34, 0.9)
+$lighten: lighten($accent3, 20%)
 
 $base-transparent-light: rgba(255, 255, 255, 0.9)
 $base-transparent-medium: rgba(255, 255, 255, 0.7)
-$base-transparent-strong: rgba(255, 255, 255, 0.3)
-$selection-color: #FF8669
+$base-transparent-strong: rgba(255, 255, 255, 0.2)
+
+$dark-transparent-medium: rgba(35, 29, 34, 0.7)
+$dark-transparent-strong: rgba(35, 29, 34, 0.9)
+
+$selection-color: #E5BCD3
 
 .band-cover
-	background-color: $accent3
+	background-color: $dark-transparent-medium
 
-.main-aside, .tour-dates, .store-items, .blog-intro-post, nav, .text-button-wrapper, .footer-buddy
-	
+.main-aside, .tour-dates, .store-items, .blog-intro-post, nav, .footer-buddy
 	background-color: $base-transparent-medium
 
-.content
+.text-button-wrapper, .content
 	background-color: $base-transparent-strong
+
 
 button
 	background-color: $accent3
 	&:hover, &:focus
-		background-color: $accent3
-		opacity: 0.7
+		background-color: $lighten
 
 a
 	color: $accent3
+	&:hover
+		color: $lighten
+
+header > figure > i[class*="fa-chevron"]
+	color: $base-background-color
+
+header > nav > a:hover, a:focus
+	background-color: $dark-transparent-strong
+	color: $base-background-color
+
+body::selection
+	color: $base-background-color
 		
