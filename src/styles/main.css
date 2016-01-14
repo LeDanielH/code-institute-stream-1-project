@@ -3355,7 +3355,7 @@ body {
   font-family: "Roboto", sans-serif; }
 
 /* line 11, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-typography.sass */
-h1, h2, h3, h4, h5, label, legend, input[type="submit"] {
+h1, h2, h3, h4, h5, label, legend, input[type="submit"], th {
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   font-weight: 700; }
@@ -3908,8 +3908,11 @@ html body {
         -moz-flex: 10 10 400px;
         -ms-flex: 10 10 400px;
         flex: 10 10 400px;
-        padding: 0 7%; }
-      /* line 42, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
+        padding-right: -webkit-calc(15% - 100px);
+        padding-right: calc(15% - 100px);
+        padding-left: -webkit-calc(15% - 100px);
+        padding-left: calc(15% - 100px); }
+      /* line 44, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_page-layout.sass */
       html body .main .container .column-2 {
         -webkit-box-flex: 1;
         -moz-box-flex: 1;
@@ -3937,26 +3940,26 @@ html body {
 
 /* line 1, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
 .band-cover {
+  position: relative;
   height: 50vh;
   background-image: url("/images/monkees.jpg");
-  background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  position: relative; }
-  /* line 9, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  background-size: cover; }
+  /* line 10, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover i[class*="fa-chevron"] {
     color: #477998; }
-  /* line 12, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 13, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover .fa-chevron-left {
     position: absolute;
     top: 50%;
     left: 3%; }
-  /* line 16, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 17, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover .fa-chevron-right {
     position: absolute;
     top: 50%;
     right: 3%; }
-  /* line 19, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 20, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover .quote-wrapper {
     position: absolute; }
 
@@ -4263,7 +4266,7 @@ nav {
     -moz-flex-direction: column;
     flex-direction: column;
     -ms-flex-direction: column;
-    max-width: 600px; }
+    max-width: 650px; }
     /* line 39, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_content.sass */
     .content .blog-intro-post .blog-intro-header {
       display: -webkit-box;
