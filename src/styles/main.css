@@ -3322,44 +3322,76 @@ html {
 .fa-percent:before {
   content: ""; }
 
-/* line 21, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+/* line 24, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
 .band-cover {
   background-color: rgba(35, 29, 34, 0.7); }
 
-/* line 24, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+/* line 27, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
 .main-aside, .tour-dates, .store-items, .blog-intro-post, nav, .footer-buddy {
   background-color: rgba(255, 255, 255, 0.7); }
 
-/* line 27, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+/* line 30, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
 .text-button-wrapper, .content {
   background-color: rgba(255, 255, 255, 0.2); }
 
-/* line 31, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+/* line 34, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
 button {
   background-color: rgba(35, 29, 34, 0.9); }
-  /* line 33, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+  /* line 36, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
   button:hover, button:focus {
     background-color: rgba(91, 75, 88, 0.9); }
 
-/* line 36, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+/* line 39, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
 a {
   color: rgba(35, 29, 34, 0.9); }
-  /* line 38, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+  /* line 41, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
   a:hover {
     color: rgba(91, 75, 88, 0.9); }
 
-/* line 41, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
-header > figure > i[class*="fa-chevron"] {
-  color: #fff; }
-
-/* line 44, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
+/* line 44, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
 header > nav > a:hover, a:focus {
   background-color: rgba(35, 29, 34, 0.9);
   color: #fff; }
 
-/* line 48, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors.sass */
-body::selection {
+/* line 48, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
+span[class^="icon-circle"] {
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  transition: 300ms;
   color: #fff; }
+  /* line 51, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
+  span[class^="icon-circle"]:hover {
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    transition: 300ms;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    background-color: rgba(255, 255, 255, 0.7);
+    color: rgba(35, 29, 34, 0.9); }
+
+/* line 57, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
+.store-items-wrapper > * {
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  transition: 300ms; }
+  /* line 59, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
+  .store-items-wrapper > *:hover {
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    transition: 300ms;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2);
+    color: rgba(91, 75, 88, 0.9); }
+
+/* line 64, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-colors-and-transitions.sass */
+.band-cover > .quote-wrapper {
+  color: rgba(255, 255, 255, 0.9); }
 
 /* line 8, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-typography.sass */
 body {
@@ -3560,6 +3592,10 @@ body {
 /* line 73, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-base.sass */
 .text-button-wrapper > p {
   margin: 10px 0 0; }
+
+/* line 76, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-base.sass */
+i[class*="fa-chevron"] {
+  cursor: pointer; }
 
 /* line 1, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_my-forms.sass */
 .choice-wrapper {
@@ -3980,22 +4016,54 @@ html body {
   background-size: contain;
   height: 25vw; }
   /* line 10, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-  .band-cover .fa-chevron-left {
+  .band-cover span[class^="icon-circle"] {
+    height: 38px;
+    width: 38px;
+    border-radius: 50%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    -o-justify-content: center;
+    justify-content: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    box-align: center;
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    -o-align-items: center;
+    align-items: center;
+    -ms-flex-align: center;
+    cursor: pointer; }
+  /* line 18, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  .band-cover .icon-circle-left {
     position: absolute;
     top: 48%;
     left: 3%; }
-  /* line 14, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-  .band-cover .fa-chevron-right {
+  /* line 21, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  .band-cover .icon-circle-right {
     position: absolute;
     top: 48%;
     right: 3%; }
-  /* line 17, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 24, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .band-cover .quote-wrapper {
     position: absolute;
-    right: 20px;
-    bottom: 20px; }
+    right: 40px;
+    bottom: 40px;
+    max-width: 300px; }
 
-/* line 20, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+/* line 28, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
 .main-navigation {
   white-space: nowrap;
   display: -webkit-box;
@@ -4023,7 +4091,7 @@ html body {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center; }
-  /* line 27, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 35, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .main-navigation a {
     height: 40px;
     -webkit-box-flex: 1;
@@ -4059,12 +4127,12 @@ html body {
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center; }
-  /* line 35, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 43, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .main-navigation #nav-sign-out {
     display: none; }
 
 @media (max-width: 1116px) {
-  /* line 39, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 47, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .main-navigation {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -4408,7 +4476,7 @@ footer {
     -ms-flex-align: center;
     text-align: center; }
 
-/* line 12, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_footer.sass */
+/* line 13, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_footer.sass */
 footer {
   display: -webkit-box;
   display: -moz-box;

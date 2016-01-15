@@ -7,7 +7,7 @@ $accent1: #C4D6B0
 $accent2: #477998
 // favorite $accent3: #32292F
 $accent3: rgba(35, 29, 34, 0.9)
-$lighten: lighten($accent3, 20%)
+$lighten: lighten($accent3, 30%)
 
 $base-transparent-light: rgba(255, 255, 255, 0.9)
 $base-transparent-medium: rgba(255, 255, 255, 0.7)
@@ -17,6 +17,9 @@ $dark-transparent-medium: rgba(35, 29, 34, 0.7)
 $dark-transparent-strong: rgba(35, 29, 34, 0.9)
 
 $selection-color: #E5BCD3
+
+$base-transition-duration: 300ms
+$base-scale: 1.2
 
 .band-cover
 	background-color: $dark-transparent-medium
@@ -38,13 +41,38 @@ a
 	&:hover
 		color: $lighten
 
-header > figure > i[class*="fa-chevron"]
-	color: $base-background-color
-
 header > nav > a:hover, a:focus
 	background-color: $dark-transparent-strong
 	color: $base-background-color
 
-body::selection
-	color: $base-background-color
+span[class^="icon-circle"]
+	+transition($base-transition-duration)
+	color: $base-transparent-light
+	&:hover
+		+transition($base-transition-duration)
+		+transform(scale($base-scale))
+		background-color: $base-transparent-medium
+		color: $accent3
+
+.store-items-wrapper > *
+	+transition($base-transition-duration)
+	&:hover
+		+transition($base-transition-duration)
+		+transform(scale($base-scale))
+		color: $lighten
+
+.band-cover > .quote-wrapper
+	color: $base-transparent-light
+	
+	
 		
+
+
+//i[class*="icon-circle"], .store-item
+//	+transition($base-transition-duration)
+//	cursor: pointer
+//	&:hover
+//		+transform(scale($base-scale))
+//		+transition($base-transition-duration)
+//		color: $lighten
+	

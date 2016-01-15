@@ -7,15 +7,23 @@
 	background-size: contain
 	height: 25vw
 
-	.fa-chevron-left
+	span[class^="icon-circle"]
+		+size(38px)
+		border-radius: 50%
+		+display(flex)
+		+justify-content(center)
+		+align-items(center)
+		cursor: pointer
+	
+	.icon-circle-left
 		+position(absolute, 48% null null 3%)
 
-
-	.fa-chevron-right
+	.icon-circle-right
 		+position(absolute, 48% 3% null null)
 
 	.quote-wrapper
-		+position(absolute, null 20px 20px null)
+		+position(absolute, null 40px 40px null)
+		max-width: 300px
 	
 .main-navigation
 	//+flex(1)
