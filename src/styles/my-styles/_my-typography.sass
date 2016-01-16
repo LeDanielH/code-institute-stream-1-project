@@ -8,7 +8,7 @@ $font-content: 'Roboto', sans-serif
 body
 	font-family: $font-content
 
-h1, h2, h3, h4, h5, label, legend, input[type="submit"], th
+h1, h2, h3, h4, h5, label, legend, input[type="submit"], th, .menu-icon > span
 	font-family: $font-heading
 	text-transform: uppercase
 	font-weight: 700
@@ -28,19 +28,25 @@ h2, .h2
 h3, .h3
 	font-size: 1.8rem
 
-h4, .h4, legend, blockquote, q
+h4, .h4, legend
 	font-size: 1.5rem
 
 h5, .h5, label, th
 	font-size: 1.2rem
 
-b, blockquote, label, strong
+b, label, strong
 	font-weight: 600
 
 p, input, select
 	font-size: 1rem
 
-blockquote, q
+cite
+	font-size: 0.9rem
+	font-style: normal
+	+align-self(flex-end)
+
+q 
+	quotes: none
 	font-style: italic
 
 ol
@@ -50,7 +56,7 @@ ul
 	list-style: disc
 
 small
-	color: $medium-gray
+	color: $accent3
 
 .c-text
 	text-align: center
@@ -63,3 +69,4 @@ small
 
 i > span
 	font-family: $font-content
+	

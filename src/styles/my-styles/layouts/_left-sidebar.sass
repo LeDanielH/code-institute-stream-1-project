@@ -5,13 +5,16 @@
 		+display(flex)
 		+justify-content(center)
 		+align-items(center)
+		.img-logo
+			+flex(1)
 
 .quote-wrapper
 	+display(flex)
 	+flex-direction(column)
 	+align-items(center)
-	blockquote	
-		font-style: italic
+	.bq-left-sidebar > em
+		text-indent: $base-padding
+		
 	strong
 		align-self: flex-end
 

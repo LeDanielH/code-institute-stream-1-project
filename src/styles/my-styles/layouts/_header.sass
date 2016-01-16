@@ -22,9 +22,25 @@
 		+position(absolute, 48% 3% null null)
 
 	.quote-wrapper
-		+position(absolute, null 40px 40px null)
+		+position(absolute, null 10% $base-padding null)
+		padding: $base-padding
 		max-width: 300px
-	
+		border-radius: $base-border-radius
+
+		.bq-over-img
+			quotes: none
+		
+		cite
+			align-self: flex-end
+			font-style: normal
+
+.menu-icon
+	+position(fixed, $base-padding $base-padding null null)
+	background-color: $base-transparent-light
+	border-radius: $base-border-radius
+	span
+		padding: $small-spacing $base-spacing
+
 .main-navigation
 	//+flex(1)
 	white-space: nowrap
@@ -43,6 +59,31 @@
 	#nav-sign-out
 		+display(none)
 	
+	#menu
+		+display(none)
+		+position(relative)
+		i#nav-down
+			+position(absolute, 30% 3% null null)
+
+		i#nav-up
+			+position(absolute, 30% 3% null null)
+			+display(none)
+			
+
+.main-navigation-fixed
+	+position(fixed, 0px null null null)
+	+calc(width, "60% - 30px")
+	
+.sticky-alias
+	+display(none)
+	height: 10px
+	
 @media (max-width: 1116px)
 	.main-navigation
 		+flex-direction(column)
+	
+		#menu
+			+display(flex)
+	
+		.menu-item
+			+display(none)

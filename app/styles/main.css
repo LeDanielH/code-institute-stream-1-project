@@ -33,7 +33,7 @@ article,aside,figure,footer,header,nav,section {
 
 a {
 	background-color: transparent;
-	color: #1565c0;
+	color: #32292F;
 	text-decoration: none;
 	transition: color 150ms ease;
 	color: rgba(35, 29, 34, 0.9);
@@ -51,7 +51,7 @@ a:active,a:hover {
 
 small {
 	font-size: 80%;
-	color: #999;
+	color: rgba(35, 29, 34, 0.9);
 }
 
 
@@ -82,7 +82,6 @@ button {
 	-webkit-appearance: button;
 	cursor: pointer;
 	appearance: none;
-	background-color: #1565c0;
 	border: 0;
 	border-radius: 3px;
 	display: inline-block;
@@ -149,16 +148,12 @@ td,th {
 	padding: 0;
 }
 button:hover,button:focus {
-	background-color: #11519a;
 	color: #fff;
 	background-color: rgba(119, 98, 115, 0.9);
 }
 button:disabled {
 	cursor: not-allowed;
 	opacity: 0.5;
-}
-button:disabled:hover {
-	background-color: #1565c0;
 }
 th {
 	border-bottom: 1px solid #a6a6a6;
@@ -183,7 +178,7 @@ p {
 	font-size: 1rem;
 }
 a:active,a:focus,a:hover {
-	color: #104c90;
+	color: #261f23;
 }
 *,*::after,*::before {
 	box-sizing: inherit;
@@ -254,6 +249,12 @@ a:active,a:focus,a:hover {
 }
 .fa-facebook:before {
 	content: "";
+}
+.fa-angle-double-up:before {
+	content: "";
+}
+.fa-angle-double-down:before {
+	content: "";
 }
 .fa-quote-left:before {
 	content: "";
@@ -328,13 +329,14 @@ span[class^="icon-circle"]:hover {
 }
 .band-cover > .quote-wrapper {
 	color: rgba(255, 255, 255, 0.9);
+	background-color: rgba(35, 29, 34, 0.4);
 }
 h1,h2,h3,h4,h5,th {
 	font-family: "Roboto Condensed", sans-serif;
 	text-transform: uppercase;
 	font-weight: 700;
 }
-p,small,span,em,button {
+p,small,span,q,button {
 	font-family: "Roboto", sans-serif;
 }
 button,th,nav {
@@ -355,8 +357,17 @@ h4,.h4 {
 h5,.h5,th {
 	font-size: 1.2rem;
 }
-strong {
-	font-weight: 600;
+cite {
+	font-size: 0.9rem;
+	font-style: normal;
+	-webkit-align-self: flex-end;
+	-moz-align-self: flex-end;
+	align-self: flex-end;
+	-ms-flex-item-align: end;
+}
+q {
+	quotes: none;
+	font-style: italic;
 }
 .c-text {
 	text-align: center;
@@ -713,9 +724,18 @@ html body .container .columns-wrapper .footer-buddy {
 }
 .band-cover .quote-wrapper {
 	position: absolute;
-	right: 40px;
-	bottom: 40px;
+	right: 10%;
+	bottom: 20px;
+	padding: 20px;
 	max-width: 300px;
+	border-radius: 3px;
+}
+.band-cover .quote-wrapper .bq-over-img {
+	quotes: none;
+}
+.band-cover .quote-wrapper cite {
+	align-self: flex-end;
+	font-style: normal;
 }
 .main-navigation {
 	white-space: nowrap;
@@ -784,6 +804,31 @@ html body .container .columns-wrapper .footer-buddy {
 .main-navigation #nav-sign-out {
 	display: none;
 }
+.main-navigation #menu {
+	display: none;
+	position: relative;
+}
+.main-navigation #menu i#nav-down {
+	position: absolute;
+	top: 30%;
+	right: 3%;
+}
+.main-navigation #menu i#nav-up {
+	position: absolute;
+	top: 30%;
+	right: 3%;
+	display: none;
+}
+.main-navigation-fixed {
+	position: fixed;
+	top: 0px;
+	width: -webkit-calc(60% - 30px);
+	width: calc(60% - 30px);
+}
+.sticky-alias {
+	display: none;
+	height: 10px;
+}
 
 @media (max-width: 1116px) {
 
@@ -798,6 +843,18 @@ html body .container .columns-wrapper .footer-buddy {
 		-moz-flex-direction: column;
 		flex-direction: column;
 		-ms-flex-direction: column;
+	}
+	.main-navigation #menu {
+		display: -webkit-box;
+		display: -moz-box;
+		display: box;
+		display: -webkit-flex;
+		display: -moz-flex;
+		display: -ms-flexbox;
+		display: flex;
+	}
+	.main-navigation .menu-item {
+		display: none;
 	}
 }
 
@@ -846,6 +903,15 @@ html body .container .columns-wrapper .footer-buddy {
 	align-items: center;
 	-ms-flex-align: center;
 }
+.aside-logo .img-wrapper .img-logo {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
 .quote-wrapper {
 	display: -webkit-box;
 	display: -moz-box;
@@ -873,15 +939,6 @@ html body .container .columns-wrapper .footer-buddy {
 	-o-align-items: center;
 	align-items: center;
 	-ms-flex-align: center;
-}
-.quote-wrapper strong {
-	align-self: flex-end;
-}
-.song-list {
-	font-size: 0.8rem;
-}
-.song-list tbody tr td {
-	width: auto;
 }
 .text-button-wrapper p {
 	font-size: 0.8rem;

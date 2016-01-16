@@ -21,7 +21,8 @@ gulp.task('process-styles', ['process-html'], function () {
 	gulp.src(['src/styles/**/*.scss', 'src/styles/**/*.sass'])
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 		.pipe(uncss({
-			html: ['src/**/*.html']
+			html: ['src/**/*.html'],
+			ignore: ['.main-navigation-fixed']
 		}))
 		.pipe(csspurge())
 		.pipe(stripcsscomments())
