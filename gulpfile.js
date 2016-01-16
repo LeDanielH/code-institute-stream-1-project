@@ -22,7 +22,7 @@ gulp.task('process-styles', ['process-html'], function () {
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 		.pipe(uncss({
 			html: ['src/**/*.html'],
-			ignore: ['.main-navigation-fixed']
+			ignore: ['.main-navigation-fixed', '.hide-element', '.show-element']
 		}))
 		.pipe(csspurge())
 		.pipe(stripcsscomments())

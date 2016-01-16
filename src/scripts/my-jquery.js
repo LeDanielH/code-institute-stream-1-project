@@ -9,6 +9,9 @@ $(function() {
 			$('.sticky-alias').css('display', 'none');
 		}
 	});
+	$('#menu').on('click', function() {
+		$('.menu-item').toggle(300).css('display', 'flex');
+	});
 });
 
 // $(".menu-icon").click(function(){

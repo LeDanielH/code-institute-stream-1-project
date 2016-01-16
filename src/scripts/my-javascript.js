@@ -6,4 +6,4 @@ elDocument.className=elDocument.className.replace(/(^|\s)no-js(\s|$)/, '$1');
 var today = new Date();
 var year = today.getFullYear();
 var enterYear = document.getElementById("copyYear");
-enterYear.innerHTML ="&copy;" + " Monkees " + year;
+enterYear.innerHTML = "&copy;" + " Monkees " + year;

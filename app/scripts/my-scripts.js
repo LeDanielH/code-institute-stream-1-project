@@ -6,7 +6,7 @@ elDocument.className=elDocument.className.replace(/(^|\s)no-js(\s|$)/, '$1');
 var today = new Date();
 var year = today.getFullYear();
 var enterYear = document.getElementById("copyYear");
-enterYear.innerHTML ="&copy;" + " Monkees " + year;
+enterYear.innerHTML = "&copy;" + " Monkees " + year;
 $(function() {
 	var stickyNav = $('nav.main-navigation').offset().top;
 	$(window).scroll(function() {
@@ -17,6 +17,9 @@ $(function() {
 			$('nav.main-navigation').removeClass('main-navigation-fixed');
 			$('.sticky-alias').css('display', 'none');
 		}
+	});
+	$('#menu').on('click', function() {
+		$('.menu-item').toggle(300).css('display', 'flex');
 	});
 });
 

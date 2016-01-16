@@ -4172,20 +4172,13 @@ html body {
       right: 3%;
       display: none; }
 
-/* line 73, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
-.main-navigation-fixed {
-  position: fixed;
-  top: 0px;
-  width: -webkit-calc(60% - 30px);
-  width: calc(60% - 30px); }
-
-/* line 77, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+/* line 72, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
 .sticky-alias {
   display: none;
   height: 10px; }
 
 @media (max-width: 1116px) {
-  /* line 82, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 77, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
   .main-navigation {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -4197,7 +4190,7 @@ html body {
     -moz-flex-direction: column;
     flex-direction: column;
     -ms-flex-direction: column; }
-    /* line 85, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+    /* line 80, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
     .main-navigation #menu {
       display: -webkit-box;
       display: -moz-box;
@@ -4206,7 +4199,7 @@ html body {
       display: -moz-flex;
       display: -ms-flexbox;
       display: flex; }
-    /* line 88, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
+    /* line 83, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_header.sass */
     .main-navigation .menu-item {
       display: none; } }
 
@@ -4601,5 +4594,26 @@ footer {
   /* line 7, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/layouts/_upcoming-gigs.sass */
   .tour-dates .text-button-wrapper {
     margin: 15px 0; }
+
+/* line 1, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_jquery-classes.sass */
+.show-element {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+/* line 4, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_jquery-classes.sass */
+.hide-element {
+  display: none; }
+
+/* line 7, D:/Google Drive/school-code-institute/1-stream/0-stream-one-project/src/styles/my-styles/_jquery-classes.sass */
+.main-navigation-fixed {
+  position: fixed;
+  top: 0px;
+  width: -webkit-calc(60% - 30px);
+  width: calc(60% - 30px); }
 
 /*# sourceMappingURL=main.css.map */

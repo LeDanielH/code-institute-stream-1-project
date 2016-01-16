@@ -819,12 +819,6 @@ html body .container .columns-wrapper .footer-buddy {
 	right: 3%;
 	display: none;
 }
-.main-navigation-fixed {
-	position: fixed;
-	top: 0px;
-	width: -webkit-calc(60% - 30px);
-	width: calc(60% - 30px);
-}
 .sticky-alias {
 	display: none;
 	height: 10px;
@@ -1213,4 +1207,16 @@ footer {
 }
 .tour-dates .text-button-wrapper {
 	margin: 15px 0;
+}
+.show-element {
+	display: flex !important;
+}
+.hide-element {
+	display: none;
+}
+.main-navigation-fixed {
+	position: fixed;
+	top: 0px;
+	width: -webkit-calc(60% - 30px);
+	width: calc(60% - 30px);
 }
