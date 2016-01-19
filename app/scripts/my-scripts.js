@@ -37,7 +37,13 @@ $(function() {
 // });
 
 
+angular.module('bandApp', ['myControllers']);
+angular.module('myControllers', [])
+.controller('MyController', function($scope) {
 
+})
+.controller('MyOtherController', function($scope) {
 
+});
 
 
