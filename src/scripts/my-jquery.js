@@ -9,9 +9,17 @@ $(function() {
 			$('.sticky-alias').css('display', 'none');
 		}
 	});
-	$('#menu').on('click', function() {
-		$('.menu-item').toggle(300).css('display', 'flex');
-	});
+	// if ($(document).width() < 1116) {
+		$('#menu').on('click', function() {
+			$('.menu-item').toggle(300).css('display', 'flex');
+			$('#nav-down').toggle(300).css('display', 'flex');
+			$('#nav-up').toggle(300).css('display', 'flex');
+		});
+	// } else if ($(document).width() > 1116) {
+	// 	$('a.menu-item').removeAttr('style');
+	// 	$('#nav-down').removeAttr('style');		
+	// 	$('#nav-up').removeAttr('style');
+	// }
 });
 
 // $(".menu-icon").click(function(){

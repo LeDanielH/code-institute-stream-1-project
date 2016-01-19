@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="bandApp">
 
 <head>
 	<meta charset="utf-8">
@@ -12,10 +12,6 @@
 	<link rel="stylesheet" href="styles/main.min.css">
 
 	<!-- SCRIPTS -->
-	<!-- 	// <script src="../bower_components/jquery/dist/jquery.js"></script>
-	// <script src="../bower_components/angular/angular.js"></script>
-	// <script src="../bower_components/gsap/src/uncompressed/TweenMax.js"></script>
-	// <script src="../bower_components/d3/d3.js"></script> -->
 	<script src="scripts/libraries.min.js"></script>
 
 </head>
@@ -28,11 +24,15 @@
 			</div>
 		</figure>
 		<div class="quote-wrapper">
-			<q class="bq-left-sidebar"><i class="fa fa-quote-left fa-pull-left fa-lg"></i><br>I will honor your spine with a walk across it. Down peasant!<br><i class="fa fa-quote-right fa-pull-right fa-lg"></i></q>
+			<q class="bq-left-sidebar">
+				<i class="fa fa-quote-left fa-pull-left fa-lg"></i>
+				<br>I will honor your spine with a walk across it. Down peasant!<br>
+				<i class="fa fa-quote-right fa-pull-right fa-lg"></i>
+			</q>
 			<cite>--Mike as princess</cite>
 		</div>
 		<section class="soundcloud-player">
-			<iframe width="100%" height="300" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/49994491&amp;color=32292f&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+			<iframe width="100%" height="250" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/49994491&amp;color=32292f&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 		</section>
 		<div class="text-button-wrapper divided-no-border">
 			<button>SIGN UP!</button>
@@ -47,23 +47,30 @@
 				<a href="#"><i class="fa fa-youtube fa-lg"></i></a>
 			</div>
 		</section>
-		<footer>
-			<small id="copyYear" class="copyright">Monkees Copyright 2016</small>
-		</footer>
 	</aside>
+
 	<div class="empty-column"></div>
+
 	<section class="container">
-		<header>
+		<header class="main-header">
 			<figure class="band-cover">
-				<span class="icon-circle-left"><i class="fa fa-chevron-left fa-2x"></i></span>
+				<span class="icon-circle-left">
+					<i class="fa fa-chevron-left fa-2x"></i>
+				</span>
 				<div class="quote-wrapper">
-					<q class="bq-over-img"><i class="fa fa-quote-left fa-pull-left"></i><br>This was the best party ever!<br><i class="fa fa-quote-right fa-pull-right"></i></q>
+					<q class="bq-over-img">
+						<i class="fa fa-quote-left fa-pull-left"></i>
+						<br>This was the best party ever!<br>
+						<i class="fa fa-quote-right fa-pull-right"></i>
+					</q>
 					<cite>- Elen from Vienna</cite>
 				</div>
-				<span class="icon-circle-right"><i class="fa fa-chevron-right fa-2x"></i></span>
+				<span class="icon-circle-right">
+					<i class="fa fa-chevron-right fa-2x"></i>
+				</span>
 			</figure>
 			<nav class="main-navigation">
-				<a href="#" id="menu">
+				<a href="#" id="menu-button">
 					<span>Menu </span>
 					<i id="nav-down" class="fa fa-angle-double-down fa-lg"></i>
 					<i id="nav-up" class="fa fa-angle-double-up fa-lg"></i>
@@ -74,9 +81,15 @@
 				<a class="menu-item" href="#">Biography</a>
 				<a class="menu-item" href="#">Lyrics</a>
 				<a class="menu-item" href="#">Store</a>
-				<a class="menu-item" href="#" id="nav-shopping-cart"><span>Cart <i class="fa fa-shopping-cart"></i></span></a>
-				<a class="menu-item" href="#" id="nav-sign-in"><span> Sign In <i class="fa fa-sign-in"></i></span></a>
-				<a class="menu-item" href="#" id="nav-sign-out"><span>Sign Out <i class="fa fa-sign-out"></i></span></a>
+				<a class="menu-item" href="#" id="nav-shopping-cart">
+					<span>Cart <i class="fa fa-shopping-cart"></i></span>
+				</a>
+				<a class="menu-item" href="#" id="nav-sign-in">
+					<span> Sign In <i class="fa fa-sign-in"></i></span>
+				</a>
+				<a class="menu-item" href="#" id="nav-sign-out">
+					<span>Sign Out <i class="fa fa-sign-out"></i></span>
+				</a>
 			</nav>
 			<div class="sticky-alias"></div>
 		</header>
@@ -179,51 +192,70 @@
 				<a href="#"><h5>Go to gigs <i class="fa fa-chevron-right"></i></h5></a>
 			</aside>
 		</div>
-		<div class="columns-wrapper">
-			<footer class="store-items">
+		<footer class="main-footer">
+			<div class="store-items">
 				<header>
 					<h3 class="h4">Popular in store</h3>
 				</header>
-				<section class="store-items-wrapper">
-					<i class="fa fa-chevron-left fa-2x"></i>
-					<div class="store-item">
-						<a href=""><i class="fa fa-soundcloud fa-2x"></i>
-							<p>Item Name</p>
-						</a>
+				<section class="store-items-area-wrapper">
+					<span class="icon-circle-left">
+						<i class="fa fa-chevron-left fa-2x"></i>
+					</span>
+					<div class="store-items-wrapper">
+						<div class="store-item">
+							<a href=""><i class="fa fa-soundcloud fa-2x"></i>
+								<p>Item Name</p>
+							</a>
+						</div>
+						<div class="store-item">
+							<a href=""><i class="fa fa-soundcloud fa-2x"></i>
+								<p>Item Name</p>
+							</a>
+						</div>
+						<div class="store-item">
+							<a href=""><i class="fa fa-soundcloud fa-2x"></i>
+								<p>Item Name</p>
+							</a>
+						</div>
+						<div class="store-item">
+							<a href=""><i class="fa fa-soundcloud fa-2x"></i>
+								<p>Item Name</p>
+							</a>
+						</div>
+						<div class="store-item">
+							<a href=""><i class="fa fa-soundcloud fa-2x"></i>
+								<p>Item Name</p>
+							</a>
+						</div>
 					</div>
-					<div class="store-item">
-						<a href=""><i class="fa fa-soundcloud fa-2x"></i>
-							<p>Item Name</p>
-						</a>
-					</div>
-					<div class="store-item">
-						<a href=""><i class="fa fa-soundcloud fa-2x"></i>
-							<p>Item Name</p>
-						</a>
-					</div>
-					<div class="store-item">
-						<a href=""><i class="fa fa-soundcloud fa-2x"></i>
-							<p>Item Name</p>
-						</a>
-					</div>
-					<div class="store-item">
-						<a href=""><i class="fa fa-soundcloud fa-2x"></i>
-							<p>Item Name</p>
-						</a>
-					</div>
-					<i class="fa fa-chevron-right fa-2x"></i>
+					<span class="icon-circle-right">
+						<i class="fa fa-chevron-right fa-2x"></i>
+					</span>
 				</section>
-				<footer>
+				<footer class="store-items-footer">
 					<a class="visit-store" href="#">Go to store <i class="fa fa-chevron-right"></i></a>
 				</footer>
-			</footer>
-			<div class="footer-buddy">
-
 			</div>
-		</div>
+			<div class="sign-up-mobile divided-no-border">
+				<button>SIGN UP!</button>
+				<p class="c-text">for exclusive members only content and prices</p>
+			</div>
+			<section class="social-links-mobile divided-no-border">
+				<h4 class="h5">Follow us!</h4>
+				<div class="social-icons">
+					<a href="#"><i class="fa fa-facebook fa-lg"></i></a>
+					<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
+					<a href="#"><i class="fa fa-instagram fa-lg"></i></a>
+					<a href="#"><i class="fa fa-youtube fa-lg"></i></a>
+				</div>
+			</section>
+			<div class="footer-copyright">
+				<small id="copyYear" class="copyright">Monkees Copyright 2016</small>
+			</div>
+		</footer>
 	</section>
 
-<script src="scripts/my-scripts.min.js"></script>
+	<script src="scripts/my-scripts.min.js"></script>
 </body>
 
 </html>

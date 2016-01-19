@@ -26,9 +26,8 @@
 				width: auto
 
 .text-button-wrapper
-
 	p
-		font-size: 0.8rem
+		font-size: 0.7rem
 
 .social-links
 	width: 100%
@@ -41,6 +40,16 @@
 		+flex-direction(row)
 		+justify-content(space-around)
 		width: 80%
+	
+@media screen and (max-width: $query-large)
+	.text-button-wrapper
+		button
+			width: 100%
 
-footer
-	+display(flex)
+@media screen and (max-height: $query-medium)
+	.aside-logo
+		+display(none)
+	
+@media screen and (max-height: $query-small)
+	.quote-wrapper
+		+display(none)

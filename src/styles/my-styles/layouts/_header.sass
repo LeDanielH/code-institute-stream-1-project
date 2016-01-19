@@ -1,84 +1,34 @@
-.band-cover
-	+position(relative)
-	//+calc(height, "50vh - 100px")
-	background-image: url("/images/monkees.jpg")
-	background-repeat: no-repeat
-	background-position: center
-	background-size: contain
-	height: 25vw
-
-	span[class^="icon-circle"]
-		+size(38px)
-		border-radius: 50%
-		+display(flex)
-		+justify-content(center)
-		+align-items(center)
-		cursor: pointer
+.main-header
 	
-	.icon-circle-left
-		+position(absolute, 48% null null 3%)
-
-	.icon-circle-right
-		+position(absolute, 48% 3% null null)
-
-	.quote-wrapper
-		+position(absolute, null 10% $base-padding null)
-		padding: $base-padding
-		max-width: 300px
-		border-radius: $base-border-radius
-
-		.bq-over-img
-			quotes: none
-		
-		cite
-			align-self: flex-end
-			font-style: normal
-
-.menu-icon
-	+position(fixed, $base-padding $base-padding null null)
-	background-color: $base-transparent-light
-	border-radius: $base-border-radius
-	span
-		padding: $small-spacing $base-spacing
-
-.main-navigation
-	//+flex(1)
-	white-space: nowrap
-	+display(flex)
-	+justify-content(space-around)
-	+align-items(center)
-
-	a
-		height: 40px
-		+flex(1)
-		width: 100%
-		+display(flex)
-		+justify-content(center)
-		+align-items(center)
-
-	#nav-sign-out
-		+display(none)
-	
-	#menu
-		+display(none)
+	.band-cover
 		+position(relative)
-		i#nav-down
-			+position(absolute, 30% 3% null null)
+		//+calc(height, "50vh - 100px")
+		background-image: url("/images/monkees.jpg")
+		background-repeat: no-repeat
+		background-position: center
+		background-size: contain
+		height: 25vw
 
-		i#nav-up
-			+position(absolute, 30% 3% null null)
-			+display(none)
-	
-.sticky-alias
-	+display(none)
-	height: 10px
-	
-@media (max-width: 1116px)
-	.main-navigation
-		+flex-direction(column)
-	
-		#menu
-			+display(flex)
-	
-		.menu-item
-			+display(none)
+		.icon-circle-left
+			+position(absolute, 48% null null 3%)
+
+		.icon-circle-right
+			+position(absolute, 48% 3% null null)
+
+		.quote-wrapper
+			+position(absolute, null 10% $base-padding null)
+			padding: $base-padding
+			max-width: 300px
+			border-radius: $base-border-radius
+
+			.bq-over-img
+				quotes: none
+
+			cite
+				align-self: flex-end
+				font-style: normal
+
+@media (max-width: $query-small)
+	.main-header
+		.band-cover
+			height: 50vw

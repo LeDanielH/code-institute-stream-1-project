@@ -1,4 +1,7 @@
 $base-padding: 20px
+$query-large: 1116px
+$query-medium: 800px
+$query-small: 600px
 
 .double-hr
 	width: 100%
@@ -69,11 +72,25 @@ body
 	+align-items(center)
 	+justify-content(space-between)
 	text-align: center
+	button
+		width: 100%
+
+	p
+		text-transform: uppercase
 
 .text-button-wrapper > p
 	margin: 10px 0 0
 
 i[class*="fa-chevron"]
 	cursor: pointer	
+
+span[class^="icon-circle"]
+	+size(38px)
+	border-radius: 50%
+	+display(flex)
+	+justify-content(center)
+	+align-items(center)
+	cursor: pointer
+	z-index: 10
 
 	

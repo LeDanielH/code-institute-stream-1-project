@@ -1,56 +1,43 @@
-html
-	body
-		+display(flex)
-		+justify-content(space-between)
-		background-image: url("/images/monkees-fans.jpg")
-		background-size: cover
-		background-repeat: no-repeat
-		background-position: center
-		background-attachment: fixed
-	
-		.empty-column
-			min-width: 230px
+body
+	+display(flex)
+	+justify-content(space-between)
+	background-image: url("/images/monkees-fans.jpg")
+	background-size: cover
+	background-repeat: no-repeat
+	background-position: center
+	background-attachment: fixed
 
-		.main-aside
-			position: fixed
+	.empty-column
+		min-width: 230px
+
+	.main-aside
+		position: fixed
+		+display(flex)
+		+flex-direction(column)
+		+justify-content(space-between)
+		+align-items(center)
+		max-width: 230px
+		height: 100vh
+
+	.container
+		+display(flex)
+		+flex-direction(column)
+		+flex(1)
+		+calc(padding-right, "20% - 100px")
+		+calc(padding-left, "20% - 100px")
+
+		.columns-wrapper
+			+display(flex)
+			+justify-content(space-between)
+			+flex-wrap(wrap)
+	
+		.main-footer
 			+display(flex)
 			+flex-direction(column)
 			+justify-content(space-between)
-			+align-items(center)
-			max-width: 230px
-			height: 100vh
-
-		.container
-			+display(flex)
-			+flex-direction(column)
-			+flex(1)
-			+calc(padding-right, "20% - 100px")
-			+calc(padding-left, "20% - 100px")
-			
-			header
-
-			.columns-wrapper
-				+display(flex)
-				+justify-content(space-between)
-				+flex-wrap(wrap)
-
-				.content
-					+flex(10 10 400px)
-					+calc(padding-right, "15% - 100px")
-					+calc(padding-left, "15% - 100px")
-					//padding: 0 10%
-		
-				.tour-dates
-					+flex(1 1 230px)
-					+display(flex)
-			
-				.store-items
-					+display(flex)
-					+flex-direction(column)
-					padding: $base-padding
-					width: 100%
-					+flex(10 10 400px)
+			width: 100%
+			padding: $base-padding
 	
-				.footer-buddy
-					+flex(1 1 230px)
-					
+@media (max-width: $query-small)
+	.main-aside, .empty-column
+		display: none !important

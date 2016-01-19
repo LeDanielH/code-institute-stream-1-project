@@ -26,10 +26,10 @@ $base-scale: 1.2
 .band-cover
 	background-color: $dark-transparent-medium
 
-.main-aside, .tour-dates, .store-items, .blog-intro-post, nav, .footer-buddy
+.main-aside, .aside-logo-mobile, .tour-dates, .store-items, .blog-intro-post, nav, .sign-up-mobile, .text-button-wrapper, .main-footer
 	background-color: $base-transparent-medium
 
-.text-button-wrapper, .content
+.content
 	background-color: $base-transparent-strong
 
 
@@ -47,7 +47,7 @@ header > nav > a:hover, a:focus
 	background-color: $dark-transparent-light
 	color: $base-background-color
 
-span[class^="icon-circle"]
+.band-cover > span[class^="icon-circle"]
 	+transition($base-transition-duration)
 	color: $base-transparent-light
 	&:hover
@@ -55,6 +55,15 @@ span[class^="icon-circle"]
 		+transform(scale($base-scale))
 		background-color: $base-transparent-medium
 		color: $accent3
+
+.store-items-area-wrapper > span[class^="icon-circle"]
+	+transition($base-transition-duration)
+	color: $accent3
+	&:hover
+		+transition($base-transition-duration)
+		+transform(scale($base-scale))
+		background-color: $dark-transparent-light
+		color: $base-transparent-light 
 
 .store-items-wrapper > *
 	+transition($base-transition-duration)

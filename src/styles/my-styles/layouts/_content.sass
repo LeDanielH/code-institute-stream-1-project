@@ -1,35 +1,13 @@
-//.band-intro
-	+position(relative)
-	div[class*="member"]
-		+position(absolute, 20% null null null)
-//nav
-//	width: 100%
-//	+display(flex)
-//	+justify-content(space-between)
-//	z-index: 99
-//	+flex-wrap(wrap)
-//
-//	.navigation-links
-//		+flex(2 2 500px)
-//		+display(flex)
-//		+justify-content(flex-start)
-//		a
-//			padding: 5px $base-padding
-//
-//	.navigation-icon-links
-//		+flex(4 1 200px)
-//		+display(flex)
-//		+justify-content(flex-end)
-//		
-//		a
-//			padding: 5px $base-padding
-
 .content
 	padding: $base-padding
 	+display(flex)
 	+justify-content(center)
 	+flex-direction(column)
 	+align-items(center)
+	+flex(10 10 400px)
+	+calc(padding-right, "15% - 100px")
+	+calc(padding-left, "15% - 100px")
+
 	.blog-intro-post
 		margin: $base-padding
 		+display(flex)
