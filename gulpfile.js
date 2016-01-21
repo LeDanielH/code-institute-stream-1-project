@@ -14,8 +14,13 @@ var gulp = require('gulp'),
 	stripcsscomments = require('gulp-strip-css-comments'),
 	gzip = require('gulp-gzip'),
 	stripComments = require('gulp-strip-comments'),
-	jshint = require('gulp-jshint');
+	jshint = require('gulp-jshint'),
+	ghPages = require('gulp-gh-pages');
 
+gulp.task('deploy', function() {
+  return gulp.src('app/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('process-styles', ['process-html'], function () {
 	gulp.src(['src/styles/**/*.scss', 'src/styles/**/*.sass'])
