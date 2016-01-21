@@ -17,11 +17,6 @@ var gulp = require('gulp'),
 	jshint = require('gulp-jshint'),
 	ghPages = require('gulp-gh-pages');
 
-gulp.task('deploy', function() {
-  return gulp.src('app/**/*')
-    .pipe(ghPages());
-});
-
 gulp.task('process-styles', ['process-html'], function () {
 	gulp.src(['src/styles/**/*.scss', 'src/styles/**/*.sass'])
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
@@ -128,6 +123,10 @@ gulp.task('gzip-html',['process-html', 'process-styles', 'process-scripts'], fun
 		.pipe(gulp.dest('app/'));
 });
 
+gulp.task('deploy', function() {
+  return gulp.src('./app/**/*')
+    .pipe(ghPages());
+});
 
 gulp.task('default', [
 	'process-scripts', 
