@@ -23,6 +23,7 @@
 				<img class="img-logo" src="images/logo.png" alt="band logo">
 			</div>
 		</figure>
+		<strong id="greeting"></strong>
 		<div class="quote-wrapper">
 			<q class="bq-left-sidebar">
 				<i class="fa fa-quote-left fa-pull-left fa-lg"></i>
@@ -53,29 +54,66 @@
 
 	<section class="container">
 		<header class="main-header">
-			<figure class="band-cover">
+			<div class="slider">
 				<span class="icon-circle-left">
 					<i class="fa fa-chevron-left fa-2x"></i>
 				</span>
-				<div class="quote-wrapper">
-					<q class="bq-over-img">
-						<i class="fa fa-quote-left fa-pull-left"></i>
-						<br>This was the best party ever!<br>
-						<i class="fa fa-quote-right fa-pull-right"></i>
-					</q>
-					<cite>- Elen from Vienna</cite>
+				<div class="slide-viewer">
+					<figure class="slide slide-1">
+						<div class="quote-wrapper">
+							<q class="bq-over-img">
+								<i class="fa fa-quote-left fa-pull-left"></i>
+								<br>This was the best party ever!<br>
+								<i class="fa fa-quote-right fa-pull-right"></i>
+							</q>
+							<cite>- Elen from Vienna</cite>
+						</div>
+				
+					</figure>
+					<figure class="slide slide-2">
+						<div class="quote-wrapper">
+							<q class="bq-over-img">
+								<i class="fa fa-quote-left fa-pull-left"></i>
+								<br>Unforgettable Experience!<br>
+								<i class="fa fa-quote-right fa-pull-right"></i>
+							</q>
+							<cite>- The Music Magazine</cite>
+						</div>
+				
+					</figure>
+					<figure class="slide slide-3">
+						<div class="quote-wrapper">
+							<q class="bq-over-img">
+								<i class="fa fa-quote-left fa-pull-left"></i>
+								<br>Redefinition of the word "FUN"!<br>
+								<i class="fa fa-quote-right fa-pull-right"></i>
+							</q>
+							<cite>- WHY REST Magazine</cite>
+						</div>
+				
+					</figure>
+					<figure class="slide slide-4">
+						<div class="quote-wrapper">
+							<q class="bq-over-img">
+								<i class="fa fa-quote-left fa-pull-left"></i>
+								<br>I felt in love on this party!<br>
+								<i class="fa fa-quote-right fa-pull-right"></i>
+							</q>
+							<cite>- Barbie from Georgia</cite>
+						</div>
+				
+					</figure>
 				</div>
 				<span class="icon-circle-right">
 					<i class="fa fa-chevron-right fa-2x"></i>
 				</span>
-			</figure>
+			</div>
 			<nav class="main-navigation">
-				<a href="#" id="menu-button">
+				<a href="#" class="menu-item">
 					<span>Menu </span>
 					<i id="nav-down" class="fa fa-angle-double-down fa-lg"></i>
 					<i id="nav-up" class="fa fa-angle-double-up fa-lg"></i>
 				</a>
-
 				<a class="menu-item" href="#">Home</a>
 				<a class="menu-item" href="#">Gigs</a>
 				<a class="menu-item" href="#">Biography</a>
@@ -88,7 +126,7 @@
 					<span> Sign In <i class="fa fa-sign-in"></i></span>
 				</a>
 				<a class="menu-item" href="#" id="nav-sign-out">
-					<span>Sign Out <i class="fa fa-sign-out"></i></span>
+					<span> Sign Out <i class="fa fa-sign-out"></i></span>
 				</a>
 			</nav>
 			<div class="sticky-alias"></div>
@@ -120,7 +158,7 @@
 						<div class="img-wrapper">
 							<img src="images/album.jpg" alt="" class="blog-img">
 						</div>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique... </p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem GULdolores fuga quod inventore tempora commodi odio, delectus voluptates similique... </p>
 					</article>
 					<footer>
 						<a class="read-more" href="#">Read more <i class="fa fa-chevron-right"></i></a>
@@ -240,13 +278,10 @@
 				<button>SIGN UP!</button>
 				<p class="c-text">for exclusive members only content and prices</p>
 			</div>
-			<section class="social-links-mobile divided-no-border">
+			<section class="social-links-mobile divided-no-border" ng-controller="SocialIconsController">
 				<h4 class="h5">Follow us!</h4>
-				<div class="social-icons">
-					<a href="#"><i class="fa fa-facebook fa-lg"></i></a>
-					<a href="#"><i class="fa fa-twitter fa-lg"></i></a>
-					<a href="#"><i class="fa fa-instagram fa-lg"></i></a>
-					<a href="#"><i class="fa fa-youtube fa-lg"></i></a>
+				<div class="social-icons" ng-repeat="icon in socialIcons">
+					<a href="#"><i class="fa fa fa-{{icon}} fa-lg"></i></a>
 				</div>
 			</section>
 			<div class="footer-copyright">

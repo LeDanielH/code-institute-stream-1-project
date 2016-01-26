@@ -1,34 +1,65 @@
 .main-header
-
-	.band-cover
+	+position(relative)
+	overflow: hidden
+	width: 100%
+	.slider
 		+position(relative)
-		//+calc(height, "50vh - 100px")
-		background-image: url("../images/monkees.jpg")
-		background-repeat: no-repeat
-		background-position: center
-		background-size: contain
 		height: 25vw
-
 		.icon-circle-left
-			+position(absolute, 48% null null 3%)
+			+position(absolute, 47% null null 3%)
 
 		.icon-circle-right
-			+position(absolute, 48% 3% null null)
+			+position(absolute, 47% 3% null null)
 
-		.quote-wrapper
-			+position(absolute, null 10% $base-padding null)
-			padding: $base-padding
-			max-width: 300px
-			border-radius: $base-border-radius
+		.slide-viewer
+			+position(relative)
+			//left: 0%
+			height: 100%
+			//width: 400%
+			//+transition($base-transition-duration)
 
-			.bq-over-img
-				quotes: none
+			.slide
+				+position(absolute)
+				+display(none)
+				//+calc(height, "50vh - 100px")
+				background-repeat: no-repeat
+				background-position: center
+				background-size: contain
+				height: 100%
+				width: 100%
 
-			cite
-				align-self: flex-end
-				font-style: normal
+				&.slide-1
+					background-image: url("../images/monkees.jpg")
+				
+				&.slide-2
+					background-image: url("../images/monkees-undercover.jpg")
+
+				&.slide-3
+					background-image: url("../images/monkees-big.jpg")
+
+				&.slide-4
+					background-image: url("../images/monkees-fans.jpg")
+
+				//&.slided
+					//+transform(translate3d(-25%, 0, 0))
+				&:first-child
+					+display(flex)
+
+				.quote-wrapper
+					+position(absolute, null 10% $base-padding null)
+					padding: $base-padding
+					max-width: 300px
+					border-radius: $base-border-radius
+
+					.bq-over-img
+						quotes: none
+
+					cite
+						align-self: flex-end
+						font-style: normal
 
 @media (max-width: $query-small)
 	.main-header
-		.band-cover
+		.slider
 			height: 50vw
+ 

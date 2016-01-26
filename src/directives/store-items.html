@@ -1,0 +1,23 @@
+<div class="store-items">
+    <header>
+        <h3 class="h4">Popular in store</h3>
+    </header>
+    <section class="store-items-area-wrapper">
+        <span class="icon-circle-left">
+            <i class="fa fa-chevron-left fa-2x"></i>
+        </span>
+        <div class="store-items-wrapper" ng-repeat="item in store.items">
+            <div class="store-item">
+                <a href=""><i class="fa fa-soundcloud fa-2x"></i>
+					<p>{{item.name}}</p>
+				</a>
+            </div>
+        </div>
+        <span class="icon-circle-right">
+			<i class="fa fa-chevron-right fa-2x"></i>
+		</span>
+    </section>
+    <footer class="store-items-footer">
+        <a class="visit-store" href="#">Go to store <i class="fa fa-chevron-right"></i></a>
+    </footer>
+</div>

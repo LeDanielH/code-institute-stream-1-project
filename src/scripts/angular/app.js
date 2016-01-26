@@ -1,1 +1,1 @@
-angular.module('bandApp', ['myControllers']);
+angular.module('bandApp', ['ngRoute', 'ngSanitize','myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices']);

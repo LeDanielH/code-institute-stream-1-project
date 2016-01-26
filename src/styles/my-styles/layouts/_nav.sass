@@ -5,7 +5,7 @@
 	+justify-content(space-around)
 	+align-items(center)
 	
-	.menu-item
+	.menu-item:not(:first-child)
 		height: 40px
 		+flex(1)
 		width: 100%
@@ -13,27 +13,34 @@
 		+justify-content(center)
 		+align-items(center)
 
-	#nav-sign-out
+	.menu-item:last-child
 		+display(none)
 
-	#menu-button
+	.menu-item:first-child
 		+display(none)
 		+position(relative)
 		height: 40px
 		width: 100%
 		+justify-content(center)
 		+align-items(center)
-
 		i#nav-down
 			+position(absolute, 30% 3% null null)
 
 		i#nav-up
 			+position(absolute, 30% 3% null null)
 			+display(none)
-
+	
 	.sticky-alias
 		+display(none)
 		height: 10px
+
+	.menu-item-mobile
+		height: 40px
+		+flex(1)
+		width: 100%
+		+display(flex)
+		+justify-content(center)
+		+align-items(center)
 
 
 // IN JQUERY CLASSES (_jquery-classes.sass)
@@ -45,9 +52,26 @@
 	.main-navigation
 		+flex-direction(column)
 	
-		#menu-button
+		.menu-item:first-child
 			+display(flex)
 	
-		.menu-item
+		.menu-item:not(:first-child)
+			+display(none)
+			max-height: 0px
+	
+		.menu-item:last-child
 			+display(none)
 	
+@media (min-width: $query-large)
+	.main-navigation
+		+flex-direction(row)
+	
+		.menu-item:first-child
+			+display(none)
+	
+		.menu-item:not(:first-child)
+			+display(flex)
+
+		.menu-item:last-child
+			+display(none)
+

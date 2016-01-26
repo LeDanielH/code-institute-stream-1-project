@@ -23,7 +23,7 @@ $selection-color: #E5BCD3
 $base-transition-duration: 300ms
 $base-scale: 1.2
 
-.band-cover
+.slide
 	background-color: $dark-transparent-medium
 
 .main-aside, .aside-logo-mobile, .tour-dates, .store-items, .blog-intro-post, nav, .sign-up-mobile, .text-button-wrapper, .main-footer
@@ -31,7 +31,6 @@ $base-scale: 1.2
 
 .content
 	background-color: $base-transparent-strong
-
 
 button
 	background-color: $accent3
@@ -47,7 +46,7 @@ header > nav > a:hover, a:focus
 	background-color: $dark-transparent-light
 	color: $base-background-color
 
-.band-cover > span[class^="icon-circle"]
+.main-header > .slider > span[class^="icon-circle"]
 	+transition($base-transition-duration)
 	color: $base-transparent-light
 	&:hover
@@ -72,7 +71,7 @@ header > nav > a:hover, a:focus
 		+transform(scale($base-scale))
 		color: $lighten
 
-.band-cover > .quote-wrapper
+.slide > .quote-wrapper
 	color: $base-transparent-light
 	background-color: $dark-transparent-strong
 	
