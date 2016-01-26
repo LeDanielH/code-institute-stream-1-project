@@ -61,9 +61,9 @@ gulp.task('process-styles', ['process-html'], function () {
 
 gulp.task('process-js-libraries', function() {
 	return gulp.src([
-			'bower_components/angular/angular.min.js',
-			'bower_components/angular-route/angular-route.min.js',
-			'bower_components/angular-sanitize/angular-sanitize.min.js',
+			// 'bower_components/angular/angular.min.js',
+			// 'bower_components/angular-route/angular-route.min.js',
+			// 'bower_components/angular-sanitize/angular-sanitize.min.js',
 			'bower_components/jquery/dist/jquery.min.js',
 			'bower_components/gsap/src/minified/TweenMax.min.js',
 			'bower_components/d3/d3.min.js'
@@ -78,10 +78,10 @@ gulp.task('process-js-libraries', function() {
 gulp.task('process-scripts', function () {
 	return gulp.src([
 			'!src/scripts/modernizr.js', //added for disabling modernizr
-			'src/scripts/angular/app.js',
-			'src/scripts/angular/controllers.js',
-			'src/scripts/angular/services.js',
-			'src/scripts/angular/directives.js',
+			//'src/scripts/angular/app.js',
+			//'src/scripts/angular/controllers.js',
+			//'src/scripts/angular/services.js',
+			//'src/scripts/angular/directives.js',
 			'src/scripts/my-jquery.js',
 			'src/scripts/my-javascript.js',
 			'src/scripts/my-d3.js',
