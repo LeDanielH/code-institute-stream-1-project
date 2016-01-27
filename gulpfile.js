@@ -10,7 +10,7 @@
 	csspurge = require('gulp-css-purge'),
 	uncss = require('gulp-uncss'),
 	//imagemin = require('gulp-imagemin'),
-	cache = require('gulp-cache'),
+	//cache = require('gulp-cache'),
 	stripcsscomments = require('gulp-strip-css-comments'),
 	gzip = require('gulp-gzip'),
 	stripComments = require('gulp-strip-comments'),
@@ -22,31 +22,8 @@ gulp.task('process-styles', ['process-html'], function () {
 		.pipe(sass({outputStyle: 'expanded'}).on('error', sass.logError))
 		// .pipe(uncss({
 		// 	html: ['src/**/*.html'],
-		// 	ignore: [
-		// 		'.main-navigation-fixed', 
-		// 		'.hide-element', 
-		// 		'.show-element',
-		// 		'.main-navigation .menu-item:first-child #nav-down',
-		// 		'.main-navigation .menu-item:first-child #nav-up',
-		// 		'.fa',
-		// 		'.fa-lg',
-		// 		'.fa-facebook',
-  //               '.fa-twitter',
-  //               '.fa-instagram',
-  //               '.fa-youtube',
-  //               '.fa-sign-in',
-		// 		'.fa-sign-out',
-		// 		'.main-navigation .menu-item:first-child .fa-angle-double-down',
-		// 		'.main-navigation .menu-item:first-child .fa-angle-double-up',
-		// 		'.fa-shopping-cart',
-		// 		'.main-navigation',
-  //               '#nav-shopping-cart',
-  //               '.main-navigation #nav-sign-in',
-  //               '.main-navigation #nav-sign-out',
-		// 		'.main-navigation #menu-button',
-		// 		'.main-navigation .menu-item:first-child',
-		// 		'.main-navigation .menu-item:not(:first-child)'
-		// 	]
+		// 	//html: ['http://localhost:8080/'],
+		// 	ignore: []
 		// }))
 		.pipe(csspurge())
 		.pipe(stripcsscomments())
@@ -61,27 +38,27 @@ gulp.task('process-styles', ['process-html'], function () {
 
 gulp.task('process-js-libraries', function() {
 	return gulp.src([
-			// 'bower_components/angular/angular.min.js',
-			// 'bower_components/angular-route/angular-route.min.js',
-			// 'bower_components/angular-sanitize/angular-sanitize.min.js',
+			'bower_components/angular/angular.min.js',
+			'bower_components/angular-route/angular-route.min.js',
+			'bower_components/angular-sanitize/angular-sanitize.min.js',
 			'bower_components/jquery/dist/jquery.min.js',
 			'bower_components/gsap/src/minified/TweenMax.min.js',
 			'bower_components/d3/d3.min.js'
 		])
 		.pipe(concat('libraries.min.js'))
 		//.pipe(stripComments())
-		//.pipe(jshint())
-		//.pipe(uglify())
+		.pipe(jshint())
+		.pipe(uglify())
 		.pipe(gulp.dest('app/scripts/'));
 });
-// gulp.task('process-scripts', ['modernizr'], function () {
-gulp.task('process-scripts', function () {
+gulp.task('process-scripts', ['modernizr'], function () {
+//gulp.task('process-scripts', function () {
 	return gulp.src([
 			'!src/scripts/modernizr.js', //added for disabling modernizr
-			//'src/scripts/angular/app.js',
-			//'src/scripts/angular/controllers.js',
-			//'src/scripts/angular/services.js',
-			//'src/scripts/angular/directives.js',
+			'src/scripts/angular/app.js',
+			'src/scripts/angular/controllers.js',
+			'src/scripts/angular/services.js',
+			'src/scripts/angular/directives.js',
 			'src/scripts/my-jquery.js',
 			'src/scripts/my-javascript.js',
 			'src/scripts/my-d3.js',
@@ -98,14 +75,14 @@ gulp.task('process-scripts', function () {
 		.pipe(connect.reload());
 });
 
-// gulp.task('modernizr', function() {
-// 	gulp.src([
-// 			'!src/scripts/modernizr.js',
-// 			'src/scripts/**/*.js'
-// 		])
-// 		.pipe(modernizr())
-// 		.pipe(gulp.dest("src/scripts/"));
-// });
+gulp.task('modernizr', function() {
+	gulp.src([
+			'!src/scripts/modernizr.js',
+			'src/scripts/**/*.js'
+		])
+		.pipe(modernizr())
+		.pipe(gulp.dest("src/scripts/"));
+});
 
 gulp.task('process-html', ['process-scripts'], function () {
 	return gulp.src('src/*.html')
@@ -118,7 +95,7 @@ gulp.task('process-html', ['process-scripts'], function () {
 });
 
 // gulp.task('process-images', function() {
-//   return gulp.src('src/images/**/*')
+//    return gulp.src('src/images/**/*')
 //     .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true })))
 //     .pipe(gulp.dest('app/images/'))
 //     .pipe(connect.reload());

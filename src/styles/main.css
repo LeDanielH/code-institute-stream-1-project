@@ -4066,13 +4066,24 @@ body {
       .main-header .slider .slide-viewer .slide {
         position: absolute;
         display: none;
-        background-image: url("../images/monkees.jpg");
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
         height: 100%;
         width: 100%; }
+        /* line 31, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+        .main-header .slider .slide-viewer .slide.slide-1 {
+          background-image: url("../images/monkees.jpg"); }
         /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+        .main-header .slider .slide-viewer .slide.slide-2 {
+          background-image: url("../images/monkees-undercover.jpg"); }
+        /* line 37, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+        .main-header .slider .slide-viewer .slide.slide-3 {
+          background-image: url("../images/monkees-big.jpg"); }
+        /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+        .main-header .slider .slide-viewer .slide.slide-4 {
+          background-image: url("../images/monkees-fans.jpg"); }
+        /* line 45, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
         .main-header .slider .slide-viewer .slide:first-child {
           display: -webkit-box;
           display: -moz-box;
@@ -4081,7 +4092,7 @@ body {
           display: -moz-flex;
           display: -ms-flexbox;
           display: flex; }
-        /* line 37, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+        /* line 48, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
         .main-header .slider .slide-viewer .slide .quote-wrapper {
           position: absolute;
           right: 10%;
@@ -4089,16 +4100,16 @@ body {
           padding: 20px;
           max-width: 300px;
           border-radius: 3px; }
-          /* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+          /* line 54, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
           .main-header .slider .slide-viewer .slide .quote-wrapper .bq-over-img {
             quotes: none; }
-          /* line 46, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+          /* line 57, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
           .main-header .slider .slide-viewer .slide .quote-wrapper cite {
             align-self: flex-end;
             font-style: normal; }
 
 @media (max-width: 600px) {
-  /* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
+  /* line 63, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_header.sass */
   .main-header .slider {
     height: 50vw; } }
 
