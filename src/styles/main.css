@@ -4003,7 +4003,56 @@ body {
       -moz-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-    /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+      /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+      body .container .columns-wrapper .content {
+        padding: 20px;
+        display: -webkit-box;
+        display: -moz-box;
+        display: box;
+        display: -webkit-flex;
+        display: -moz-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -moz-box-pack: center;
+        box-pack: center;
+        -webkit-justify-content: center;
+        -moz-justify-content: center;
+        -ms-justify-content: center;
+        -o-justify-content: center;
+        justify-content: center;
+        -ms-flex-pack: center;
+        -webkit-box-orient: vertical;
+        -moz-box-orient: vertical;
+        box-orient: vertical;
+        -webkit-box-direction: normal;
+        -moz-box-direction: normal;
+        box-direction: normal;
+        -webkit-flex-direction: column;
+        -moz-flex-direction: column;
+        flex-direction: column;
+        -ms-flex-direction: column;
+        -webkit-box-align: center;
+        -moz-box-align: center;
+        box-align: center;
+        -webkit-align-items: center;
+        -moz-align-items: center;
+        -ms-align-items: center;
+        -o-align-items: center;
+        align-items: center;
+        -ms-flex-align: center;
+        -webkit-box-flex: 10;
+        -moz-box-flex: 10;
+        box-flex: 10;
+        -webkit-flex: 10 10 400px;
+        -moz-flex: 10 10 400px;
+        -ms-flex: 10 10 400px;
+        flex: 10 10 400px;
+        padding-right: -webkit-calc(15% - 100px);
+        padding-right: calc(15% - 100px);
+        padding-left: -webkit-calc(15% - 100px);
+        padding-left: calc(15% - 100px); }
+    /* line 44, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
     body .container .main-footer {
       display: -webkit-box;
       display: -moz-box;
@@ -4035,7 +4084,7 @@ body {
       padding: 20px; }
 
 @media (max-width: 600px) {
-  /* line 42, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+  /* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
   .main-aside, .empty-column {
     display: none !important; } }
 
@@ -4506,130 +4555,6 @@ body {
   .quote-wrapper {
     display: none; } }
 
-/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_content.sass */
-.content {
-  padding: 20px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  box-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center;
-  -webkit-box-flex: 10;
-  -moz-box-flex: 10;
-  box-flex: 10;
-  -webkit-flex: 10 10 400px;
-  -moz-flex: 10 10 400px;
-  -ms-flex: 10 10 400px;
-  flex: 10 10 400px;
-  padding-right: -webkit-calc(15% - 100px);
-  padding-right: calc(15% - 100px);
-  padding-left: -webkit-calc(15% - 100px);
-  padding-left: calc(15% - 100px); }
-  /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_content.sass */
-  .content .blog-intro-post {
-    margin: 20px;
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    box-orient: vertical;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-direction: column;
-    max-width: 650px; }
-    /* line 17, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_content.sass */
-    .content .blog-intro-post .blog-intro-header {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: justify;
-      -moz-box-pack: justify;
-      box-pack: justify;
-      -webkit-justify-content: space-between;
-      -moz-justify-content: space-between;
-      -ms-justify-content: space-between;
-      -o-justify-content: space-between;
-      justify-content: space-between;
-      -ms-flex-pack: justify;
-      -webkit-box-lines: multiple;
-      -moz-box-lines: multiple;
-      box-lines: multiple;
-      -webkit-flex-wrap: wrap;
-      -moz-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
-      /* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_content.sass */
-      .content .blog-intro-post .blog-intro-header h2 {
-        padding-right: 20px; }
-      /* line 24, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_content.sass */
-      .content .blog-intro-post .blog-intro-header .blog-intro-date {
-        padding-bottom: 20px; }
-    /* line 28, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_content.sass */
-    .content .blog-intro-post .blog-intro-content img {
-      float: left;
-      margin: 0 20px 20px 0; }
-    /* line 32, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_content.sass */
-    .content .blog-intro-post footer {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: end;
-      -moz-box-pack: end;
-      box-pack: end;
-      -webkit-justify-content: flex-end;
-      -moz-justify-content: flex-end;
-      -ms-justify-content: flex-end;
-      -o-justify-content: flex-end;
-      justify-content: flex-end;
-      -ms-flex-pack: end; }
-
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_footer.sass */
 .store-items {
   display: -webkit-box;
@@ -4987,12 +4912,79 @@ body {
   .tour-dates .sign-up-mobile {
     display: none; }
 
-/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_jquery-classes.sass */
-.show-element {
-  display: flex !important; }
-
-/* line 4, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_jquery-classes.sass */
-.hide-element {
-  display: none; }
+/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_home.sass */
+.blog-intro-post {
+  margin: 20px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  max-width: 650px; }
+  /* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_home.sass */
+  .blog-intro-post .blog-intro-header {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify;
+    -webkit-box-lines: multiple;
+    -moz-box-lines: multiple;
+    box-lines: multiple;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap; }
+    /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_home.sass */
+    .blog-intro-post .blog-intro-header h2 {
+      padding-right: 20px; }
+    /* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_home.sass */
+    .blog-intro-post .blog-intro-header .blog-intro-date {
+      padding-bottom: 20px; }
+  /* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_home.sass */
+  .blog-intro-post .blog-intro-content img {
+    float: left;
+    margin: 0 20px 20px 0; }
+  /* line 22, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_home.sass */
+  .blog-intro-post footer {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
 
 /*# sourceMappingURL=main.css.map */

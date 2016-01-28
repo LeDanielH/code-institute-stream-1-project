@@ -1,0 +1,24 @@
+.blog-intro-post
+	margin: $base-padding
+	+display(flex)
+	+flex-direction(column)
+	max-width: 650px
+
+	.blog-intro-header
+		+display(flex)
+		+justify-content(space-between)
+		+flex-wrap(wrap)
+		h2
+			padding-right: $base-padding
+
+		.blog-intro-date
+			padding-bottom: $base-padding
+
+	.blog-intro-content
+		img
+			float: left
+			margin: 0 $base-padding $base-padding 0
+
+	footer
+		+display(flex)
+		+justify-content(flex-end)
