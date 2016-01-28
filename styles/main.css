@@ -2395,45 +2395,6 @@ img,picture {
 }
 .content {
 	background-color: rgba(255, 255, 255, 0.2);
-	padding: 20px;
-	display: flex;
-	-webkit-box-pack: center;
-	-moz-box-pack: center;
-	box-pack: center;
-	-webkit-justify-content: center;
-	-moz-justify-content: center;
-	-ms-justify-content: center;
-	-o-justify-content: center;
-	justify-content: center;
-	-ms-flex-pack: center;
-	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
-	box-orient: vertical;
-	-webkit-box-direction: normal;
-	-moz-box-direction: normal;
-	box-direction: normal;
-	-webkit-flex-direction: column;
-	-moz-flex-direction: column;
-	flex-direction: column;
-	-ms-flex-direction: column;
-	-webkit-box-align: center;
-	-moz-box-align: center;
-	box-align: center;
-	-webkit-align-items: center;
-	-moz-align-items: center;
-	-ms-align-items: center;
-	-o-align-items: center;
-	align-items: center;
-	-ms-flex-align: center;
-	-webkit-box-flex: 10;
-	-moz-box-flex: 10;
-	box-flex: 10;
-	-webkit-flex: 10 10 400px;
-	-moz-flex: 10 10 400px;
-	-ms-flex: 10 10 400px;
-	flex: 10 10 400px;
-	padding-right: calc(15% - 100px);
-	padding-left: calc(15% - 100px);
 }
 button:hover,button:focus {
 	background-color: rgba(119, 98, 115, 0.9);
@@ -2989,6 +2950,55 @@ body .container .columns-wrapper {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
+body .container .columns-wrapper .content {
+	padding: 20px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	box-pack: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	-o-justify-content: center;
+	justify-content: center;
+	-ms-flex-pack: center;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	-ms-flex-align: center;
+	-webkit-box-flex: 10;
+	-moz-box-flex: 10;
+	box-flex: 10;
+	-webkit-flex: 10 10 400px;
+	-moz-flex: 10 10 400px;
+	-ms-flex: 10 10 400px;
+	flex: 10 10 400px;
+	padding-right: -webkit-calc(15% - 100px);
+	padding-right: calc(15% - 100px);
+	padding-left: -webkit-calc(15% - 100px);
+	padding-left: calc(15% - 100px);
+}
 body .container .main-footer {
 	display: -webkit-box;
 	display: -moz-box;
@@ -3508,80 +3518,6 @@ body .container .main-footer {
 	}
 }
 
-.content .blog-intro-post {
-	margin: 20px;
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
-	box-orient: vertical;
-	-webkit-box-direction: normal;
-	-moz-box-direction: normal;
-	box-direction: normal;
-	-webkit-flex-direction: column;
-	-moz-flex-direction: column;
-	flex-direction: column;
-	-ms-flex-direction: column;
-	max-width: 650px;
-}
-.content .blog-intro-post .blog-intro-header {
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
-	-webkit-box-lines: multiple;
-	-moz-box-lines: multiple;
-	box-lines: multiple;
-	-webkit-flex-wrap: wrap;
-	-moz-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
-}
-.content .blog-intro-post .blog-intro-header h2 {
-	padding-right: 20px;
-}
-.content .blog-intro-post .blog-intro-header .blog-intro-date {
-	padding-bottom: 20px;
-}
-.content .blog-intro-post .blog-intro-content img {
-	float: left;
-	margin: 0 20px 20px 0;
-}
-.content .blog-intro-post footer {
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-	-webkit-box-pack: end;
-	-moz-box-pack: end;
-	box-pack: end;
-	-webkit-justify-content: flex-end;
-	-moz-justify-content: flex-end;
-	-ms-justify-content: flex-end;
-	-o-justify-content: flex-end;
-	justify-content: flex-end;
-	-ms-flex-pack: end;
-}
 .store-items {
 	display: -webkit-box;
 	display: -moz-box;
@@ -3943,9 +3879,77 @@ body .container .main-footer {
 .tour-dates .sign-up-mobile {
 	display: none;
 }
-.show-element {
-	display: flex !important;
+.blog-intro-post {
+	margin: 20px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-direction: column;
+	max-width: 650px;
 }
-.hide-element {
-	display: none;
+.blog-intro-post .blog-intro-header {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	-webkit-box-lines: multiple;
+	-moz-box-lines: multiple;
+	box-lines: multiple;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.blog-intro-post .blog-intro-header h2 {
+	padding-right: 20px;
+}
+.blog-intro-post .blog-intro-header .blog-intro-date {
+	padding-bottom: 20px;
+}
+.blog-intro-post .blog-intro-content img {
+	float: left;
+	margin: 0 20px 20px 0;
+}
+.blog-intro-post footer {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	box-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-justify-content: flex-end;
+	-ms-justify-content: flex-end;
+	-o-justify-content: flex-end;
+	justify-content: flex-end;
+	-ms-flex-pack: end;
 }
