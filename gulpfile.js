@@ -1,4 +1,4 @@
-	var gulp = require('gulp'),
+var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	concat = require('gulp-concat'),
 	uglify = require('gulp-uglify'),
@@ -13,7 +13,7 @@
 	//cache = require('gulp-cache'),
 	stripcsscomments = require('gulp-strip-css-comments'),
 	gzip = require('gulp-gzip'),
-	stripComments = require('gulp-strip-comments'),
+	//stripComments = require('gulp-strip-comments'),
 	jshint = require('gulp-jshint'),
 	ghPages = require('gulp-gh-pages');
 
@@ -36,21 +36,6 @@ gulp.task('process-styles', ['process-html'], function () {
 		.pipe(connect.reload());
 });
 
-gulp.task('process-js-libraries', function() {
-	return gulp.src([
-			'bower_components/angular/angular.min.js',
-			'bower_components/angular-route/angular-route.min.js',
-			'bower_components/angular-sanitize/angular-sanitize.min.js',
-			'bower_components/jquery/dist/jquery.min.js',
-			'bower_components/gsap/src/minified/TweenMax.min.js',
-			'bower_components/d3/d3.min.js'
-		])
-		.pipe(concat('libraries.min.js'))
-		//.pipe(stripComments())
-		.pipe(jshint())
-		.pipe(uglify())
-		.pipe(gulp.dest('app/scripts/'));
-});
 gulp.task('process-scripts', ['modernizr'], function () {
 //gulp.task('process-scripts', function () {
 	return gulp.src([
@@ -85,14 +70,35 @@ gulp.task('modernizr', function() {
 });
 
 gulp.task('process-html', ['process-scripts'], function () {
-	return gulp.src('src/*.html')
-		.pipe(stripComments())
-		.pipe(nanohtml({
-		 	collapseWhitespace: true
-		}))
+	return gulp.src('src/index.html')
+		//.pipe(stripComments())
+		// .pipe(nanohtml({
+		//  	collapseWhitespace: true
+		// }))
 		.pipe(gulp.dest('app'))
 		.pipe(connect.reload());
 });
+
+gulp.task('process-angular-templates', ['process-scripts'], function () {
+	return gulp.src('src/templates/*.html')
+		//.pipe(stripComments())
+		// .pipe(nanohtml({
+		//  	collapseWhitespace: true
+		// }))
+		.pipe(gulp.dest('app/templates/'))
+		.pipe(connect.reload());
+});
+
+gulp.task('process-angular-directives', ['process-scripts'], function () {
+	return gulp.src('src/templates/directives/*.html')
+		//.pipe(stripComments())
+		// .pipe(nanohtml({
+		//  	collapseWhitespace: true
+		// }))
+		.pipe(gulp.dest('app/templates/directives/'))
+		.pipe(connect.reload());
+});
+
 
 // gulp.task('process-images', function() {
 //    return gulp.src('src/images/**/*')
@@ -110,9 +116,9 @@ gulp.task('webserver', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-styles']);
-	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-styles']);
-	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles']);
+	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
+	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
+	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles', 'process-angular-templates', 'process-angular-directives',]);
 	//gulp.watch('src/images/**/*', ['process-images']);
 });
 
@@ -128,11 +134,11 @@ gulp.task('gzip-css', ['process-html', 'process-styles', 'process-scripts'], fun
 		.pipe(gulp.dest('app/styles/'));
 });
 
-gulp.task('gzip-html',['process-html', 'process-styles', 'process-scripts'], function() {
-		gulp.src('app/*.html')
-		.pipe(gzip())
-		.pipe(gulp.dest('app/'));
-});
+// gulp.task('gzip-html',['process-html', 'process-styles', 'process-scripts'], function() {
+// 		gulp.src('app/*.html')
+// 		.pipe(gzip())
+// 		.pipe(gulp.dest('app/'));
+// });
 
 gulp.task('deploy', function() {
   return gulp.src('./app/**/*')
@@ -144,9 +150,40 @@ gulp.task('default', [
 	'process-styles', 
 	//'process-images', 
 	'process-html', 
+	'process-angular-templates',
+	'process-angular-directives',
 	'gzip-js',
 	'gzip-css', 
-	'gzip-html',
+	//'gzip-html',
 	'webserver', 
 	'watch'
 ]);
+
+// RUN ONCE TASKS
+gulp.task('process-js-libraries', function() {
+	return gulp.src([
+		'bower_components/angular/angular.min.js',
+		'bower_components/angular-route/angular-route.min.js',
+		'bower_components/angular-sanitize/angular-sanitize.min.js',
+		'bower_components/jquery/dist/jquery.min.js',
+		'bower_components/gsap/src/minified/TweenMax.min.js',
+		'bower_components/d3/d3.min.js'
+	])
+	.pipe(concat('libraries.min.js'))
+	//.pipe(stripComments())
+	.pipe(uglify())
+	.pipe(gulp.dest('app/scripts/'));
+});
+
+gulp.task('debug-js-libraries', function() {
+	return gulp.src([
+		'bower_components/angular/angular.js',
+		'bower_components/angular-route/angular-route.js',
+		'bower_components/angular-sanitize/angular-sanitize.js',
+		'bower_components/jquery/dist/jquery.js',
+		'bower_components/gsap/src/uncompressed/TweenMax.js',
+		'bower_components/d3/d3.js'
+	])
+	.pipe(concat('libraries-debug.js'))
+	.pipe(gulp.dest('app/scripts/'));
+});

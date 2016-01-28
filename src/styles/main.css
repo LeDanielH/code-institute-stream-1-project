@@ -4142,6 +4142,12 @@ body {
   align-items: center;
   -ms-flex-align: center; }
   /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  .main-navigation.main-navigation-fixed {
+    position: fixed;
+    top: 0px;
+    width: -webkit-calc(60% - 30px);
+    width: calc(60% - 30px); }
+  /* line 12, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation .menu-item:not(:first-child) {
     height: 40px;
     -webkit-box-flex: 1;
@@ -4177,10 +4183,10 @@ body {
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center; }
-  /* line 16, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  /* line 20, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation .menu-item:last-child {
     display: none; }
-  /* line 19, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  /* line 23, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation .menu-item:first-child {
     display: none;
     position: relative;
@@ -4204,22 +4210,22 @@ body {
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center; }
-    /* line 26, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 30, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:first-child i#nav-down {
       position: absolute;
       top: 30%;
       right: 3%; }
-    /* line 29, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 33, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:first-child i#nav-up {
       position: absolute;
       top: 30%;
       right: 3%;
       display: none; }
-  /* line 33, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  /* line 37, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation .sticky-alias {
     display: none;
     height: 10px; }
-  /* line 37, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  /* line 41, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation .menu-item-mobile {
     height: 40px;
     -webkit-box-flex: 1;
@@ -4257,7 +4263,7 @@ body {
     -ms-flex-align: center; }
 
 @media (max-width: 1116px) {
-  /* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  /* line 56, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -4269,7 +4275,7 @@ body {
     -moz-flex-direction: column;
     flex-direction: column;
     -ms-flex-direction: column; }
-    /* line 55, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 59, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:first-child {
       display: -webkit-box;
       display: -moz-box;
@@ -4278,16 +4284,21 @@ body {
       display: -moz-flex;
       display: -ms-flexbox;
       display: flex; }
-    /* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 62, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:not(:first-child) {
       display: none;
       max-height: 0px; }
-    /* line 62, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 66, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:last-child {
       display: none; } }
 
+@media screen and (max-width: 600px) {
+  /* line 70, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  .main-navigation-fixed {
+    width: 100%; } }
+
 @media (min-width: 1116px) {
-  /* line 66, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+  /* line 74, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation {
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
@@ -4299,10 +4310,10 @@ body {
     -moz-flex-direction: row;
     flex-direction: row;
     -ms-flex-direction: row; }
-    /* line 69, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 77, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:first-child {
       display: none; }
-    /* line 72, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 80, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:not(:first-child) {
       display: -webkit-box;
       display: -moz-box;
@@ -4311,7 +4322,7 @@ body {
       display: -moz-flex;
       display: -ms-flexbox;
       display: flex; }
-    /* line 75, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
+    /* line 83, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
     .main-navigation .menu-item:last-child {
       display: none; } }
 
@@ -4933,7 +4944,7 @@ body {
   .store-items .store-items-wrapper div.store-item:first-child {
     display: none; } }
 
-/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_upcoming-gigs.sass */
+/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
 .tour-dates {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -4969,10 +4980,10 @@ body {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center; }
-  /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_upcoming-gigs.sass */
+  /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
   .tour-dates .text-button-wrapper {
     margin: 15px 0; }
-  /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_upcoming-gigs.sass */
+  /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
   .tour-dates .sign-up-mobile {
     display: none; }
 
@@ -4983,17 +4994,5 @@ body {
 /* line 4, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_jquery-classes.sass */
 .hide-element {
   display: none; }
-
-/* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_jquery-classes.sass */
-.main-navigation-fixed {
-  position: fixed;
-  top: 0px;
-  width: -webkit-calc(60% - 30px);
-  width: calc(60% - 30px); }
-
-@media screen and (max-width: 600px) {
-  /* line 12, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_jquery-classes.sass */
-  .main-navigation-fixed {
-    width: 100%; } }
 
 /*# sourceMappingURL=main.css.map */

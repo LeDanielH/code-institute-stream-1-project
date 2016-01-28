@@ -4,6 +4,10 @@
 	+display(flex)
 	+justify-content(space-around)
 	+align-items(center)
+
+	&.main-navigation-fixed
+		+position(fixed, 0px null null null)
+		+calc(width, "60% - 30px")
 	
 	.menu-item:not(:first-child)
 		height: 40px
@@ -61,6 +65,10 @@
 	
 		.menu-item:last-child
 			+display(none)
+
+@media screen and (max-width: $query-small)
+	.main-navigation-fixed
+		width: 100%
 	
 @media (min-width: $query-large)
 	.main-navigation
