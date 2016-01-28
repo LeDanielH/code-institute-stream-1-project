@@ -3131,6 +3131,12 @@ body .container .main-footer {
 	align-items: center;
 	-ms-flex-align: center;
 }
+.main-navigation.main-navigation-fixed {
+	position: fixed;
+	top: 0px;
+	width: -webkit-calc(60% - 30px);
+	width: calc(60% - 30px);
+}
 .main-navigation .menu-item:not(:first-child) {
 	height: 40px;
 	-webkit-box-flex: 1;
@@ -3275,6 +3281,14 @@ body .container .main-footer {
 	}
 	.main-navigation .menu-item:last-child {
 		display: none;
+	}
+}
+
+
+@media screen and (max-width: 600px) {
+
+	.main-navigation-fixed {
+		width: 100%;
 	}
 }
 
@@ -3935,17 +3949,3 @@ body .container .main-footer {
 .hide-element {
 	display: none;
 }
-.main-navigation-fixed {
-	position: fixed;
-	top: 0px;
-	width: -webkit-calc(60% - 30px);
-	width: calc(60% - 30px);
-}
-
-@media screen and (max-width: 600px) {
-
-	.main-navigation-fixed {
-		width: 100%;
-	}
-}
-
