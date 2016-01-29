@@ -1,15 +1,15 @@
 // sticky nav
 $(function() {
-	var stickyNav = $('nav.main-navigation').offset().top;
-	$(window).scroll(function() {
-		if ($(window).scrollTop() > stickyNav) {
-			$('nav.main-navigation').addClass('main-navigation-fixed');
-			$('.sticky-alias').css('display', 'block');
-		} else {
-			$('nav.main-navigation').removeClass('main-navigation-fixed');
-			$('.sticky-alias').css('display', 'none');
-		}
-	});
+    var stickyNav = $('nav.main-navigation').offset().top;
+    $(window).scroll(function() {
+        if ($(window).scrollTop() > stickyNav) {
+            $('nav.main-navigation').addClass('main-navigation-fixed');
+            $('.sticky-alias').css('display', 'block');
+        } else {
+            $('nav.main-navigation').removeClass('main-navigation-fixed');
+            $('.sticky-alias').css('display', 'none');
+        }
+    });
 });
 
 // mobile menu
@@ -28,7 +28,7 @@ $(function() {
     });
 });
 
-// mobile slider
+// slider
 $(function() {
     $('.slider').each(function() {
         var $this = $(this);
@@ -45,13 +45,13 @@ $(function() {
                 return;
             }
             if (newIndex > currentIndex) {
-                slideLeft = '100%'; 
-                animateLeft = '-100%'; 
-            } else { 
-                slideLeft = '-100%'; 
-                animateLeft = '100%'; 
+                slideLeft = '100%';
+                animateLeft = '-100%';
+            } else {
+                slideLeft = '-100%';
+                animateLeft = '100%';
             }
-            
+
             $slide.eq(newIndex).css({
                 left: slideLeft,
                 display: 'block'
@@ -59,17 +59,17 @@ $(function() {
 
             $slidersGroup.animate({
                 left: animateLeft
-            }, function() { 
+            }, function() {
                 $slide.eq(currentIndex).css({
                     display: 'none'
-                }); 
+                });
                 $slide.eq(newIndex).css({
                     left: 0
-                }); 
+                });
                 $slidersGroup.css({
                     left: 0
-                }); 
-                currentIndex = newIndex; 
+                });
+                currentIndex = newIndex;
             });
         }
 
@@ -106,3 +106,55 @@ $(function() {
         });
     });
 });
+
+$(function() {
+    $('div.add-person').on('click', '#addPersonButton', function(e) {
+        e.preventDefault();
+        var newPerson = $('input:text').val();
+        if (newPerson.length > 0) {
+            $('div.add-person').append('<strong>' + newPerson + '</strong>');
+        } 
+    });
+});
+// tabs
+// $(function() {
+//     $('.tab-list').each(function() {
+//         var $this = $(this);
+//         var $tab = $this.find('h3.tab-active');
+//         var $link = $tab.find('a');
+//         var $panel = $($link.attr('href'));
+
+//         $this.on('click', '.tab-control', function(e) {
+//             e.preventDefault();
+//             var $link = $(this);
+//             var id = this.hash;
+//             if (id && !$link.is('.tab-active')) {
+//                 $panel.removeClass('tab-active');
+//                 $tab.removeClass('tab-active');
+//                 $panel = $(id).addClass('tab-active');
+//                 $tab = $link.parent().addClass('tab-active');
+//             }
+//         });
+//     });
+// });
+
+// tabs refills
+
+// $(document).ready(function() {
+//     $('.accordion-tabs').each(function(index) {
+//         $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
+//     });
+//     $('.accordion-tabs').on('click', 'li > a.tab-link', function(event) {
+//         if (!$(this).hasClass('is-active')) {
+//             event.preventDefault();
+//             var accordionTabs = $(this).closest('.accordion-tabs');
+//             accordionTabs.find('.is-open').removeClass('is-open').hide();
+
+//             $(this).next().toggleClass('is-open').toggle();
+//             accordionTabs.find('.is-active').removeClass('is-active');
+//             $(this).addClass('is-active');
+//         } else {
+//             event.preventDefault();
+//         }
+//     });
+// });

@@ -52,6 +52,9 @@ img::selection
 img::-moz-selection
 	background: transparent
 
+img
+	+flex(1)
+
 body
 	-webkit-font-smoothing: antialiased
 	-webkit-tap-highlight-color: $selection-color
@@ -93,5 +96,8 @@ span[class^="icon-circle"]
 	+align-items(center)
 	cursor: pointer
 	z-index: 10
+
+.plus-button
+	padding: 2px 4px
 
 	

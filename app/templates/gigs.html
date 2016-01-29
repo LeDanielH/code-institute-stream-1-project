@@ -1,0 +1,45 @@
+<h1 class="h2 c-text content-heading">{{title}}</h1>
+<div class="tabs">
+	<div class="tab-list">
+		<h3 class="h5 tab-header tab-active">
+			<a class="tab-control" href="#/tab-1">BUY A BwTICKET</a>
+		</h3>
+		<h3 class="h5 tab-header">
+			<a class="tab-control" href="#/tab-2">BOOK US</a>
+		</h3>
+	</div>
+	<div class="tab-panel tab-active" id="tab-1">
+		<p>Please fill all the required information.</p>
+		<form action="">
+			<fieldset class="form-column-1">
+				<div class="input-wrap">
+					<label for="where-and-when">Where and when?</label>
+					<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.shortAddress + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when">
+<!--						<option value="value1" selected>Prague, 17/12/2016</option>-->
+<!--						<option value="value1">Budapest, 30/12/2016</option>-->
+<!--						<option value="value1">Dublin, 02/01/2017</option>-->
+					</select>
+					<make-map map="map"></make-map>
+				</div>
+				<div class="input-wrap">
+					<label for="email">Your email?</label>
+					<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="on" required>
+				</div>
+				<div class="input-wrap add-person">
+					<label for="addPerson">Add another person</label>
+					<div class="input-wrap-inline">
+						<input type="text" id="addPerson" name="addPerson" placeholder="John Doe">
+						<button id="addPersonButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
+					</div>
+				</div>
+				<div class="input-wrap-inline">
+					<input type="checkbox" id="terms" />
+					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
+				</div>
+			</fieldset>
+		</form>
+	</div>
+	<div class="tab-panel" id="tab-2">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis at doloribus, incidunt impedit iste obcaecati veniam aut dolor beatae quas sint officia ab quibusdam, voluptate facilis, quam ratione sapiente cupiditate?</p>
+	</div>
+</div>

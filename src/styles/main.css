@@ -218,6 +218,7 @@ samp {
 /* line 290, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
 button,
 input,
+select,
 optgroup,
 select,
 textarea {
@@ -256,8 +257,10 @@ select {
 /* line 336, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
 button,
 html input[type="button"],
+html select[type="button"],
 input[type="reset"],
-input[type="submit"] {
+select[type="reset"],
+input[type="submit"], select[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
   cursor: pointer;
@@ -268,7 +271,7 @@ input[type="submit"] {
  */
 /* line 349, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
 button[disabled],
-html input[disabled] {
+html input[disabled], html select[disabled] {
   cursor: default; }
 
 /**
@@ -276,7 +279,7 @@ html input[disabled] {
  */
 /* line 359, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
 button::-moz-focus-inner,
-input::-moz-focus-inner {
+input::-moz-focus-inner, select::-moz-focus-inner {
   border: 0;
   padding: 0; }
 
@@ -285,7 +288,7 @@ input::-moz-focus-inner {
  * the UA stylesheet.
  */
 /* line 370, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
-input {
+input, select {
   line-height: normal; }
 
 /**
@@ -297,7 +300,8 @@ input {
  */
 /* line 384, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
 input[type="checkbox"],
-input[type="radio"] {
+select[type="checkbox"],
+input[type="radio"], select[type="radio"] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -310,7 +314,8 @@ input[type="radio"] {
  */
 /* line 399, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
 input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+select[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button, select[type="number"]::-webkit-outer-spin-button {
   height: auto; }
 
 /**
@@ -319,7 +324,7 @@ input[type="number"]::-webkit-outer-spin-button {
  *    (include `-moz` to future-proof).
  */
 /* line 410, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
-input[type="search"] {
+input[type="search"], select[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
   -moz-box-sizing: content-box;
@@ -334,7 +339,8 @@ input[type="search"] {
  */
 /* line 427, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/_normalize.scss */
 input[type="search"]::-webkit-search-cancel-button,
-input[type="search"]::-webkit-search-decoration {
+select[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration, select[type="search"]::-webkit-search-decoration {
   -webkit-appearance: none; }
 
 /**
@@ -388,7 +394,7 @@ th {
   padding: 0; }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_buttons.scss */
-button, input[type="button"], input[type="reset"], input[type="submit"] {
+button, input[type="button"], select[type="button"], input[type="reset"], select[type="reset"], input[type="submit"], select[type="submit"] {
   appearance: none;
   border: 0;
   border-radius: 3px;
@@ -407,12 +413,15 @@ button, input[type="button"], input[type="reset"], input[type="submit"] {
   /* line 22, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_buttons.scss */
   button:hover,
   button:focus, input[type="button"]:hover,
-  input[type="button"]:focus, input[type="reset"]:hover,
-  input[type="reset"]:focus, input[type="submit"]:hover,
-  input[type="submit"]:focus {
+  select[type="button"]:hover,
+  input[type="button"]:focus, select[type="button"]:focus, input[type="reset"]:hover,
+  select[type="reset"]:hover,
+  input[type="reset"]:focus, select[type="reset"]:focus, input[type="submit"]:hover,
+  select[type="submit"]:hover,
+  input[type="submit"]:focus, select[type="submit"]:focus {
     color: #fff; }
   /* line 27, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_buttons.scss */
-  button:disabled, input[type="button"]:disabled, input[type="reset"]:disabled, input[type="submit"]:disabled {
+  button:disabled, input[type="button"]:disabled, select[type="button"]:disabled, input[type="reset"]:disabled, select[type="reset"]:disabled, input[type="submit"]:disabled, select[type="submit"]:disabled {
     cursor: not-allowed;
     opacity: 0.5; }
 
@@ -437,13 +446,14 @@ label {
 
 /* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_forms.scss */
 input,
+select,
 select {
   display: block;
   font-family: "Helvetica Neue", "Helvetica", "Roboto", "Arial", sans-serif;
   font-size: 1rem; }
 
 /* line 25, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_forms.scss */
-input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], input:not([type]), textarea,
+input[type="color"], select[type="color"], input[type="date"], select[type="date"], input[type="datetime"], select[type="datetime"], input[type="datetime-local"], select[type="datetime-local"], input[type="email"], select[type="email"], input[type="month"], select[type="month"], input[type="number"], select[type="number"], input[type="password"], select[type="password"], input[type="search"], select[type="search"], input[type="tel"], select[type="tel"], input[type="text"], select[type="text"], input[type="time"], select[type="time"], input[type="url"], select[type="url"], input[type="week"], select[type="week"], input:not([type]), select:not([type]), textarea,
 select[multiple] {
   background-color: #fff;
   border: 1px solid #ddd;
@@ -457,22 +467,22 @@ select[multiple] {
   transition: border-color 150ms ease;
   width: 100%; }
   /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_forms.scss */
-  input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="time"]:hover, input[type="url"]:hover, input[type="week"]:hover, input:not([type]):hover, textarea:hover,
+  input[type="color"]:hover, select[type="color"]:hover, input[type="date"]:hover, select[type="date"]:hover, input[type="datetime"]:hover, select[type="datetime"]:hover, input[type="datetime-local"]:hover, select[type="datetime-local"]:hover, input[type="email"]:hover, select[type="email"]:hover, input[type="month"]:hover, select[type="month"]:hover, input[type="number"]:hover, select[type="number"]:hover, input[type="password"]:hover, select[type="password"]:hover, input[type="search"]:hover, select[type="search"]:hover, input[type="tel"]:hover, select[type="tel"]:hover, input[type="text"]:hover, select[type="text"]:hover, input[type="time"]:hover, select[type="time"]:hover, input[type="url"]:hover, select[type="url"]:hover, input[type="week"]:hover, select[type="week"]:hover, input:not([type]):hover, select:not([type]):hover, textarea:hover,
   select[multiple]:hover {
     border-color: #b1b1b1; }
   /* line 44, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_forms.scss */
-  input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, input:not([type]):focus, textarea:focus,
+  input[type="color"]:focus, select[type="color"]:focus, input[type="date"]:focus, select[type="date"]:focus, input[type="datetime"]:focus, select[type="datetime"]:focus, input[type="datetime-local"]:focus, select[type="datetime-local"]:focus, input[type="email"]:focus, select[type="email"]:focus, input[type="month"]:focus, select[type="month"]:focus, input[type="number"]:focus, select[type="number"]:focus, input[type="password"]:focus, select[type="password"]:focus, input[type="search"]:focus, select[type="search"]:focus, input[type="tel"]:focus, select[type="tel"]:focus, input[type="text"]:focus, select[type="text"]:focus, input[type="time"]:focus, select[type="time"]:focus, input[type="url"]:focus, select[type="url"]:focus, input[type="week"]:focus, select[type="week"]:focus, input:not([type]):focus, select:not([type]):focus, textarea:focus,
   select[multiple]:focus {
     border-color: #32292F;
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(36, 30, 34, 0.7);
     outline: none; }
   /* line 50, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_forms.scss */
-  input[type="color"]:disabled, input[type="date"]:disabled, input[type="datetime"]:disabled, input[type="datetime-local"]:disabled, input[type="email"]:disabled, input[type="month"]:disabled, input[type="number"]:disabled, input[type="password"]:disabled, input[type="search"]:disabled, input[type="tel"]:disabled, input[type="text"]:disabled, input[type="time"]:disabled, input[type="url"]:disabled, input[type="week"]:disabled, input:not([type]):disabled, textarea:disabled,
+  input[type="color"]:disabled, select[type="color"]:disabled, input[type="date"]:disabled, select[type="date"]:disabled, input[type="datetime"]:disabled, select[type="datetime"]:disabled, input[type="datetime-local"]:disabled, select[type="datetime-local"]:disabled, input[type="email"]:disabled, select[type="email"]:disabled, input[type="month"]:disabled, select[type="month"]:disabled, input[type="number"]:disabled, select[type="number"]:disabled, input[type="password"]:disabled, select[type="password"]:disabled, input[type="search"]:disabled, select[type="search"]:disabled, input[type="tel"]:disabled, select[type="tel"]:disabled, input[type="text"]:disabled, select[type="text"]:disabled, input[type="time"]:disabled, select[type="time"]:disabled, input[type="url"]:disabled, select[type="url"]:disabled, input[type="week"]:disabled, select[type="week"]:disabled, input:not([type]):disabled, select:not([type]):disabled, textarea:disabled,
   select[multiple]:disabled {
     background-color: #f2f2f2;
     cursor: not-allowed; }
     /* line 54, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_forms.scss */
-    input[type="color"]:disabled:hover, input[type="date"]:disabled:hover, input[type="datetime"]:disabled:hover, input[type="datetime-local"]:disabled:hover, input[type="email"]:disabled:hover, input[type="month"]:disabled:hover, input[type="number"]:disabled:hover, input[type="password"]:disabled:hover, input[type="search"]:disabled:hover, input[type="tel"]:disabled:hover, input[type="text"]:disabled:hover, input[type="time"]:disabled:hover, input[type="url"]:disabled:hover, input[type="week"]:disabled:hover, input:not([type]):disabled:hover, textarea:disabled:hover,
+    input[type="color"]:disabled:hover, select[type="color"]:disabled:hover, input[type="date"]:disabled:hover, select[type="date"]:disabled:hover, input[type="datetime"]:disabled:hover, select[type="datetime"]:disabled:hover, input[type="datetime-local"]:disabled:hover, select[type="datetime-local"]:disabled:hover, input[type="email"]:disabled:hover, select[type="email"]:disabled:hover, input[type="month"]:disabled:hover, select[type="month"]:disabled:hover, input[type="number"]:disabled:hover, select[type="number"]:disabled:hover, input[type="password"]:disabled:hover, select[type="password"]:disabled:hover, input[type="search"]:disabled:hover, select[type="search"]:disabled:hover, input[type="tel"]:disabled:hover, select[type="tel"]:disabled:hover, input[type="text"]:disabled:hover, select[type="text"]:disabled:hover, input[type="time"]:disabled:hover, select[type="time"]:disabled:hover, input[type="url"]:disabled:hover, select[type="url"]:disabled:hover, input[type="week"]:disabled:hover, select[type="week"]:disabled:hover, input:not([type]):disabled:hover, select:not([type]):disabled:hover, textarea:disabled:hover,
     select[multiple]:disabled:hover {
       border: 1px solid #ddd; }
 
@@ -504,6 +514,7 @@ select {
 /* line 2, D:/Github/code-institute-stream-1-project/src/styles/my-libraries/base/_lists.scss */
 ul,
 ol {
+  list-style-type: none;
   margin: 0;
   padding: 0; }
 
@@ -3336,10 +3347,10 @@ button {
     background-color: rgba(119, 98, 115, 0.9); }
 
 /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-colors-and-transitions.sass */
-a {
+nav > a, div > a, aside > a {
   color: rgba(35, 29, 34, 0.9); }
   /* line 42, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-colors-and-transitions.sass */
-  a:hover {
+  nav > a:hover, div > a:hover, aside > a:hover {
     color: rgba(119, 98, 115, 0.9); }
 
 /* line 45, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-colors-and-transitions.sass */
@@ -3412,13 +3423,13 @@ body {
   font-family: "Roboto", sans-serif; }
 
 /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-typography.sass */
-h1, h2, h3, h4, h5, label, legend, input[type="submit"], th, .menu-icon > span {
+h1, h2, h3, h4, h5, label, legend, input[type="submit"], select[type="submit"], th, .menu-icon > span {
   font-family: "Roboto Condensed", sans-serif;
   text-transform: uppercase;
   font-weight: 700; }
 
 /* line 16, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-typography.sass */
-p, small, span, b, em, blockquote, q, input, select, li, button {
+p, small, span, b, em, blockquote, q, input, select, select, li, button {
   font-family: "Roboto", sans-serif; }
 
 /* line 19, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-typography.sass */
@@ -3450,7 +3461,7 @@ b, label, strong {
   font-weight: 600; }
 
 /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-typography.sass */
-p, input, select {
+p, input, select, select {
   font-size: 1rem; }
 
 /* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-typography.sass */
@@ -3557,23 +3568,33 @@ img::-moz-selection {
   background: transparent; }
 
 /* line 55, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+img {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+/* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
 body {
   -webkit-font-smoothing: antialiased;
   -webkit-tap-highlight-color: #E5BCD3;
   -webkit-text-size-adjust: 100%;
   background-color: #fff; }
 
-/* line 61, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+/* line 64, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
 .divided {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 3px; }
 
-/* line 66, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+/* line 69, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
 .divided-no-border {
   padding: 20px; }
 
-/* line 69, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+/* line 72, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
 .text-button-wrapper {
   width: 100%;
   display: -webkit-box;
@@ -3612,22 +3633,22 @@ body {
   justify-content: space-between;
   -ms-flex-pack: justify;
   text-align: center; }
-  /* line 76, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+  /* line 79, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
   .text-button-wrapper button {
     width: 100%; }
-  /* line 79, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+  /* line 82, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
   .text-button-wrapper p {
     text-transform: uppercase; }
 
-/* line 82, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+/* line 85, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
 .text-button-wrapper > p {
   margin: 10px 0 0; }
 
-/* line 85, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+/* line 88, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
 i[class*="fa-chevron"] {
   cursor: pointer; }
 
-/* line 88, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+/* line 91, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
 span[class^="icon-circle"] {
   height: 38px;
   width: 38px;
@@ -3659,6 +3680,10 @@ span[class^="icon-circle"] {
   -ms-flex-align: center;
   cursor: pointer;
   z-index: 10; }
+
+/* line 100, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-base.sass */
+.plus-button {
+  padding: 2px 4px; }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
 .choice-wrapper {
@@ -3711,8 +3736,8 @@ span[class^="icon-circle"] {
     .choice-wrapper .inline-check span {
       font-family: "Roboto", sans-serif; }
 
-/* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
-.input-wrap {
+/* line 13, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
+.input-wrap-inline {
   display: -webkit-box;
   display: -moz-box;
   display: box;
@@ -3720,15 +3745,6 @@ span[class^="icon-circle"] {
   display: -moz-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center;
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   box-pack: justify;
@@ -3738,63 +3754,55 @@ span[class^="icon-circle"] {
   -o-justify-content: space-between;
   justify-content: space-between;
   -ms-flex-pack: justify;
-  -webkit-box-lines: multiple;
-  -moz-box-lines: multiple;
-  box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center; }
   /* line 19, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
-  .input-wrap input {
-    -webkit-box-flex: 7;
-    -moz-box-flex: 7;
-    box-flex: 7;
-    -webkit-flex: 7;
-    -moz-flex: 7;
-    -ms-flex: 7;
-    flex: 7;
-    -webkit-flex-shrink: 1;
-    -moz-flex-shrink: 1;
-    flex-shrink: 1;
-    -ms-flex-negative: 1;
-    -webkit-flex-basis: 220px;
-    -moz-flex-basis: 220px;
-    flex-basis: 220px;
-    -ms-flex-preferred-size: 220px;
-    -webkit-align-self: center;
-    -moz-align-self: center;
-    align-self: center;
-    -ms-flex-item-align: center; }
-  /* line 24, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
-  .input-wrap label {
-    margin-right: 10px;
-    white-space: nowrap;
-    -webkit-align-self: center;
-    -moz-align-self: center;
-    align-self: center;
-    -ms-flex-item-align: center;
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 1;
-    -moz-flex: 1;
-    -ms-flex: 1;
-    flex: 1;
-    -webkit-flex-shrink: 2;
-    -moz-flex-shrink: 2;
-    flex-shrink: 2;
-    -ms-flex-negative: 2;
-    -webkit-flex-basis: 140px;
-    -moz-flex-basis: 140px;
-    flex-basis: 140px;
-    -ms-flex-preferred-size: 140px; }
+  .input-wrap-inline input[type="checkbox"], .input-wrap-inline select[type="checkbox"] {
+    -webkit-flex-shrink: 0;
+    -moz-flex-shrink: 0;
+    flex-shrink: 0;
+    -ms-flex-negative: 0;
+    position: relative;
+    top: -6px;
+    -webkit-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -o-transform: scale(1.2);
+    transform: scale(1.2); }
 
-/* line 31, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
+/* line 39, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
+.input-wrap {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  margin-bottom: 0.75rem; }
+
+/* line 45, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
 .form-small {
   max-width: 320px; }
 
-/* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
+/* line 48, D:/Github/code-institute-stream-1-project/src/styles/my-styles/_my-forms.sass */
 .form-medium {
   max-width: 640px; }
 
@@ -4013,15 +4021,6 @@ body {
         display: -moz-flex;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-        -moz-box-pack: center;
-        box-pack: center;
-        -webkit-justify-content: center;
-        -moz-justify-content: center;
-        -ms-justify-content: center;
-        -o-justify-content: center;
-        justify-content: center;
-        -ms-flex-pack: center;
         -webkit-box-orient: vertical;
         -moz-box-orient: vertical;
         box-orient: vertical;
@@ -4052,7 +4051,7 @@ body {
         padding-right: calc(15% - 100px);
         padding-left: -webkit-calc(15% - 100px);
         padding-left: calc(15% - 100px); }
-    /* line 44, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+    /* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
     body .container .main-footer {
       display: -webkit-box;
       display: -moz-box;
@@ -4084,7 +4083,7 @@ body {
       padding: 20px; }
 
 @media (max-width: 600px) {
-  /* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+  /* line 51, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
   .main-aside, .empty-column {
     display: none !important; } }
 
@@ -4344,7 +4343,7 @@ body {
 @media screen and (max-width: 600px) {
   /* line 70, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
   .main-navigation-fixed {
-    width: 100%; } }
+    width: 100% !important; } }
 
 @media (min-width: 1116px) {
   /* line 74, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_nav.sass */
@@ -4986,5 +4985,108 @@ body {
     -o-justify-content: flex-end;
     justify-content: flex-end;
     -ms-flex-pack: end; }
+
+/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+.tabs {
+  width: 100%; }
+  /* line 3, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+  .tabs .tab-list {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex; }
+    /* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+    .tabs .tab-list .tab-header {
+      padding: 20px;
+      background-color: rgba(35, 29, 34, 0.9);
+      color: #fff;
+      margin-bottom: 0; }
+      /* line 10, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+      .tabs .tab-list .tab-header .tab-control {
+        color: rgba(255, 255, 255, 0.9); }
+      /* line 13, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+      .tabs .tab-list .tab-header.tab-active {
+        background-color: rgba(255, 255, 255, 0.7); }
+        /* line 16, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+        .tabs .tab-list .tab-header.tab-active .tab-control {
+          color: rgba(35, 29, 34, 0.9); }
+  /* line 20, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+  .tabs .tab-panel {
+    background-color: rgba(255, 255, 255, 0.7);
+    display: none;
+    padding: 20px;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column; }
+    /* line 26, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+    .tabs .tab-panel form {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: distribute;
+      -moz-box-pack: distribute;
+      box-pack: distribute;
+      -webkit-justify-content: space-around;
+      -moz-justify-content: space-around;
+      -ms-justify-content: space-around;
+      -o-justify-content: space-around;
+      justify-content: space-around;
+      -ms-flex-pack: distribute; }
+      /* line 30, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+      .tabs .tab-panel form fieldset {
+        -webkit-box-flex: 1;
+        -moz-box-flex: 1;
+        box-flex: 1;
+        -webkit-flex: 1;
+        -moz-flex: 1;
+        -ms-flex: 1;
+        flex: 1;
+        padding-right: 20px; }
+        /* line 35, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+        .tabs .tab-panel form fieldset .input-wrap .plus-button {
+          position: relative;
+          top: -6px;
+          margin-left: 5px; }
+        /* line 39, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+        .tabs .tab-panel form fieldset .input-wrap .img-wrapper {
+          position: relative;
+          border-radius: 3px; }
+          /* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          .tabs .tab-panel form fieldset .input-wrap .img-wrapper .map-controls {
+            position: absolute;
+            right: 10px;
+            bottom: 10px; }
+    /* line 46, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+    .tabs .tab-panel.tab-active {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex; }
+
+/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_maps.sass */
+.img-wrapper {
+  position: relative; }
+  /* line 3, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_maps.sass */
+  .img-wrapper .map-controls {
+    position: absolute;
+    right: 5px;
+    bottom: 5px; }
 
 /*# sourceMappingURL=main.css.map */

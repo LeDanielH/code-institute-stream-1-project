@@ -1,0 +1,48 @@
+.tabs
+	width: 100%
+	.tab-list
+		+display(flex)
+		.tab-header
+			padding: $base-padding
+			background-color: $dark-transparent-light
+			color: $base-background-color
+			margin-bottom: 0
+			.tab-control
+				color: $base-transparent-light
+
+			&.tab-active
+				background-color: $base-transparent-medium
+
+				.tab-control
+					color: $dark-transparent-light
+			
+
+	.tab-panel
+		background-color: $base-transparent-medium
+		+display(none)
+		padding: $base-padding
+		+flex-direction(column)
+	
+		form
+			+display(flex)
+			+justify-content(space-around)
+
+			fieldset
+				+flex(1)
+				padding-right: $base-padding
+
+				.input-wrap
+					.plus-button
+						+position(relative, -6px null null null)
+						margin-left: 5px
+
+					.img-wrapper
+						+position(relative)
+						border-radius: $base-border-radius
+
+						.map-controls
+							+position(absolute, null 10px 10px null)
+
+		&.tab-active
+			+display(flex)
+			
