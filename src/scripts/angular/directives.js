@@ -29,7 +29,7 @@ angular.module('myBandAppDirectives', [])
                             width = $scope.map.width;
                         }
                         if (!$scope.map.height) {
-                            var height = 250;
+                            var height = 200;
                         } else {
                             height = $scope.map.height;
                         }

@@ -24,8 +24,8 @@ angular.module('myBandAppControllers', [])
                 time: '20:00',
                 address: 'Tachovské nám. 7, 130 00 Praha 3, Czech Republic',
                 shortAddress: 'Prague, Czech Republic',
-                zoom: 16,
-                width: 1000
+                zoom: 14,
+                width: 400
                 
             }, {
                 clubName: 'Club Holdudvar',
@@ -33,8 +33,8 @@ angular.module('myBandAppControllers', [])
                 time: '21:00',
                 address: 'Budapest, Margitsziget, 1138 Hungary',
                 shortAddress: 'Budapest, Hungary',
-                zoom: 16,
-                width: 1000
+                zoom: 14,
+                width: 400
             }, {
 
                 clubName: 'The Twisted Pepper',
@@ -42,8 +42,8 @@ angular.module('myBandAppControllers', [])
                 time: '19:00',
                 address: '54 Middle Abbey Street, Dublin, Dublin 1',
                 shortAddress: 'Dublin, Ireland',
-                zoom: 16,
-                width: 1000
+                zoom: 14,
+                width: 400
             }];
             $scope.map = $scope.maps[0];
         }

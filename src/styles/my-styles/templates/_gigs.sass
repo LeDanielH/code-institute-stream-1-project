@@ -1,5 +1,6 @@
 .tabs
 	width: 100%
+	border-radius: 0 $base-border-radius $base-border-radius $base-border-radius
 	.tab-list
 		+display(flex)
 		.tab-header
@@ -7,6 +8,7 @@
 			background-color: $dark-transparent-light
 			color: $base-background-color
 			margin-bottom: 0
+			
 			.tab-control
 				color: $base-transparent-light
 
@@ -15,7 +17,13 @@
 
 				.tab-control
 					color: $dark-transparent-light
-			
+	
+			&#tab-header-1
+				border-top-left-radius: $base-border-radius
+	
+			&#tab-header-2
+				border-top-right-radius: $base-border-radius
+				
 
 	.tab-panel
 		background-color: $base-transparent-medium
@@ -35,13 +43,27 @@
 					.plus-button
 						+position(relative, -6px null null null)
 						margin-left: 5px
+	
+					.location-wrapper
+						+align-items(flex-start)
+						+justify-content(space-between)
+						+flex-wrap(wrap)
 
-					.img-wrapper
-						+position(relative)
-						border-radius: $base-border-radius
+						.input-wrap
+							+flex(1 1 150px)
+							max-width: 150px
+	
+						.img-wrapper
+							+flex-shrink(4 4 150px)
+							margin-bottom: $base-padding
+							+position(relative)
+							border-right: 5px solid transparent
 
-						.map-controls
-							+position(absolute, null 10px 10px null)
+							.map-controls
+								+position(absolute, null -6px 3px null)
+								+transform(scale(0.7))
+	
+
 
 		&.tab-active
 			+display(flex)
