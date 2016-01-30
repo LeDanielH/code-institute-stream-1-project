@@ -2492,11 +2492,11 @@ h2,.h2 {
 h3,.h3 {
 	font-size: 1.8rem;
 }
-h4,.h4,legend {
-	font-size: 1.5rem;
+h4,.h4,legend,label {
+	font-size: 1.3rem;
 }
-h5,.h5,label,th {
-	font-size: 1.2rem;
+h5,.h5,th {
+	font-size: 1.1rem;
 }
 b,label,strong {
 	font-weight: 600;
@@ -2735,15 +2735,6 @@ span[class^="icon-circle"] {
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
 	-webkit-box-align: center;
 	-moz-box-align: center;
 	box-align: center;
@@ -2792,6 +2783,9 @@ span[class^="icon-circle"] {
 }
 .form-medium {
 	max-width: 640px;
+}
+select option {
+	width: 100%;
 }
 table thead {
 	width: 100%;
@@ -3941,6 +3935,7 @@ body .container .main-footer {
 }
 .tabs {
 	width: 100%;
+	border-radius: 0 3px 3px 3px;
 }
 .tabs .tab-list {
 	display: -webkit-box;
@@ -3965,6 +3960,12 @@ body .container .main-footer {
 }
 .tabs .tab-list .tab-header.tab-active .tab-control {
 	color: rgba(35, 29, 34, 0.9);
+}
+.tabs .tab-list .tab-header#tab-header-1 {
+	border-top-left-radius: 3px;
+}
+.tabs .tab-list .tab-header#tab-header-2 {
+	border-top-right-radius: 3px;
 }
 .tabs .tab-panel {
 	background-color: rgba(255, 255, 255, 0.7);
@@ -4014,14 +4015,61 @@ body .container .main-footer {
 	top: -6px;
 	margin-left: 5px;
 }
-.tabs .tab-panel form fieldset .input-wrap .img-wrapper {
-	position: relative;
-	border-radius: 3px;
+.tabs .tab-panel form fieldset .input-wrap .location-wrapper {
+	-webkit-box-align: start;
+	-moz-box-align: start;
+	box-align: start;
+	-webkit-align-items: flex-start;
+	-moz-align-items: flex-start;
+	-ms-align-items: flex-start;
+	-o-align-items: flex-start;
+	align-items: flex-start;
+	-ms-flex-align: start;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	-webkit-box-lines: multiple;
+	-moz-box-lines: multiple;
+	box-lines: multiple;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
 }
-.tabs .tab-panel form fieldset .input-wrap .img-wrapper .map-controls {
+.tabs .tab-panel form fieldset .input-wrap .location-wrapper .input-wrap {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1 1 150px;
+	-moz-flex: 1 1 150px;
+	-ms-flex: 1 1 150px;
+	flex: 1 1 150px;
+	max-width: 150px;
+}
+.tabs .tab-panel form fieldset .input-wrap .location-wrapper .img-wrapper {
+	-webkit-flex-shrink: 4 4 150px;
+	-moz-flex-shrink: 4 4 150px;
+	flex-shrink: 4 4 150px;
+	-ms-flex-negative: 4 4 150px;
+	margin-bottom: 20px;
+	position: relative;
+	border-right: 5px solid transparent;
+}
+.tabs .tab-panel form fieldset .input-wrap .location-wrapper .img-wrapper .map-controls {
 	position: absolute;
-	right: 10px;
-	bottom: 10px;
+	right: -6px;
+	bottom: 3px;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	-o-transform: scale(0.7);
+	transform: scale(0.7);
 }
 .tabs .tab-panel.tab-active {
 	display: -webkit-box;
@@ -4031,12 +4079,4 @@ body .container .main-footer {
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
-}
-.img-wrapper {
-	position: relative;
-}
-.img-wrapper .map-controls {
-	position: absolute;
-	right: 5px;
-	bottom: 5px;
 }
