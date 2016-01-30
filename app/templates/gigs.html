@@ -1,25 +1,30 @@
 <h1 class="h2 c-text content-heading">{{title}}</h1>
 <div class="tabs">
 	<div class="tab-list">
-		<h3 class="h5 tab-header tab-active">
-			<a class="tab-control" href="#/tab-1">BUY A BwTICKET</a>
+		<h3 id="tab-header-1" class="h4 tab-header tab-active">
+			<a class="tab-control" href="#/tab-1">BUY A TICKET</a>
 		</h3>
-		<h3 class="h5 tab-header">
+		<h3 id="tab-header-2" class="h4 tab-header">
 			<a class="tab-control" href="#/tab-2">BOOK US</a>
 		</h3>
 	</div>
 	<div class="tab-panel tab-active" id="tab-1">
 		<p>Please fill all the required information.</p>
 		<form action="">
-			<fieldset class="form-column-1">
+			<fieldset>
 				<div class="input-wrap">
-					<label for="where-and-when">Where and when?</label>
-					<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.shortAddress + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when">
-<!--						<option value="value1" selected>Prague, 17/12/2016</option>-->
-<!--						<option value="value1">Budapest, 30/12/2016</option>-->
-<!--						<option value="value1">Dublin, 02/01/2017</option>-->
-					</select>
-					<make-map map="map"></make-map>
+					<div class="input-wrap">
+						<label for="where-and-when">Where and when?</label>
+						<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when">
+						</select>
+					</div>
+					<div class="input-wrap-inline location-wrapper">
+						<div class="input-wrap">
+							<h5>Address</h5>
+							<p>{{map.address}}</p>
+						</div>
+						<make-map map="map"></make-map>
+					</div>
 				</div>
 				<div class="input-wrap">
 					<label for="email">Your email?</label>
