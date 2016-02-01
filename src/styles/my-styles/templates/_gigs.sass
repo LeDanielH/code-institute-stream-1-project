@@ -1,36 +1,25 @@
+
 .tabs
-	width: 100%
-	border-radius: 0 $base-border-radius $base-border-radius $base-border-radius
-	.tab-list
-		+display(flex)
-		.tab-header
-			padding: $base-padding
-			background-color: $dark-transparent-light
-			color: $base-background-color
-			margin-bottom: 0
-			
-			.tab-control
-				color: $base-transparent-light
+	+display(flex)
+	+flex-wrap(wrap)
 
-			&.tab-active
-				background-color: $base-transparent-medium
-
-				.tab-control
-					color: $dark-transparent-light
-	
-			&#tab-header-1
-				border-top-left-radius: $base-border-radius
-	
-			&#tab-header-2
-				border-top-right-radius: $base-border-radius
-				
+	.tab-header
+		background-color: $dark-transparent-light
+		color: $base-transparent-medium
+		padding: $base-padding
+		margin-bottom: 0
+		cursor: pointer
+		z-index: 1
+		+flex(1)
+		max-width: 165px
 
 	.tab-panel
+		width: 100%
+		padding:  $base-padding
+		+order(1)
 		background-color: $base-transparent-medium
-		+display(none)
-		padding: $base-padding
-		+flex-direction(column)
-	
+		border-radius: 0 $base-border-radius $base-border-radius 
+
 		form
 			+display(flex)
 			+justify-content(space-around)
@@ -43,7 +32,7 @@
 					.plus-button
 						+position(relative, -6px null null null)
 						margin-left: 5px
-	
+
 					.location-wrapper
 						+align-items(flex-start)
 						+justify-content(space-between)
@@ -51,8 +40,8 @@
 
 						.input-wrap
 							+flex(1 1 150px)
-							max-width: 150px
-	
+							max-width: 170px
+
 						.img-wrapper
 							+flex-shrink(4 4 150px)
 							margin-bottom: $base-padding
@@ -62,9 +51,21 @@
 							.map-controls
 								+position(absolute, null -6px 3px null)
 								+transform(scale(0.7))
-	
 
+	label.tab-header:first-of-type
+		border-top-left-radius: $base-border-radius
 
-		&.tab-active
-			+display(flex)
-			
+	label.tab-header:last-of-type
+		border-top-right-radius: $base-border-radius
+
+	input[type=radio], .tab-panel 
+		display: none
+
+	input[type=radio]:checked + .tab-header 
+		background-color: $base-transparent-medium
+		color: $dark-transparent-light
+
+	input[type=radio]:checked + .tab-header + .tab-panel 
+		+display(flex)
+		+flex-direction(column)
+ 

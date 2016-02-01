@@ -46,8 +46,8 @@ gulp.task('process-scripts', ['modernizr'], function () {
 			'src/scripts/angular/directives.js',
 			'src/scripts/my-jquery.js',
 			'src/scripts/my-javascript.js',
-			'src/scripts/my-d3.js',
-			'src/scripts/my-gsap.js'
+			// 'src/scripts/my-d3.js',
+			// 'src/scripts/my-gsap.js'
 		])
 		.pipe(concat('my-scripts.js'))
 		.pipe(jshint())
@@ -165,9 +165,10 @@ gulp.task('process-js-libraries', function() {
 		'bower_components/angular/angular.min.js',
 		'bower_components/angular-route/angular-route.min.js',
 		'bower_components/angular-sanitize/angular-sanitize.min.js',
+		'bower_components/angular-animate/angular-animate.min.js',
 		'bower_components/jquery/dist/jquery.min.js',
-		'bower_components/gsap/src/minified/TweenMax.min.js',
-		'bower_components/d3/d3.min.js'
+		//'bower_components/gsap/src/minified/TweenMax.min.js',
+		//'bower_components/d3/d3.min.js'
 	])
 	.pipe(concat('libraries.min.js'))
 	//.pipe(stripComments())
@@ -180,9 +181,10 @@ gulp.task('debug-js-libraries', function() {
 		'bower_components/angular/angular.js',
 		'bower_components/angular-route/angular-route.js',
 		'bower_components/angular-sanitize/angular-sanitize.js',
+		'bower_components/angular-animate/angular-animate.min.js',
 		'bower_components/jquery/dist/jquery.js',
-		'bower_components/gsap/src/uncompressed/TweenMax.js',
-		'bower_components/d3/d3.js'
+		//'bower_components/gsap/src/uncompressed/TweenMax.js',
+		//'bower_components/d3/d3.js'
 	])
 	.pipe(concat('libraries-debug.js'))
 	.pipe(gulp.dest('app/scripts/'));

@@ -12,17 +12,17 @@
 	<link rel="stylesheet" href="styles/main.min.css">
 
 	<!-- SCRIPTS -->
-	<script src="scripts/libraries.min.js"></script> 
+<!--	<script src="scripts/libraries.min.js"></script>-->
 
-	 <!-- DEBUG SCRIPTS-->
-<!--	<script src="scripts/libraries-debug.js"></script>-->
+	<!-- DEBUG SCRIPTS-->
+		<script src="scripts/libraries-debug.js"></script>
 	<!-- BACKUP SCRIPTS -->
-<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>-->
-<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>-->
-<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-sanitize.min.js"></script>-->
-<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>-->
-<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>-->
-<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>-->
+	<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular.min.js"></script>-->
+	<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-route.min.js"></script>-->
+	<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.9/angular-sanitize.min.js"></script>-->
+	<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>-->
+	<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.13/d3.min.js"></script>-->
+	<!--	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.2/TweenMax.min.js"></script>-->
 
 </head>
 
@@ -65,56 +65,13 @@
 	<section class="container">
 		<header class="main-header">
 			<div class="slider">
-				<span class="icon-circle-left">
+				<span class="icon-circle-left" ng-click="prev()">
 					<i class="fa fa-chevron-left fa-2x"></i>
 				</span>
-				<div class="slide-viewer">
-					<figure class="slide slide-1">
-						<div class="quote-wrapper">
-							<q class="bq-over-img">
-								<i class="fa fa-quote-left fa-pull-left"></i>
-								<br>This was the best party ever!<br>
-								<i class="fa fa-quote-right fa-pull-right"></i>
-							</q>
-							<cite>- Elen from Vienna</cite>
-						</div>
-				
-					</figure>
-					<figure class="slide slide-2">
-						<div class="quote-wrapper">
-							<q class="bq-over-img">
-								<i class="fa fa-quote-left fa-pull-left"></i>
-								<br>Unforgettable Experience!<br>
-								<i class="fa fa-quote-right fa-pull-right"></i>
-							</q>
-							<cite>- The Music Magazine</cite>
-						</div>
-				
-					</figure>
-					<figure class="slide slide-3">
-						<div class="quote-wrapper">
-							<q class="bq-over-img">
-								<i class="fa fa-quote-left fa-pull-left"></i>
-								<br>Redefinition of the word "FUN"!<br>
-								<i class="fa fa-quote-right fa-pull-right"></i>
-							</q>
-							<cite>- WHY REST Magazine</cite>
-						</div>
-				
-					</figure>
-					<figure class="slide slide-4">
-						<div class="quote-wrapper">
-							<q class="bq-over-img">
-								<i class="fa fa-quote-left fa-pull-left"></i>
-								<br>I felt in love on this party!<br>
-								<i class="fa fa-quote-right fa-pull-right"></i>
-							</q>
-							<cite>- Barbie from Georgia</cite>
-						</div>
-				
-					</figure>
+				<div class="slider-viewer">
+					<photo-slider images="images"></photo-slider>
 				</div>
-				<span class="icon-circle-right">
+				<span class="icon-circle-right" ng-click="next()">
 					<i class="fa fa-chevron-right fa-2x"></i>
 				</span>
 			</div>
@@ -143,7 +100,7 @@
 		</header>
 		<div class="columns-wrapper">
 			<section class="content" ng-view>
-				
+
 			</section>
 			<aside class="tour-dates divided-no-border">
 				<h3 class="h4"><i class="fa fa-calendar"></i> Upcoming Gigs</h3>
@@ -255,7 +212,7 @@
 		</footer>
 	</section>
 
-	<script src="scripts/my-scripts.min.js"></script>
+	<script src="scripts/my-scripts.js"></script>
 </body>
 
 </html>

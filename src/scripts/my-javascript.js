@@ -9,20 +9,20 @@ var hourNow = today.getHours();
 var greeting;
 
 (function updateGreeting() {
-    if (hourNow > 18) {
-        greeting = 'Good evening stranger!';
-    } else if (hourNow > 12) {
-        greeting = 'Good afternoon stranger!';
-    } else if (hourNow > 0) {
-        greeting = 'Good morning stranger!';
-    } else {
-        greeting = 'Welcome stranger!';
-    }
-    var enterGreeting = document.getElementById('greeting');
-    enterGreeting.textContent = greeting;
+	if (hourNow > 18) {
+		greeting = 'Good evening stranger!';
+	} else if (hourNow > 12) {
+		greeting = 'Good afternoon stranger!';
+	} else if (hourNow > 0) {
+		greeting = 'Good morning stranger!';
+	} else {
+		greeting = 'Welcome stranger!';
+	}
+	var enterGreeting = document.getElementById('greeting');
+	enterGreeting.textContent = greeting;
 })();
 
 (function updateCopyrightYear() {
-    var enterYear = document.getElementById('copyYear');
-    enterYear.innerHTML = "&copy;" + " Monkees " + year;
+	var enterYear = document.getElementById('copyYear');
+	enterYear.innerHTML = "&copy;" + " Monkees " + year;
 })();

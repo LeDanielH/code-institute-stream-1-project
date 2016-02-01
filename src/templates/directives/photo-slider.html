@@ -1,0 +1,11 @@
+
+	<figure ng-repeat="image in images" class="slide {{image.titleClass}}" ng-show="image.visible">
+		<div class="quote-wrapper">
+			<q class="bq-over-img">
+			<i class="fa fa-quote-left fa-pull-left"></i>
+			<br>{{image.quote}}<br>
+			<i class="fa fa-quote-right fa-pull-right"></i>
+			</q>
+			<cite>- {{image.cite}}</cite>
+		</div>
+	</figure>

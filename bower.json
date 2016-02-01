@@ -21,6 +21,8 @@
     "jquery": "~2.1.4",
     "gsap": "~1.18.2",
     "angular-route": "~1.4.9",
-    "angular-sanitize": "~1.4.9"
+    "angular-sanitize": "~1.4.9",
+    "angular-material": "~1.0.4",
+    "angular-animate": "~1.4.9"
   }
 }

@@ -13,6 +13,25 @@ angular.module('myBandAppControllers', [])
     .controller('HomeController', ['$scope',
         function($scope) {
             $scope.title = 'THE NEWS';
+
+            //slider
+            $scope.images = [{
+                titleClass: 'slide-1',
+                quote: 'This was the best party ever!',
+                cite: 'Elen from Vienna'
+            }, {
+                titleClass: 'slide-2',
+                quote: 'Unforgettable Experience!',
+                cite: 'The Music Magazine'
+            }, {
+                titleClass: 'slide-3',
+                quote: 'Redefinition of the word "FUN"!',
+                cite: 'WHY REST Magazine'
+            }, {
+                titleClass: 'slide-4',
+                quote: 'I felt in love on this party!',
+                cite: 'Barbie from Georgia'
+            }];
         }
     ])
     .controller('GigsController', ['$scope',
@@ -22,17 +41,23 @@ angular.module('myBandAppControllers', [])
                 clubName: 'Club Matrix',
                 date: '17/12/2016',
                 time: '20:00',
-                address: 'Tachovské nám. 7, 130 00 Praha 3, Czech Republic',
-                shortAddress: 'Prague, Czech Republic',
+                address: [{
+                    street: 'Tachovské nám. 7',
+                    city: 'Praha',
+                    country: 'Czech Republic'
+                }],
                 zoom: 14,
                 width: 400
-                
+
             }, {
                 clubName: 'Club Holdudvar',
                 date: '30/12/2016',
                 time: '21:00',
-                address: 'Budapest, Margitsziget, 1138 Hungary',
-                shortAddress: 'Budapest, Hungary',
+                address: [{
+                    street: 'Margitsziget 1138',
+                    city: 'Budapest',
+                    country: 'Hungary'
+                }],
                 zoom: 14,
                 width: 400
             }, {
@@ -40,21 +65,23 @@ angular.module('myBandAppControllers', [])
                 clubName: 'The Twisted Pepper',
                 date: '02/01/2017',
                 time: '19:00',
-                address: '54 Middle Abbey Street, Dublin, Dublin 1',
-                shortAddress: 'Dublin, Ireland',
+                address: [{
+                    street: '54 Middle Abbey Street',
+                    city: 'Dublin',
+                    country: 'Ireland'
+                }],
                 zoom: 14,
                 width: 400
             }];
             $scope.map = $scope.maps[0];
         }
-    ])
+    ]);
 // .controller('BuyTicketController', ['$scope', function($scope) {
 //     $cope.title = 'BUY A TICKET';
 // }])
 // .controller('BookUsController', ['$scope', function($scope) {
 //     $cope.title = 'BOOK US NOW';
 // }])
-;
 // .controller('StoreController', ['$scope',
 //     function($scope) {
 //         var store = {

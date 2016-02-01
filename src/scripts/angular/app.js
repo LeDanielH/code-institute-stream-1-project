@@ -1,4 +1,4 @@
-angular.module('bandApp', ['ngRoute', 'myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices'])
+angular.module('bandApp', ['ngRoute', 'ngAnimate', 'myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices'])
 	.config(['$routeProvider', function($routeProvider) {
 			$routeProvider
 				.when('/home', {
