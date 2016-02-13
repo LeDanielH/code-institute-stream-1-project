@@ -165,7 +165,7 @@ gulp.task('process-js-libraries', function() {
 		'bower_components/angular/angular.min.js',
 		'bower_components/angular-route/angular-route.min.js',
 		'bower_components/angular-sanitize/angular-sanitize.min.js',
-		'bower_components/angular-animate/angular-animate.min.js',
+		//'bower_components/angular-animate/angular-animate.min.js',
 		'bower_components/jquery/dist/jquery.min.js',
 		//'bower_components/gsap/src/minified/TweenMax.min.js',
 		//'bower_components/d3/d3.min.js'
@@ -181,7 +181,7 @@ gulp.task('debug-js-libraries', function() {
 		'bower_components/angular/angular.js',
 		'bower_components/angular-route/angular-route.js',
 		'bower_components/angular-sanitize/angular-sanitize.js',
-		'bower_components/angular-animate/angular-animate.min.js',
+		//'bower_components/angular-animate/angular-animate.min.js',
 		'bower_components/jquery/dist/jquery.js',
 		//'bower_components/gsap/src/uncompressed/TweenMax.js',
 		//'bower_components/d3/d3.js'

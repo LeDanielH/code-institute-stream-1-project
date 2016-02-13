@@ -10,7 +10,7 @@ body
 	.empty-column
 		min-width: 230px
 
-	.main-aside
+	.left-sidebar
 		position: fixed
 		+display(flex)
 		+flex-direction(column)
@@ -26,6 +26,11 @@ body
 		+calc(padding-right, "20% - 100px")
 		+calc(padding-left, "20% - 100px")
 
+		.main-header
+			+display(flex)
+			+flex-direction(column)
+			width: 100%
+
 		.columns-wrapper
 			+display(flex)
 			+justify-content(space-between)
@@ -40,6 +45,7 @@ body
 				+calc(padding-right, "15% - 100px")
 				+calc(padding-left, "15% - 100px")
 	
+	
 		.main-footer
 			+display(flex)
 			+flex-direction(column)
@@ -48,5 +54,5 @@ body
 			padding: $base-padding
 	
 @media (max-width: $query-small)
-	.main-aside, .empty-column
+	.left-sidebar, .empty-column
 		display: none !important

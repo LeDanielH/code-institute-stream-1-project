@@ -1,9 +1,9 @@
-angular.module('bandApp', ['ngRoute', 'ngAnimate', 'myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices'])
-	.config(['$routeProvider', function($routeProvider) {
+angular.module('bandApp', ['ngRoute', 'myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices'])
+	.config(['$routeProvider', '$locationProvider', function($routeProvider) {
 			$routeProvider
 				.when('/home', {
 					templateUrl: 'templates/home.html',
-					controller: 'HomeController'
+					controller: 'BlogPostsController'
 				})
 				.when('/gigs', {
 					templateUrl: 'templates/gigs.html',

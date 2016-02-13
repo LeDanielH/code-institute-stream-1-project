@@ -1,0 +1,55 @@
+.slider
+	+position(relative)
+	height: 24vw
+	.icon-circle-left
+		+position(absolute, 47% null null 3%)
+
+	.icon-circle-right
+		+position(absolute, 47% 3% null null)
+
+	.slide-viewer
+		+position(relative)
+		overflow: hidden
+		height: 100%
+
+		.slide
+			+position(absolute)
+			+display(none)
+			//+calc(height, "50vh - 100px")
+			background-repeat: no-repeat
+			background-position: center
+			background-size: contain
+			height: 100%
+			width: 100%
+
+			&.slide-1
+				background-image: url("../images/monkees.jpg")
+
+			&.slide-2
+				background-image: url("../images/monkees-undercover.jpg")
+
+			&.slide-3
+				background-image: url("../images/monkees-big.jpg")
+
+			&.slide-4
+				background-image: url("../images/monkees-fans.jpg")
+
+			&:first-child
+				+display(flex)
+
+			.quote-wrapper
+				+position(absolute, null 10% $base-padding null)
+				padding: $base-padding
+				max-width: 300px
+				border-radius: $base-border-radius
+
+				.bq-over-img
+					quotes: none
+
+				cite
+					align-self: flex-end
+					font-style: normal
+	
+@media (max-width: $query-small)
+	.slider
+		height: 50vw

@@ -7,6 +7,8 @@ $font-content: 'Roboto', sans-serif
 
 body
 	font-family: $font-content
+	-webkit-text-size-adjust: 100%
+	-webkit-font-smoothing: antialiased
 
 h1, h2, h3, h4, h5, label, legend, input[type="submit"], th, .menu-icon > span
 	font-family: $font-heading
@@ -69,4 +71,19 @@ small
 
 i > span
 	font-family: $font-content
+
+i[class*="fa-chevron"]
+	cursor: pointer	
+
+span[class^="icon-circle"]
+	+size(38px)
+	border-radius: 50%
+	+display(flex)
+	+justify-content(center)
+	+align-items(center)
+	cursor: pointer
+	z-index: 10
+
+.plus-button
+	padding: 2px 4px
 	

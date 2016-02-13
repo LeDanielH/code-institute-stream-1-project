@@ -1,9 +1,9 @@
-angular.module('bandApp', ['ngRoute', 'ngAnimate', 'myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices'])
-	.config(['$routeProvider', function($routeProvider) {
+angular.module('bandApp', ['ngRoute', 'myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices'])
+	.config(['$routeProvider', '$locationProvider', function($routeProvider) {
 			$routeProvider
 				.when('/home', {
 					templateUrl: 'templates/home.html',
-					controller: 'HomeController'
+					controller: 'BlogPostsController'
 				})
 				.when('/gigs', {
 					templateUrl: 'templates/gigs.html',
@@ -22,42 +22,19 @@ angular.module('bandApp', ['ngRoute', 'ngAnimate', 'myBandAppControllers', 'myBa
 angular.module('myBandAppControllers', [])
     .controller('SocialIconsController', ['$scope',
         function($scope) {
-            var socialIcons = [
-                'fa-facebook',
-                'fa-twitter',
-                'fa-instagram',
-                'fa-youtube'
+            $scope.title = 'follow us!';
+            $scope.socialIcons = [
+                'facebook',
+                'twitter',
+                'instagram',
+                'youtube'
             ];
-            $scope.socialIcons = socialIcons;
-        }
-    ])
-    .controller('HomeController', ['$scope',
-        function($scope) {
-            $scope.title = 'THE NEWS';
-
-            //slider
-            $scope.images = [{
-                titleClass: 'slide-1',
-                quote: 'This was the best party ever!',
-                cite: 'Elen from Vienna'
-            }, {
-                titleClass: 'slide-2',
-                quote: 'Unforgettable Experience!',
-                cite: 'The Music Magazine'
-            }, {
-                titleClass: 'slide-3',
-                quote: 'Redefinition of the word "FUN"!',
-                cite: 'WHY REST Magazine'
-            }, {
-                titleClass: 'slide-4',
-                quote: 'I felt in love on this party!',
-                cite: 'Barbie from Georgia'
-            }];
         }
     ])
     .controller('GigsController', ['$scope',
         function($scope) {
             $scope.title = 'GIGS';
+            $scope.subtitles = ['where', 'when'];
             $scope.maps = [{
                 clubName: 'Club Matrix',
                 date: '17/12/2016',
@@ -96,60 +73,145 @@ angular.module('myBandAppControllers', [])
             }];
             $scope.map = $scope.maps[0];
         }
+    ])
+    .controller('StoreItemsController', ['$scope',
+        function($scope) {
+            $scope.sortByCategories = ['popular', 'best selling', 'price'];
+            $scope.storeItemsList = [{
+                itemName: 'music album',
+                price: 10,
+                stock: 5
+            }, {
+                itemName: 'cup',
+                price: 3,
+                stock: 2
+            }, {
+                itemName: 'hat',
+                price: 4,
+                stock: 8
+            }, {
+                itemName: 'discography',
+                price: 40,
+                stock: 2
+            }, {
+                itemName: 'scarf',
+                price: 10,
+                stock: 0
+            }, {
+                itemName: 't-shirt',
+                price: 20,
+                stock: 10
+            }, {
+                itemName: 'gift coupon',
+                price: 'choose value',
+                stock: 100
+            }, {
+                itemName: 'dvd',
+                price: 15,
+                stock: 5
+            }, {
+                itemName: 'sticker',
+                price: 2,
+                stock: 100
+            }, {
+                itemName: 'usb',
+                price: 8,
+                stock: 20
+            }];
+            $scope.sortByCategory = $scope.sortByCategories[0];
+            $scope.getSaleAll = function(percentOff) {
+                for (var i = 0; i < $scope.storeItemsList.length; i++) {
+                    return ($scope.storeItemsList[i].price / 100) * (100 - percentOff);
+                }
+            };
+            $scope.getCategory = function() {
+
+            };
+            $scope.itemsStockMessage = function() {
+                for (var i = 0; i < $scope.storeItemsList.length; i++) {
+                    var message = '';
+                    if ($scope.storeItemsList[i].stock === 0) {
+                        return message += 'Out of stock';
+                    } else {
+                        return message += 'In stock';
+                    }
+                }
+            };
+        }
+    ])
+    .controller('PhotoSliderController', ['$scope',
+        function($scope) {
+            $scope.images = [{
+                id: '1',
+                quote: 'This was the best party ever!',
+                cite: 'Elen from Vienna'
+            }, {
+                id: '2',
+                quote: 'Unforgettable Experience!',
+                cite: 'The Music Magazine'
+            }, {
+                id: '3',
+                quote: 'Redefinition of the word "FUN"!',
+                cite: 'WHY REST Magazine'
+            }, {
+                id: '4',
+                quote: 'I felt in love on this party!',
+                cite: 'Barbie from Georgia'
+            }];
+
+        }
+    ])
+    .controller('ButtonBoxController', ['$scope', '$location',
+        function($scope, $location) {
+            $scope.go = function(path) {
+                $location.path(path);
+            };
+            $scope.buttonBox = [{
+                bookTicket: [{
+                    heading: 'wanna party?',
+                    content: '',
+                    button: 'join the party!'
+                }],
+                bookBand: [{
+                    heading: 'want a party?',
+                    content: '',
+                    button: 'book us now!'
+                }],
+                signUp: [{
+                    heading: '',
+                    content: 'for exclusive members only content and prices',
+                    button: 'sign up!'
+                }]
+
+            }];
+        }
+    ])
+    .controller('BlogPostsController', ['$scope',
+        function($scope) {
+            $scope.title = 'news';
+            $scope.blogPosts = [{
+                heading: 'Blog post 1',
+                imageSrc: 'images/album.jpg',
+                introContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...',
+                date: '01/02/2015'
+            }, {
+                heading: 'Blog post 2',
+                imageSrc: 'images/album.jpg',
+                introContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...',
+                date: '24/12/2015'
+            }, {
+                heading: 'Blog post 3',
+                imageSrc: 'images/album.jpg',
+                introContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...',
+                date: '08/02/2016'
+            }];
+        }
     ]);
-// .controller('BuyTicketController', ['$scope', function($scope) {
-//     $cope.title = 'BUY A TICKET';
-// }])
-// .controller('BookUsController', ['$scope', function($scope) {
-//     $cope.title = 'BOOK US NOW';
-// }])
-// .controller('StoreController', ['$scope',
-//     function($scope) {
-//         var store = {
-//             items: [{
-//                 name: 'Item1',
-//                 price: 10,
-//                 stock: 0
-//             }, {
-//                 name: 'Item2',
-//                 price: 6,
-//                 stock: 0
-//             }, {
-//                 name: 'Item3',
-//                 price: 8,
-//                 stock: 0
-//             }, {
-//                 name: 'Item4',
-//                 price: 50,
-//                 stock: 3
-//             }, {
-//                 name: 'Item5',
-//                 price: 20,
-//                 stock: 2
-//             }],
-//             //, getSalePrice: function(minusNum) {
-//             // 	for(var i = 0; i < store.items.length; i++) {
-//             // 		return store.items[i].price - minusNum;
-//             // 	}
-//             // }
-//             itemsStock: function() {
-//                 var msg = '';
-//                 if (store.items.stock === 0) {
-//                     msg += 'Out of stock';
-//                     document.getElementById('stock').className(itemNotAvailable);
-//                 } else {
-//                     msg += 'In stock';
-//                     document.getElementById('stock').className(itemAvailable);
-//                 }
-//             }
-//         };
-//     }
-// ])
 angular.module('myBandAppServices',[]);
 
 angular.module('myBandAppDirectives', [])
     .directive('makeMap', function() {
-        var directive = {
+        var mapDdirective = {
             restrict: 'EA',
             templateUrl: 'templates/directives/maps.html',
             scope: {
@@ -200,240 +262,208 @@ angular.module('myBandAppDirectives', [])
                 }
             ]
         };
-        return directive;
-    })
+        return mapDdirective;
+    });
+    // .directive('photoSlider', function(){
+    //     var photoSliderDirective = {
+    //         restrict: 'EA',
+    //         templateUrl: 'templates/directives/photo-slider.html',
+    //         scope: {
+    //             image: '='
+    //         },
+    //     };
+    //     return photoSliderDirective;
+    // });
 
-    .directive('photoSlider', [ '$timeout', function($timeout) {
-            return {
-                restrict: 'AE',
-                replace: true,
-                templateUrl: 'templates/directives/photo-slider.html',
-                scope: {
-                    images: '='
-                },
-                link: function(scope, elem, attrs) {
-                    scope.currentIndex = 0;
-                    scope.next = function() {
-                        if (scope.currentIndex < scope.images.length - 1) {
-                            scope.currentIndex++;
-                        } else {
-                            scope.currentIndex = 0;
-                        }
-                    };
-                    scope.prev = function() {
-                        if (scope.currentIndex > 0) {
-                            scope.currentIndex--;
-                        } else {
-                            scope.currentIndex = scope.images.length - 1;
-                        }
-                    };
-                    scope.$watch('currentIndex', function() {
-                        scope.images.forEach(function(image) {
-                            image.visible = false;
-                        });
-                        scope.images[scope.currentIndex].visible = true;
-                    });
+    // .directive('photoSlider', [ '$timeout', function($timeout) {
+    //         return {
+    //             restrict: 'AE',
+    //             replace: true,
+    //             templateUrl: 'templates/directives/photo-slider.html',
+    //             scope: {
+    //                 images: '='
+    //             },
+    //             link: function(scope, elem, attrs) {
+    //                 scope.currentIndex = 0;
+    //                 scope.next = function() {
+    //                     if (scope.currentIndex < scope.images.length - 1) {
+    //                         scope.currentIndex++;
+    //                     } else {
+    //                         scope.currentIndex = 0;
+    //                     }
+    //                 };
+    //                 scope.prev = function() {
+    //                     if (scope.currentIndex > 0) {
+    //                         scope.currentIndex--;
+    //                     } else {
+    //                         scope.currentIndex = scope.images.length - 1;
+    //                     }
+    //                 };
+    //                 scope.$watch('currentIndex', function() {
+    //                     scope.images.forEach(function(image) {
+    //                         image.visible = false;
+    //                     });
+    //                     scope.images[scope.currentIndex].visible = true;
+    //                 });
     
-                    var timer;
-                    var sliderFunc = function() {
-                        timer = $timeout(function() {
-                            scope.next();
-                            timer = $timeout(sliderFunc, 5000);
-                        }, 5000);
-                    };
-                    sliderFunc();
-                    scope.$on('$destroy', function() {
-                        $timeout.cancel(timer);
-                    });
-                },
+    //                 var timer;
+    //                 var sliderFunc = function() {
+    //                     timer = $timeout(function() {
+    //                         scope.next();
+    //                         timer = $timeout(sliderFunc, 5000);
+    //                     }, 5000);
+    //                 };
+    //                 sliderFunc();
+    //                 scope.$on('$destroy', function() {
+    //                     $timeout.cancel(timer);
+    //                 });
+    //             },
 
-            };
-        }]);
-// sticky nav
-$(function() {
-    var stickyNav = $('nav.main-navigation').offset().top;
-    $(window).scroll(function() {
-        if ($(window).scrollTop() > stickyNav) {
-            $('nav.main-navigation').addClass('main-navigation-fixed');
-            $('.sticky-alias').css('display', 'block');
-        } else {
-            $('nav.main-navigation').removeClass('main-navigation-fixed');
-            $('.sticky-alias').css('display', 'none');
-        }
-    });
-});
+    //         };
+    //     }]);
+//// sticky nav
+//$(function() {
+//    var stickyNav = $('nav.main-navigation').offset().top;
+//    $(window).scroll(function() {
+//        if ($(window).scrollTop() > stickyNav) {
+//            $('nav.main-navigation').addClass('main-navigation-fixed');
+//            $('.sticky-alias').css('display', 'block');
+//        } else {
+//            $('nav.main-navigation').removeClass('main-navigation-fixed');
+//            $('.sticky-alias').css('display', 'none');
+//        }
+//    });
+//});
+//
+//// mobile menu
+//$(function() {
+//    $('.main-navigation').on('click', '.menu-item:first-child', function(e) {
+//        e.preventDefault();
+//        if ($(this).nextAll().slice(0, 7).is('.menu-item')) {
+//            $(this).nextAll().slice(0, 7).removeClass('menu-item').addClass('menu-item-mobile');
+//            $('#nav-down').css('display', 'none');
+//            $('#nav-up').css('display', 'block');
+//        } else {
+//            $(this).nextAll().slice(0, 7).removeClass('menu-item-mobile').addClass('menu-item');
+//            $('#nav-down').css('display', 'block');
+//            $('#nav-up').css('display', 'none');
+//        }
+//    });
+//});
 
-// mobile menu
-$(function() {
-    $('.main-navigation').on('click', '.menu-item:first-child', function(e) {
-        e.preventDefault();
-        if ($(this).nextAll().slice(0, 7).is('.menu-item')) {
-            $(this).nextAll().slice(0, 7).removeClass('menu-item').addClass('menu-item-mobile');
-            $('#nav-down').css('display', 'none');
-            $('#nav-up').css('display', 'block');
-        } else {
-            $(this).nextAll().slice(0, 7).removeClass('menu-item-mobile').addClass('menu-item');
-            $('#nav-down').css('display', 'block');
-            $('#nav-up').css('display', 'none');
-        }
-    });
-});
-
-// slider
-$(function() {
-    $('.slider').each(function() {
-        var $this = $(this);
-        var $slidersGroup = $this.find('.slide-viewer');
-        var $slide = $this.find('.slide');
-        var buttonArray = [];
-        var currentIndex = 0;
-        var timeout;
-
-        function move(newIndex) {
-            var animateLeft, slideLeft;
-            slideSlider();
-            if ($slidersGroup.is('animated') || currentIndex === newIndex) {
-                return;
-            }
-            if (newIndex > currentIndex) {
-                slideLeft = '100%';
-                animateLeft = '-100%';
-            } else {
-                slideLeft = '-100%';
-                animateLeft = '100%';
-            }
-
-            $slide.eq(newIndex).css({
-                left: slideLeft,
-                display: 'block'
-            });
-
-            $slidersGroup.animate({
-                left: animateLeft
-            }, function() {
-                $slide.eq(currentIndex).css({
-                    display: 'none'
-                });
-                $slide.eq(newIndex).css({
-                    left: 0
-                });
-                $slidersGroup.css({
-                    left: 0
-                });
-                currentIndex = newIndex;
-            });
-        }
-
-        function slideSlider() {
-            clearTimeout(timeout);
-            timeout = setTimeout(function() {
-                if (currentIndex < ($slide.length - 1)) {
-                    move(currentIndex + 1);
-                } else {
-                    move(0);
-                }
-            }, 4000);
-        }
-
-        $.each($slide, function() {
-            var $buttonLeft = $('.slider .icon-circle-left');
-            var $buttonRight = $('.slider .icon-circle-right');
-            $buttonRight.on('click', function() {
-                if (currentIndex < $slide.length - 1) {
-                    move(currentIndex + 1);
-                } else {
-                    move(0);
-                }
-            });
-
-            $buttonLeft.on('click', function() {
-                if (currentIndex > 0) {
-                    move(currentIndex - 1);
-                } else {
-                    move(0);
-                }
-            });
-            slideSlider();
-        });
-    });
-});
-
-$(function() {
-    $('div.add-person').on('click', '#addPersonButton', function(e) {
-        e.preventDefault();
-        var newPerson = $('input:text').val();
-        if (newPerson.length > 0) {
-            $('div.add-person').append('<strong>' + newPerson + '</strong>');
-        } 
-    });
-});
-// tabs
-// $(function() {
-//     $('.tab-list').each(function() {
-//         var $this = $(this);
-//         var $tab = $this.find('h3.tab-active');
-//         var $link = $tab.find('a');
-//         var $panel = $($link.attr('href'));
-
-//         $this.on('click', '.tab-control', function(e) {
-//             e.preventDefault();
-//             var $link = $(this);
-//             var id = this.hash;
-//             if (id && !$link.is('.tab-active')) {
-//                 $panel.removeClass('tab-active');
-//                 $tab.removeClass('tab-active');
-//                 $panel = $(id).addClass('tab-active');
-//                 $tab = $link.parent().addClass('tab-active');
-//             }
-//         });
-//     });
-// });
-
-// tabs refills
-
-// $(document).ready(function() {
-//     $('.accordion-tabs').each(function(index) {
-//         $(this).children('li').first().children('a').addClass('is-active').next().addClass('is-open').show();
-//     });
-//     $('.accordion-tabs').on('click', 'li > a.tab-link', function(event) {
-//         if (!$(this).hasClass('is-active')) {
-//             event.preventDefault();
-//             var accordionTabs = $(this).closest('.accordion-tabs');
-//             accordionTabs.find('.is-open').removeClass('is-open').hide();
-
-//             $(this).next().toggleClass('is-open').toggle();
-//             accordionTabs.find('.is-active').removeClass('is-active');
-//             $(this).addClass('is-active');
-//         } else {
-//             event.preventDefault();
-//         }
-//     });
-// });
+//// slider
+//$(function() {
+//    $('.slider').each(function() {
+//        var $this = $(this);
+//        var $slidersGroup = $this.find('.slide-viewer');
+//        var $slide = $this.find('.slide');
+//        var buttonArray = [];
+//        var currentIndex = 0;
+//        var timeout;
+//
+//        function move(newIndex) {
+//            var animateLeft, slideLeft;
+//            slideSlider();
+//            if ($slidersGroup.is('animated') || currentIndex === newIndex) {
+//                return;
+//            }
+//            if (newIndex > currentIndex) {
+//                slideLeft = '100%';
+//                animateLeft = '-100%';
+//            } else {
+//                slideLeft = '-100%';
+//                animateLeft = '100%';
+//            }
+//
+//            $slide.eq(newIndex).css({
+//                left: slideLeft,
+//                display: 'block'
+//            });
+//
+//            $slidersGroup.animate({
+//                left: animateLeft
+//            }, function() {
+//                $slide.eq(currentIndex).css({
+//                    display: 'none'
+//                });
+//                $slide.eq(newIndex).css({
+//                    left: 0
+//                });
+//                $slidersGroup.css({
+//                    left: 0
+//                });
+//                currentIndex = newIndex;
+//            });
+//        }
+//
+//        function slideSlider() {
+//            clearTimeout(timeout);
+//            timeout = setTimeout(function() {
+//                if (currentIndex < ($slide.length - 1)) {
+//                    move(currentIndex + 1);
+//                } else {
+//                    move(0);
+//                }
+//            }, 4000);
+//        }
+//
+//        $.each($slide, function() {
+//            var $buttonLeft = $('.slider .icon-circle-left');
+//            var $buttonRight = $('.slider .icon-circle-right');
+//            $buttonRight.on('click', function() {
+//                if (currentIndex < $slide.length - 1) {
+//                    move(currentIndex + 1);
+//                } else {
+//                    move(0);
+//                }
+//            });
+//
+//            $buttonLeft.on('click', function() {
+//                if (currentIndex > 0) {
+//                    move(currentIndex - 1);
+//                } else {
+//                    move(0);
+//                }
+//            });
+//            slideSlider();
+//        });
+//    });
+//});
+//
+//$(function() {
+//    $('div.add-person').on('click', '#addPersonButton', function(e) {
+//        e.preventDefault();
+//        var newPerson = $('input:text').val();
+//        if (newPerson.length > 0) {
+//            $('div.add-person').append('<strong>' + newPerson + '</strong>');
+//        } 
+//    });
+//});
 ////no-js
 //var elDocument = document.documentElement;
 //elDocument.className=elDocument.className.replace(/(^|\s)no-js(\s|$)/, '$1');
 //
 ////copyright-date
-var today = new Date();
-var year = today.getFullYear();
-var hourNow = today.getHours();
-var greeting;
-
-(function updateGreeting() {
-	if (hourNow > 18) {
-		greeting = 'Good evening stranger!';
-	} else if (hourNow > 12) {
-		greeting = 'Good afternoon stranger!';
-	} else if (hourNow > 0) {
-		greeting = 'Good morning stranger!';
-	} else {
-		greeting = 'Welcome stranger!';
-	}
-	var enterGreeting = document.getElementById('greeting');
-	enterGreeting.textContent = greeting;
-})();
-
-(function updateCopyrightYear() {
-	var enterYear = document.getElementById('copyYear');
-	enterYear.innerHTML = "&copy;" + " Monkees " + year;
-})();
+//var today = new Date();
+//var year = today.getFullYear();
+//var hourNow = today.getHours();
+//var greeting;
+//
+//(function updateGreeting() {
+//	if (hourNow > 18) {
+//		greeting = 'Good evening stranger!';
+//	} else if (hourNow > 12) {
+//		greeting = 'Good afternoon stranger!';
+//	} else if (hourNow > 0) {
+//		greeting = 'Good morning stranger!';
+//	} else {
+//		greeting = 'Welcome stranger!';
+//	}
+//	var enterGreeting = document.getElementById('greeting');
+//	enterGreeting.textContent = greeting;
+//})();
+//
+//(function updateCopyrightYear() {
+//	var enterYear = document.getElementById('copyYear');
+//	enterYear.innerHTML = "&copy;" + " Monkees " + year;
+//})();

@@ -8,17 +8,15 @@
 		+align-items(center)
 		span
 			font-family: $font-content
-// This is an inline wrapping form
 
 .input-wrap-inline
 	+display(flex)
 	+align-items(center)
-
-	
+	white-space: nowrap
 	input[type="checkbox"]
 		+flex-shrink(0)
 		+position(relative, -6px null null null)
-		+transform(scale(1.2))
+
 //	+align-items(center)
 	
 //	+flex-wrap(wrap)
@@ -27,8 +25,6 @@
 //		+flex-shrink(1)
 //		+flex-basis(220px)
 //		+align-self(center)
-//	label
-//		margin-right: 10px
 //		white-space: nowrap
 //		+align-self(center)
 //		+flex(1)

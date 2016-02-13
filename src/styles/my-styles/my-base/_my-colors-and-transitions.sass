@@ -23,10 +23,14 @@ $selection-color: #E5BCD3
 $base-transition-duration: 300ms
 $base-scale: 1.2
 
+body
+	-webkit-tap-highlight-color: $selection-color
+	background-color: $base-background-color
+
 .slide
 	background-color: $dark-transparent-medium
 
-.main-aside, .aside-logo-mobile, .tour-dates, .store-items, .blog-intro-post, nav, .sign-up-mobile, .text-button-wrapper, .main-footer
+.left-sidebar, .aside-logo-mobile, .right-sidebar, .store-items, .blog-intro-post, nav, .sign-up-mobile, .text-button-wrapper, .main-footer
 	background-color: $base-transparent-medium
 
 .content
@@ -37,12 +41,15 @@ button
 	&:hover, &:focus
 		background-color: $lighten
 
+button:focus
+	outline: 0
+
 nav > a, div > a, aside > a
 	color: $accent3
 	&:hover
 		color: $lighten
 
-header > nav > a:hover, a:focus
+header > nav > a:hover
 	background-color: $dark-transparent-light
 	color: $base-background-color
 
@@ -74,9 +81,33 @@ header > nav > a:hover, a:focus
 .slide > .quote-wrapper
 	color: $base-transparent-light
 	background-color: $dark-transparent-strong
+
+input[type="checkbox"]
+	+transform(scale($base-scale))
 	
-	
-		
+.box1
+	background-color: $accent1
+
+.box2
+	background-color: $accent2
+
+.box3
+	background-color: $accent3
+
+.double-hr
+	border: solid $accent3 1px
+
+::selection
+	background: $selection-color
+
+::-moz-selection
+	background: $selection-color
+
+img::selection
+	background: transparent
+
+img::-moz-selection
+	background: transparent
 
 
 //i[class*="icon-circle"], .store-item

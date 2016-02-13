@@ -1,0 +1,39 @@
+$base-padding: 20px
+$query-large: 1116px
+$query-medium-large: 980px
+$query-medium: 800px
+$query-small: 690px
+
+*
+	box-sizing: border-box
+	
+img
+	+flex(1)
+
+.divided
+	padding: $base-padding
+	border: 1px solid $base-border-color
+	border-radius: $base-border-radius
+
+.divided-no-border
+	padding: $base-padding
+
+.align-left
+	float: left
+	margin-left: 0
+
+.align-right
+	float: right
+	margin-right: 0
+
+.img-wrapper, figure
+	width: 100%
+
+.video-wrapper
+	position: relative
+	padding-bottom: 56.25%
+	margin-bottom: 30px
+	width: 100%
+
+.inline
+	display: inline-block
