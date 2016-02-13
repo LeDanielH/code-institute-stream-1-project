@@ -1,6 +1,6 @@
 <div class="img-wrapper">
-	<a href="https://www.google.com/maps/place/{{map.address}}/">
-		<img class="map-image" src="http://maps.googleapis.com/maps/api/staticmap?center={{map.address}}&zoom={{map.zoom}}&scale=1&size={{mapDimensions()}}&maptype=roadmap&format=png&visual_refresh=true&markers=color:red|{{map.address}}" alt="Google Map of {{map.address}}">
+	<a href="https://www.google.com/maps/place/{{mapAddress()}}/">
+		<img class="map-image" src="http://maps.googleapis.com/maps/api/staticmap?center={{mapAddress()}}&zoom={{map.zoom}}&scale=1&size={{mapDimensions()}}&maptype=roadmap&format=png&visual_refresh=true&markers=color:red|{{mapAddress()}}" alt="Google Map of {{mapAddress()}}">
 	</a>
 	
 	<div class="map-controls">

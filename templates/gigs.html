@@ -1,27 +1,26 @@
 <h1 class="h2 c-text content-heading">{{title}}</h1>
-<div class="tabs">
-	<div class="tab-list">
-		<h3 id="tab-header-1" class="h4 tab-header tab-active">
-			<a class="tab-control" href="#/tab-1">BUY A TICKET</a>
-		</h3>
-		<h3 id="tab-header-2" class="h4 tab-header">
-			<a class="tab-control" href="#/tab-2">BOOK US</a>
-		</h3>
-	</div>
-	<div class="tab-panel tab-active" id="tab-1">
+<section class="tabs">
+	
+	<input id="tab-one" type="radio" name="grp" checked="checked" />
+	<label class="tab-header" for="tab-one">Buy a ticket</label>
+	<div class="tab-panel">
 		<p>Please fill all the required information.</p>
 		<form action="">
 			<fieldset>
 				<div class="input-wrap">
 					<div class="input-wrap">
-						<label for="where-and-when">Where and when?</label>
+						<label for="where-and-when">{{subtitles[0]}} and {{subtitles[1]}}?</label>
 						<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when">
 						</select>
 					</div>
 					<div class="input-wrap-inline location-wrapper">
 						<div class="input-wrap">
 							<h5>Address</h5>
-							<p>{{map.address}}</p>
+							<address>
+								{{map.address[0].street}} <br>
+								{{map.address[0].city}} <br>
+								{{map.address[0].country}}
+							</address>
 						</div>
 						<make-map map="map"></make-map>
 					</div>
@@ -44,7 +43,9 @@
 			</fieldset>
 		</form>
 	</div>
-	<div class="tab-panel" id="tab-2">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis at doloribus, incidunt impedit iste obcaecati veniam aut dolor beatae quas sint officia ab quibusdam, voluptate facilis, quam ratione sapiente cupiditate?</p>
+	<input id="tab-two" type="radio" name="grp" />
+	<label class="tab-header" for="tab-two">Book us now</label>
+	<div class="tab-panel">
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim deserunt perferendis magni. Molestias nostrum aspernatur voluptatum nisi, facere sint aliquid, debitis temporibus porro modi fugiat dignissimos labore qui, voluptatem deleniti.</p>
 	</div>
-</div>
+</section>
