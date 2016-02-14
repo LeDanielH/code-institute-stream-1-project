@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="bandApp" lang="en" ng-cloak>
+<html ng-app="bandApp" ng-controller="IndexController" lang="en" ng-cloak>
 
 <head>
 	<meta charset="utf-8">
@@ -25,7 +25,8 @@
 		</header>
 		
 		<div class="columns-wrapper">
-			<section class="content" ng-view></section>
+			<section class="content" ng-view>
+			</section>
 			<aside class="right-sidebar divided-no-border" ng-include="'templates/directives/right-sidebar.html'"></aside>
 		</div>
 		

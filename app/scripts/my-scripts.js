@@ -1,25 +1,32 @@
-angular.module('bandApp', ['ngRoute', 'myBandAppControllers', 'myBandAppDirectives', 'myBandAppServices'])
-	.config(['$routeProvider', '$locationProvider', function($routeProvider) {
-			$routeProvider
-				.when('/home', {
-					templateUrl: 'templates/home.html',
-					controller: 'BlogPostsController'
-				})
-				.when('/gigs', {
-					templateUrl: 'templates/gigs.html',
-					controller: 'GigsController'
-				})
-				// .when('/tab-1', {
-				// 	templateUrl: 'templates/buy-ticket.html',
-				// 	controller: 'BuyTicketController'
-				// })
-				// .when('/tab-2', {
-				// 		templateUrl: 'templateUrl/book-us.html',
-				// 		controller: 'BookUsController'
-				// 	})
-				.otherwise({redirectTo: '/home'});
-		}]);
-angular.module('myBandAppControllers', [])
+angular.module('bandApp', [
+		'ngRoute',
+		'myBandAppControllers',
+		'myBandAppDirectives',
+		'myBandAppServices'
+	])
+	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
+		$routeProvider
+			.when('/home', {
+				templateUrl: 'templates/home.html',
+				controller: 'BlogPostsController'
+			})
+			.when('/gigs', {
+				templateUrl: 'templates/gigs.html',
+				controller: 'GigsController'
+			})
+			// .when('/tab-1', {
+			// 	templateUrl: 'templates/buy-ticket.html',
+			// 	controller: 'BuyTicketController'
+			// })
+			// .when('/tab-2', {
+			// 		templateUrl: 'templateUrl/book-us.html',
+			// 		controller: 'BookUsController'
+			// 	})
+			.otherwise({
+				redirectTo: '/home'
+			});
+	}]);
+angular.module('myBandAppControllers', ['myBandAppServices'])
     .controller('SocialIconsController', ['$scope',
         function($scope) {
             $scope.title = 'follow us!';
@@ -31,46 +38,15 @@ angular.module('myBandAppControllers', [])
             ];
         }
     ])
+    .controller('IndexController', ['$scope', 'GigsDataService',
+        function($scope, GigsDataService) {
+            $scope.subtitles = GigsDataService.subtitles;
+            $scope.maps = GigsDataService.maps;
+        }
+    ])
     .controller('GigsController', ['$scope',
         function($scope) {
             $scope.title = 'GIGS';
-            $scope.subtitles = ['where', 'when'];
-            $scope.maps = [{
-                clubName: 'Club Matrix',
-                date: '17/12/2016',
-                time: '20:00',
-                address: [{
-                    street: 'Tachovské nám. 7',
-                    city: 'Praha',
-                    country: 'Czech Republic'
-                }],
-                zoom: 14,
-                width: 400
-
-            }, {
-                clubName: 'Club Holdudvar',
-                date: '30/12/2016',
-                time: '21:00',
-                address: [{
-                    street: 'Margitsziget 1138',
-                    city: 'Budapest',
-                    country: 'Hungary'
-                }],
-                zoom: 14,
-                width: 400
-            }, {
-
-                clubName: 'The Twisted Pepper',
-                date: '02/01/2017',
-                time: '19:00',
-                address: [{
-                    street: '54 Middle Abbey Street',
-                    city: 'Dublin',
-                    country: 'Ireland'
-                }],
-                zoom: 14,
-                width: 400
-            }];
             $scope.map = $scope.maps[0];
         }
     ])
@@ -207,8 +183,50 @@ angular.module('myBandAppControllers', [])
             }];
         }
     ]);
-angular.module('myBandAppServices',[]);
+angular.module('myBandAppServices', [])
+	.factory('GigsDataService', ['$rootScope', GigsDataService]);
 
+function GigsDataService($rootScope) {
+	return {
+		subtitles: ['where', 'when'],
+		maps: [{
+			clubName: 'Club Matrix',
+			date: '17/12/2016',
+			time: '20:00',
+			address: [{
+				street: 'Tachovské nám. 7',
+				city: 'Praha',
+				country: 'Czech Republic'
+			}],
+			zoom: 14,
+			width: 400
+
+		}, {
+			clubName: 'Club Holdudvar',
+			date: '30/12/2016',
+			time: '21:00',
+			address: [{
+				street: 'Margitsziget 1138',
+				city: 'Budapest',
+				country: 'Hungary'
+			}],
+			zoom: 14,
+			width: 400
+		}, {
+
+			clubName: 'The Twisted Pepper',
+			date: '02/01/2017',
+			time: '19:00',
+			address: [{
+				street: '54 Middle Abbey Street',
+				city: 'Dublin',
+				country: 'Ireland'
+			}],
+			zoom: 14,
+			width: 400
+		}]
+	};
+}
 angular.module('myBandAppDirectives', [])
     .directive('makeMap', function() {
         var mapDdirective = {
