@@ -1,0 +1,57 @@
+[
+    {
+        "itemName": "music album",
+        "id": "music-album",
+        "imgSrc":"images/store-items/music-album-1",
+        "price": 10,
+        // "stock": 5
+    }, {
+        "itemName": "cup",
+        "id": "cup",
+        "imgSrc":"images/store-items/cup-1",
+        "price": 3,
+        // "stock": 2
+    }, {
+        "itemName": "hat",
+        "id": "hat",
+        "imgSrc":"images/store-items/hat-1",
+        "price": 4,
+        // "stock": 8
+    }, {
+        "itemName": "discography",
+        "id": "discography",
+        "imgSrc":"images/store-items/discography-1",
+        "price": 40,
+        // "stock": 2
+    }, {
+        "itemName": "scarf",
+        "id": "scarf",
+        "imgSrc":"images/store-items/scarf-1",
+        "price": 10,
+        // "stock": 0
+    }, {
+        "itemName": "t-shirt",
+        "id": "t-shirt",
+        "imgSrc":"images/store-items/t-shirt-1",
+        "price": 20,
+        // "stock": 10
+    }, {
+        "itemName": "gift coupon",
+        "id": "gift-coupon",
+        "imgSrc":"images/store-items/gift-coupon",
+        "price": "choose value",
+        // "stock": 100
+    }, {
+        "itemName": "dvd",
+        "id": "dvd",
+        "imgSrc":"images/store-items/dvd-1",
+        "price": 15,
+        // "stock": 5
+    }, {
+        "itemName": "sticker",
+        "id": "sticker",
+        "imgSrc":"images/store-items/sticker-1",
+        "price": 2,
+        // "stock": 100
+    }
+],

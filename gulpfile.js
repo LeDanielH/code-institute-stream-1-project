@@ -15,7 +15,8 @@ var gulp = require('gulp'),
 	gzip = require('gulp-gzip'),
 	//stripComments = require('gulp-strip-comments'),
 	jshint = require('gulp-jshint'),
-	ghPages = require('gulp-gh-pages');
+	ghPages = require('gulp-gh-pages'),
+	templateCache = require('gulp-angular-templatecache');
 
 gulp.task('process-styles', ['process-html'], function () {
 	gulp.src(['src/styles/**/*.scss', 'src/styles/**/*.sass'])
@@ -36,16 +37,18 @@ gulp.task('process-styles', ['process-html'], function () {
 		.pipe(connect.reload());
 });
 
-gulp.task('process-scripts', ['modernizr'], function () {
+gulp.task('process-scripts', ['modernizr', 'create-templateCache'], function () {
 //gulp.task('process-scripts', function () {
 	return gulp.src([
 			'!src/scripts/modernizr.js', //added for disabling modernizr
+			'src/scripts/my-jquery.js',
 			'src/scripts/angular/app.js',
 			'src/scripts/angular/controllers.js',
+			'src/scripts/angular/filters.js',
 			'src/scripts/angular/services.js',
 			'src/scripts/angular/directives.js',
-			'src/scripts/my-jquery.js',
-			'src/scripts/my-javascript.js',
+			'src/scripts/angular/templates.js',
+			'src/scripts/my-javascript.js'
 			// 'src/scripts/my-d3.js',
 			// 'src/scripts/my-gsap.js'
 		])
@@ -85,10 +88,17 @@ gulp.task('process-angular-templates', ['process-scripts'], function () {
 		// .pipe(nanohtml({
 		//  	collapseWhitespace: true
 		// }))
+		// .pipe(templateCache())
 		.pipe(gulp.dest('app/templates/'))
 		.pipe(connect.reload());
 });
 
+// gulp.task('create-templateCache', function() {
+// 	return gulp.src('src/templates/**/*.html')
+// 		.pipe(templateCache())
+// 		.pipe(gulp.dest('src/scripts/angular/'));
+
+// });
 gulp.task('process-angular-directives', ['process-scripts'], function () {
 	return gulp.src('src/templates/directives/*.html')
 		//.pipe(stripComments())
@@ -96,6 +106,12 @@ gulp.task('process-angular-directives', ['process-scripts'], function () {
 		//  	collapseWhitespace: true
 		// }))
 		.pipe(gulp.dest('app/templates/directives/'))
+		.pipe(connect.reload());
+});
+
+gulp.task('process-json-files', function() {
+	return gulp.src('src/data/**/*.json')
+		.pipe(gulp.dest('app/data/'))
 		.pipe(connect.reload());
 });
 
@@ -119,6 +135,7 @@ gulp.task('watch', function () {
 	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
 	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
 	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles', 'process-angular-templates', 'process-angular-directives',]);
+	gulp.watch(['src/data/*.json'], ['process-scripts', 'process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
 	//gulp.watch('src/images/**/*', ['process-images']);
 });
 
@@ -146,7 +163,8 @@ gulp.task('deploy', function() {
 });
 
 gulp.task('default', [
-	'process-scripts', 
+	'process-scripts',
+	'process-json-files',
 	'process-styles', 
 	//'process-images', 
 	'process-html', 
@@ -162,11 +180,12 @@ gulp.task('default', [
 // RUN ONCE TASKS
 gulp.task('process-js-libraries', function() {
 	return gulp.src([
+		'bower_components/jquery/dist/jquery.min.js',
 		'bower_components/angular/angular.min.js',
 		'bower_components/angular-route/angular-route.min.js',
+		'bower_components/angular-resource/angular-resource.min.js',
 		'bower_components/angular-sanitize/angular-sanitize.min.js',
-		//'bower_components/angular-animate/angular-animate.min.js',
-		'bower_components/jquery/dist/jquery.min.js',
+		'bower_components/angular-animate/angular-animate.min.js',
 		//'bower_components/gsap/src/minified/TweenMax.min.js',
 		//'bower_components/d3/d3.min.js'
 	])
@@ -178,11 +197,12 @@ gulp.task('process-js-libraries', function() {
 
 gulp.task('debug-js-libraries', function() {
 	return gulp.src([
+		'bower_components/jquery/dist/jquery.js',
 		'bower_components/angular/angular.js',
 		'bower_components/angular-route/angular-route.js',
+		'bower_components/angular-resource/angular-resource.js',
 		'bower_components/angular-sanitize/angular-sanitize.js',
-		//'bower_components/angular-animate/angular-animate.min.js',
-		'bower_components/jquery/dist/jquery.js',
+		'bower_components/angular-animate/angular-animate.min.js',
 		//'bower_components/gsap/src/uncompressed/TweenMax.js',
 		//'bower_components/d3/d3.js'
 	])

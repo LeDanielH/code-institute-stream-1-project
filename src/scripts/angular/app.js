@@ -1,8 +1,11 @@
 angular.module('bandApp', [
 		'ngRoute',
+		'myBandAppAnimations',
 		'myBandAppControllers',
+		'myBandAppFilters',
 		'myBandAppDirectives',
-		'myBandAppServices'
+		'myBandAppServices',
+		// 'templates'
 	])
 	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
 		$routeProvider
@@ -14,14 +17,14 @@ angular.module('bandApp', [
 				templateUrl: 'templates/gigs.html',
 				controller: 'GigsController'
 			})
-			// .when('/tab-1', {
-			// 	templateUrl: 'templates/buy-ticket.html',
-			// 	controller: 'BuyTicketController'
-			// })
-			// .when('/tab-2', {
-			// 		templateUrl: 'templateUrl/book-us.html',
-			// 		controller: 'BookUsController'
-			// 	})
+			.when('/store', {
+				templateUrl: 'templates/store.html',
+				controller: 'StoreController'
+			})
+			.when('/store-items/:itemId', {
+				templateUrl: 'templates/store-item-detail.html',
+				controller: 'StoreItemDetailController'
+			})
 			.otherwise({
 				redirectTo: '/home'
 			});

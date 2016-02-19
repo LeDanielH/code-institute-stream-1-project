@@ -1,86 +1,113 @@
+// regular navigation
 .main-navigation
-	//+flex(1)
-	white-space: nowrap
+	z-index: 99
 	+display(flex)
 	+justify-content(space-around)
 	+align-items(center)
-	z-index: 99
 
-	&.main-navigation-fixed
-		+position(fixed, 0px null null null)
-		+calc(width, "60% - 30px")
-	
-	.menu-item:not(:first-child)
+	.menu-item
 		height: 40px
-		+flex(1)
 		width: 100%
 		+display(flex)
 		+justify-content(center)
 		+align-items(center)
-	
-	.menu-item:last-child
-		+display(none)
+		white-space: nowrap
 
-	.menu-item:first-child
-		+display(none)
-		+position(relative)
+	#menu-toggle
 		height: 40px
 		width: 100%
-		+justify-content(center)
-		+align-items(center)
+		+position(relative)
+		+display(none)
 		i#nav-down
 			+position(absolute, 30% 3% null null)
 
 		i#nav-up
 			+position(absolute, 30% 3% null null)
 			+display(none)
-	
-	.sticky-alias
+
+	.menu-item:last-child
 		+display(none)
-		height: 10px
-
-	.menu-item-mobile
-		height: 40px
-		+flex(1)
-		width: 100%
-		+display(flex)
-		+justify-content(center)
-		+align-items(center)
-
-
-// IN JQUERY CLASSES (_jquery-classes.sass)
-//.main-navigation-fixed
-//	+position(fixed, 0px null null null)
-//	+calc(width, "60% - 30px")
 
 @media (max-width: $query-large)
 	.main-navigation
 		+flex-direction(column)
-	
-		.menu-item:first-child
+		.menu-item
+			+display(none)
+		#menu-toggle
 			+display(flex)
-	
-		.menu-item:not(:first-child)
-			+display(none)
-			max-height: 0px
-	
-		.menu-item:last-child
-			+display(none)
+			+justify-content(center)
+			+align-items(center)
+			&:hover
+				.menu-item
+					visibility: null
+					height: 40 !important
+					width: 100% !important
 
-@media screen and (max-width: $query-small)
-	.main-navigation-fixed
-		width: 100% !important
-	
-@media (min-width: $query-large)
-	.main-navigation
-		+flex-direction(row)
-	
-		.menu-item:first-child
-			+display(none)
-	
-		.menu-item:not(:first-child)
-			+display(flex)
+//mobile navigation
 
-		.menu-item:last-child
-			+display(none)
+// 	&.main-navigation-fixed
+// 		+position(fixed, 0px null null null)
+// 		+calc(width, "60% - 30px")
+	
+
+	
+
+
+// 	.menu-item:first-child
+// 		+display(none)
+// 		+position(relative)
+// 		height: 40px
+// 		width: 100%
+// 		+justify-content(center)
+// 		+align-items(center)
+// 		
+	
+// 	.sticky-alias
+// 		+display(none)
+// 		height: 10px
+
+// 	.menu-item-mobile
+// 		height: 40px
+// 		+flex(1)
+// 		width: 100%
+// 		+display(flex)
+// 		+justify-content(center)
+// 		+align-items(center)
+
+
+// // IN JQUERY CLASSES (_jquery-classes.sass)
+// //.main-navigation-fixed
+// //	+position(fixed, 0px null null null)
+// //	+calc(width, "60% - 30px")
+
+// @media (max-width: $query-large)
+// 	.main-navigation
+// 		+flex-direction(column)
+	
+// 		.menu-item:first-child
+// 			+display(flex)
+	
+// 		.menu-item:not(:first-child)
+// 			+display(none)
+// 			max-height: 0px
+	
+// 		.menu-item:last-child
+// 			+display(none)
+
+// @media screen and (max-width: $query-small)
+// 	.main-navigation-fixed
+// 		width: 100% !important
+	
+// @media (min-width: $query-large)
+// 	.main-navigation
+// 		+flex-direction(row)
+	
+// 		.menu-item:first-child
+// 			+display(none)
+	
+// 		.menu-item:not(:first-child)
+// 			+display(flex)
+
+// 		.menu-item:last-child
+// 			+display(none)
 

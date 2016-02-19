@@ -1,0 +1,10 @@
+<h2>{{item.name}}</h2>
+<img ng-src="{{item.images[0]}}" alt="{{item.name}}">
+<p>{{item.description}}</p>
+
+<ul class="item-thumbnails">
+	<li ng-repeat="image in item.images">
+		<img ng-src="{{image}}.jpg" ng-click="setMainImage(image)">
+	</li>
+</ul>
+<p>Item in stock?: {{item.stock | StockFilter}}</p>

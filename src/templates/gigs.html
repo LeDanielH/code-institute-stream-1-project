@@ -1,4 +1,4 @@
-<h1 class="h2 c-text content-heading">{{title}}:{{section}}</h1>
+<h1 class="h2 c-text content-heading">{{title}}</h1>
 <section class="tabs">
 	<input id="tab-one" type="radio" name="grp" checked="checked" />
 	<label class="tab-header" for="tab-one">Buy a ticket</label>
@@ -25,15 +25,19 @@
 					</div>
 				</div>
 				<div class="input-wrap">
+					<ul class="added-guests">
+						<li ng-repeat="guest in guests">{{guest.guestsName}}</li>
+						<p>Price = {{guests.length * ticketPrice}} EUR</p>
+					</ul>
 					<label for="email">Your email?</label>
 					<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="on" required>
 				</div>
 				<div class="input-wrap add-person">
 					<label for="addPerson">Add another person</label>
-					<div class="input-wrap-inline">
-						<input type="text" id="addPerson" name="addPerson" placeholder="John Doe">
-						<button id="addPersonButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
-					</div>
+					<form ng-submit="addGuest()" class="input-wrap-inline">
+						<input type="text" id="addPerson" name="addPerson" placeholder="John Doe" ng-model="guestsName">
+						<button type="submit" id="addPersonButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
+					</form>
 				</div>
 				<div class="input-wrap-inline">
 					<input type="checkbox" id="terms" />
