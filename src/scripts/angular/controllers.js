@@ -23,13 +23,13 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
                 $scope.maps = GigsDataService.maps;
 
             // STORE
-                $scope.sortByCategories = StoreDataService.sortByCategories;
-                $http.get('data/store-items.json').success(function(data) {
-                    $scope.storeItemsList = data.splice(0, 5);
-                });
+                // $http.get('data/store-items.json').success(function(data) {
+                //     $scope.storeItemsList = data.splice(0, 5);
+                // });
+                $scope.storeItemsList = StoreDataService.resource.query();
                 $scope.sortByCategory = StoreDataService.sortByCategory;
+                $scope.sortByCategories = StoreDataService.sortByCategories;
                 $scope.getSaleAll = StoreDataService.getSaleAll;
-                $scope.itemsStockMessage = StoreDataService.itemsStockMessage;
                 // $scope.getDocumentWidth = window.matchMedia(width);
 
             //PHOTO SLIDER
@@ -88,7 +88,7 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
                 // $http.get('data/store-items/store-items.json').success(function(data) {
                 //     $scope.storeItemsList = data.splice(0, 5);
                 // });
-                $scope.storeItemsList = StoreDataService.query();
+                $scope.storeItemsList = StoreDataService.resource.query();
                 $scope.sortByCategory = StoreDataService.sortByCategory;
             }
         ])

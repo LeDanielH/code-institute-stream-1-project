@@ -54,14 +54,14 @@ angular.module('myBandAppServices', ['ngResource'])
     ])
     .factory('StoreDataService', ['$resource',
         function($resource) {
-            return $resource('data/store-items/:itemId.json', {}, {
-                query: {method: 'GET', params:{itemId: 'store-items'}, isArray: true}
-            });
-            // var store = {
-            //     sortByCategories: ['popular', 'best selling', 'price'],
-            //     sortByCategory: 'price'
-            // };
-            // return store;
+            var store = {
+                resource: $resource('data/store-items/:itemId.json', {}, {
+                    query: {method: 'GET', params:{itemId: 'store-items'}, isArray: true}
+                }),
+                sortByCategories: ['popular', 'best selling', 'price'],
+                sortByCategory: 'price'
+            };
+            return store;
         }
     ])
     .factory('PhotoSliderDataService', [
