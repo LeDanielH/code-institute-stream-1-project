@@ -11,7 +11,7 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
         function(
             $scope, 
             $location,
-            $http,
+            // $http,
             GigsDataService, 
             StoreDataService, 
             TestimonialsDataService, 
@@ -27,7 +27,7 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
                 // $http.get('data/store-items.json').success(function(data) {
                 //     $scope.storeItemsList = data.splice(0, 5);
                 // });
-                $scope.storeItemsList = StoreDataService.storeItems.query();
+                $scope.storeItems = StoreDataService.storeItems.query();
                 $scope.sortByCategory = StoreDataService.sortByCategory;
                 $scope.sortByCategories = StoreDataService.sortByCategories;
                 // $scope.getSaleAll = StoreDataService.getSaleAll;

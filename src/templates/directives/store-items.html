@@ -11,7 +11,7 @@
 		<i class="fa fa-chevron-left fa-2x"></i>
 	</span>
 	<div class="store-items-wrapper">
-		<div class="store-item" ng-repeat="item in storeItemsList | limitTo: 5 | orderBy:sortByCategory">
+		<div class="store-item" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory">
 			<a href="#/data/{{item.id}}">
 				<i class="fa fa-soundcloud fa-2x"></i>
 				<!-- <img ng-src="{{item.imgSrc}}" alt="{{item.name}}"> -->
