@@ -52,7 +52,8 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
             BlogPostsDataService
             ) {
                  $scope.title = BlogPostsDataService.title;
-                 $scope.blogPosts = BlogPostsDataService.blogPosts.query();  
+                 $scope.blogPosts = BlogPostsDataService.blogPosts.query();
+                 $scope.upVote = BlogPostsDataService.upVote;
             }
         ])
     .controller('GigsController', [

@@ -138,7 +138,7 @@ angular.module('myBandAppServices', ['ngResource'])
                         }
                     }),
                     upVote: function(post) {
-                        post.upvotes += 1;
+                        post.upVotes += 1;
                     }
                 };
                 return posts;

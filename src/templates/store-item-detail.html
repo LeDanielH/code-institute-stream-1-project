@@ -8,3 +8,16 @@
 	</li>
 </ul>
 <p>Item in stock?: {{item.stock | StockFilter}}</p>
+
+
+<section class="store-item-detail">
+	<h1>{{item.name}}</h1>
+	<img class="item" ng-repeat="image in item.imgSrc" ng-src="{{image}}" alt="{{item.name}}" ng-class="{active:mainImageUrl==image}">
+	<ul class="thumbnails">
+		<li class="thumbnail" ng-repeat="image in item.imgSrc">
+			<img ng-src="{{image}}" ng-click="setMainImage(image)" alt="{{item.name}}">		
+		</li>
+	</ul>
+	<p></p>
+	<p>Item in stock?: {{item.stock | StockFilter}}</p>
+</section>
