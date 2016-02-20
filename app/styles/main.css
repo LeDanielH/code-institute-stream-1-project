@@ -3136,9 +3136,7 @@ body .container .main-footer {
 		-ms-flex-direction: column;
 	}
 	.main-navigation .menu-item {
-		visibility: hidden;
-		height: 0;
-		width: 0;
+		display: none;
 	}
 	.main-navigation #menu-toggle {
 		display: -webkit-box;

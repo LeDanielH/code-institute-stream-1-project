@@ -11,7 +11,7 @@ angular.module('bandApp', [
 		$routeProvider
 			.when('/home', {
 				templateUrl: 'templates/home.html',
-				controller: 'BlogPostsController'
+				controller: 'HomeController'
 			})
 			.when('/gigs', {
 				templateUrl: 'templates/gigs.html',

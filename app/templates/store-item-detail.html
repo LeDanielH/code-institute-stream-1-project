@@ -1,0 +1,23 @@
+<h2>{{item.name}}</h2>
+<img ng-src="{{item.images[0]}}" alt="{{item.name}}">
+<p>{{item.description}}</p>
+
+<ul class="item-thumbnails">
+	<li ng-repeat="image in item.images">
+		<img ng-src="{{image}}.jpg" ng-click="setMainImage(image)">
+	</li>
+</ul>
+<p>Item in stock?: {{item.stock | StockFilter}}</p>
+
+
+<section class="store-item-detail">
+	<h1>{{item.name}}</h1>
+	<img class="item" ng-repeat="image in item.imgSrc" ng-src="{{image}}" alt="{{item.name}}" ng-class="{active:mainImageUrl==image}">
+	<ul class="thumbnails">
+		<li class="thumbnail" ng-repeat="image in item.imgSrc">
+			<img ng-src="{{image}}" ng-click="setMainImage(image)" alt="{{item.name}}">		
+		</li>
+	</ul>
+	<p></p>
+	<p>Item in stock?: {{item.stock | StockFilter}}</p>
+</section>

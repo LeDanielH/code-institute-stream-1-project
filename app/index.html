@@ -18,7 +18,7 @@
 	<section class="container">
 	
 		<header class="main-header">
-			<div class="slider" ng-controller="PhotoSliderController" ng-include="'templates/directives/photo-slider.html'"></div>
+			<div class="slider" ng-include="'templates/directives/testimonials.html'"></div>
 <!--			<photo-slider images="images"></photo-slider>-->
 			<nav class="main-navigation" ng-include="'templates/directives/navbar.html'"></nav>
 			<div class="sticky-alias"></div>
@@ -30,10 +30,10 @@
 			<aside class="right-sidebar divided-no-border" ng-include="'templates/directives/right-sidebar.html'"></aside>
 		</div>
 		
-		<footer class="main-footer" ng-controller="StoreItemsController">
-			<div class="store-items" ng-include="'templates/directives/store-items.html'"></div>
-			<div class="sign-up-mobile divided-no-border" ng-controller="ButtonBoxController" ng-include="'templates/directives/sign-up.html'"></div>
-			<section class="social-links-mobile divided-no-border" ng-controller="SocialIconsController" ng-include="'templates/directives/social-icons.html'"></section>
+		<footer class="main-footer">
+			<div class="store-items" ng-include="'templates/directives/store-items-footer.html'"></div>
+			<div class="sign-up-mobile divided-no-border" ng-include="'templates/directives/sign-up.html'"></div>
+			<section class="social-links-mobile divided-no-border" ng-include="'templates/directives/social-icons.html'"></section>
 			<div class="footer-copyright">
 				<small id="copyYear" class="copyright">Monkees Copyright 2016</small>
 			</div>

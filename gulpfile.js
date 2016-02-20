@@ -9,8 +9,8 @@ var gulp = require('gulp'),
 	nanohtml = require('gulp-htmlmin'),
 	csspurge = require('gulp-css-purge'),
 	uncss = require('gulp-uncss'),
-	//imagemin = require('gulp-imagemin'),
-	//cache = require('gulp-cache'),
+	imagemin = require('gulp-imagemin'),
+	cache = require('gulp-cache'),
 	stripcsscomments = require('gulp-strip-css-comments'),
 	gzip = require('gulp-gzip'),
 	//stripComments = require('gulp-strip-comments'),
@@ -47,7 +47,8 @@ gulp.task('process-scripts', ['modernizr', 'create-templateCache'], function () 
 			'src/scripts/angular/filters.js',
 			'src/scripts/angular/services.js',
 			'src/scripts/angular/directives.js',
-			'src/scripts/angular/templates.js',
+			// 'src/scripts/angular/templates.js',
+			'src/scripts/angular/animations.js',
 			'src/scripts/my-javascript.js'
 			// 'src/scripts/my-d3.js',
 			// 'src/scripts/my-gsap.js'
@@ -83,7 +84,7 @@ gulp.task('process-html', ['process-scripts'], function () {
 });
 
 gulp.task('process-angular-templates', ['process-scripts'], function () {
-	return gulp.src('src/templates/*.html')
+	return gulp.src('src/templates/**/*.html')
 		//.pipe(stripComments())
 		// .pipe(nanohtml({
 		//  	collapseWhitespace: true
@@ -93,21 +94,12 @@ gulp.task('process-angular-templates', ['process-scripts'], function () {
 		.pipe(connect.reload());
 });
 
-// gulp.task('create-templateCache', function() {
-// 	return gulp.src('src/templates/**/*.html')
-// 		.pipe(templateCache())
-// 		.pipe(gulp.dest('src/scripts/angular/'));
+gulp.task('create-templateCache', function() {
+	return gulp.src('src/templates/**/*.html')
+		.pipe(templateCache())
+		.pipe(gulp.dest('src/scripts/angular/'));
+	});
 
-// });
-gulp.task('process-angular-directives', ['process-scripts'], function () {
-	return gulp.src('src/templates/directives/*.html')
-		//.pipe(stripComments())
-		// .pipe(nanohtml({
-		//  	collapseWhitespace: true
-		// }))
-		.pipe(gulp.dest('app/templates/directives/'))
-		.pipe(connect.reload());
-});
 
 gulp.task('process-json-files', function() {
 	return gulp.src('src/data/**/*.json')
@@ -116,12 +108,12 @@ gulp.task('process-json-files', function() {
 });
 
 
-// gulp.task('process-images', function() {
-//    return gulp.src('src/images/**/*')
-//     .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true })))
-//     .pipe(gulp.dest('app/images/'))
-//     .pipe(connect.reload());
-// });
+gulp.task('process-images', function() {
+   return gulp.src('src/images/**/*')
+    .pipe(cache(imagemin({optimizationLevel: 3, progressive: true, interlaced: true })))
+    .pipe(gulp.dest('app/images/'))
+    .pipe(connect.reload());
+});
 
 gulp.task('webserver', function () {
 	connect.server({
@@ -132,11 +124,11 @@ gulp.task('webserver', function () {
 });
 
 gulp.task('watch', function () {
-	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
-	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
-	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles', 'process-angular-templates', 'process-angular-directives',]);
-	gulp.watch(['src/data/*.json'], ['process-scripts', 'process-html', 'process-angular-templates', 'process-angular-directives', 'process-styles']);
-	//gulp.watch('src/images/**/*', ['process-images']);
+	gulp.watch(['src/scripts/**/*.js', '!src/scripts/modernizr.js'], ['process-scripts', 'process-html', 'process-angular-templates', 'process-styles']);
+	gulp.watch(['src/styles/**/*.scss', 'src/styles/**/*.sass'], ['process-html', 'process-angular-templates', 'process-styles']);
+	gulp.watch(['src/**/*.html'], ['process-html', 'process-styles', 'process-angular-templates', 'create-templateCache']);
+	gulp.watch(['src/data/*.json'], ['process-scripts', 'process-html', 'process-angular-templates', 'process-styles']);
+	gulp.watch('src/images/**/*', ['process-images']);
 });
 
 gulp.task('gzip-js', ['process-html', 'process-styles', 'process-scripts'], function() {
@@ -166,10 +158,10 @@ gulp.task('default', [
 	'process-scripts',
 	'process-json-files',
 	'process-styles', 
-	//'process-images', 
+	'process-images', 
 	'process-html', 
 	'process-angular-templates',
-	'process-angular-directives',
+	'create-templateCache',
 	'gzip-js',
 	'gzip-css', 
 	//'gzip-html',

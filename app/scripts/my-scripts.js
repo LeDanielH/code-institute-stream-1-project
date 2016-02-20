@@ -1,344 +1,3 @@
-angular.module('bandApp', [
-		'ngRoute',
-		'myBandAppControllers',
-		'myBandAppDirectives',
-		'myBandAppServices'
-	])
-	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
-		$routeProvider
-			.when('/home', {
-				templateUrl: 'templates/home.html',
-				controller: 'BlogPostsController'
-			})
-			.when('/gigs', {
-				templateUrl: 'templates/gigs.html',
-				controller: 'GigsController'
-			})
-			// .when('/tab-1', {
-			// 	templateUrl: 'templates/buy-ticket.html',
-			// 	controller: 'BuyTicketController'
-			// })
-			// .when('/tab-2', {
-			// 		templateUrl: 'templateUrl/book-us.html',
-			// 		controller: 'BookUsController'
-			// 	})
-			.otherwise({
-				redirectTo: '/home'
-			});
-	}]);
-angular.module('myBandAppControllers', ['myBandAppServices'])
-    .controller('SocialIconsController', ['$scope',
-        function($scope) {
-            $scope.title = 'follow us!';
-            $scope.socialIcons = [
-                'facebook',
-                'twitter',
-                'instagram',
-                'youtube'
-            ];
-        }
-    ])
-    .controller('IndexController', ['$scope', 'GigsDataService',
-        function($scope, GigsDataService) {
-            $scope.subtitles = GigsDataService.subtitles;
-            $scope.maps = GigsDataService.maps;
-        }
-    ])
-    .controller('GigsController', ['$scope',
-        function($scope) {
-            $scope.title = 'GIGS';
-            $scope.map = $scope.maps[0];
-        }
-    ])
-    .controller('StoreItemsController', ['$scope',
-        function($scope) {
-            $scope.sortByCategories = ['popular', 'best selling', 'price'];
-            $scope.storeItemsList = [{
-                itemName: 'music album',
-                price: 10,
-                stock: 5
-            }, {
-                itemName: 'cup',
-                price: 3,
-                stock: 2
-            }, {
-                itemName: 'hat',
-                price: 4,
-                stock: 8
-            }, {
-                itemName: 'discography',
-                price: 40,
-                stock: 2
-            }, {
-                itemName: 'scarf',
-                price: 10,
-                stock: 0
-            }, {
-                itemName: 't-shirt',
-                price: 20,
-                stock: 10
-            }, {
-                itemName: 'gift coupon',
-                price: 'choose value',
-                stock: 100
-            }, {
-                itemName: 'dvd',
-                price: 15,
-                stock: 5
-            }, {
-                itemName: 'sticker',
-                price: 2,
-                stock: 100
-            }, {
-                itemName: 'usb',
-                price: 8,
-                stock: 20
-            }];
-            $scope.sortByCategory = $scope.sortByCategories[0];
-            $scope.getSaleAll = function(percentOff) {
-                for (var i = 0; i < $scope.storeItemsList.length; i++) {
-                    return ($scope.storeItemsList[i].price / 100) * (100 - percentOff);
-                }
-            };
-            $scope.getCategory = function() {
-
-            };
-            $scope.itemsStockMessage = function() {
-                for (var i = 0; i < $scope.storeItemsList.length; i++) {
-                    var message = '';
-                    if ($scope.storeItemsList[i].stock === 0) {
-                        return message += 'Out of stock';
-                    } else {
-                        return message += 'In stock';
-                    }
-                }
-            };
-        }
-    ])
-    .controller('PhotoSliderController', ['$scope',
-        function($scope) {
-            $scope.images = [{
-                id: '1',
-                quote: 'This was the best party ever!',
-                cite: 'Elen from Vienna'
-            }, {
-                id: '2',
-                quote: 'Unforgettable Experience!',
-                cite: 'The Music Magazine'
-            }, {
-                id: '3',
-                quote: 'Redefinition of the word "FUN"!',
-                cite: 'WHY REST Magazine'
-            }, {
-                id: '4',
-                quote: 'I felt in love on this party!',
-                cite: 'Barbie from Georgia'
-            }];
-
-        }
-    ])
-    .controller('ButtonBoxController', ['$scope', '$location',
-        function($scope, $location) {
-            $scope.go = function(path) {
-                $location.path(path);
-            };
-            $scope.buttonBox = [{
-                bookTicket: [{
-                    heading: 'wanna party?',
-                    content: '',
-                    button: 'join the party!'
-                }],
-                bookBand: [{
-                    heading: 'want a party?',
-                    content: '',
-                    button: 'book us now!'
-                }],
-                signUp: [{
-                    heading: '',
-                    content: 'for exclusive members only content and prices',
-                    button: 'sign up!'
-                }]
-
-            }];
-        }
-    ])
-    .controller('BlogPostsController', ['$scope',
-        function($scope) {
-            $scope.title = 'news';
-            $scope.blogPosts = [{
-                heading: 'Blog post 1',
-                imageSrc: 'images/album.jpg',
-                introContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...',
-                date: '01/02/2015'
-            }, {
-                heading: 'Blog post 2',
-                imageSrc: 'images/album.jpg',
-                introContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...',
-                date: '24/12/2015'
-            }, {
-                heading: 'Blog post 3',
-                imageSrc: 'images/album.jpg',
-                introContent: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...',
-                date: '08/02/2016'
-            }];
-        }
-    ]);
-angular.module('myBandAppServices', [])
-	.factory('GigsDataService', ['$rootScope', GigsDataService]);
-
-function GigsDataService($rootScope) {
-	return {
-		subtitles: ['where', 'when'],
-		maps: [{
-			clubName: 'Club Matrix',
-			date: '17/12/2016',
-			time: '20:00',
-			address: [{
-				street: 'Tachovské nám. 7',
-				city: 'Praha',
-				country: 'Czech Republic'
-			}],
-			zoom: 14,
-			width: 400
-
-		}, {
-			clubName: 'Club Holdudvar',
-			date: '30/12/2016',
-			time: '21:00',
-			address: [{
-				street: 'Margitsziget 1138',
-				city: 'Budapest',
-				country: 'Hungary'
-			}],
-			zoom: 14,
-			width: 400
-		}, {
-
-			clubName: 'The Twisted Pepper',
-			date: '02/01/2017',
-			time: '19:00',
-			address: [{
-				street: '54 Middle Abbey Street',
-				city: 'Dublin',
-				country: 'Ireland'
-			}],
-			zoom: 14,
-			width: 400
-		}]
-	};
-}
-angular.module('myBandAppDirectives', [])
-    .directive('makeMap', function() {
-        var mapDdirective = {
-            restrict: 'EA',
-            templateUrl: 'templates/directives/maps.html',
-            scope: {
-                map: '='
-            },
-            link: function(scope, element, attrs) {
-                console.log('in map directive link');
-            },
-            controller: ['$scope',
-                function mapController($scope) {
-
-                    $scope.$watch('map', function() {
-                        console.log("map directive controller watching map change", $scope.map);
-                    });
-
-                    $scope.zoomIn = function() {
-                        $scope.map.zoom++;
-                    };
-                    $scope.zoomOut = function() {
-                        $scope.map.zoom--;
-                    };
-                    $scope.mapDimensions = function() {
-                        if (!$scope.map.width) {
-                            var width = 200;
-                        } else {
-                            width = $scope.map.width;
-                        }
-                        if (!$scope.map.height) {
-                            var height = 200;
-                        } else {
-                            height = $scope.map.height;
-                        }
-                        return width + 'x' + height;
-                    };
-                    $scope.returnAddressOrNot = function() {
-                        console.log("address: " + $scope.map.address);
-                        if ($scope.map.address)
-                            return true;
-                        else
-                            return false;
-                    };
-                    $scope.mapAddress = function() {
-                        var street = $scope.map.address[0].street;
-                        var city = $scope.map.address[0].city;
-                        var country = $scope.map.address[0].country;
-                        return street + ', ' + city + ', ' + country;
-                    };
-                }
-            ]
-        };
-        return mapDdirective;
-    });
-    // .directive('photoSlider', function(){
-    //     var photoSliderDirective = {
-    //         restrict: 'EA',
-    //         templateUrl: 'templates/directives/photo-slider.html',
-    //         scope: {
-    //             image: '='
-    //         },
-    //     };
-    //     return photoSliderDirective;
-    // });
-
-    // .directive('photoSlider', [ '$timeout', function($timeout) {
-    //         return {
-    //             restrict: 'AE',
-    //             replace: true,
-    //             templateUrl: 'templates/directives/photo-slider.html',
-    //             scope: {
-    //                 images: '='
-    //             },
-    //             link: function(scope, elem, attrs) {
-    //                 scope.currentIndex = 0;
-    //                 scope.next = function() {
-    //                     if (scope.currentIndex < scope.images.length - 1) {
-    //                         scope.currentIndex++;
-    //                     } else {
-    //                         scope.currentIndex = 0;
-    //                     }
-    //                 };
-    //                 scope.prev = function() {
-    //                     if (scope.currentIndex > 0) {
-    //                         scope.currentIndex--;
-    //                     } else {
-    //                         scope.currentIndex = scope.images.length - 1;
-    //                     }
-    //                 };
-    //                 scope.$watch('currentIndex', function() {
-    //                     scope.images.forEach(function(image) {
-    //                         image.visible = false;
-    //                     });
-    //                     scope.images[scope.currentIndex].visible = true;
-    //                 });
-    
-    //                 var timer;
-    //                 var sliderFunc = function() {
-    //                     timer = $timeout(function() {
-    //                         scope.next();
-    //                         timer = $timeout(sliderFunc, 5000);
-    //                     }, 5000);
-    //                 };
-    //                 sliderFunc();
-    //                 scope.$on('$destroy', function() {
-    //                     $timeout.cancel(timer);
-    //                 });
-    //             },
-
-    //         };
-    //     }]);
 //// sticky nav
 //$(function() {
 //    var stickyNav = $('nav.main-navigation').offset().top;
@@ -457,6 +116,425 @@ angular.module('myBandAppDirectives', [])
 //        } 
 //    });
 //});
+angular.module('bandApp', [
+		'ngRoute',
+		'myBandAppAnimations',
+		'myBandAppControllers',
+		'myBandAppFilters',
+		'myBandAppDirectives',
+		'myBandAppServices',
+		// 'templates'
+	])
+	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
+		$routeProvider
+			.when('/home', {
+				templateUrl: 'templates/home.html',
+				controller: 'HomeController'
+			})
+			.when('/gigs', {
+				templateUrl: 'templates/gigs.html',
+				controller: 'GigsController'
+			})
+			.when('/store', {
+				templateUrl: 'templates/store.html',
+				controller: 'StoreController'
+			})
+			.when('/store-items/:itemId', {
+				templateUrl: 'templates/store-item-detail.html',
+				controller: 'StoreItemDetailController'
+			})
+			.otherwise({
+				redirectTo: '/home'
+			});
+	}]);
+angular.module('myBandAppControllers', ['myBandAppServices'])
+    .controller('IndexController', [
+        '$scope',
+        '$location',
+        // '$http',
+        'GigsDataService',
+        'StoreDataService',
+        'TestimonialsDataService',
+        'SocialLinksDataService',
+        'callToActionDataService',
+        function(
+            $scope, 
+            $location,
+            // $http,
+            GigsDataService, 
+            StoreDataService, 
+            TestimonialsDataService, 
+            SocialLinksDataService, 
+            callToActionDataService
+            ) {
+            // $scope.getDocumentWidth = window.matchMedia(width);
+            //GIGS
+                $scope.subtitles = GigsDataService.subtitles;
+                $scope.maps = GigsDataService.maps.query();
+
+            // STORE
+                // $http.get('data/store-items.json').success(function(data) {
+                //     $scope.storeItemsList = data.splice(0, 5);
+                // });
+                $scope.storeItems = StoreDataService.storeItems.query();
+                $scope.sortByCategory = StoreDataService.sortByCategory;
+                $scope.sortByCategories = StoreDataService.sortByCategories;
+                // $scope.getSaleAll = StoreDataService.getSaleAll;
+
+            //TESTIMONIALS
+                $scope.images = TestimonialsDataService.images.query();
+
+            //SOCIAL LINKS
+                $scope.socialLinkstitle = SocialLinksDataService.title;
+                $scope.socialIcons = SocialLinksDataService.socialIcons.query();
+
+            //BUTTON BOXES
+                $scope.go = callToActionDataService.go;
+                $scope.callToActionBoxes = callToActionDataService.callToActionBoxes.query();
+            }
+        ])
+    .controller('HomeController', [
+        '$scope',
+        'BlogPostsDataService', 
+        function(
+            $scope,
+            BlogPostsDataService
+            ) {
+                 $scope.title = BlogPostsDataService.title;
+                 $scope.blogPosts = BlogPostsDataService.blogPosts.query();
+                 $scope.upVote = BlogPostsDataService.upVote;
+            }
+        ])
+    .controller('GigsController', [
+        '$scope',
+        'GigsDataService',
+        'GuestsDataService',
+        function(
+            $scope, 
+            GigsDataService, 
+            GuestsDataService
+            ) {
+                $scope.title = 'GIGS';
+                $scope.map = $scope.maps[0];
+                $scope.guests = GuestsDataService.guests;
+                $scope.ticketPrice = GuestsDataService.ticketPrice;
+                $scope.addGuest = function() {
+                    if (!$scope.guestsName || $scope.guestsName === '') {
+                        return;
+                    }
+                    $scope.guests.push({ 
+                        guestsName: $scope.guestsName
+                    });
+                };
+            }
+        ])
+    .controller('StoreController', [
+        '$scope',
+        'StoreDataService', 
+        function(
+            $scope, 
+            StoreDataService
+            ) {
+                // $http.get('data/store-items/store-items.json').success(function(data) {
+                //     $scope.storeItemsList = data.splice(0, 5);
+                // });
+                $scope.storeItemsList = StoreDataService.storeItems.query();
+                $scope.sortByCategory = StoreDataService.sortByCategory;
+            }
+        ])
+    .controller('StoreItemDetailController', [
+        '$scope',
+        // '$http',
+        '$routeParams', 
+        function(
+            $scope,
+            // $http,
+            $routeParams
+            ) {
+                // $http.get('data/store-items/' + $routeParams + '.json')
+                //     .success(function(data) {
+                //         $scope.item = data;
+                //         $scope.mainImageUrl = data.images[0];
+                //     });
+                $scope.item = StoreDataService.get({itemId: $routeParams.itemId}, function(item) {
+                    $scope.mainImageUrl = item.images[0];
+                });
+                $scope.setMainImage = function(imageUrl) {
+                    $scope.mainImageUrl = imageUrl;
+                };
+            }]);
+angular.module('myBandAppFilters', [])
+	.filter('StockFilter', function() {
+		var trueMark = '\u2713';
+		var falseMark = '\u2718';
+		return function(stock) {
+			if (stock > 0) {
+				return trueMark;
+			} else {
+				return falseMark;
+			}
+		};
+	});
+// var suckData = function(itemId) {
+//     $resource('data/:itemId.json', {}, {
+//         query: {
+//             method: 'GET',
+//             params: {
+//                 itemId: itemId
+//             },
+//             isArray: true
+//         }
+//     });
+// };
+angular.module('myBandAppServices', ['ngResource'])
+    .factory('GigsDataService', [
+        '$rootScope', 
+        '$resource',
+        function(
+            $rootScope, 
+            $resource
+            ) {
+                var gigs = {
+                    subtitles: ['where', 'when'],
+                    maps: $resource('data/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'gigs'
+                            },
+                            isArray: true
+                        }
+                    })
+                };
+                return gigs;
+            }
+        ])
+    .factory('GuestsDataService', [
+        function() {
+            var people = {
+                guests: [{}],
+                ticketPrice: 20
+            };
+            return people;
+        }
+    ])
+    .factory('StoreDataService', [
+        '$resource',
+        function(
+            $resource
+            ) {
+                var store = {
+                    storeItems: $resource('data/store-items/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'store-items'
+                            },
+                            isArray: true
+                        }
+                    }),
+                    sortByCategories: ['popular', 'best selling', 'price'],
+                    sortByCategory: 'price'
+                };
+                return store;
+            }
+        ])
+    .factory('TestimonialsDataService', [
+        '$resource',
+        function(
+            $resource
+            ) {
+                var testimonials = {
+                    images: $resource('data/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'testimonials'
+                            },
+                            isArray: true
+                        }
+                    })
+                };
+                return testimonials;
+            }
+        ])
+    .factory('SocialLinksDataService', [
+        '$resource',
+        function(
+            $resource
+            ) {
+                var socialLinks = {
+                    title: 'follow us!',
+                    socialIcons: $resource('data/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'social-links'
+                            },
+                            isArray: true
+                        }
+                    })
+                };
+                return socialLinks;
+            }
+        ])
+    .factory('callToActionDataService', [
+        '$resource',
+        function($resource) {
+            var calls = {
+                go: function(path) {
+                    $location.path(path);
+                },
+                callToActionBoxes: $resource('data/:itemId.json', {}, {
+                    query: {
+                        method: 'GET',
+                        params: {
+                            itemId: 'calls-to-action'
+                        },
+                        isArray: true
+                    }
+                })
+            };
+            return calls;
+        }
+    ])
+    .factory('BlogPostsDataService', [
+        '$resource',
+        function(
+            $resource
+            ) {
+                var posts = {
+                    title: 'News',
+                    blogPosts: $resource('data/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'blog-posts'
+                            },
+                            isArray: true
+                        }
+                    }),
+                    upVote: function(post) {
+                        post.upVotes += 1;
+                    }
+                };
+                return posts;
+            }
+        ])
+    ;
+angular.module('myBandAppDirectives', [])
+    .directive('makeMap', function() {
+        var mapDdirective = {
+            restrict: 'EA',
+            templateUrl: 'templates/directives/maps.html',
+            scope: {
+                map: '='
+            },
+            link: function(scope, element, attrs) {
+                console.log('in map directive link');
+            },
+            controller: ['$scope',
+                function mapController($scope) {
+
+                    $scope.$watch('map', function() {
+                        console.log("map directive controller watching map change", $scope.map);
+                    });
+
+                    $scope.zoomIn = function() {
+                        $scope.map.zoom++;
+                    };
+                    $scope.zoomOut = function() {
+                        $scope.map.zoom--;
+                    };
+                    $scope.mapDimensions = function() {
+                        if (!$scope.map.width) {
+                            var width = 200;
+                        } else {
+                            width = $scope.map.width;
+                        }
+                        if (!$scope.map.height) {
+                            var height = 200;
+                        } else {
+                            height = $scope.map.height;
+                        }
+                        return width + 'x' + height;
+                    };
+                    $scope.returnAddressOrNot = function() {
+                        console.log("address: " + $scope.map.address);
+                        if ($scope.map.address)
+                            return true;
+                        else
+                            return false;
+                    };
+                    $scope.mapAddress = function() {
+                        var street = $scope.map.address[0].street;
+                        var city = $scope.map.address[0].city;
+                        var country = $scope.map.address[0].country;
+                        return street + ', ' + city + ', ' + country;
+                    };
+                }
+            ]
+        };
+        return mapDdirective;
+    });
+    // .directive('photoSlider', function(){
+    //     var photoSliderDirective = {
+    //         restrict: 'EA',
+    //         templateUrl: 'templates/directives/photo-slider.html',
+    //         scope: {
+    //             image: '='
+    //         },
+    //     };
+    //     return photoSliderDirective;
+    // });
+
+    // .directive('photoSlider', [ '$timeout', function($timeout) {
+    //         return {
+    //             restrict: 'AE',
+    //             replace: true,
+    //             templateUrl: 'templates/directives/photo-slider.html',
+    //             scope: {
+    //                 images: '='
+    //             },
+    //             link: function(scope, elem, attrs) {
+    //                 scope.currentIndex = 0;
+    //                 scope.next = function() {
+    //                     if (scope.currentIndex < scope.images.length - 1) {
+    //                         scope.currentIndex++;
+    //                     } else {
+    //                         scope.currentIndex = 0;
+    //                     }
+    //                 };
+    //                 scope.prev = function() {
+    //                     if (scope.currentIndex > 0) {
+    //                         scope.currentIndex--;
+    //                     } else {
+    //                         scope.currentIndex = scope.images.length - 1;
+    //                     }
+    //                 };
+    //                 scope.$watch('currentIndex', function() {
+    //                     scope.images.forEach(function(image) {
+    //                         image.visible = false;
+    //                     });
+    //                     scope.images[scope.currentIndex].visible = true;
+    //                 });
+    
+    //                 var timer;
+    //                 var sliderFunc = function() {
+    //                     timer = $timeout(function() {
+    //                         scope.next();
+    //                         timer = $timeout(sliderFunc, 5000);
+    //                     }, 5000);
+    //                 };
+    //                 sliderFunc();
+    //                 scope.$on('$destroy', function() {
+    //                     $timeout.cancel(timer);
+    //                 });
+    //             },
+
+    //         };
+    //     }]);
+angular.module('myBandAppAnimations',['ngAnimate']);
 ////no-js
 //var elDocument = document.documentElement;
 //elDocument.className=elDocument.className.replace(/(^|\s)no-js(\s|$)/, '$1');
