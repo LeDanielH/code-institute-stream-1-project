@@ -1,0 +1,17 @@
+[{
+    "bookTicket": [{
+        "heading": "wanna party?",
+        "content": "",
+        "button": "join the party!"
+    }],
+    "bookBand": [{
+        "heading": "want a party?",
+        "content": "",
+        "button": "book us now!"
+    }],
+    "signUp": [{
+        "heading": "",
+        "content": "for exclusive members only content and prices",
+        "button": "sign up!"
+    }]
+}]

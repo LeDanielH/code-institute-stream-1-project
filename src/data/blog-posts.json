@@ -1,0 +1,19 @@
+[{
+    "heading": "Blog post 1",
+    "imageSrc": "images/album.jpg",
+    "introContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...",
+    "date": "01/02/2015",
+    "upvotes": 2
+}, {
+    "heading": "Blog post 2",
+    "imageSrc": "images/album.jpg",
+    "introContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...",
+    "date": "24/12/2015",
+    "upvotes": 3
+}, {
+    "heading": "Blog post 3",
+    "imageSrc": "images/album.jpg",
+    "introContent": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique...",
+    "date": "08/02/2016",
+    "upvotes": 1
+}]

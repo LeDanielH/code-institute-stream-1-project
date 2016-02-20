@@ -2,46 +2,46 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
     .controller('IndexController', [
         '$scope',
         '$location',
-        '$http',
+        // '$http',
         'GigsDataService',
         'StoreDataService',
-        'PhotoSliderDataService',
+        'TestimonialsDataService',
         'SocialLinksDataService',
-        'ButtonBoxDataService',
+        'callToActionDataService',
         function(
             $scope, 
             $location,
             $http,
             GigsDataService, 
             StoreDataService, 
-            PhotoSliderDataService, 
+            TestimonialsDataService, 
             SocialLinksDataService, 
-            ButtonBoxDataService
+            callToActionDataService
             ) {
+            // $scope.getDocumentWidth = window.matchMedia(width);
             //GIGS
                 $scope.subtitles = GigsDataService.subtitles;
-                $scope.maps = GigsDataService.maps;
+                $scope.maps = GigsDataService.maps.query();
 
             // STORE
                 // $http.get('data/store-items.json').success(function(data) {
                 //     $scope.storeItemsList = data.splice(0, 5);
                 // });
-                $scope.storeItemsList = StoreDataService.resource.query();
+                $scope.storeItemsList = StoreDataService.storeItems.query();
                 $scope.sortByCategory = StoreDataService.sortByCategory;
                 $scope.sortByCategories = StoreDataService.sortByCategories;
-                $scope.getSaleAll = StoreDataService.getSaleAll;
-                // $scope.getDocumentWidth = window.matchMedia(width);
+                // $scope.getSaleAll = StoreDataService.getSaleAll;
 
-            //PHOTO SLIDER
-                $scope.images = PhotoSliderDataService.images;
+            //TESTIMONIALS
+                $scope.images = TestimonialsDataService.images.query();
 
             //SOCIAL LINKS
                 $scope.socialLinkstitle = SocialLinksDataService.title;
-                $scope.socialIcons = SocialLinksDataService.socialIcons;
+                $scope.socialIcons = SocialLinksDataService.socialIcons.query();
 
             //BUTTON BOXES
-                $scope.go = ButtonBoxDataService.go;
-                $scope.buttonBox = ButtonBoxDataService.buttonBox;
+                $scope.go = callToActionDataService.go;
+                $scope.callToActionBoxes = callToActionDataService.callToActionBoxes.query();
             }
         ])
     .controller('HomeController', [
@@ -52,7 +52,7 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
             BlogPostsDataService
             ) {
                  $scope.title = BlogPostsDataService.title;
-                 $scope.blogPosts = BlogPostsDataService.blogPosts;  
+                 $scope.blogPosts = BlogPostsDataService.blogPosts.query();  
             }
         ])
     .controller('GigsController', [
@@ -88,7 +88,7 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
                 // $http.get('data/store-items/store-items.json').success(function(data) {
                 //     $scope.storeItemsList = data.splice(0, 5);
                 // });
-                $scope.storeItemsList = StoreDataService.resource.query();
+                $scope.storeItemsList = StoreDataService.storeItems.query();
                 $scope.sortByCategory = StoreDataService.sortByCategory;
             }
         ])
