@@ -12,7 +12,7 @@
 	</span>
 	<div class="store-items-wrapper">
 		<div class="store-item" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory">
-			<a href="#/data/{{item.id}}">
+			<a href="#/store/{{item.id}}">
 				<i class="fa fa-soundcloud fa-2x"></i>
 				<!-- <img ng-src="{{item.imgSrc}}" alt="{{item.name}}"> -->
 				<p>{{item.name}}</p>
