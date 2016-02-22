@@ -1,1 +1,12 @@
-<h1>Store</h1><label for="search">Search</label><input id="search" ng-model="searchQuery"><label for="sortBy"></label><select name="sortBy" ng-model="sortByCategory" id="sortBy"><option value="price">price</option><option value="name">name</option></select><ul class="store-items-list"><li ng-repeat="item in storeItems | filter:searchQuery | orderBy:sortByCategory">{{item.name}}</li></ul>
+<h1>Store</h1>
+<label for="search">Search</label>
+<input id="search" ng-model="searchQuery">
+
+<label for="sortBy"></label>
+<select name="sortBy" ng-model="sortByCategory" id="sortBy">
+	<option value="price">price</option>
+	<option value="name">name</option>
+</select>
+<ul class="store-items-list">
+	<li ng-repeat="item in storeItems | filter:searchQuery | orderBy:sortByCategory">{{item.name}}</li>
+</ul>

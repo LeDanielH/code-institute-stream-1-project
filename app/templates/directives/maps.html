@@ -1,1 +1,14 @@
-<div class="img-wrapper"><a href="https://www.google.com/maps/place/{{mapAddress()}}/"><img class="map-image" src="http://maps.googleapis.com/maps/api/staticmap?center={{mapAddress()}}&zoom={{map.zoom}}&scale=1&size={{mapDimensions()}}&maptype=roadmap&format=png&visual_refresh=true&markers=color:red|{{mapAddress()}}" alt="Google Map of {{mapAddress()}}"></a><div class="map-controls"><button id="zoomIn" ng-click="zoomIn()" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button> <button id="zoomOut" ng-click="zoomOut()" class="plus-button"><i class="fa fa-minus-circle fa-2x"></i></button></div></div>
+<div class="img-wrapper">
+	<a href="https://www.google.com/maps/place/{{mapAddress()}}/">
+		<img class="map-image" src="http://maps.googleapis.com/maps/api/staticmap?center={{mapAddress()}}&zoom={{map.zoom}}&scale=1&size={{mapDimensions()}}&maptype=roadmap&format=png&visual_refresh=true&markers=color:red|{{mapAddress()}}" alt="Google Map of {{mapAddress()}}">
+	</a>
+
+		<div class="map-controls">
+		<button id="zoomIn" ng-click="zoomIn()" class="plus-button">
+			<i class="fa fa-plus-circle fa-2x"></i>
+		</button>
+		<button id="zoomOut" ng-click="zoomOut()" class="plus-button">
+			<i class="fa fa-minus-circle fa-2x"></i>
+		</button>
+	</div>
+</div>

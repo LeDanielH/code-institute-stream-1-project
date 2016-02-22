@@ -1,129 +1,11 @@
-//// sticky nav
-//$(function() {
-//    var stickyNav = $('nav.main-navigation').offset().top;
-//    $(window).scroll(function() {
-//        if ($(window).scrollTop() > stickyNav) {
-//            $('nav.main-navigation').addClass('main-navigation-fixed');
-//            $('.sticky-alias').css('display', 'block');
-//        } else {
-//            $('nav.main-navigation').removeClass('main-navigation-fixed');
-//            $('.sticky-alias').css('display', 'none');
-//        }
-//    });
-//});
-//
-//// mobile menu
-//$(function() {
-//    $('.main-navigation').on('click', '.menu-item:first-child', function(e) {
-//        e.preventDefault();
-//        if ($(this).nextAll().slice(0, 7).is('.menu-item')) {
-//            $(this).nextAll().slice(0, 7).removeClass('menu-item').addClass('menu-item-mobile');
-//            $('#nav-down').css('display', 'none');
-//            $('#nav-up').css('display', 'block');
-//        } else {
-//            $(this).nextAll().slice(0, 7).removeClass('menu-item-mobile').addClass('menu-item');
-//            $('#nav-down').css('display', 'block');
-//            $('#nav-up').css('display', 'none');
-//        }
-//    });
-//});
-
-//// slider
-//$(function() {
-//    $('.slider').each(function() {
-//        var $this = $(this);
-//        var $slidersGroup = $this.find('.slide-viewer');
-//        var $slide = $this.find('.slide');
-//        var buttonArray = [];
-//        var currentIndex = 0;
-//        var timeout;
-//
-//        function move(newIndex) {
-//            var animateLeft, slideLeft;
-//            slideSlider();
-//            if ($slidersGroup.is('animated') || currentIndex === newIndex) {
-//                return;
-//            }
-//            if (newIndex > currentIndex) {
-//                slideLeft = '100%';
-//                animateLeft = '-100%';
-//            } else {
-//                slideLeft = '-100%';
-//                animateLeft = '100%';
-//            }
-//
-//            $slide.eq(newIndex).css({
-//                left: slideLeft,
-//                display: 'block'
-//            });
-//
-//            $slidersGroup.animate({
-//                left: animateLeft
-//            }, function() {
-//                $slide.eq(currentIndex).css({
-//                    display: 'none'
-//                });
-//                $slide.eq(newIndex).css({
-//                    left: 0
-//                });
-//                $slidersGroup.css({
-//                    left: 0
-//                });
-//                currentIndex = newIndex;
-//            });
-//        }
-//
-//        function slideSlider() {
-//            clearTimeout(timeout);
-//            timeout = setTimeout(function() {
-//                if (currentIndex < ($slide.length - 1)) {
-//                    move(currentIndex + 1);
-//                } else {
-//                    move(0);
-//                }
-//            }, 4000);
-//        }
-//
-//        $.each($slide, function() {
-//            var $buttonLeft = $('.slider .icon-circle-left');
-//            var $buttonRight = $('.slider .icon-circle-right');
-//            $buttonRight.on('click', function() {
-//                if (currentIndex < $slide.length - 1) {
-//                    move(currentIndex + 1);
-//                } else {
-//                    move(0);
-//                }
-//            });
-//
-//            $buttonLeft.on('click', function() {
-//                if (currentIndex > 0) {
-//                    move(currentIndex - 1);
-//                } else {
-//                    move(0);
-//                }
-//            });
-//            slideSlider();
-//        });
-//    });
-//});
-//
-//$(function() {
-//    $('div.add-person').on('click', '#addPersonButton', function(e) {
-//        e.preventDefault();
-//        var newPerson = $('input:text').val();
-//        if (newPerson.length > 0) {
-//            $('div.add-person').append('<strong>' + newPerson + '</strong>');
-//        } 
-//    });
-//});
 angular.module('bandApp', [
 		'ngRoute',
-		'myBandAppAnimations',
 		'myBandAppControllers',
 		'myBandAppFilters',
 		'myBandAppDirectives',
 		'myBandAppServices',
 		// 'templates'
+		// 'myBandAppAnimations',
 	])
 	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
 		$routeProvider
@@ -147,32 +29,34 @@ angular.module('bandApp', [
 				redirectTo: '/home'
 			});
 	}]);
-angular.module('myBandAppControllers', ['myBandAppServices'])
-    .controller('IndexController', [
-        '$scope',
-        '$location',
-        // '$http',
-        'GigsDataService',
-        'StoreDataService',
-        'TestimonialsDataService',
-        'SocialLinksDataService',
-        'callToActionDataService',
-        function(
-            $scope, 
-            $location,
-            // $http,
-            GigsDataService, 
-            StoreDataService, 
-            TestimonialsDataService, 
-            SocialLinksDataService, 
-            callToActionDataService
+;(function() {
+    'use strict';
+    angular.module('myBandAppControllers', ['myBandAppServices'])
+        .controller('IndexController', [
+            '$scope',
+            '$location',
+            // '$http',
+            'GigsDataService',
+            'StoreDataService',
+            'TestimonialsDataService',
+            'SocialLinksDataService',
+            'CallToActionDataService',
+            function(
+                $scope,
+                $location,
+                // $http,
+                GigsDataService,
+                StoreDataService,
+                TestimonialsDataService,
+                SocialLinksDataService,
+                CallToActionDataService
             ) {
-            // $scope.getDocumentWidth = window.matchMedia(width);
-            //GIGS
+                // $scope.getDocumentWidth = window.matchMedia(width);
+                //GIGS
                 $scope.subtitles = GigsDataService.subtitles;
                 $scope.maps = GigsDataService.maps.query();
 
-            // STORE
+                // STORE
                 // $http.get('data/store-items.json').success(function(data) {
                 //     $scope.storeItemsList = data.splice(0, 5);
                 // });
@@ -181,68 +65,69 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
                 $scope.sortByCategories = StoreDataService.sortByCategories;
                 // $scope.getSaleAll = StoreDataService.getSaleAll;
 
-            //TESTIMONIALS
+                //TESTIMONIALS
                 $scope.images = TestimonialsDataService.images.query();
 
-            //SOCIAL LINKS
+                //SOCIAL LINKS
                 $scope.socialLinkstitle = SocialLinksDataService.title;
                 $scope.socialIcons = SocialLinksDataService.socialIcons.query();
 
-            //BUTTON BOXES
-                $scope.go = callToActionDataService.go;
-                $scope.callToActionBoxes = callToActionDataService.callToActionBoxes.query();
+                //BUTTON BOXES
+                $scope.go = CallToActionDataService.go;
+                $scope.callToActionBoxes = CallToActionDataService.callToActionBoxes.query();
             }
-        ])
-    .controller('HomeController', [
-        '$scope',
-        'BlogPostsDataService', 
-        function(
-            $scope,
-            BlogPostsDataService
-            ) {
-                 $scope.title = BlogPostsDataService.title;
-                 $scope.blogPosts = BlogPostsDataService.blogPosts.query();
-                 $scope.upVote = BlogPostsDataService.upVote;
-            }
-        ])
-    .controller('GigsController', [
-        '$scope',
-        'GigsDataService',
-        'GuestsDataService',
-        function(
-            $scope, 
-            GigsDataService, 
-            GuestsDataService
+        ]);
+
+}());
+;(function() {
+    'use strict';
+    angular.module('myBandAppControllers')
+        .controller('GigsController', [
+            '$scope',
+            'GigsDataService',
+            'GuestsDataService',
+            function(
+                $scope,
+                GigsDataService,
+                GuestsDataService
             ) {
                 $scope.title = 'GIGS';
-                $scope.map = $scope.maps[0];
+                $scope.subtitles = GigsDataService.subtitles;
+               $scope.maps = GigsDataService.maps.query();
                 $scope.guests = GuestsDataService.guests;
                 $scope.ticketPrice = GuestsDataService.ticketPrice;
                 $scope.addGuest = function() {
                     if (!$scope.guestsName || $scope.guestsName === '') {
                         return;
                     }
-                    $scope.guests.push({ 
+                    $scope.guests.push({
                         guestsName: $scope.guestsName
                     });
                 };
             }
-        ])
-    .controller('StoreController', [
-        '$scope',
-        'StoreDataService', 
-        function(
-            $scope, 
-            StoreDataService
+        ]);
+}());
+;(function() {
+    'use strict';
+
+    angular.module('myBandAppControllers')
+        .controller('HomeController', [
+            '$scope',
+            'BlogPostsDataService',
+            function(
+                $scope,
+                BlogPostsDataService
             ) {
-                // $http.get('data/store-items/store-items.json').success(function(data) {
-                //     $scope.storeItemsList = data.splice(0, 5);
-                // });
-                $scope.storeItemsList = StoreDataService.storeItems.query();
-                $scope.sortByCategory = StoreDataService.sortByCategory;
+                $scope.title = BlogPostsDataService.title;
+                $scope.blogPosts = BlogPostsDataService.blogPosts.query();
+                $scope.upVote = BlogPostsDataService.upVote;
             }
-        ])
-    .controller('StoreItemDetailController', [
+        ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppControllers')
+		.controller('StoreItemDetailController', [
         '$scope',
         // '$http',
         '$routeParams', 
@@ -263,141 +148,31 @@ angular.module('myBandAppControllers', ['myBandAppServices'])
                     $scope.mainImageUrl = imageUrl;
                 };
             }]);
-angular.module('myBandAppFilters', [])
-	.filter('StockFilter', function() {
-		var trueMark = '\u2713';
-		var falseMark = '\u2718';
-		return function(stock) {
-			if (stock > 0) {
-				return trueMark;
-			} else {
-				return falseMark;
-			}
-		};
-	});
-// var suckData = function(itemId) {
-//     $resource('data/:itemId.json', {}, {
-//         query: {
-//             method: 'GET',
-//             params: {
-//                 itemId: itemId
-//             },
-//             isArray: true
-//         }
-//     });
-// };
-angular.module('myBandAppServices', ['ngResource'])
-    .factory('GigsDataService', [
-        '$rootScope', 
-        '$resource',
+
+}());
+
+;(function() {
+	'use strict';
+	angular.module('myBandAppControllers')
+	.controller('StoreController', [
+        '$scope',
+        'StoreDataService', 
         function(
-            $rootScope, 
-            $resource
+            $scope, 
+            StoreDataService
             ) {
-                var gigs = {
-                    subtitles: ['where', 'when'],
-                    maps: $resource('data/:itemId.json', {}, {
-                        query: {
-                            method: 'GET',
-                            params: {
-                                itemId: 'gigs'
-                            },
-                            isArray: true
-                        }
-                    })
-                };
-                return gigs;
+                // $http.get('data/store-items/store-items.json').success(function(data) {
+                //     $scope.storeItemsList = data.splice(0, 5);
+                // });
+                $scope.storeItemsList = StoreDataService.storeItems.query();
+                $scope.sortByCategory = StoreDataService.sortByCategory;
             }
-        ])
-    .factory('GuestsDataService', [
-        function() {
-            var people = {
-                guests: [{}],
-                ticketPrice: 20
-            };
-            return people;
-        }
-    ])
-    .factory('StoreDataService', [
-        '$resource',
-        function(
-            $resource
-            ) {
-                var store = {
-                    storeItems: $resource('data/store-items/:itemId.json', {}, {
-                        query: {
-                            method: 'GET',
-                            params: {
-                                itemId: 'store-items'
-                            },
-                            isArray: true
-                        }
-                    }),
-                    sortByCategories: ['popular', 'best selling', 'price'],
-                    sortByCategory: 'price'
-                };
-                return store;
-            }
-        ])
-    .factory('TestimonialsDataService', [
-        '$resource',
-        function(
-            $resource
-            ) {
-                var testimonials = {
-                    images: $resource('data/:itemId.json', {}, {
-                        query: {
-                            method: 'GET',
-                            params: {
-                                itemId: 'testimonials'
-                            },
-                            isArray: true
-                        }
-                    })
-                };
-                return testimonials;
-            }
-        ])
-    .factory('SocialLinksDataService', [
-        '$resource',
-        function(
-            $resource
-            ) {
-                var socialLinks = {
-                    title: 'follow us!',
-                    socialIcons: $resource('data/:itemId.json', {}, {
-                        query: {
-                            method: 'GET',
-                            params: {
-                                itemId: 'social-links'
-                            },
-                            isArray: true
-                        }
-                    })
-                };
-                return socialLinks;
-            }
-        ])
-    .factory('callToActionDataService', [
-        '$resource',
-        function($resource) {
-            var calls = {
-                go: function(path) {
-                    $location.path(path);
-                },
-                callToActionBoxes: $resource('data/:itemId.json', {}, {
-                    query: {
-                        method: 'GET',
-                        params: {
-                            itemId: 'calls-to-action'
-                        },
-                        isArray: true
-                    }
-                })
-            };
-            return calls;
-        }
-    ])
+        ]);
+}());
+
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices', ['ngResource'])
     .factory('BlogPostsDataService', [
         '$resource',
         function(
@@ -420,9 +195,146 @@ angular.module('myBandAppServices', ['ngResource'])
                 };
                 return posts;
             }
-        ])
-    ;
-angular.module('myBandAppDirectives', [])
+        ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices', ['ngResource'])
+    .factory('CallToActionDataService', [
+        '$resource',
+        function($resource) {
+            var calls = {
+                go: function(path) {
+                    $location.path(path);
+                },
+                callToActionBoxes: $resource('data/:itemId.json', {}, {
+                    query: {
+                        method: 'GET',
+                        params: {
+                            itemId: 'calls-to-action'
+                        },
+                        isArray: true
+                    }
+                })
+            };
+            return calls;
+        }
+    ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices', ['ngResource'])
+    .factory('GigsDataService', [
+        '$rootScope', 
+        '$resource',
+        function(
+            $rootScope, 
+            $resource
+            ) {
+                var gigs = {
+                    subtitles: ['where', 'when'],
+                    maps: $resource('data/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'gigs'
+                            },
+                            isArray: true
+                        }
+                    })
+                };
+                return gigs;
+            }
+        ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices', ['ngResource'])
+    .factory('GuestsDataService', [
+        function() {
+            var people = {
+                guests: [{}],
+                ticketPrice: 20
+            };
+            return people;
+        }
+    ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices', ['ngResource'])
+    .factory('SocialLinksDataService', [
+        '$resource',
+        function(
+            $resource
+            ) {
+                var socialLinks = {
+                    title: 'follow us!',
+                    socialIcons: $resource('data/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'social-links'
+                            },
+                            isArray: true
+                        }
+                    })
+                };
+                return socialLinks;
+            }
+        ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices', ['ngResource'])
+    .factory('StoreDataService', [
+        '$resource',
+        function(
+            $resource
+            ) {
+                var store = {
+                    storeItems: $resource('data/store-items/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'store-items'
+                            },
+                            isArray: true
+                        }
+                    }),
+                    sortByCategories: ['popular', 'best selling', 'price'],
+                    sortByCategory: 'price'
+                };
+                return store;
+            }
+        ]);
+}());
+;(function() {
+    'use strict';
+    angular.module('myBandAppServices', ['ngResource'])
+        .factory('TestimonialsDataService', [
+            '$resource',
+            function(
+                $resource
+            ) {
+                var testimonials = {
+                    images: $resource('data/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'testimonials'
+                            },
+                            isArray: true
+                        }
+                    })
+                };
+                return testimonials;
+            }
+        ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppDirectives', [])
     .directive('makeMap', function() {
         var mapDdirective = {
             restrict: 'EA',
@@ -477,89 +389,71 @@ angular.module('myBandAppDirectives', [])
         };
         return mapDdirective;
     });
-    // .directive('photoSlider', function(){
-    //     var photoSliderDirective = {
-    //         restrict: 'EA',
-    //         templateUrl: 'templates/directives/photo-slider.html',
-    //         scope: {
-    //             image: '='
-    //         },
-    //     };
-    //     return photoSliderDirective;
-    // });
+}());
+;(function() {
+    'use strict';
+    angular.module('myBandAppDirectives', [])
+        .directive('photoSlider', ['$timeout',
+            function($timeout) {
+                return {
+                    restrict: 'AE',
+                    replace: true,
+                    templateUrl: 'templates/directives/photo-slider.html',
+                    scope: {
+                        images: '='
+                    },
+                    link: function(scope, elem, attrs) {
+                        scope.currentIndex = 0;
+                        scope.next = function() {
+                            if (scope.currentIndex < scope.images.length - 1) {
+                                scope.currentIndex++;
+                            } else {
+                                scope.currentIndex = 0;
+                            }
+                        };
+                        scope.prev = function() {
+                            if (scope.currentIndex > 0) {
+                                scope.currentIndex--;
+                            } else {
+                                scope.currentIndex = scope.images.length - 1;
+                            }
+                        };
+                        scope.$watch('currentIndex', function() {
+                            scope.images.forEach(function(image) {
+                                image.visible = false;
+                            });
+                            scope.images[scope.currentIndex].visible = true;
+                        });
 
-    // .directive('photoSlider', [ '$timeout', function($timeout) {
-    //         return {
-    //             restrict: 'AE',
-    //             replace: true,
-    //             templateUrl: 'templates/directives/photo-slider.html',
-    //             scope: {
-    //                 images: '='
-    //             },
-    //             link: function(scope, elem, attrs) {
-    //                 scope.currentIndex = 0;
-    //                 scope.next = function() {
-    //                     if (scope.currentIndex < scope.images.length - 1) {
-    //                         scope.currentIndex++;
-    //                     } else {
-    //                         scope.currentIndex = 0;
-    //                     }
-    //                 };
-    //                 scope.prev = function() {
-    //                     if (scope.currentIndex > 0) {
-    //                         scope.currentIndex--;
-    //                     } else {
-    //                         scope.currentIndex = scope.images.length - 1;
-    //                     }
-    //                 };
-    //                 scope.$watch('currentIndex', function() {
-    //                     scope.images.forEach(function(image) {
-    //                         image.visible = false;
-    //                     });
-    //                     scope.images[scope.currentIndex].visible = true;
-    //                 });
-    
-    //                 var timer;
-    //                 var sliderFunc = function() {
-    //                     timer = $timeout(function() {
-    //                         scope.next();
-    //                         timer = $timeout(sliderFunc, 5000);
-    //                     }, 5000);
-    //                 };
-    //                 sliderFunc();
-    //                 scope.$on('$destroy', function() {
-    //                     $timeout.cancel(timer);
-    //                 });
-    //             },
+                        var timer;
+                        var sliderFunc = function() {
+                            timer = $timeout(function() {
+                                scope.next();
+                                timer = $timeout(sliderFunc, 5000);
+                            }, 5000);
+                        };
+                        sliderFunc();
+                        scope.$on('$destroy', function() {
+                            $timeout.cancel(timer);
+                        });
+                    },
 
-    //         };
-    //     }]);
-angular.module('myBandAppAnimations',['ngAnimate']);
-////no-js
-//var elDocument = document.documentElement;
-//elDocument.className=elDocument.className.replace(/(^|\s)no-js(\s|$)/, '$1');
-//
-////copyright-date
-//var today = new Date();
-//var year = today.getFullYear();
-//var hourNow = today.getHours();
-//var greeting;
-//
-//(function updateGreeting() {
-//	if (hourNow > 18) {
-//		greeting = 'Good evening stranger!';
-//	} else if (hourNow > 12) {
-//		greeting = 'Good afternoon stranger!';
-//	} else if (hourNow > 0) {
-//		greeting = 'Good morning stranger!';
-//	} else {
-//		greeting = 'Welcome stranger!';
-//	}
-//	var enterGreeting = document.getElementById('greeting');
-//	enterGreeting.textContent = greeting;
-//})();
-//
-//(function updateCopyrightYear() {
-//	var enterYear = document.getElementById('copyYear');
-//	enterYear.innerHTML = "&copy;" + " Monkees " + year;
-//})();
+                };
+            }
+        ]);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppFilters', [])
+	.filter('StockFilter', function() {
+		var trueMark = '\u2713';
+		var falseMark = '\u2718';
+		return function(stock) {
+			if (stock > 0) {
+				return trueMark;
+			} else {
+				return falseMark;
+			}
+		};
+	});
+}());

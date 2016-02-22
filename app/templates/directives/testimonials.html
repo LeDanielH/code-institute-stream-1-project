@@ -1,1 +1,18 @@
-<span class="icon-circle-left"><i class="fa fa-chevron-left fa-2x"></i></span><div class="slide-viewer"><figure ng-repeat="image in images" class="slide slide-{{image.id}}"><div class="quote-wrapper"><q class="bq-over-img"><i class="fa fa-quote-left fa-pull-left"></i><br>{{image.quote}}<br><i class="fa fa-quote-right fa-pull-right"></i></q> <cite>- {{image.cite}}</cite></div></figure></div><span class="icon-circle-right"><i class="fa fa-chevron-right fa-2x"></i></span>
+<span class="icon-circle-left">
+	<i class="fa fa-chevron-left fa-2x"></i>
+</span>
+<div class="slide-viewer">
+	<figure ng-repeat="image in images" class="slide slide-{{image.id}}">
+		<div class="quote-wrapper">
+			<q class="bq-over-img">
+			<i class="fa fa-quote-left fa-pull-left"></i>
+			<br>{{image.quote}}<br>
+			<i class="fa fa-quote-right fa-pull-right"></i>
+			</q>
+			<cite>- {{image.cite}}</cite>
+		</div>
+	</figure>
+</div>
+<span class="icon-circle-right">
+	<i class="fa fa-chevron-right fa-2x"></i>
+</span>
