@@ -92,6 +92,7 @@ module.exports = {
     paths: paths,
     jsLibraries: jsLibraries,
     jsLibrariesDebug: jsLibrariesDebug,
+    jsLibrariesMinified: jsLibrariesMinified,
     ignoredJsFilesPaths: ignoredJsFilesPaths,
     ignoredJsFiles: ignoredJsFiles,
     ignoreModernizr: ignoreModernizr,

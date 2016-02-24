@@ -1,4 +1,4 @@
-var vars = require('./gulp/vars');
+var vars = require('./vars');
 
 var gulp = require('gulp'),
 

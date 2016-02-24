@@ -1,18 +1,23 @@
-var vars = require('./gulp/vars');
+var vars = require('./vars');
 
 var gulp = require('gulp'),
-	cache = require('gulp-cache'),
-	minifyImages = require('gulp-imagemin');
+    localServer = require('gulp-connect'),
+    cache = require('gulp-cache'),
+    minifyImages = require('gulp-imagemin');
 
 
 gulp.task('process-json', function() {
-	return gulp.src([vars.paths.json.src])
-		.pipe(gulp.dest(vars.paths.json.app))
-		.pipe(localServer.reload());
-	});
+    return gulp.src([vars.paths.json.src])
+        .pipe(gulp.dest(vars.paths.json.app))
+        .pipe(localServer.reload());
+});
 
 gulp.task('process-images', function() {
-	return gulp.src([vars.paths.images.src])
-		.pipe(cache(minifyImages({optimizationLevel: 3, progressive: true, interlaced: true })))
-		.pipe(gulp.dest(vars.paths.images.app));
-	});
+    return gulp.src([vars.paths.images.src])
+        .pipe(cache(minifyImages({
+            optimizationLevel: 3,
+            progressive: true,
+            interlaced: true
+        })))
+        .pipe(gulp.dest(vars.paths.images.app));
+});
