@@ -115,12 +115,6 @@ gulp.task('process-html', [], function() {
 		.pipe(localServer.reload());
 	});
 
-gulp.task('gzip-index', ['process-html'], function() {
-	return gulp.src(paths.html.srcRoot)
-		.pipe(gzip())
-		.pipe(gulp.dest(paths.html.app));
-	});
-
 gulp.task('process-styles', [], function() {
 	return gulp.src([paths.styles.src])
 		.pipe(processSass({outputStyle: 'expanded'}).on('error', processSass.logError))
@@ -129,6 +123,7 @@ gulp.task('process-styles', [], function() {
 		.pipe(gulp.dest(paths.styles.app))
 		.pipe(duplicate({suffix: '.min'}))
 		.pipe(nanofyCss())
+		// .pipeEndProcess('styles.app') --> bottom to be removed
 		.pipe(gulp.dest(paths.styles.app))
 		.pipe(gzip())
 		.pipe(gulp.dest(paths.styles.app))
