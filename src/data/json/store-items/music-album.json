@@ -1,0 +1,10 @@
+{
+	"name": "music-album",
+	"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni harum, excepturi fugit numquam, corporis voluptates asperiores molestiae, vero quasi ad voluptas temporibus fuga impedit velit recusandae corrupti quidem? Dicta, porro.",
+	"images": [
+		"images/store-items/music-album-1",
+		"images/store-items/music-album-2",
+		"images/store-items/music-album-3"
+	],
+	"stock": 4
+}

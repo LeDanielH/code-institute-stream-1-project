@@ -8,7 +8,7 @@
             ) {
                 var socialLinks = {
                     title: 'follow us!',
-                    socialIcons: $resource('data/:itemId.json', {}, {
+                    socialIcons: $resource('data/json/:itemId.json', {}, {
                         query: {
                             method: 'GET',
                             params: {

@@ -7,7 +7,7 @@
             $resource
             ) {
                 var store = {
-                    storeItems: $resource('data/store-items/:itemId.json', {}, {
+                    storeItems: $resource('data/json/store-items/:itemId.json', {}, {
                         query: {
                             method: 'GET',
                             params: {

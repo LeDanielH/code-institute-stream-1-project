@@ -8,7 +8,7 @@
                 go: function(path) {
                     $location.path(path);
                 },
-                callToActionBoxes: $resource('data/:itemId.json', {}, {
+                callToActionBoxes: $resource('data/json/:itemId.json', {}, {
                     query: {
                         method: 'GET',
                         params: {

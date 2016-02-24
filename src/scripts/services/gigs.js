@@ -10,7 +10,7 @@
             ) {
                 var gigs = {
                     subtitles: ['where', 'when'],
-                    maps: $resource('data/:itemId.json', {}, {
+                    maps: $resource('data/json/:itemId.json', {}, {
                         query: {
                             method: 'GET',
                             params: {

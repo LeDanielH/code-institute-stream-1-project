@@ -11,12 +11,12 @@ var paths = {
         srcTemplates: src + '/templates/**/*.html',
         srcRoot: src + '/index.html',
         app: dest + '/',
-        appTemplates: src + '/templates/**/*.html'
     },
 
     styles: {
         src: src + '/styles/**/*.+(scss|sass)',
-        app: dest + '/styles/'
+        srcFonts: src + '/styles/fonts/**/*',
+        app: dest + '/styles/',
     },
 
     scripts: {
@@ -30,13 +30,18 @@ var paths = {
     },
 
     images: {
-        src: src + '/images/**/*',
-        app: dest + '/images/'
+        src: src + '/data/images/**/*',
+        app: dest + '/data/images/'
+    },
+
+    videos: {
+        src: src + '/data/videos/**/*',
+        app: dest + '/data/videos/',
     },
 
     fonts: {
-        src: src + '/fonts/**/*',
-        app: dest + '/fonts'
+        src: src + '/styles/fonts/**/*',
+        app: dest + '/styles/fonts'
     },
 
     bower: 'bower_components/',

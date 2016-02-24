@@ -8,7 +8,7 @@
             ) {
                 var posts = {
                     title: 'News',
-                    blogPosts: $resource('data/:itemId.json', {}, {
+                    blogPosts: $resource('data/json/:itemId.json', {}, {
                         query: {
                             method: 'GET',
                             params: {

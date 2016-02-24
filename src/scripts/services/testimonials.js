@@ -7,7 +7,7 @@
                 $resource
             ) {
                 var testimonials = {
-                    images: $resource('data/:itemId.json', {}, {
+                    images: $resource('data/json/:itemId.json', {}, {
                         query: {
                             method: 'GET',
                             params: {
