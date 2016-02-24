@@ -2,10 +2,7 @@ var vars = require('./vars');
 
 var gulp = require('gulp'),
 	templateCache = require('gulp-angular-templatecache'),
-
-	// IMAGES
-	cache = require('gulp-cache'),
-	minifyImages = require('gulp-imagemin');
+	localServer = require('gulp-connect');
 
 gulp.task('cache-angular-templates', ['process-html'], function() {
 	return gulp.src(vars.paths.html.srcTemplates)

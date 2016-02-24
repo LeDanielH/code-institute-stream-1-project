@@ -2,8 +2,6 @@
 
 
 
-@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,400italic,700);
-
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
@@ -29,7 +27,7 @@ body {
 	-o-justify-content: space-between;
 	justify-content: space-between;
 	-ms-flex-pack: justify;
-	background-image: url("../images/monkees-fans.jpg");
+	background-image: url("../data/images/monkees-fans.jpg");
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
@@ -381,8 +379,8 @@ img,picture {
 
 @font-face {
 	font-family: 'FontAwesome';
-	src: url("../fonts/font-awesome/fontawesome-webfont.eot?v=4.5.0");
-	src: url("../fonts/font-awesome/fontawesome-webfont.eot?v=4.5.0#iefix") format("embedded-opentype"), url("../fonts/font-awesome/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("../fonts/font-awesome/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("../fonts/font-awesome/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("../fonts/font-awesome/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
+	src: url("fonts/font-awesome/fontawesome-webfont.eot?v=4.5.0");
+	src: url("fonts/font-awesome/fontawesome-webfont.eot?v=4.5.0#iefix") format("embedded-opentype"), url("fonts/font-awesome/fontawesome-webfont.woff2?v=4.5.0") format("woff2"), url("fonts/font-awesome/fontawesome-webfont.woff?v=4.5.0") format("woff"), url("fonts/font-awesome/fontawesome-webfont.ttf?v=4.5.0") format("truetype"), url("fonts/font-awesome/fontawesome-webfont.svg?v=4.5.0#fontawesomeregular") format("svg");
 	font-weight: normal;
 	font-style: normal;
 }
@@ -2506,6 +2504,30 @@ img::selection {
 img::-moz-selection {
 	background: transparent;
 }
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: normal;
+	src: url("fonts/Roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto/Roboto-Regular.woff2") format("woff2"), url("fonts/Roboto/Roboto-Regular.woff") format("woff"), url("fonts/Roboto/Roboto-Regular.ttf") format("truetype"), url("fonts/Roboto/Roboto-Regular.svg#Roboto") format("svg");
+}
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: normal;
+	src: url("fonts/Roboto/Roboto-Italic.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto/Roboto-Italic.woff2") format("woff2"), url("fonts/Roboto/Roboto-Italic.woff") format("woff"), url("fonts/Roboto/Roboto-Italic.ttf") format("truetype"), url("fonts/Roboto/Roboto-Italic.svg#Roboto") format("svg");
+}
+@font-face {
+	font-family: "Roboto";
+	font-style: normal;
+	font-weight: normal;
+	src: url("fonts/Roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto/Roboto-Bold.woff2") format("woff2"), url("fonts/Roboto/Roboto-Bold.woff") format("woff"), url("fonts/Roboto/Roboto-Bold.ttf") format("truetype"), url("fonts/Roboto/Roboto-Bold.svg#Roboto") format("svg");
+}
+@font-face {
+	font-family: "Roboto Condensed";
+	font-style: normal;
+	font-weight: normal;
+	src: url("fonts/Roboto_Condensed/RobotoCondensed-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.woff2") format("woff2"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.woff") format("woff"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf") format("truetype"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.svg#Roboto Condensed") format("svg");
+}
 h1,h2,h3,h4,h5,label,legend,input[type="submit"],select[type="submit"],th,.menu-icon > span {
 	font-family: "Roboto Condensed", sans-serif;
 	text-transform: uppercase;
@@ -3816,16 +3838,16 @@ body .container .main-footer {
 	width: 100%;
 }
 .slider .slide-viewer .slide.slide-1 {
-	background-image: url("../images/monkees.jpg");
+	background-image: url("../data/images/monkees.jpg");
 }
 .slider .slide-viewer .slide.slide-2 {
-	background-image: url("../images/monkees-undercover.jpg");
+	background-image: url("../data/images/monkees-undercover.jpg");
 }
 .slider .slide-viewer .slide.slide-3 {
-	background-image: url("../images/monkees-big.jpg");
+	background-image: url("../data/images/monkees-big.jpg");
 }
 .slider .slide-viewer .slide.slide-4 {
-	background-image: url("../images/monkees-fans.jpg");
+	background-image: url("../data/images/monkees-fans.jpg");
 }
 .slider .slide-viewer .slide:first-child {
 	display: -webkit-box;

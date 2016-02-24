@@ -2,10 +2,7 @@ var vars = require('./vars');
 
 var gulp = require('gulp'),
 
-    // DEPLOYMENT
     localServer = require('gulp-connect'),
-
-    // HTML
     nanofyHtml = require('gulp-htmlmin'),
     stripHtmlComments = require('gulp-strip-comments');
 
