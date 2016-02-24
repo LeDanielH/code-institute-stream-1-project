@@ -22,7 +22,6 @@ gulp.task('default', [
     'process-styles',
     'process-scripts',
     'process-json',
-    'process-images',
     'watch',
     'localServer'
 ]);
