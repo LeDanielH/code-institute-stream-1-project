@@ -47,3 +47,6 @@ console.log(obj.info.email);
 var key = 'info',
   key2 = 'email';
 console.log(obj[key][key2]);
+
+// obj.info.email
+// obj[key][key2]
