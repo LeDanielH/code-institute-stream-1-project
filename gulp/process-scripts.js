@@ -22,6 +22,7 @@ gulp.task('process-scripts', function() {
             vars.paths.scripts.src + 'app.js',
             vars.paths.scripts.src + 'controllers/index.js',
             vars.paths.scripts.src + 'controllers/*.js',
+            vars.paths.scripts.src + 'services/index.js',
             vars.paths.scripts.src + 'services/*.js',
             vars.paths.scripts.src + 'directives/*.js',
             vars.paths.scripts.src + 'filters/*.js',

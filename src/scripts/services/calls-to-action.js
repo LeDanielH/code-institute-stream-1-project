@@ -1,6 +1,6 @@
 ;(function(){
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource'])
+	angular.module('myBandAppServices')
     .factory('CallToActionDataService', [
         '$resource',
         function($resource) {

@@ -172,7 +172,11 @@ angular.module('bandApp', [
 
 ;(function(){
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource'])
+	angular.module('myBandAppServices', ['ngResource']);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices')
     .factory('BlogPostsDataService', [
         '$resource',
         function(
@@ -199,7 +203,7 @@ angular.module('bandApp', [
 }());
 ;(function(){
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource'])
+	angular.module('myBandAppServices')
     .factory('CallToActionDataService', [
         '$resource',
         function($resource) {
@@ -223,7 +227,7 @@ angular.module('bandApp', [
 }());
 ;(function(){
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource'])
+	angular.module('myBandAppServices')
     .factory('GigsDataService', [
         '$rootScope', 
         '$resource',
@@ -249,7 +253,7 @@ angular.module('bandApp', [
 }());
 ;(function(){
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource'])
+	angular.module('myBandAppServices')
     .factory('GuestsDataService', [
         function() {
             var people = {
@@ -262,7 +266,7 @@ angular.module('bandApp', [
 }());
 ;(function(){
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource'])
+	angular.module('myBandAppServices')
     .factory('SocialLinksDataService', [
         '$resource',
         function(
@@ -286,7 +290,7 @@ angular.module('bandApp', [
 }());
 ;(function(){
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource'])
+	angular.module('myBandAppServices')
     .factory('StoreDataService', [
         '$resource',
         function(
@@ -311,7 +315,7 @@ angular.module('bandApp', [
 }());
 ;(function() {
     'use strict';
-    angular.module('myBandAppServices', ['ngResource'])
+    angular.module('myBandAppServices')
         .factory('TestimonialsDataService', [
             '$resource',
             function(
