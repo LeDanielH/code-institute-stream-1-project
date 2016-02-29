@@ -14,7 +14,7 @@
 		<div class="store-item" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory">
 			<a href="#/store/{{item.id}}">
 				<!-- <i class="fa fa-soundcloud fa-2x"></i> -->
-				<div class="img-wrapper"><img class="store-item-thumbnail" ng-src="{{item.imgSrc}}.jpg" alt="{{item.name}}"></div>
+				<div class="img-wrapper"><img class="store-item-thumbnail filter-image" ng-src="{{item.imgSrc}}.jpg" alt="{{item.name}}"></div>
 				<p>{{item.name}} - {{item.price}}&euro;</p>
 			</a>
 		</div>

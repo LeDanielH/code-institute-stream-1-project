@@ -25,9 +25,9 @@ angular.module('bandApp', [
 				templateUrl: 'templates/store-item-detail.html',
 				controller: 'StoreItemDetailController'
 			})
-			.when('/home/post', {
+			.when('/home/:postId', {
 				templateUrl: 'templates/blog-post-detail.html',
-				controller: 'HomeController'
+				controller: 'BlogPostDetailController'
 			})
 			.otherwise({
 				redirectTo: '/home'

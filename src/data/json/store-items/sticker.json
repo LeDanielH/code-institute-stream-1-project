@@ -6,5 +6,6 @@
 		"data/images/store-items/sticker-2",
 		"data/images/store-items/sticker-3"
 	],
-	"stock": 0
+	"stock": 0,
+	"price": 2
 }

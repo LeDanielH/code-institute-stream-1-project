@@ -16,7 +16,7 @@
                             isArray: true
                         }
                     }),
-                    sortByCategories: ['popular', 'best selling', 'price'],
+                    sortByCategories: ['popular', 'price'],
                     sortByCategory: 'price'
                 };
                 return store;

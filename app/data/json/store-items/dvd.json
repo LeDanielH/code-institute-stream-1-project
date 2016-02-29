@@ -5,5 +5,7 @@
 		"data/images/store-items/dvd-1",
 		"data/images/store-items/dvd-2",
 		"data/images/store-items/dvd-3"
-	]
+	],
+	"stock": 0,
+	"price": 15
 }

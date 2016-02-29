@@ -25,9 +25,9 @@ angular.module('bandApp', [
 				templateUrl: 'templates/store-item-detail.html',
 				controller: 'StoreItemDetailController'
 			})
-			.when('/home/post', {
+			.when('/home/:postId', {
 				templateUrl: 'templates/blog-post-detail.html',
-				controller: 'HomeController'
+				controller: 'BlogPostDetailController'
 			})
 			.otherwise({
 				redirectTo: '/home'
@@ -86,6 +86,44 @@ angular.module('bandApp', [
 ;(function() {
     'use strict';
     angular.module('myBandAppControllers')
+        .controller('BlogPostDetailController', [
+            '$scope',
+            'BlogPostsDataService',
+            '$routeParams',
+            function(
+                $scope,
+                BlogPostsDataService,
+                $routeParams
+            ) {
+                $scope.post = BlogPostsDataService.blogPosts.get({
+                    postId: $routeParams.postId
+                }, function(post) {
+                    $scope.mainImageUrl = post.images[0];
+                });
+                $scope.setMainImage = function(imageUrl) {
+                    $scope.mainImageUrl = imageUrl;
+                };
+                $scope.comments = BlogPostsDataService.comments;
+                $scope.addComment = function () {
+                	if (!$scope.content || $scope.content === '' ) {
+                		return;
+                	}
+                	$scope.comments.push({
+                		userName: $scope.userName,
+                		content: $scope.content,
+                        upVotes: 0
+                	});
+                	$scope.userName = '';
+                	$scope.content = '';
+                };
+                $scope.upVote = BlogPostsDataService.upVote;
+            }
+        ]);
+
+}());
+;(function() {
+    'use strict';
+    angular.module('myBandAppControllers')
         .controller('GigsController', [
             '$scope',
             'GigsDataService',
@@ -124,7 +162,6 @@ angular.module('bandApp', [
             ) {
                 $scope.title = BlogPostsDataService.title;
                 $scope.blogPosts = BlogPostsDataService.blogPosts.query();
-                $scope.upVote = BlogPostsDataService.upVote;
             }
         ]);
 }());
@@ -175,28 +212,43 @@ angular.module('bandApp', [
 	'use strict';
 	angular.module('myBandAppServices', ['ngResource']);
 }());
-;(function(){
-	'use strict';
-	angular.module('myBandAppServices')
-    .factory('BlogPostsDataService', [
-        '$resource',
-        function(
-            $resource
+;(function() {
+    'use strict';
+    angular.module('myBandAppServices')
+        .factory('BlogPostsDataService', [
+            '$resource',
+            function(
+                $resource
             ) {
                 var posts = {
                     title: 'News',
-                    blogPosts: $resource('data/json/:itemId.json', {}, {
+                    blogPosts: $resource('data/json/posts/:postId.json', {}, {
                         query: {
                             method: 'GET',
                             params: {
-                                itemId: 'blog-posts'
+                                postId: 'blog-posts'
                             },
                             isArray: true
                         }
                     }),
                     upVote: function(post) {
                         post.upVotes += 1;
-                    }
+                    },
+                    comments: [{
+                            userName: 'Adela',
+                            content: 'This is an amazing post!',
+                            upVotes: 2
+                        }, {
+                            userName: 'Daniel',
+                            content: 'This website sucks!',
+                            upVotes: 10
+                        }, {
+                            userName: 'Oliver',
+                            content: 'This is so cool!',
+                            upVotes: 3
+                        }
+
+                    ]
                 };
                 return posts;
             }
@@ -307,7 +359,7 @@ angular.module('bandApp', [
                             isArray: true
                         }
                     }),
-                    sortByCategories: ['popular', 'best selling', 'price'],
+                    sortByCategories: ['popular', 'price'],
                     sortByCategory: 'price'
                 };
                 return store;

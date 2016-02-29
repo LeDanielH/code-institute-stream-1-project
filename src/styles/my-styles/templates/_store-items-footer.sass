@@ -17,7 +17,7 @@
 		.store-items-wrapper
 			+display(flex)
 			+justify-content(space-around)
-			+align-items(center)
+			+align-items(baseline)
 			+flex(1)
 
 			.store-item
@@ -37,12 +37,7 @@
 
 					.img-wrapper
 						.store-item-thumbnail
-							+size(100px)
-							+filter(sepia(70%))
-							+transition($base-transition-duration)
-							&:hover
-								+filter(sepia(0%))
-								+transition($base-transition-duration)
+							+size(90px)
 					
 					p
 						font-size: 0.75rem
@@ -53,3 +48,17 @@
 		text-transform: uppercase
 		font-size: 0.9rem
 
+@media screen and (max-width: $query-large)
+	.store-items
+		.store-items-wrapper
+			div.store-item:last-child, div.store-item:first-child
+				+display(none)
+
+@media screen and (max-width: $query-medium-large)
+	.store-items
+		.store-items-wrapper
+			.store-item
+				.img-wrapper
+					.store-item-thumbnail
+						width: 70px !important
+						height: 70px !important

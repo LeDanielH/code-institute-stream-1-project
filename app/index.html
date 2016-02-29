@@ -10,25 +10,25 @@
 	<link rel="stylesheet" href="styles/main.min.css">
 </head>
 <body>
-	<aside class="left-sidebar divided-no-border" ng-include="'templates/directives/left-sidebar.html'"></aside>
+	<aside class="left-sidebar base-transparent-medium divided-no-border" ng-include="'templates/directives/left-sidebar.html'"></aside>
 	<div class="empty-column"></div>
 
 	<section class="container">
 
 			<header class="main-header">
 			<div class="slider" ng-include="'templates/directives/testimonials.html'"></div>
-			<nav class="main-navigation" ng-include="'templates/directives/navbar.html'"></nav>
+			<nav class="main-navigation base-transparent-medium" ng-include="'templates/directives/navbar.html'"></nav>
 			<div class="sticky-alias"></div>
 		</header>
 
 				<div class="columns-wrapper">
-			<section class="content" ng-view>
+			<section class="content base-transparent-strong" ng-view>
 			</section>
-			<aside class="right-sidebar divided-no-border" ng-include="'templates/directives/right-sidebar.html'"></aside>
+			<aside class="right-sidebar base-transparent-medium divided-no-border" ng-include="'templates/directives/right-sidebar.html'"></aside>
 		</div>
 
-				<footer class="main-footer">
-			<div class="store-items" ng-include="'templates/directives/store-items-footer.html'"></div>
+				<footer class="main-footer base-transparent-medium">
+			<div class="store-items base-transparent-medium" ng-include="'templates/directives/store-items-footer.html'"></div>
 			<div class="sign-up-mobile divided-no-border" ng-include="'templates/directives/sign-up.html'"></div>
 			<section class="social-links-mobile divided-no-border" ng-include="'templates/directives/social-icons.html'"></section>
 			<div class="footer-copyright">

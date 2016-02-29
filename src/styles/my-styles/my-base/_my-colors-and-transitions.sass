@@ -5,6 +5,7 @@ $success-color: #e6efc2
 
 $accent1: #C4D6B0
 $accent2: #477998
+
 // favorite $accent3: #32292F
 $accent3: rgba(35, 29, 34, 0.9)
 $lighten: lighten($accent3, 30%)
@@ -17,98 +18,107 @@ $dark-transparent-light: rgba(35, 29, 34, 0.9)
 $dark-transparent-medium: rgba(35, 29, 34, 0.7)
 $dark-transparent-strong: rgba(35, 29, 34, 0.4)
 
-
 $selection-color: #E5BCD3
+
+$images-filter-on: sepia(50%) grayscale(70%)
+$images-filter-off: sepia(0%) grayscale(0%)
 
 $base-transition-duration: 300ms
 $base-scale: 1.15
 
 body
-	-webkit-tap-highlight-color: $selection-color
-	background-color: $base-background-color
+    -webkit-tap-highlight-color: $selection-color
+    background-color: $base-background-color
 
-.slide
-	background-color: $dark-transparent-medium
+.dark-transparent-medium
+    background-color: $dark-transparent-medium
 
-.left-sidebar, .aside-logo-mobile, .right-sidebar, .store-items, .blog-intro-post, nav, .sign-up-mobile, .text-button-wrapper, .main-footer
-	background-color: $base-transparent-medium
+.base-transparent-medium
+    background-color: $base-transparent-medium
 
-.content
-	background-color: $base-transparent-strong
+.base-transparent-strong
+    background-color: $base-transparent-strong
 
 button
-	background-color: $accent3
-	&:hover, &:focus
-		background-color: $lighten
+    background-color: $accent3
+
+    &:hover, &:focus
+        background-color: $lighten
 
 button:focus
-	outline: 0
+    outline: 0
 
-nav > a, div > a, aside > a
-	color: $accent3
-	&:hover
-		color: $lighten
+nav > a, 
+div > a, 
+aside > a
+    color: $accent3
+    &:hover
+        color: $lighten
 
 header > nav > a:hover
-	background-color: $dark-transparent-light
-	color: $base-background-color
+    background-color: $dark-transparent-light
+    color: $base-background-color
 
 .main-header > .slider > span[class^="icon-circle"]
-	+transition($base-transition-duration)
-	color: $base-transparent-light
-	&:hover
-		+transition($base-transition-duration)
-		+transform(scale($base-scale))
-		background-color: $base-transparent-medium
-		color: $accent3
+    +transition($base-transition-duration)
+
+    color: $base-transparent-light
+
+    &:hover
+        +transition($base-transition-duration)
+        +transform(scale($base-scale))
+        background-color: $base-transparent-medium
+        color: $accent3
 
 .store-items-area-wrapper > span[class^="icon-circle"]
-	+transition($base-transition-duration)
-	color: $accent3
-	&:hover
-		+transition($base-transition-duration)
-		+transform(scale($base-scale))
-		background-color: $dark-transparent-light
-		color: $base-transparent-light 
+    +transition($base-transition-duration)
+    color: $accent3
+    &:hover
+        +transition($base-transition-duration)
+        +transform(scale($base-scale))
+        background-color: $dark-transparent-light
+        color: $base-transparent-light
 
 .store-items-wrapper > *
-	+transition($base-transition-duration)
-	&:hover
-		+transition($base-transition-duration)
-		+transform(scale($base-scale))
-		color: $lighten
+    +transition($base-transition-duration)
+    &:hover
+        +transition($base-transition-duration)
+        +transform(scale($base-scale))
+        color: $lighten
 
 .slide > .quote-wrapper
-	color: $base-transparent-light
-	background-color: $dark-transparent-strong
+    color: $base-transparent-light
+    background-color: $dark-transparent-strong
 
 input[type="checkbox"]
-	+transform(scale($base-scale))
-	
+    +transform(scale($base-scale))
+
 .box1
-	background-color: $accent1
+    background-color: $accent1
 
 .box2
-	background-color: $accent2
+    background-color: $accent2
 
 .box3
-	background-color: $accent3
+    background-color: $accent3
 
 .double-hr
-	border: solid $accent3 1px
+    border: solid $accent3 1px
 
-::selection
-	background: $selection-color
+.filter-image
+  	+filter($images-filter-on)
 
-::-moz-selection
-	background: $selection-color
+\::selection
+    background: $selection-color
+
+\::-moz-selection
+    background: $selection-color
 
 img::selection
-	background: transparent
+    background: transparent
 
 img::-moz-selection
-	background: transparent
-
+    background: transparent
 
 //i[class*="icon-circle"], .store-item
 //	+transition($base-transition-duration)
@@ -117,4 +127,3 @@ img::-moz-selection
 //		+transform(scale($base-scale))
 //		+transition($base-transition-duration)
 //		color: $lighten
-	

@@ -1,0 +1,37 @@
+.blog-post
+	margin: $base-padding
+	+display(flex)
+	+flex-direction(column)
+	max-width: 650px
+
+	.post-header
+		+display(flex)
+		+justify-content(space-between)
+		+flex-wrap(wrap)
+		h2
+			padding-right: $base-padding
+
+		.post-date
+			padding-bottom: $base-padding
+
+	.post-content
+		img
+			float: left
+			margin: 0 $base-padding $base-padding 0
+
+	.comments-wrapper
+		+display(flex)
+		+flex-direction(column)
+
+		.add-comment
+			+display(flex)
+			+flex-direction(column)
+
+		.comments:not(:last-child)
+			margin-bottom: $base-padding
+
+		.comments
+			+display(flex)
+			+flex-direction(column)
+			button
+				+align-self(flex-end)

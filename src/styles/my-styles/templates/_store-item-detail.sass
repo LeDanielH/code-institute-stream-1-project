@@ -1,0 +1,31 @@
+.store-item-detail
+	+display(flex)
+	+flex-direction(column)
+	+justify-content(center)
+	padding: $base-padding
+	border-radius: $base-border-radius
+
+	.item-main
+		+display(flex)
+		+flex-wrap(wrap)
+		.img-wrapper
+			+flex(1)
+			.img-main
+				width: 100%
+				+display(none)
+				border-radius: $base-border-radius
+				margin-bottom: $base-padding
+			.img-main:first-child
+				+display(block)
+
+		.item-description
+			+flex(1)
+			.stock
+				+display(flex)
+				+justify-content(space-between)
+				+align-items(center)
+@media screen and(max-width: $query-medium)
+	.store-item-detail
+		.item-main
+			+flex-direction(column)
+
