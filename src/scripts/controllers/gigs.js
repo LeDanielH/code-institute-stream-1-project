@@ -13,15 +13,17 @@
                 $scope.title = 'GIGS';
                 $scope.subtitles = GigsDataService.subtitles;
                 $scope.maps = GigsDataService.maps.query();
-                $scope.guests = GuestsDataService.guests;
+                $scope.guests = [];
                 $scope.ticketPrice = GuestsDataService.ticketPrice;
                 $scope.addGuest = function() {
-                    if (!$scope.guestsName || $scope.guestsName === '') {
+                    if (!$scope.name || $scope.name === '') {
                         return;
                     }
                     $scope.guests.push({
-                        guestsName: $scope.guestsName
+                        name: $scope.name
                     });
+                    $scope.name = '';
+
                 };
             }
         ]);

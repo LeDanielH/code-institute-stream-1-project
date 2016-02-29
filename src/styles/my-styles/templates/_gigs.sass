@@ -17,39 +17,23 @@
 		padding:  $base-padding
 		+order(1)
 		background-color: $base-transparent-medium
-		border-radius: 0 $base-border-radius $base-border-radius 
+		border-radius: 0 $base-border-radius $base-border-radius
 
 		form
 			+display(flex)
-			+justify-content(space-around)
+			+flex-direction(column)
+			.form-layout
+				+display(flex)
+				+flex-wrap(wrap)
 
-			fieldset
-				+flex(1)
-				padding-right: $base-padding
-
-				.input-wrap
-					.plus-button
-						+position(relative, -6px null null null)
-						margin-left: 5px
-
-					.location-wrapper
-						+align-items(flex-start)
+				fieldset
+					+flex(1 1 220px)
+					.input-add-guest
 						+justify-content(space-between)
-						+flex-wrap(wrap)
+						#addGuestButton
+							+position(relative, -6px null null null)
+							margin-left: 5px
 
-						.input-wrap
-							+flex(1 1 150px)
-							max-width: 170px
-
-						.img-wrapper
-							+flex-shrink(4 4 150px)
-							margin-bottom: $base-padding
-							+position(relative)
-							border-right: 5px solid transparent
-
-							.map-controls
-								+position(absolute, null -6px 3px null)
-								+transform(scale(0.7))
 
 	label.tab-header:first-of-type
 		border-top-left-radius: $base-border-radius
@@ -67,4 +51,13 @@
 	input[type=radio]:checked + .tab-header + .tab-panel 
 		+display(flex)
 		+flex-direction(column)
- 
+
+.img-map
+	+flex(4 4 150px)
+	margin-bottom: $base-padding
+	+position(relative)
+	border-right: 5px solid transparent
+
+	.map-controls
+		+position(absolute, null -6px 3px null)
+		+transform(scale(0.7))

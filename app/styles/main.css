@@ -3787,41 +3787,43 @@ body .container .main-footer {
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-pack: distribute;
-	-moz-box-pack: distribute;
-	box-pack: distribute;
-	-webkit-justify-content: space-around;
-	-moz-justify-content: space-around;
-	-ms-justify-content: space-around;
-	-o-justify-content: space-around;
-	justify-content: space-around;
-	-ms-flex-pack: distribute;
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+	-webkit-box-direction: normal;
+	-moz-box-direction: normal;
+	box-direction: normal;
+	-webkit-flex-direction: column;
+	-moz-flex-direction: column;
+	flex-direction: column;
+	-ms-flex-direction: column;
 }
-.tabs .tab-panel form fieldset {
+.tabs .tab-panel form .form-layout {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-lines: multiple;
+	-moz-box-lines: multiple;
+	box-lines: multiple;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+.tabs .tab-panel form .form-layout fieldset {
 	-webkit-box-flex: 1;
 	-moz-box-flex: 1;
 	box-flex: 1;
-	-webkit-flex: 1;
-	-moz-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	padding-right: 20px;
+	-webkit-flex: 1 1 220px;
+	-moz-flex: 1 1 220px;
+	-ms-flex: 1 1 220px;
+	flex: 1 1 220px;
 }
-.tabs .tab-panel form fieldset .input-wrap .plus-button {
-	position: relative;
-	top: -6px;
-	margin-left: 5px;
-}
-.tabs .tab-panel form fieldset .input-wrap .location-wrapper {
-	-webkit-box-align: start;
-	-moz-box-align: start;
-	box-align: start;
-	-webkit-align-items: flex-start;
-	-moz-align-items: flex-start;
-	-ms-align-items: flex-start;
-	-o-align-items: flex-start;
-	align-items: flex-start;
-	-ms-flex-align: start;
+.tabs .tab-panel form .form-layout fieldset .input-add-guest {
 	-webkit-box-pack: justify;
 	-moz-box-pack: justify;
 	box-pack: justify;
@@ -3831,42 +3833,11 @@ body .container .main-footer {
 	-o-justify-content: space-between;
 	justify-content: space-between;
 	-ms-flex-pack: justify;
-	-webkit-box-lines: multiple;
-	-moz-box-lines: multiple;
-	box-lines: multiple;
-	-webkit-flex-wrap: wrap;
-	-moz-flex-wrap: wrap;
-	-ms-flex-wrap: wrap;
-	flex-wrap: wrap;
 }
-.tabs .tab-panel form fieldset .input-wrap .location-wrapper .input-wrap {
-	-webkit-box-flex: 1;
-	-moz-box-flex: 1;
-	box-flex: 1;
-	-webkit-flex: 1 1 150px;
-	-moz-flex: 1 1 150px;
-	-ms-flex: 1 1 150px;
-	flex: 1 1 150px;
-	max-width: 170px;
-}
-.tabs .tab-panel form fieldset .input-wrap .location-wrapper .img-wrapper {
-	-webkit-flex-shrink: 4 4 150px;
-	-moz-flex-shrink: 4 4 150px;
-	flex-shrink: 4 4 150px;
-	-ms-flex-negative: 4 4 150px;
-	margin-bottom: 20px;
+.tabs .tab-panel form .form-layout fieldset .input-add-guest #addGuestButton {
 	position: relative;
-	border-right: 5px solid transparent;
-}
-.tabs .tab-panel form fieldset .input-wrap .location-wrapper .img-wrapper .map-controls {
-	position: absolute;
-	right: -6px;
-	bottom: 3px;
-	-webkit-transform: scale(0.7);
-	-moz-transform: scale(0.7);
-	-ms-transform: scale(0.7);
-	-o-transform: scale(0.7);
-	transform: scale(0.7);
+	top: -6px;
+	margin-left: 5px;
 }
 .tabs label.tab-header:first-of-type {
 	border-top-left-radius: 3px;
@@ -3899,6 +3870,28 @@ body .container .main-footer {
 	-moz-flex-direction: column;
 	flex-direction: column;
 	-ms-flex-direction: column;
+}
+.img-map {
+	-webkit-box-flex: 4;
+	-moz-box-flex: 4;
+	box-flex: 4;
+	-webkit-flex: 4 4 150px;
+	-moz-flex: 4 4 150px;
+	-ms-flex: 4 4 150px;
+	flex: 4 4 150px;
+	margin-bottom: 20px;
+	position: relative;
+	border-right: 5px solid transparent;
+}
+.img-map .map-controls {
+	position: absolute;
+	right: -6px;
+	bottom: 3px;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	-o-transform: scale(0.7);
+	transform: scale(0.7);
 }
 .slider {
 	position: relative;

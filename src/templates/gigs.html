@@ -5,45 +5,54 @@
 	<div class="tab-panel">
 		<p>Please fill all the required information.</p>
 		<form action="">
-			<fieldset>
-				<div class="input-wrap">
-					<div class="input-wrap">
+			<div class="input-wrapper-inline form-layout">
+				<fieldset>
+					<div class="input-wrap input-location">
 						<label for="where-and-when">{{subtitles[0]}} and {{subtitles[1]}}?</label>
-						<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when">
-						</select>
-					</div>
-					<div class="input-wrap-inline location-wrapper">
-						<div class="input-wrap">
-							<h5>Address</h5>
+						<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when"></select>
+						<h5>Address</h5>
+						<div class="input-wrapper-inline map-and-address">
 							<address>
 								{{map.address[0].street}} <br>
 								{{map.address[0].city}} <br>
 								{{map.address[0].country}}
 							</address>
+							<make-map map="map"></make-map>
 						</div>
-						<make-map map="map"></make-map>
 					</div>
-				</div>
-				<div class="input-wrap">
-					<ul class="added-guests">
-						<li ng-repeat="guest in guests">{{guest.guestsName}}</li>
-						<p>Price = {{guests.length * ticketPrice}} EUR</p>
-					</ul>
+					
 					<label for="email">Your email?</label>
 					<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="on" required>
-				</div>
-				<div class="input-wrap add-person">
-					<label for="addPerson">Add another person</label>
-					<form ng-submit="addGuest()" class="input-wrap-inline">
-						<input type="text" id="addPerson" name="addPerson" placeholder="John Doe" ng-model="guestsName">
-						<button type="submit" id="addPersonButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
-					</form>
-				</div>
-				<div class="input-wrap-inline">
+					
+					<label for="addGuest">Add another guest</label>
+					<ul class="added-guests">
+						<li ng-repeat="guest in guests"><strong>{{guest.name}}</strong></li>
+					</ul>
+					<div class="input-wrap-inline input-add-guest">
+						<input type="text" id="addGuest" name="addGuest" placeholder="John Doe" ng-model="name">
+						<button ng-click="addGuest()" id="addGuestButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
+					</div>
+				
+				</fieldset>
+				<div class="space-between"></div>
+				<fieldset>
+				
+					<label for="credit-card">Credit Card Number:</label>
+					<input type="text" id="credit-card" name="cardnumber" autocomplete="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX" pattern="[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}" required>
+					<label for="address">Billing Address</label>
+					<input type="text" id="name" name="name" autocomplete="name" placeholder="credit card holder name" required>
+					<input type="text" id="street" name="address" autocomplete="street-address" placeholder="street &amp; house number" required>
+					<input type="text" id="city" name="city" autocomplete="address-level2" placeholder="city" required>
+					<input type="text" id="post-code" name="post-code" autocomplete="postal-code" placeholder="post code" required>
+					<select name="country" id="country" autocomplete="country" ng-include="'templates/directives/countries.html'" required></select>
+				
 					<input type="checkbox" id="terms" />
 					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
-				</div>
-			</fieldset>
+				
+				</fieldset>
+			</div>
+			<br>
+			<button type="submit">Pay {{ticketPrice}} &euro;</button>
 		</form>
 	</div>
 	<input id="tab-two" type="radio" name="grp" />

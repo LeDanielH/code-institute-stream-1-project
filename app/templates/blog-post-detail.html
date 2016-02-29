@@ -5,7 +5,7 @@
 	</header>
 	<article class="post-content">
 		<div class="img-wrapper">
-			<img src="{{post.images[0]}}.jpg" alt="blog cover" class="blog-img">
+			<img src="{{post.images[0]}}.jpg" alt="blog cover" class="blog-img filter-image">
 		</div>
 		<p>{{post.content}}</p>
 	</article>
@@ -14,7 +14,7 @@
 	<footer class="comments-wrapper">
 		<form class="add-comment" ng-submit="addComment()" id="comment">
 			<label for="username">your username</label>
-			<input id="username" type="text" placeholder="enter your username" autocomplete="on" ng-model="userName" pattern="[A-Za-z0-9_-]{1,}" required>
+			<input id="username" type="text" placeholder="enter your username" autocomplete="on" ng-model="userName" pattern="[A-Za-z0-9_-]{1,30}" required>
 			<label for="content">your comment</label>
 			<textarea form="comment" name="content" id="content" cols="30" rows="7" placeholder="add your comment" ng-model="content" required></textarea>
 			<button type="submit">Comment</button>
