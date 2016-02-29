@@ -34,6 +34,15 @@
 					+flex(1)
 					width: 100%
 					text-transform: uppercase
+
+					.img-wrapper
+						.store-item-thumbnail
+							+size(100px)
+							+filter(sepia(70%))
+							+transition($base-transition-duration)
+							&:hover
+								+filter(sepia(0%))
+								+transition($base-transition-duration)
 					
 					p
 						font-size: 0.75rem

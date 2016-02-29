@@ -1,8 +1,8 @@
 ;(function(){
 	'use strict';
-	angular.module('myBandAppDirectives', [])
+	angular.module('myBandAppDirectives')
     .directive('makeMap', function() {
-        var mapDdirective = {
+        var mapDirective = {
             restrict: 'EA',
             templateUrl: 'templates/directives/maps.html',
             scope: {
@@ -26,11 +26,13 @@
                     };
                     $scope.mapDimensions = function() {
                         if (!$scope.map.width) {
+                        // if (angular.isDefined(!$scope.map.width)) {
                             var width = 200;
                         } else {
                             width = $scope.map.width;
                         }
                         if (!$scope.map.height) {
+                        // if (angular.isDefined(!$scope.map.height)) {
                             var height = 200;
                         } else {
                             height = $scope.map.height;
@@ -39,7 +41,8 @@
                     };
                     $scope.returnAddressOrNot = function() {
                         console.log("address: " + $scope.map.address);
-                        if ($scope.map.address)
+                        if (!$scope.map.address)
+                        // if (angular.isDefined(!$scope.map.address))
                             return true;
                         else
                             return false;
@@ -53,6 +56,7 @@
                 }
             ]
         };
-        return mapDdirective;
+        return mapDirective;
     });
 }());
+// http://stackoverflow.com/questions/20432127/angularjs-interpolation-error

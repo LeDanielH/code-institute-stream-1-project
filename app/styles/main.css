@@ -2,6 +2,8 @@
 
 
 
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed:700|Roboto:400,400italic,700);
+
 html {
 	font-family: sans-serif;
 	-ms-text-size-adjust: 100%;
@@ -2423,11 +2425,11 @@ header > nav > a:hover {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-	transform: scale(1.2);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
+	transform: scale(1.15);
 	background-color: rgba(255, 255, 255, 0.7);
 	color: rgba(35, 29, 34, 0.9);
 }
@@ -2441,11 +2443,11 @@ header > nav > a:hover {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-	transform: scale(1.2);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
+	transform: scale(1.15);
 	background-color: rgba(35, 29, 34, 0.9);
 	color: rgba(255, 255, 255, 0.9);
 }
@@ -2458,11 +2460,11 @@ header > nav > a:hover {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-	transform: scale(1.2);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
+	transform: scale(1.15);
 	color: rgba(119, 98, 115, 0.9);
 }
 .slide > .quote-wrapper {
@@ -2470,11 +2472,11 @@ header > nav > a:hover {
 	background-color: rgba(35, 29, 34, 0.4);
 }
 input[type="checkbox"],select[type="checkbox"] {
-	-webkit-transform: scale(1.2);
-	-moz-transform: scale(1.2);
-	-ms-transform: scale(1.2);
-	-o-transform: scale(1.2);
-	transform: scale(1.2);
+	-webkit-transform: scale(1.15);
+	-moz-transform: scale(1.15);
+	-ms-transform: scale(1.15);
+	-o-transform: scale(1.15);
+	transform: scale(1.15);
 }
 .box1 {
 	background-color: #C4D6B0;
@@ -2503,30 +2505,6 @@ img::selection {
 }
 img::-moz-selection {
 	background: transparent;
-}
-@font-face {
-	font-family: "Roboto";
-	font-style: normal;
-	font-weight: normal;
-	src: url("fonts/Roboto/Roboto-Regular.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto/Roboto-Regular.woff2") format("woff2"), url("fonts/Roboto/Roboto-Regular.woff") format("woff"), url("fonts/Roboto/Roboto-Regular.ttf") format("truetype"), url("fonts/Roboto/Roboto-Regular.svg#Roboto") format("svg");
-}
-@font-face {
-	font-family: "Roboto";
-	font-style: normal;
-	font-weight: normal;
-	src: url("fonts/Roboto/Roboto-Italic.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto/Roboto-Italic.woff2") format("woff2"), url("fonts/Roboto/Roboto-Italic.woff") format("woff"), url("fonts/Roboto/Roboto-Italic.ttf") format("truetype"), url("fonts/Roboto/Roboto-Italic.svg#Roboto") format("svg");
-}
-@font-face {
-	font-family: "Roboto";
-	font-style: normal;
-	font-weight: normal;
-	src: url("fonts/Roboto/Roboto-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto/Roboto-Bold.woff2") format("woff2"), url("fonts/Roboto/Roboto-Bold.woff") format("woff"), url("fonts/Roboto/Roboto-Bold.ttf") format("truetype"), url("fonts/Roboto/Roboto-Bold.svg#Roboto") format("svg");
-}
-@font-face {
-	font-family: "Roboto Condensed";
-	font-style: normal;
-	font-weight: normal;
-	src: url("fonts/Roboto_Condensed/RobotoCondensed-Bold.eot?#iefix") format("embedded-opentype"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.woff2") format("woff2"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.woff") format("woff"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.ttf") format("truetype"), url("fonts/Roboto_Condensed/RobotoCondensed-Bold.svg#Roboto Condensed") format("svg");
 }
 h1,h2,h3,h4,h5,label,legend,input[type="submit"],select[type="submit"],th,.menu-icon > span {
 	font-family: "Roboto Condensed", sans-serif;
@@ -4054,6 +4032,22 @@ body .container .main-footer {
 	flex: 1;
 	width: 100%;
 	text-transform: uppercase;
+}
+.store-items .store-items-area-wrapper .store-items-wrapper .store-item a .img-wrapper .store-item-thumbnail {
+	height: 100px;
+	width: 100px;
+	-webkit-filter: sepia(70%);
+	filter: sepia(70%);
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
+}
+.store-items .store-items-area-wrapper .store-items-wrapper .store-item a .img-wrapper .store-item-thumbnail:hover {
+	-webkit-filter: sepia(0%);
+	filter: sepia(0%);
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
 }
 .store-items .store-items-area-wrapper .store-items-wrapper .store-item a p {
 	font-size: 0.75rem;

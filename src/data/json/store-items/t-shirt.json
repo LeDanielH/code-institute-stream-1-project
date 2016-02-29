@@ -2,9 +2,9 @@
 	"name": "t-shirt",
 	"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni harum, excepturi fugit numquam, corporis voluptates asperiores molestiae, vero quasi ad voluptas temporibus fuga impedit velit recusandae corrupti quidem? Dicta, porro.",
 	"images": [
-		"images/store-items/t-shirt-1",
-		"images/store-items/t-shirt-2",
-		"images/store-items/t-shirt-3"
+		"data/images/store-items/t-shirt-1",
+		"data/images/store-items/t-shirt-2",
+		"data/images/store-items/t-shirt-3"
 	],
 	"stock": 10
 }

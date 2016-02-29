@@ -8,10 +8,9 @@
 		<div class="img-wrapper">
 			<img src="{{post.imgSrc}}" alt="blog cover" class="blog-img">
 		</div>
-		<p>{{post.introContent}}</p>
+		<p>{{post.content | limitTo: 200}}...</p>
 	</article>
 	<footer>
-		<a class="read-more" href="#">Read more <i class="fa fa-chevron-right"></i></a>
-		<button ng-click="upVote(post)"><i class="fa fa-thumbs-o-up"></i> <span> {{ post.upVotes }}</span></button>
+		<a class="read-more" href="#/home/post">Read more <i class="fa fa-chevron-right"></i></a>
 	</footer>
 </article>

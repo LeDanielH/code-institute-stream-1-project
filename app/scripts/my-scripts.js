@@ -21,9 +21,13 @@ angular.module('bandApp', [
 				templateUrl: 'templates/store.html',
 				controller: 'StoreController'
 			})
-			.when('/store-items/:itemId', {
+			.when('/store/:itemId', {
 				templateUrl: 'templates/store-item-detail.html',
 				controller: 'StoreItemDetailController'
+			})
+			.when('/home/post', {
+				templateUrl: 'templates/blog-post-detail.html',
+				controller: 'HomeController'
 			})
 			.otherwise({
 				redirectTo: '/home'
@@ -93,7 +97,7 @@ angular.module('bandApp', [
             ) {
                 $scope.title = 'GIGS';
                 $scope.subtitles = GigsDataService.subtitles;
-               $scope.maps = GigsDataService.maps.query();
+                $scope.maps = GigsDataService.maps.query();
                 $scope.guests = GuestsDataService.guests;
                 $scope.ticketPrice = GuestsDataService.ticketPrice;
                 $scope.addGuest = function() {
@@ -124,33 +128,30 @@ angular.module('bandApp', [
             }
         ]);
 }());
-;(function(){
-	'use strict';
-	angular.module('myBandAppControllers')
-		.controller('StoreItemDetailController', [
-        '$scope',
-        // '$http',
-        '$routeParams', 
-        function(
-            $scope,
-            // $http,
-            $routeParams
+;(function() {
+    'use strict';
+    angular.module('myBandAppControllers')
+        .controller('StoreItemDetailController', [
+            '$scope',
+            'StoreDataService',
+            '$routeParams',
+            function(
+                $scope,
+                StoreDataService,
+                $routeParams
             ) {
-                // $http.get('data/store-items/' + $routeParams + '.json')
-                //     .success(function(data) {
-                //         $scope.item = data;
-                //         $scope.mainImageUrl = data.images[0];
-                //     });
-                $scope.item = StoreDataService.get({itemId: $routeParams.itemId}, function(item) {
+                $scope.item = StoreDataService.storeItems.get({
+                    itemId: $routeParams.itemId
+                }, function(item) {
                     $scope.mainImageUrl = item.images[0];
                 });
                 $scope.setMainImage = function(imageUrl) {
                     $scope.mainImageUrl = imageUrl;
                 };
-            }]);
+            }
+        ]);
 
 }());
-
 ;(function() {
 	'use strict';
 	angular.module('myBandAppControllers')
@@ -338,9 +339,13 @@ angular.module('bandApp', [
 }());
 ;(function(){
 	'use strict';
-	angular.module('myBandAppDirectives', [])
+	angular.module('myBandAppDirectives', []);
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppDirectives')
     .directive('makeMap', function() {
-        var mapDdirective = {
+        var mapDirective = {
             restrict: 'EA',
             templateUrl: 'templates/directives/maps.html',
             scope: {
@@ -364,11 +369,13 @@ angular.module('bandApp', [
                     };
                     $scope.mapDimensions = function() {
                         if (!$scope.map.width) {
+                        // if (angular.isDefined(!$scope.map.width)) {
                             var width = 200;
                         } else {
                             width = $scope.map.width;
                         }
                         if (!$scope.map.height) {
+                        // if (angular.isDefined(!$scope.map.height)) {
                             var height = 200;
                         } else {
                             height = $scope.map.height;
@@ -377,7 +384,8 @@ angular.module('bandApp', [
                     };
                     $scope.returnAddressOrNot = function() {
                         console.log("address: " + $scope.map.address);
-                        if ($scope.map.address)
+                        if (!$scope.map.address)
+                        // if (angular.isDefined(!$scope.map.address))
                             return true;
                         else
                             return false;
@@ -391,61 +399,62 @@ angular.module('bandApp', [
                 }
             ]
         };
-        return mapDdirective;
+        return mapDirective;
     });
 }());
-;(function() {
-    'use strict';
-    angular.module('myBandAppDirectives', [])
-        .directive('photoSlider', ['$timeout',
-            function($timeout) {
-                return {
-                    restrict: 'AE',
-                    replace: true,
-                    templateUrl: 'templates/directives/photo-slider.html',
-                    scope: {
-                        images: '='
-                    },
-                    link: function(scope, elem, attrs) {
-                        scope.currentIndex = 0;
-                        scope.next = function() {
-                            if (scope.currentIndex < scope.images.length - 1) {
-                                scope.currentIndex++;
-                            } else {
-                                scope.currentIndex = 0;
-                            }
-                        };
-                        scope.prev = function() {
-                            if (scope.currentIndex > 0) {
-                                scope.currentIndex--;
-                            } else {
-                                scope.currentIndex = scope.images.length - 1;
-                            }
-                        };
-                        scope.$watch('currentIndex', function() {
-                            scope.images.forEach(function(image) {
-                                image.visible = false;
-                            });
-                            scope.images[scope.currentIndex].visible = true;
-                        });
+// http://stackoverflow.com/questions/20432127/angularjs-interpolation-error
+// ;(function() {
+//     'use strict';
+//     angular.module('myBandAppDirectives')
+//         .directive('photoSlider', ['$timeout',
+//             function($timeout) {
+//                 return {
+//                     restrict: 'AE',
+//                     replace: true,
+//                     templateUrl: 'templates/directives/testimonials.html',
+//                     scope: {
+//                         images: '='
+//                     },
+//                     link: function(scope, elem, attrs) {
+//                         scope.currentIndex = 0;
+//                         scope.next = function() {
+//                             if (scope.currentIndex < scope.images.length - 1) {
+//                                 scope.currentIndex++;
+//                             } else {
+//                                 scope.currentIndex = 0;
+//                             }
+//                         };
+//                         scope.prev = function() {
+//                             if (scope.currentIndex > 0) {
+//                                 scope.currentIndex--;
+//                             } else {
+//                                 scope.currentIndex = scope.images.length - 1;
+//                             }
+//                         };
+//                         scope.$watch('currentIndex', function() {
+//                             scope.images.forEach(function(image) {
+//                                 image.visible = false;
+//                             });
+//                             scope.images[scope.currentIndex].visible = true;
+//                         });
 
-                        var timer;
-                        var sliderFunc = function() {
-                            timer = $timeout(function() {
-                                scope.next();
-                                timer = $timeout(sliderFunc, 5000);
-                            }, 5000);
-                        };
-                        sliderFunc();
-                        scope.$on('$destroy', function() {
-                            $timeout.cancel(timer);
-                        });
-                    },
+//                         var timer;
+//                         var sliderFunc = function() {
+//                             timer = $timeout(function() {
+//                                 scope.next();
+//                                 timer = $timeout(sliderFunc, 5000);
+//                             }, 5000);
+//                         };
+//                         sliderFunc();
+//                         scope.$on('$destroy', function() {
+//                             $timeout.cancel(timer);
+//                         });
+//                     },
 
-                };
-            }
-        ]);
-}());
+//                 };
+//             }
+//         ]);
+// }());
 ;(function(){
 	'use strict';
 	angular.module('myBandAppFilters', [])

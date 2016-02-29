@@ -1,5 +1,4 @@
-<h1 class="h2 c-text content-heading">{{title}}</h1>
-<article class="blog-intro-post divided" ng-repeat="post in blogPosts | limitTo: 2">
+<article class="blog-intro-post divided">
 	<header class="blog-intro-header">
 		<h2 class="h3">{{post.heading}}</h2>
 		<small class="blog-intro-date"><i class="fa fa-calendar"></i> {{post.date}}</small>
@@ -8,9 +7,10 @@
 		<div class="img-wrapper">
 			<img src="{{post.imgSrc}}" alt="blog cover" class="blog-img">
 		</div>
-		<p>{{post.content | limitTo: 200}}...</p>
+		<p>{{post.content}}</p>
 	</article>
 	<footer>
-		<a class="read-more" href="#/home/post">Read more <i class="fa fa-chevron-right"></i></a>
+		<a class="read-more" href="#">Comments <i class="fa fa-chevron-right"></i></a>
+		<button ng-click="upVote(post)"><i class="fa fa-thumbs-o-up"></i> <span> {{ post.upVotes }}</span></button>
 	</footer>
 </article>
