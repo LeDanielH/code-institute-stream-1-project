@@ -3928,6 +3928,80 @@ body .container .main-footer {
 	align-self: flex-end;
 	-ms-flex-item-align: end;
 }
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card {
+	height: 190px;
+	max-width: 100%;
+	background-color: steelblue;
+	background: repeating-linear-gradient(50deg, steelblue, steelblue 6px, rgba(35, 29, 34, 0.9) 5px, rgba(35, 29, 34, 0.9) 7px);
+	position: relative;
+	border-radius: 10px;
+}
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card .card-logo {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+}
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #circle-1 {
+	position: absolute;
+	top: 17px;
+	right: 40px;
+	background-color: indianred;
+	z-index: 2;
+}
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #circle-2 {
+	position: absolute;
+	top: 17px;
+	right: 17px;
+	background-color: khaki;
+	z-index: 1;
+}
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #chip {
+	width: 50px;
+	height: 40px;
+	background-color: gainsboro;
+	position: absolute;
+	top: 35px;
+	left: 30px;
+	border-radius: 5px;
+}
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #card-number {
+	position: absolute;
+	top: 40%;
+	color: white;
+	font-size: 1.5rem;
+	white-space: nowrap;
+	width: 100%;
+	text-align: center;
+}
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #card-name {
+	position: absolute;
+	bottom: 5px;
+	left: 20px;
+	color: white;
+	text-transform: uppercase;
+	font-size: 1.1rem;
+	white-space: nowrap;
+}
+.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #card-date {
+	position: absolute;
+	right: 20px;
+	bottom: 5px;
+	color: white;
+}
+.tabs .tab-panel form .form-layout .form-column .card-cvv {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
+.tabs .tab-panel form .form-layout .form-column .card-cvv #card-cvv {
+	width: 61px;
+}
 .tabs .tab-panel form .form-layout .form-column .card-expiry-date {
 	-webkit-box-pack: justify;
 	-moz-box-pack: justify;

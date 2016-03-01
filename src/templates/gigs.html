@@ -23,7 +23,7 @@
 					</div>
 
 					<label for="name">Your name?</label>
-					<input type="text" id="name" name="name" ng-model="payersName" placeholder="Name Surname" autocomplete="name" autofocus required pattern="[A-Za-z]{1,40}( ){1,3}[A-Za-z]{1,40}( )?" title="name and surname separated by space">
+					<input type="text" id="name" name="name" ng-init="payersName='Name Surname'" ng-model="payersName" placeholder="Name Surname" autocomplete="name" autofocus required pattern="[A-Za-z]{1,30}( ){1,3}[A-Za-z]{1,30}( )?" title="name and surname separated by space">
 					<ul class="guests-list">
 						<li class="small-label divided-label base-transparent-medium">
 							<span>{{payersName}}</span>
@@ -32,7 +32,7 @@
 					</ul>
 
 					<label for="email">Your email?</label>
-					<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="email" required>
+					<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="email" required pattern="[A-Za-z0-9_-]{1,40}(\.)?([A-Za-z0-9_-]{1,40})?\@[A-Za-z0-9_-]{1,40}\.[A-Za-z]{2,10}( )?" title="avoid entering spaces">
 
 					<label for="addGuest">Add another guest</label>
 					<ul class="guests-list">
@@ -42,7 +42,7 @@
 						</li>
 					</ul>
 					<div class="input-wrap-inline input-add-guest">
-						<input type="text" id="addGuest" name="name" placeholder="John Doe" ng-model="name" pattern="[A-Za-z]{1,40}( ){1,3}[A-Za-z]{1,40}( )?" title="name and surname separated by space">
+						<input type="text" id="addGuest" name="name" placeholder="Name Surname" ng-model="name" pattern="[A-Za-z]{1,40}( ){1,3}[A-Za-z]{1,40}( )?" title="name and surname separated by space">
 						<button ng-click="addGuest()" id="addGuestButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
 					</div>
 				
@@ -51,15 +51,25 @@
 				<fieldset class="form-column">
 				
 					<label for="credit-card">Credit Card Details:</label>
-
+					<div class="img-wrapper">
+						<div class="credit-card">
+							<div class="card-logo" id="circle-1"></div>
+							<div class="card-logo" id="circle-2"></div>
+							<div id="chip"></div>
+							<strong id="card-number">{{cardNumber}}</strong>
+							<p id="card-name">{{cardName}}</p>
+							<p id="card-date">{{cardMonth}}/{{cardYear}}</p>
+						</div>
+					</div>
+					<br>
 					<div class="input-wrap-inline card-name">	
 						<label class="small-label" for="credit-card-name">Name on Card</label>
-						<input type="text" id="credit-card-name" required>
+						<input type="text" id="credit-card-name" ng-init="cardName='Name Surname'" ng-model="cardName" placeholder="Name on your card" autocomplete="name" pattern="[A-Za-z]{1,30}( ){1,3}[A-Za-z]{1,30}( )?" title="name on your card" required>
 					</div>
 
 					<div class="input-wrap-inline card-number">
 						<label for="credit-card" class="small-label">Card Number</label>
-						<input type="text" id="credit-card" name="cardnumber" autocomplete="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX" pattern="[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}" required>
+						<input type="text" id="credit-card" ng-init="cardNumber='0000 0000 0000 0000'" ng-model="cardNumber" name="cardnumber" autocomplete="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX" pattern="[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}" required>
 					</div>
 
 					<div class="input-wrap-inline card-cvv">
@@ -70,10 +80,10 @@
 					<div class="input-wrap-inline card-expiry-date">
 						<label for="month" class="small-label">Expiry Date</label>
 						<div class="input-wrap-inline">
-							<select name="month" id="month" required>
-								<option ng-repeat="month in getMonths" value="{{1 * month}}">{{month}}</option>
+							<select ng-model="cardMonth" name="month" id="month" required>
+								<option ng-repeat="month in getMonths" ng-init="{{1 * month}}">{{month}}</option>
 							</select>
-							<select name="year" id="year" required>
+							<select ng-model="cardYear" name="year" id="year" required>
 								<option ng-repeat="year in getYears" value="{{year}}">{{year.toString().slice(2,4)}}</option>
 							</select>
 						</div>
@@ -87,6 +97,10 @@
 				</fieldset>
 			</div>
 			<br>
+			<div class="input-wrap-inline">
+				<input type="checkbox" id="terms" required>
+				<p>I have checked all the entered information before submitting this form.</p>
+			</div>
 			<div class="input-wrap-inline">
 				<input type="checkbox" id="terms" required>
 				<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
