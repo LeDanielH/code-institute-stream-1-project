@@ -136,6 +136,8 @@ angular.module('bandApp', [
                 $scope.title = 'GIGS';
                 $scope.subtitles = GigsDataService.subtitles;
                 $scope.maps = GigsDataService.maps.query();
+                $scope.getYears = GigsDataService.getYears();
+                $scope.getMonths = GigsDataService.getMonths();
                 $scope.guests = [];
                 $scope.ticketPrice = GuestsDataService.ticketPrice;
                 $scope.addGuest = function() {
@@ -280,15 +282,15 @@ angular.module('bandApp', [
         }
     ]);
 }());
-;(function(){
-	'use strict';
-	angular.module('myBandAppServices')
-    .factory('GigsDataService', [
-        '$rootScope', 
-        '$resource',
-        function(
-            $rootScope, 
-            $resource
+;(function() {
+    'use strict';
+    angular.module('myBandAppServices')
+        .factory('GigsDataService', [
+            '$rootScope',
+            '$resource',
+            function(
+                $rootScope,
+                $resource
             ) {
                 var gigs = {
                     subtitles: ['where', 'when'],
@@ -300,7 +302,28 @@ angular.module('bandApp', [
                             },
                             isArray: true
                         }
-                    })
+                    }),
+                    getYears: function() {
+                        var today = new Date();
+                        var year = today.getFullYear();
+                        var years = [];
+                        for (var i = year; i < year + 50; i++) {
+                            years.push(i);
+                        }
+                        return years;
+                    },
+                    getMonths: function() {
+                        var numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+                        var months = numberArray.map(function(month) {
+                            if (month < 10) {
+                                return '0' + month;
+                            } else {
+                                return month.toString();
+                            }
+                        });
+                        return months;
+
+                    }
                 };
                 return gigs;
             }

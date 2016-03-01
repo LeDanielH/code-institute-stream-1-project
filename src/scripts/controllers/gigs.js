@@ -13,6 +13,8 @@
                 $scope.title = 'GIGS';
                 $scope.subtitles = GigsDataService.subtitles;
                 $scope.maps = GigsDataService.maps.query();
+                $scope.getYears = GigsDataService.getYears();
+                $scope.getMonths = GigsDataService.getMonths();
                 $scope.guests = [];
                 $scope.ticketPrice = GuestsDataService.ticketPrice;
                 $scope.addGuest = function() {
