@@ -14,6 +14,7 @@ gulp.task('process-js-libraries', function() {
             vars.jsLibraries.angularResource.min,
             vars.jsLibraries.angularSanitize.min,
             vars.jsLibraries.angularAnimate.min,
+            vars.jsLibraries.angularFitText.min
             // vars.jsLibraries.d3.min,
             // vars.jsLibraries.gsap.min
         ])
@@ -30,6 +31,7 @@ gulp.task('process-js-debug-libraries', function() {
             vars.jsLibraries.angularResource.debug,
             vars.jsLibraries.angularSanitize.debug,
             vars.jsLibraries.angularAnimate.debug,
+            vars.jsLibraries.angularFitText.min
             // vars.jsLibraries.d3.debug,
             // vars.jsLibraries.gsap.debug
         ])

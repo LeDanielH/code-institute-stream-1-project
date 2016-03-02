@@ -84,14 +84,18 @@ var jsLibraries = {
         debug: paths.bower + 'angular-animate/angular-animate.js'
     },
 
+    angularFitText: {
+        min: paths.bower + 'ngFitText/dist/ng-FitText.min.js'
+    },
+
     d3: {
-        min: paths.bower + 'd3.min.js',
-        debug: paths.bower + 'd3.js'
+        min: paths.bower + 'd3/d3.min.js',
+        debug: paths.bower + 'd3/d3.js'
     },
 
     gsap: {
-        min: 'bower_components/gsap/src/minified/TweenMax.min.js',
-        debug: 'bower_components/gsap/src/uncompressed/TweenMax.js'
+        min: paths.bower + 'gsap/src/minified/TweenMax.min.js',
+        debug: paths.bower + 'gsap/src/uncompressed/TweenMax.js'
     }
 };
 

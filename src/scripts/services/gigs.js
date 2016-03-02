@@ -39,7 +39,8 @@
                         });
                         return months;
 
-                    }
+                    },
+                    actions: ['let\'s party!', 'book us!']
                 };
                 return gigs;
             }

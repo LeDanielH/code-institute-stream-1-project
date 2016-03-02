@@ -14,23 +14,37 @@
 
 	.tab-panel
 		width: 100%
-		padding: $base-padding
+		padding-top: $base-padding
 		+order(1)
 		background-color: $base-transparent-medium
 		border-radius: 0 $base-border-radius $base-border-radius
 
+		.warning
+			margin-left: $base-padding
+
 		form
 			+display(flex)
 			+flex-direction(column)
+			padding: $base-padding / 2
+			.form-footer
+				margin-bottom: $base-padding / 2
+				margin-right: $base-padding / 2
+				margin-left: $base-padding / 2 
+				button
+					width: 100%
 			.form-layout
 				+display(flex)
 				+justify-content(space-between)
+				+flex-wrap(wrap)
 				
 				.form-column
 					+flex(1)
-					width: 200px
+					min-width: 250px
 					+display(flex)
 					+flex-direction(column)
+					margin-bottom: $base-padding / 2
+					margin-right: $base-padding / 2
+					margin-left: $base-padding / 2 
 					.input-location
 						.map-and-address
 							make-map
@@ -58,12 +72,20 @@
 							+justify-content(space-between)
 							+flex-wrap(wrap)
 							+flex(1)
-							.price-label
-								+align-self(flex-end)
+							.added-guests
+								+display(flex)
+								+flex(1)
+								+justify-content(space-between)
+
+							#removeGuestButton
+								+position(relative, -6px null null null)
+								margin-left: 5px
+
 					.img-wrapper
 						.credit-card
 							height: 190px
-							max-width: 100%
+							max-width: 350px
+							margin: 0 auto
 							background-color: steelblue
 							background: repeating-linear-gradient(50deg, steelblue, steelblue 6px, $accent3 5px, $accent3 7px)
 							+position(relative)
@@ -72,18 +94,18 @@
 								+size(40px)
 								border-radius: 50%
 							#circle-1
-								+position(absolute, 17px 40px null null)
+								+position(absolute, 9% 13% null null)
 								background-color: indianred
 								z-index: 2
 							#circle-2
-								+position(absolute, 17px 17px null null)
+								+position(absolute, 9% 6% null null)
 								background-color: khaki
 								z-index: 1
 							#chip
 								width: 50px
 								height: 40px
 								background-color: gainsboro
-								+position(absolute, 35px null null 30px)
+								+position(absolute, 17% null null 9%)
 								border-radius: 5px
 							#card-number
 								+position(absolute, 40% null null null)
@@ -94,14 +116,16 @@
 								text-align: center
 
 							#card-name
-								+position(absolute, null null 5px 20px)
+								+position(absolute, null null 2% 7%)
 								color: white
 								text-transform: uppercase
-								font-size: 1.1rem
+								// font-size: 1.1rem
 								white-space: nowrap
+								letter-spacing: -0.7px
 							#card-date
-								+position(absolute, null 20px 5px null)
+								+position(absolute, null 7% 2% null)
 								color: white
+								letter-spacing: -1px
 
 								
 
@@ -116,7 +140,7 @@
 								width: 61px
 								margin-right: 5px
 							#year
-								width: 61px
+								width: 81px
 
 
 	label.tab-header:first-of-type

@@ -5,17 +5,24 @@
             '$scope',
             'GigsDataService',
             'GuestsDataService',
+            // 'CallToActionDataService',
             function(
                 $scope,
                 GigsDataService,
                 GuestsDataService
+                // CallToActionDataService
             ) {
                 $scope.title = 'GIGS';
+                $scope.actions = GigsDataService.actions;
+                $scope.warning = 'Please fill all the required information and follow displayed patterns.';
                 $scope.subtitles = GigsDataService.subtitles;
                 $scope.maps = GigsDataService.maps.query();
                 $scope.getYears = GigsDataService.getYears();
+                $scope.initYear = $scope.getYears[0];
                 $scope.getMonths = GigsDataService.getMonths();
+                $scope.initMonth = $scope.getMonths[0];
                 $scope.guests = [];
+                $scope.initName = 'Name Surname';
                 $scope.ticketPrice = GuestsDataService.ticketPrice;
                 $scope.addGuest = function() {
                     if (!$scope.name || $scope.name === '') {
@@ -26,6 +33,10 @@
                     });
                     $scope.name = '';
 
+                };
+                $scope.removeGuest = function(guest) {
+                    var selecetedGuest = $scope.guests.indexOf(guest);
+                    $scope.guests.splice(selecetedGuest, 1);
                 };
             }
         ]);

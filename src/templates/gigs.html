@@ -1,115 +1,31 @@
 <h1 class="h2 c-text content-heading">{{title}}</h1>
 <section class="tabs">
 	<input id="tab-one" type="radio" name="grp" checked="checked" />
-	<label class="tab-header" for="tab-one">Buy a ticket</label>
+	<label class="tab-header" for="tab-one">{{actions[0]}}</label>
 	<div class="tab-panel">
-		<p>Please fill all the required information.</p>
+		<p class="warning">{{warning}}</p>
 		<form action="">
 			<div class="input-wrapper-inline form-layout">
-				<fieldset class="form-column">
-
-					<div class="input-wrap input-location">
-						<label for="where-and-when">{{subtitles[0]}} and {{subtitles[1]}}?</label>
-						<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when"></select>
-						<label class="small-label">Address</label>
-						<div class="input-wrapper-inline map-and-address">
-							<address>
-								{{map.address[0].street}} <br>
-								{{map.address[0].city}} <br>
-								{{map.address[0].country}}
-							</address>
-							<make-map map="map"></make-map>
-						</div>
-					</div>
-
-					<label for="name">Your name?</label>
-					<input type="text" id="name" name="name" ng-init="payersName='Name Surname'" ng-model="payersName" placeholder="Name Surname" autocomplete="name" autofocus required pattern="[A-Za-z]{1,30}( ){1,3}[A-Za-z]{1,30}( )?" title="name and surname separated by space">
-					<ul class="guests-list">
-						<li class="small-label divided-label base-transparent-medium">
-							<span>{{payersName}}</span>
-							<span class="price-label">{{ticketPrice}}&euro;</span>
-						</li>
-					</ul>
-
-					<label for="email">Your email?</label>
-					<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="email" required pattern="[A-Za-z0-9_-]{1,40}(\.)?([A-Za-z0-9_-]{1,40})?\@[A-Za-z0-9_-]{1,40}\.[A-Za-z]{2,10}( )?" title="avoid entering spaces">
-
-					<label for="addGuest">Add another guest</label>
-					<ul class="guests-list">
-						<li class="small-label divided-label base-transparent-medium" ng-repeat="guest in guests">
-							<span>{{guest.name}}</span>
-							<span class="price-label">{{ticketPrice}}&euro;</span>
-						</li>
-					</ul>
-					<div class="input-wrap-inline input-add-guest">
-						<input type="text" id="addGuest" name="name" placeholder="Name Surname" ng-model="name" pattern="[A-Za-z]{1,40}( ){1,3}[A-Za-z]{1,40}( )?" title="name and surname separated by space">
-						<button ng-click="addGuest()" id="addGuestButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
-					</div>
-				
-				</fieldset>
-				<div class="space-between"></div>
-				<fieldset class="form-column">
-				
-					<label for="credit-card">Credit Card Details:</label>
-					<div class="img-wrapper">
-						<div class="credit-card">
-							<div class="card-logo" id="circle-1"></div>
-							<div class="card-logo" id="circle-2"></div>
-							<div id="chip"></div>
-							<strong id="card-number">{{cardNumber}}</strong>
-							<p id="card-name">{{cardName}}</p>
-							<p id="card-date">{{cardMonth}}/{{cardYear}}</p>
-						</div>
-					</div>
-					<br>
-					<div class="input-wrap-inline card-name">	
-						<label class="small-label" for="credit-card-name">Name on Card</label>
-						<input type="text" id="credit-card-name" ng-init="cardName='Name Surname'" ng-model="cardName" placeholder="Name on your card" autocomplete="name" pattern="[A-Za-z]{1,30}( ){1,3}[A-Za-z]{1,30}( )?" title="name on your card" required>
-					</div>
-
-					<div class="input-wrap-inline card-number">
-						<label for="credit-card" class="small-label">Card Number</label>
-						<input type="text" id="credit-card" ng-init="cardNumber='0000 0000 0000 0000'" ng-model="cardNumber" name="cardnumber" autocomplete="cc-number" placeholder="XXXX-XXXX-XXXX-XXXX" pattern="[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}( )?(\-)?[0-9]{4}" required>
-					</div>
-
-					<div class="input-wrap-inline card-cvv">
-						<label for="card-cvv" class="small-label">Card CVV</label>
-						<input type="text" id="card-cvv" name="cvv" autocomplete="cvv-number" placeholder="XXX" pattern="[0-9]{3}" required>
-					</div>
-
-					<div class="input-wrap-inline card-expiry-date">
-						<label for="month" class="small-label">Expiry Date</label>
-						<div class="input-wrap-inline">
-							<select ng-model="cardMonth" name="month" id="month" required>
-								<option ng-repeat="month in getMonths" ng-init="{{1 * month}}">{{month}}</option>
-							</select>
-							<select ng-model="cardYear" name="year" id="year" required>
-								<option ng-repeat="year in getYears" value="{{year}}">{{year.toString().slice(2,4)}}</option>
-							</select>
-						</div>
-					</div>
-
-					<label for="address">Billing Address</label>
-					<input type="text" id="street" name="address" autocomplete="street-address" placeholder="street &amp; house number" required>
-					<input type="text" id="city" name="city" autocomplete="address-level2" placeholder="city" required>
-					<input type="text" id="post-code" name="post-code" autocomplete="postal-code" placeholder="post code" required>
-					<select name="country" id="country" autocomplete="country" ng-include="'templates/directives/countries.html'" required></select>
-				</fieldset>
+				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/guests-form.html"></fieldset>
+				<!-- <div class="space-between"></div> -->
+				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/payment-form.html"></fieldset>
 			</div>
 			<br>
-			<div class="input-wrap-inline">
-				<input type="checkbox" id="terms" required>
-				<p>I have checked all the entered information before submitting this form.</p>
+			<div class="form-footer">
+				<div class="input-wrap-inline">
+					<input type="checkbox" id="terms" required>
+					<p>I have checked all the entered information before submitting this form.</p>
+				</div>
+				<div class="input-wrap-inline">
+					<input type="checkbox" id="terms" required>
+					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
+				</div>
+				<button type="submit">Pay {{ticketPrice + (ticketPrice * guests.length)}} &euro;</button>
 			</div>
-			<div class="input-wrap-inline">
-				<input type="checkbox" id="terms" required>
-				<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
-			</div>
-			<button type="submit">Pay {{ticketPrice + (ticketPrice * guests.length)}} &euro;</button>
 		</form>
 	</div>
 	<input id="tab-two" type="radio" name="grp" />
-	<label class="tab-header" for="tab-two">Book us now</label>
+	<label class="tab-header" for="tab-two">{{actions[1]}}</label>
 	<div class="tab-panel">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim deserunt perferendis magni. Molestias nostrum aspernatur voluptatum nisi, facere sint aliquid, debitis temporibus porro modi fugiat dignissimos labore qui, voluptatem deleniti.</p>
 	</div>

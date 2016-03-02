@@ -1,38 +1,41 @@
 angular.module('bandApp', [
-		'ngRoute',
-		'myBandAppControllers',
-		'myBandAppFilters',
-		'myBandAppDirectives',
-		'myBandAppServices',
-		// 'templates'
-		// 'myBandAppAnimations',
-	])
-	.config(['$routeProvider', '$locationProvider', function ($routeProvider) {
-		$routeProvider
-			.when('/home', {
-				templateUrl: 'templates/home.html',
-				controller: 'HomeController'
-			})
-			.when('/gigs', {
-				templateUrl: 'templates/gigs.html',
-				controller: 'GigsController'
-			})
-			.when('/store', {
-				templateUrl: 'templates/store.html',
-				controller: 'StoreController'
-			})
-			.when('/store/:itemId', {
-				templateUrl: 'templates/store-item-detail.html',
-				controller: 'StoreItemDetailController'
-			})
-			.when('/home/:postId', {
-				templateUrl: 'templates/blog-post-detail.html',
-				controller: 'BlogPostDetailController'
-			})
-			.otherwise({
-				redirectTo: '/home'
-			});
-	}]);
+	'ngFitText',
+    'ngRoute',
+    'myBandAppControllers',
+    'myBandAppFilters',
+    'myBandAppDirectives',
+    'myBandAppServices'
+    // 'templates'
+    // 'myBandAppAnimations',
+])
+    .config(['$routeProvider', '$locationProvider',
+        function($routeProvider) {
+            $routeProvider
+                .when('/home', {
+                    templateUrl: 'templates/home.html',
+                    controller: 'HomeController'
+                })
+                .when('/gigs', {
+                    templateUrl: 'templates/gigs.html',
+                    controller: 'GigsController'
+                })
+                .when('/store', {
+                    templateUrl: 'templates/store.html',
+                    controller: 'StoreController'
+                })
+                .when('/store/:itemId', {
+                    templateUrl: 'templates/store-item-detail.html',
+                    controller: 'StoreItemDetailController'
+                })
+                .when('/home/:postId', {
+                    templateUrl: 'templates/blog-post-detail.html',
+                    controller: 'BlogPostDetailController'
+                })
+                .otherwise({
+                    redirectTo: '/home'
+                });
+        }
+    ]);
 ;(function() {
     'use strict';
     angular.module('myBandAppControllers', ['myBandAppServices'])
@@ -128,17 +131,24 @@ angular.module('bandApp', [
             '$scope',
             'GigsDataService',
             'GuestsDataService',
+            // 'CallToActionDataService',
             function(
                 $scope,
                 GigsDataService,
                 GuestsDataService
+                // CallToActionDataService
             ) {
                 $scope.title = 'GIGS';
+                $scope.actions = GigsDataService.actions;
+                $scope.warning = 'Please fill all the required information and follow displayed patterns.';
                 $scope.subtitles = GigsDataService.subtitles;
                 $scope.maps = GigsDataService.maps.query();
                 $scope.getYears = GigsDataService.getYears();
+                $scope.initYear = $scope.getYears[0];
                 $scope.getMonths = GigsDataService.getMonths();
+                $scope.initMonth = $scope.getMonths[0];
                 $scope.guests = [];
+                $scope.initName = 'Name Surname';
                 $scope.ticketPrice = GuestsDataService.ticketPrice;
                 $scope.addGuest = function() {
                     if (!$scope.name || $scope.name === '') {
@@ -149,6 +159,10 @@ angular.module('bandApp', [
                     });
                     $scope.name = '';
 
+                };
+                $scope.removeGuest = function(guest) {
+                    var selecetedGuest = $scope.guests.indexOf(guest);
+                    $scope.guests.splice(selecetedGuest, 1);
                 };
             }
         ]);
@@ -323,7 +337,8 @@ angular.module('bandApp', [
                         });
                         return months;
 
-                    }
+                    },
+                    actions: ['let\'s party!', 'book us!']
                 };
                 return gigs;
             }
@@ -480,6 +495,18 @@ angular.module('bandApp', [
     });
 }());
 // http://stackoverflow.com/questions/20432127/angularjs-interpolation-error
+;(function(){
+	'use strict';
+	angular.module('myBandAppDirectives')
+		.directive('myDirective', function() {
+			return {
+				restrict: 'AE',
+				templateUrl: function(ele, attrs) {
+					return attrs.templatePath;
+				}
+			};
+		});
+}());
 // ;(function() {
 //     'use strict';
 //     angular.module('myBandAppDirectives')
