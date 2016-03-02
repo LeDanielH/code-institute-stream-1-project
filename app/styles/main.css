@@ -3559,6 +3559,14 @@ body .container .main-footer {
 .right-sidebar .sign-up-mobile {
 	display: none;
 }
+
+@media (max-width: 1116px) {
+
+	.right-sidebar {
+		max-width: 100%;
+	}
+}
+
 .blog-intro-post {
 	margin: 20px;
 	display: -webkit-box;
