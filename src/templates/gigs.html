@@ -4,7 +4,7 @@
 	<label class="tab-header" for="tab-one">{{actions[0]}}</label>
 	<div class="tab-panel">
 		<p class="warning">{{warning}}</p>
-		<form action="">
+		<form name="buy_ticket" action="" novalidate ng-submit="buyStuff(buy_ticket)">
 			<div class="input-wrapper-inline form-layout">
 				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/guests-form.html"></fieldset>
 				<!-- <div class="space-between"></div> -->

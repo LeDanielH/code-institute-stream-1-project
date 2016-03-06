@@ -164,6 +164,15 @@ angular.module('bandApp', [
                     var selecetedGuest = $scope.guests.indexOf(guest);
                     $scope.guests.splice(selecetedGuest, 1);
                 };
+                $scope.submitted = false;
+                $scope.buyStuff = function(buyStuff) {
+                    if(buyStuff.$valid) {
+                        $scope.submitted = true;
+                    } else {
+                        alert("Please check your form for mistakes.");
+                        $scope.submitted = true;
+                    }
+                };
             }
         ]);
 }());
@@ -183,6 +192,37 @@ angular.module('bandApp', [
             }
         ]);
 }());
+;(function() {
+    'use strict';
+    angular.module('myBandAppControllers')
+        .controller('SignUpController', [
+            '$scope',
+            function(
+                $scope
+            ) {
+
+                scope.register = {};
+                $scope.submitted = false;
+                $scope.uniqueusername = true;
+                $scope.uniqueemail = true;
+
+
+                $scope.signUpForm = function(signUpForm) {
+                    if (signUpForm.$valid) {
+                        $scope.submitted = true;
+                        $scope.uniqueusername = false;
+                        $scope.uniqueemail = true;
+                        if ($scope.uniqueusername && $scope.uniqueemail) {
+                            // proceed to process form via backend service
+                        }
+                    } else {
+                        alert("Have you made a mistake somewhere? Please, check your details again.");
+                        $scope.submitted = true;
+                    }
+                };
+            }
+        ]);
+})();
 ;(function() {
     'use strict';
     angular.module('myBandAppControllers')

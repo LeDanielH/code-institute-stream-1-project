@@ -1,10 +1,9 @@
 <h1 class="h2 c-text content-heading">{{item.name}}</h1>
 <article class="store-item-detail base-transparent-medium">
 	<div class="item-main">
-		<div class="img-wrapper">
+		<div class="img-wrapper item-image">
 			<img class="img-main filter-image" ng-repeat="image in item.images" ng-src="{{image}}.jpg" alt="{{item.name}}" ng-class="{active:mainImageUrl==image}">
 		</div>
-		<div class="space-between"></div>
 		<div class="item-description">
 			<p>{{item.description}}</p>
 			<div class="stock">

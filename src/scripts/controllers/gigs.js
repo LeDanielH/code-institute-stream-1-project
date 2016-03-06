@@ -38,6 +38,15 @@
                     var selecetedGuest = $scope.guests.indexOf(guest);
                     $scope.guests.splice(selecetedGuest, 1);
                 };
+                $scope.submitted = false;
+                $scope.buyStuff = function(buyStuff) {
+                    if(buyStuff.$valid) {
+                        $scope.submitted = true;
+                    } else {
+                        alert("Please check your form for mistakes.");
+                        $scope.submitted = true;
+                    }
+                };
             }
         ]);
 }());

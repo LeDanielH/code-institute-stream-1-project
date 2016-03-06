@@ -6,7 +6,7 @@
 	</header>
 	<article class="blog-intro-content">
 		<div class="img-wrapper">
-			<img src="{{post.titleImage}}.jpg" alt="blog cover" class="blog-img filter-image">
+			<img ng-src="{{post.titleImage}}.jpg" alt="blog cover" class="blog-img filter-image">
 		</div>
 		<p>{{post.content | limitTo: 200}}...</p>
 	</article>
