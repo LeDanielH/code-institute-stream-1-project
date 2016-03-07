@@ -1,0 +1,14 @@
+<label for="date">Pick up an available date.</label>
+<input type="date" id="date" name="date" required>
+<label for="gig-type">What type of gig are you planning?</label>
+<select name="gig-type" id="">
+	<option value="wedding">wedding</option>
+	<option value="wedding">proms</option>
+	<option value="wedding">company party</option>
+	<option value="wedding">other</option>
+</select>
+<label for="address">Location of the gig?</label>
+<input type="text" id="street" name="address" placeholder="street &amp; house number" required ng-maxlenght="50">
+<input type="text" id="city" name="city" placeholder="city" ng-maxlenght="40" required>
+<input type="text" id="post-code" name="post-code" placeholder="post code" required>
+<select name="country" id="country" ng-include="'templates/directives/gigs-directives/countries.html'" required></select>

@@ -6,9 +6,9 @@
 		<p class="warning">{{warning}}</p>
 		<form name="buy_ticket" action="" novalidate ng-submit="buyStuff(buy_ticket)">
 			<div class="input-wrapper-inline form-layout">
-				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/guests-form.html"></fieldset>
+				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/concerts-first-column.html"></fieldset>
 				<!-- <div class="space-between"></div> -->
-				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/payment-form.html"></fieldset>
+				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/concerts-second-column.html"></fieldset>
 			</div>
 			<br>
 			<div class="form-footer">
@@ -27,6 +27,13 @@
 	<input id="tab-two" type="radio" name="grp" />
 	<label class="tab-header" for="tab-two">{{actions[1]}}</label>
 	<div class="tab-panel">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim deserunt perferendis magni. Molestias nostrum aspernatur voluptatum nisi, facere sint aliquid, debitis temporibus porro modi fugiat dignissimos labore qui, voluptatem deleniti.</p>
+		<p class="warning">{{warning}}</p>
+		<form name="book_us" action="" novalidate ng-submit="bookUs(book_us)">
+			<div class="input-wrapper-inline form-layout">
+				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/bookus-first-column.html"></fieldset>
+					<!-- <div class="space-between"></div> -->
+				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/bookus-second-column.html"></fieldset>
+			</div>
+		</form>
 	</div>
 </section>

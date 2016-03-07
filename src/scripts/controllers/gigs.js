@@ -47,6 +47,9 @@
                         $scope.submitted = true;
                     }
                 };
+                $scope.honorarium = function(amount) {
+                    
+                };
             }
         ]);
 }());

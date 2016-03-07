@@ -173,6 +173,9 @@ angular.module('bandApp', [
                         $scope.submitted = true;
                     }
                 };
+                $scope.honorarium = function(amount) {
+                    
+                };
             }
         ]);
 }());
