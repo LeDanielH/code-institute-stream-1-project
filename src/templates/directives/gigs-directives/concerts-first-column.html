@@ -1,6 +1,6 @@
 <div class="input-wrap input-location">
 	<label for="where-and-when">{{subtitles[0]}} and {{subtitles[1]}}?</label>
-	<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when" required></select>
+	<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when" ng-required></select>
 	<label class="small-label">Address</label>
 	<div class="input-wrapper-inline map-and-address">
 		<address>
@@ -11,9 +11,10 @@
 		<make-map map="map"></make-map>
 	</div>
 </div>
+
 <label for="name">Your name?</label>
-<input type="text" id="name" name="name" ng-init="payersName=initName" ng-model="payersName" placeholder="{{initName}}" autocomplete="name" autofocus required ng-pattern="[A-Za-z]{1,30}( ){1,3}[A-Za-z]{1,30}( )?" ng-maxlenght="80" title="name and surname separated by space">
-<p ng-show="buy_ticket.$submitted || buy_ticket.name.$touched">Please tell us your name.</p>
+<input type="text" id="name" name="name" ng-init="payersName=initName" ng-model="payersName" placeholder="{{initName}}" autocomplete="name" autofocus ng-required ng-maxlenght="80" title="name and surname separated by space">
+
 <ul class="guests-list">
 	<li class="small-label divided-label base-transparent-medium">
 		<span>{{payersName}}</span>
@@ -21,9 +22,7 @@
 	</li>
 </ul>
 <label for="email">Your email?</label>
-<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="email" required ng-pattern="[A-Za-z0-9_-]{1,40}(\.)?([A-Za-z0-9_-]{1,40})?\@[A-Za-z0-9_-]{1,40}\.[A-Za-z]{2,10}( )?" ng-maxlenght="120" title="avoid entering spaces">
-<p ng-show="buy_ticket.$submitted || buy_ticket.email.$touched">Please tell us your email.</p>
-
+<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="email" ng-required ng-maxlenght="120" title="avoid entering spaces">
 
 <label for="addGuest">Add companions</label>
 <ul class="guests-list">
@@ -35,7 +34,8 @@
 		<button title="remove guest" ng-click="removeGuest()" id="removeGuestButton" class="plus-button"><i class="fa fa-minus-circle fa-2x"></i></button>
 	</li>
 </ul>
+
 <div class="input-wrap-inline input-add-guest">
-	<input type="text" id="addGuest" name="name" placeholder="{{initName}}" ng-model="name" ng-pattern="[A-Za-z]{1,40}( ){1,3}[A-Za-z]{1,40}( )?" ng-maxlenght="80" title="name and surname separated by space">
+	<input type="text" id="addGuest" name="name" placeholder="{{initName}}" ng-model="name" ng-maxlenght="80" title="name and surname separated by space">
 	<button ng-click="addGuest()" id="addGuestButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
 </div>

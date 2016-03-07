@@ -4,22 +4,27 @@
 	<label class="tab-header" for="tab-one">{{actions[0]}}</label>
 	<div class="tab-panel">
 		<p class="warning">{{warning}}</p>
-		<form name="buy_ticket" action="" novalidate ng-submit="buyStuff(buy_ticket)">
+		<form name="buy_ticket" novalidate ng-submit="buyStuff(buy_ticket)">
 			<div class="input-wrapper-inline form-layout">
+
 				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/concerts-first-column.html"></fieldset>
-				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/concerts-second-column.html"></fieldset>
-			</div>
+
+								<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/concerts-second-column.html"></fieldset>
+
+							</div>
 			<br>
 			<div class="form-footer">
+
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" required>
+					<input type="checkbox" id="terms" ng-required>
 					<p>I have checked all the entered information before submitting this form.</p>
 				</div>
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" required>
+					<input type="checkbox" id="terms" ng-required>
 					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
 				</div>
 				<button type="submit">Pay {{ticketPrice + (ticketPrice * guests.length)}} &euro;</button>
+
 			</div>
 		</form>
 	</div>
@@ -27,10 +32,27 @@
 	<label class="tab-header" for="tab-two">{{actions[1]}}</label>
 	<div class="tab-panel">
 		<p class="warning">{{warning}}</p>
-		<form name="book_us" action="" novalidate ng-submit="bookUs(book_us)">
+		<form name="book_us" novalidate ng-submit="bookUs(book_us)">
 			<div class="input-wrapper-inline form-layout">
+
 				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/bookus-first-column.html"></fieldset>
+
 				<fieldset class="form-column" my-directive template-path="templates/directives/gigs-directives/bookus-second-column.html"></fieldset>
+
+			</div>
+			<br>
+			<div class="form-footer">
+
+				<div class="input-wrap-inline">
+					<input type="checkbox" id="terms" ng-required>
+					<p>I have checked all the entered information before submitting this form.</p>
+				</div>
+				<div class="input-wrap-inline">
+					<input type="checkbox" id="terms" ng-required>
+					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
+				</div>
+				<button type="submit">Send request</button>
+
 			</div>
 		</form>
 	</div>

@@ -48,6 +48,7 @@ angular.module('bandApp', [
             'TestimonialsDataService',
             'SocialLinksDataService',
             'CallToActionDataService',
+            'FamousQuotesDataService',
             function(
                 $scope,
                 $location,
@@ -56,7 +57,8 @@ angular.module('bandApp', [
                 StoreDataService,
                 TestimonialsDataService,
                 SocialLinksDataService,
-                CallToActionDataService
+                CallToActionDataService,
+                FamousQuotesDataService
             ) {
                 // $scope.getDocumentWidth = window.matchMedia(width);
                 //GIGS
@@ -82,6 +84,10 @@ angular.module('bandApp', [
                 //BUTTON BOXES
                 $scope.go = CallToActionDataService.go;
                 $scope.callToActionBoxes = CallToActionDataService.callToActionBoxes.query();
+
+                //LEFT SIDEBAR FAMOUS QUOTES
+                $scope.fQuotes = FamousQuotesDataService.quotes.query();
+                $scope.randomQuotes = $scope.fQuotes[Math.floor(Math.random() * $scope.fQuotes.length)];
             }
         ]);
 
@@ -124,7 +130,8 @@ angular.module('bandApp', [
         ]);
 
 }());
-;(function() {
+;
+(function() {
     'use strict';
     angular.module('myBandAppControllers')
         .controller('GigsController', [
@@ -166,16 +173,27 @@ angular.module('bandApp', [
                 };
                 $scope.submitted = false;
                 $scope.buyStuff = function(buyStuff) {
-                    if(buyStuff.$valid) {
+                    if (buyStuff.$valid) {
                         $scope.submitted = true;
                     } else {
                         alert("Please check your form for mistakes.");
                         $scope.submitted = true;
                     }
                 };
-                $scope.honorarium = function(amount) {
-                    
+                $scope.rangeBase = 0;
+                $scope.setHonorarium = function() {
+                    return $scope.rangeBase;
                 };
+                // $scope.setHonorariumTwo = function() {
+                //     this.__defineGetter__($scope.rangeBase, function() {
+                //         return $scope.rangeBase;    
+                //     });
+                //     this.__defineSetter__($scope.rangeBase, function() {
+                //         return $scope.rangeBase;
+                //     });
+                // };
+
+
             }
         ]);
 }());
@@ -339,6 +357,28 @@ angular.module('bandApp', [
         }
     ]);
 }());
+;(function(){
+	'use strict';
+	angular.module('myBandAppServices')
+		.factory('FamousQuotesDataService', [
+		 	'$resource',
+		 	function($resource) {
+		 		var f = {
+		 			quotes: $resource('data/json/:itemId.json', {}, {
+		 				query: {
+		 					method: 'GET',
+		 					params: {
+		 						itemId: 'fquotes'
+		 					},
+		 					isArray: true
+		 				}
+		 			})
+		 		};
+		 		return f;
+		 	}
+		]);
+}());
+
 ;(function() {
     'use strict';
     angular.module('myBandAppServices')

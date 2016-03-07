@@ -10,6 +10,7 @@
             'TestimonialsDataService',
             'SocialLinksDataService',
             'CallToActionDataService',
+            'FamousQuotesDataService',
             function(
                 $scope,
                 $location,
@@ -18,7 +19,8 @@
                 StoreDataService,
                 TestimonialsDataService,
                 SocialLinksDataService,
-                CallToActionDataService
+                CallToActionDataService,
+                FamousQuotesDataService
             ) {
                 // $scope.getDocumentWidth = window.matchMedia(width);
                 //GIGS
@@ -44,6 +46,10 @@
                 //BUTTON BOXES
                 $scope.go = CallToActionDataService.go;
                 $scope.callToActionBoxes = CallToActionDataService.callToActionBoxes.query();
+
+                //LEFT SIDEBAR FAMOUS QUOTES
+                $scope.fQuotes = FamousQuotesDataService.quotes.query();
+                $scope.randomQuotes = $scope.fQuotes[Math.floor(Math.random() * $scope.fQuotes.length)];
             }
         ]);
 

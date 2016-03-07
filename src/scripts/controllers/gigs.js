@@ -1,4 +1,5 @@
-;(function() {
+;
+(function() {
     'use strict';
     angular.module('myBandAppControllers')
         .controller('GigsController', [
@@ -40,16 +41,27 @@
                 };
                 $scope.submitted = false;
                 $scope.buyStuff = function(buyStuff) {
-                    if(buyStuff.$valid) {
+                    if (buyStuff.$valid) {
                         $scope.submitted = true;
                     } else {
                         alert("Please check your form for mistakes.");
                         $scope.submitted = true;
                     }
                 };
-                $scope.honorarium = function(amount) {
-                    
+                $scope.rangeBase = 0;
+                $scope.setHonorarium = function() {
+                    return $scope.rangeBase;
                 };
+                // $scope.setHonorariumTwo = function() {
+                //     this.__defineGetter__($scope.rangeBase, function() {
+                //         return $scope.rangeBase;    
+                //     });
+                //     this.__defineSetter__($scope.rangeBase, function() {
+                //         return $scope.rangeBase;
+                //     });
+                // };
+
+
             }
         ]);
 }());
