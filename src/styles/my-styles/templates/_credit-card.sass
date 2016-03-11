@@ -1,0 +1,59 @@
+.img-wrapper
+	.credit-card
+		height: 190px
+		max-width: 350px
+		margin: 0 auto
+		background-color: steelblue
+		background: repeating-linear-gradient(50deg, steelblue, steelblue 6px, $accent3 5px, $accent3 7px)
+		+position(relative)
+		border-radius: 10px
+		.card-logo
+			+size(40px)
+			border-radius: 50%
+		#circle-1
+			+position(absolute, 9% 13% null null)
+			background-color: indianred
+			z-index: 2
+		#circle-2
+			+position(absolute, 9% 6% null null)
+			background-color: khaki
+			z-index: 1
+		#chip
+			width: 50px
+			height: 40px
+			background-color: gainsboro
+			+position(absolute, 17% null null 9%)
+			border-radius: 5px
+		#card-number
+			+position(absolute, 40% null null null)
+			color: white
+			font-size: 1.5rem
+			white-space: nowrap
+			width: 100%
+			text-align: center
+
+		#card-name
+			+position(absolute, null null 2% 7%)
+			color: white
+			text-transform: uppercase
+			// font-size: 1.1rem
+			white-space: nowrap
+			letter-spacing: -0.7px
+		#card-date
+			+position(absolute, null 7% 2% null)
+			color: white
+			letter-spacing: -1px
+
+		.card-cvv
+			+justify-content(space-between)
+			#card-cvv
+				width: 61px
+				
+		.card-expiry-date
+			+justify-content(space-between)
+			.input-wrap-inline
+				#month
+					width: 61px
+					margin-right: 5px
+				#year
+					width: 81px

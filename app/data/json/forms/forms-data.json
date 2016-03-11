@@ -1,0 +1,119 @@
+{
+	"location": {
+		"label": "Where and when?",
+		"title":"Chose the date and location of the concert.",
+		"placeholder":"",
+		"errorMessages": {
+			"required": "Must choose location.",
+			"invalid": ""
+		}
+	},
+	"guest": {
+		"label": "Your name?",
+		"title": "Enter your name",
+		"placeholder": "Name Surname",
+		"errorMessages": {
+			"required": "Must enter name.",
+			"invalid": "Please check your name again for unwanted additional spaces."
+		}
+	},
+	"companions": {
+		"label": "Add companions",
+		"title":"Enter your companions names.",
+		"placeholder":"Name Surname",
+		"errorMessages": {
+			"required": "",
+			"invalid": "Please check your name again for unwanted additional spaces."
+		}
+	},
+	"cardName": {
+		"label": "Name on your card?",
+		"title":"Enter the name displayed on your payment card.",
+		"placeholder":"NAME SURNAME",
+		"errorMessages": {
+			"required": "Must enter your name on the credit/debit card.",
+			"invalid": "Name is either too long or too short or has too many spaces."
+		}
+	},
+	"email": {
+		"label": "Your email?",
+		"title":"Enter your email.",
+		"placeholder":"name@example.com",
+		"errorMessages": {
+			"required": "Must enter email.",
+			"invalid": "Please check your email again for unwanted additional spaces."
+		}
+	},
+	"cardNumber": {
+		"label": "Your card number?",
+		"title":"Enter your card number",
+		"placeholder":"0000 0000 0000 0000",
+		"errorMessages": {
+			"required": "Must enter card number.",
+			"invalid": "Please enter 16 numbers displayed on your credit card in the following format: 0000 0000 0000 0000."
+		}
+	},
+	"cardCvv": {
+		"label": "Your card security code?",
+		"title":"Enter 3 digit number displayed on the back of your card. Avoid entering spaces.",
+		"placeholder":"000",
+		"errorMessages": {
+			"required": "Must enter 3 digit number displayed on the back of your card.",
+			"invalid": "Please enter 3 digit number displayed on the back of your credit/debit card and avoid entering additional spaces."
+		}
+	},
+	"cardExpiryDate": {
+		"label": "card expiry date?",
+		"title": "Choose expiry date displayed on your payment card.",
+		"placeholder": "",
+		"errorMessages": {
+			"required": "Must choose expiry date displayed on your payment card.",
+			"invalid": ""
+		}
+	},
+	"street": {
+		"label": "street",
+		"title":"Enter street name followed by a number",
+		"placeholder":"Street Name 123",
+		"errorMessages": {
+			"required": "Must enter street address.",
+			"invalid": "Please enter a street name followed by a nubmer."
+		}
+	},
+	"city": {
+		"label": "city",
+		"title":"Enter city name.",
+		"placeholder":"City Name",
+		"errorMessages": {
+			"required": "Must enter city name.",
+			"invalid": "Please enter your city name."
+		}
+	},
+	"postCode": {
+		"label": "post code",
+		"title":"Please enter post code.",
+		"placeholder":"",
+		"errorMessages": {
+			"required": "If you do not have a post code, enter: 00000",
+			"invalid": "Please enter valid post code."
+		}
+	},
+	"country": {
+		"label": "country",
+		"title":"Chose country.",
+		"placeholder":"",
+		"errorMessages": {
+			"required": "Must choose country.",
+			"invalid": "Please enter valid post code."
+		}
+	},
+	"moreInfo": {
+		"label": "Want to tell us more about your gig?",
+		"title": "Tell us more about your gig.",
+		"placeholder": "Write anything you can think of.",
+		"errorMessages": {
+			"required": "",
+			"invalid": "You have reached maximum of 2000 characters."
+		}
+	}
+}

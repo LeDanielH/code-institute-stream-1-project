@@ -1,0 +1,189 @@
+<fieldset class="form-column">
+	<div class="input-wrap input-location">
+		<label for="where-and-when">{{formsData.location.label}}</label>
+
+		<select name="where-and-when" id="where-and-when" autofocus title="{{formsData.location.title}}" ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" ng-required="true"></select>
+		<label class="small-label">Address</label>
+		<small class="error-message" ng-show="buyTicketForm.map.$dirty 
+			&& buyTicketForm.map.$error.required">
+			{{formsData.location.errorMessages.required}}
+		</small>
+
+		<div class="input-wrapper-inline map-and-address">
+			<address>
+				{{map.address[0].street}} <br>
+				{{map.address[0].city}} <br>
+				{{map.address[0].country}}
+			</address>
+
+			<make-map map="map"></make-map>
+		</div>
+	</div>
+
+	<label for="name">{{formsData.guest.label}}</label>
+	<input type="text" id="name" name="name" autocomplete="name" title="{{formsData.guest.title}}" placeholder="{{formsData.guest.placeholder}}" ng-init="buyTicketForm.name=formsData.guest.placeholder" ng-model="buyTicket.name" ng-pattern="patterns.name" ng-required="true">
+	<small class="error-message" ng-show="buyTicketForm.name.$dirty 
+		&& buyTicketForm.name.$error.required 
+		&& buyTicketForm.name === initName">
+		{{formsData.guest.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketForm.name.$dirty 
+		&& buyTicketForm.name.$invalid">
+		{{formsData.guest.errorMessages.invalid}}
+	</small>
+
+	<ul class="guests-list">
+		<li class="small-label divided-label base-transparent-medium">
+			<span>{{buyTicketForm.name}}</span>
+			<span class="price-label">{{buyTicketForm.ticketPrice}}&euro;</span>
+		</li>
+	</ul>
+
+	<label for="email">{{formsData.email.label}}</label>
+	<input type="email" id="email" name="email" autocomplete="email" title="{{formsData.email.title}}" placeholder="{{formsData.email.title}}" ng-model="buyTicket.email" ng-pattern="patterns.email" ng-required="true">
+	<small class="error-message" ng-show="buyTicketForm.email.$dirty 
+		&& buyTicketForm.email.$error.required">
+		{{formsData.email.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketForm.email.$dirty 
+		&& buyTicketForm.email.$invalid">
+		{{formsData.email.errorMessages.invalid}}	
+	</small>
+
+	<label for="addGuest">{{formsData.companions.label}}</label>
+	<ul class="guests-list">
+		<li class="small-label input-wrap-inline" ng-repeat="companion in buyTicketForm.companions" ng-model="buyTicket.companion">
+
+			<div class="divided-label input-wrap-inline base-transparent-medium added-guests">
+				<span>{{companion}}</span>
+				<span class="price-label">{{ticketPrice}}&euro;</span>
+			</div>
+
+			<button title="remove guest" id="removeCompanionButton" class="plus-minus-button" ng-click="removeCompanion()"><i class="fa fa-minus-circle fa-2x"></i>
+			</button>
+		</li>
+	</ul>
+
+	<div class="input-wrap-inline input-add-guest">
+		<input type="text" id="addCompanion" name="name" title="{{formsData.companions.title}}" placeholder="{{formsData.companions.placeholder}}" ng-model="buyTicket.companion" ng-pattern="patterns.name">
+		<button id="addCompanionButton" class="plus-minus-button" ng-click="addCompanion()"><i class="fa fa-plus-circle fa-2x"></i>
+		</button>
+	</div>
+	<small class="error-message" ng-show="buyTicketForm.companion.$dirty 
+		&& buyTicketForm.companion.$invalid">
+		{{formsData.companions.errorMessages.invalid}}
+	</small>
+</fieldset>
+
+<fieldset class="form-column">
+	<h5>Credit Card Details:</h5>
+
+	<div class="img-wrapper">
+		<div class="credit-card">
+			<div class="card-logo" id="circle-1"></div>
+			<div class="card-logo" id="circle-2"></div>
+			<div id="chip"></div>
+			<strong data-fittext data-fittext-min="20" id="card-number">{{buyTicket.card.number}}</strong>
+			<p id="card-name">{{buyTicket.card.name}}</p>
+			<p id="card-date">{{buyTicket.card.month}}/{{buyTicket.card.year}}</p>
+		</div>
+	</div>
+	<br>
+
+	<div class="input-wrap-inline card-name">
+		<label class="small-label" for="credit-card-name">{{formsData.cardName.label}}</label>
+		<input type="text" id="credit-card-name" autocomplete="name" title="{{formsData.cardName.title}}" placeholder="{{formsData.cardName.placeholder}}" ng-init="buyTicket.card.name=formsData.cardName.placeholder" ng-model="buyTicket.card.name" ng-pattern="patterns.name" ng-required="true">
+	</div>
+	<small class="error-message" ng-show="buyTicketForm.card.name.$dirty 
+		&& buyTicketForm.card.name.$error.required 
+		&& buyTicketForm.card.name === initName">
+		{{formsData.cardName.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketForm.card.name.$dirty 
+		&& buyTicketForm.card.name.$invalid">
+		{{formsData.cardName.errorMessages.invalid}}
+	</small>
+
+	<div class="input-wrap-inline card-number">
+		<label for="credit-card-number" class="small-label">{{formsData.cardNumber.label}}</label>
+		<input type="text" id="credit-card-number" name="cardnumber" autocomplete="cc-number" title="{{formsData.cardNumber.title}}" placeholder="{{formsData.cardNumber.placeholder}}" ng-init="buyTicket.card.number=formsData.cardNumber.placeholder" ng-model="buyTicket.card.number" ng-pattern="patterns.card" ng-required="true">
+	</div>
+	<small class="error-message" ng-show="buyTicketForm.card.number.$dirty 
+		&& buyTicketForm.card.number.$error.required 
+		&& buyTicketForm.card.number === initCardNumber">
+		{{formsData.cardNumber.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketForm.card.number.$dirty 
+		&& buyTicketForm.card.number.$invalid">
+		{{formsData.cardNumber.errorMessages.invalid}}
+	</small>
+
+	<div class="input-wrap-inline card-cvv">
+		<label for="card-cvv" class="small-label">{{formsData.cardCvv.label}}</label>
+		<input type="text" id="card-cvv" name="cvv" autocomplete="cvv-number" title="{{formsData.cardCvv.title}}" placeholder="{{formsData.cardCvv.placeholder}}" ng-model="buyTicket.card.cvv" ng-pattern="patterns.cvv" ng-required="true">
+	</div>
+	<small class="error-message" ng-show="buyTicketForm.card.cvv.$dirty 
+		&& buyTicketForm.card.cvv.$error.required">
+		{{formsData.cardCvv.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketFormcard.card.cvv.$dirty 
+		&& buyTicketFormcard.card.cvv.$invalid">
+		{{formsData.cardCvv.errorMessages.invalid}}
+	</small>
+
+	<div class="input-wrap-inline card-expiry-date">
+		<label for="month" class="small-label">{{formsData.cardExpiryDate.label}}</label>
+		<div class="input-wrap-inline">
+			<select name="month" id="month" title="{{formsData.cardExpiryDate.title}}" ng-model="buyTicket.card.month" ng-options="month for month in getMonths" ng-init="buyTicket.month=initMonth">
+			</select>
+			<select name="year" id="year" title="{{formsData.cardExpiryDate.title}}" ng-model="buyTicket.card.year" ng-options="year for year in getYears" ng-init="buyTicket.year=initYear">
+			</select>
+		</div>
+	</div>
+	<small class="error-message" ng-show="buyTicketForm.card.month.$dirty 
+		&& buyTicketForm.card.year.$dirty 
+		&& buyTicketForm.card.month.$error.required 
+		&& buyTicketForm.card.year.$error.required">
+		{{formsData.cardCvv.errorMessages.required}}
+	</small>
+
+	<h5>Billing Address</h5>
+
+	<input type="text" id="street" name="address" autocomplete="street-address" title="{{formsData.street.title}}" placeholder="{{formsData.street.placeholder}}" ng-model="buyTicket.billingAddress.street" ng-pattern="patterns.street" ng-required="true">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.street.$dirty 
+		&& buyTicketForm.billingAddress.street.$error.required">
+		{{formsData.street.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.street.$dirty 
+		&& buyTicketForm.billingAddress.street.$invalid">
+		{{formsData.street.errorMessages.invalid}}
+	</small>
+
+	<input type="text" id="city" name="city" autocomplete="address-level2" title="{{formsData.city.title}}" placeholder="{{formsData.city.placeholder}}" ng-model="buyTicket.billingAddress.city" ng-pattern="patterns.city" ng-required="true">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.city.$dirty 
+		&& buyTicketForm.billingAddress.city.$error.required">
+		{{formsData.city.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.city.$dirty 
+		&& buyTicketForm.billingAddress.city.$invalid">
+		{{formsData.city.errorMessages.invalid}}
+	</small>
+
+	<input type="text" id="post-code" name="post-code" autocomplete="postal-code" title="{{formsData.postCode.title}}" placeholder="{{formsData.postCode.placeholder}}" ng-model="buyTicket.billingAddress.postCode" ng-pattern="patterns.postCode" ng-required="true">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.postCode.$dirty 
+		&& buyTicketForm.billingAddress.postCode.$error.required">
+		{{formsData.postCode.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.postCode.$dirty 
+		&& buyTicketForm.billingAddress.postCode.$invalid">
+		{{formsData.postCode.errorMessages.invalid}}
+	</small>
+
+	<select name="country" id="country" autocomplete="country" title="{{formsData.country.title}}" ng-model="buyTicket.billingAddress.country" ng-required="true" ng-include="'templates/directives/gigs-directives/countries.html'">
+	</select>
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.country.$dirty 
+		&& buyTicketForm.billingAddress.country.$error.required">
+		{{formsData.country.errorMessages.required}}
+	</small>
+
+</fieldset>

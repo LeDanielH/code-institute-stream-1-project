@@ -2607,9 +2607,6 @@ span[class^="icon-circle"] {
 	cursor: pointer;
 	z-index: 10;
 }
-.plus-button {
-	padding: 2px 4px;
-}
 * {
 	box-sizing: border-box;
 }
@@ -2752,8 +2749,14 @@ span[class^="icon-circle"] {
 .form-medium {
 	max-width: 640px;
 }
+.plus-minus-button {
+	padding: 2px 4px;
+}
 select option {
 	width: 100%;
+}
+input.ng-dirty.ng-invalid,select.ng-dirty.ng-invalid {
+	border-color: red;
 }
 table thead {
 	width: 100%;
@@ -3927,7 +3930,7 @@ body .container .main-footer {
 	justify-content: space-between;
 	-ms-flex-pack: justify;
 }
-.tabs .tab-panel form .form-layout .form-column .input-add-guest #addGuestButton {
+.tabs .tab-panel form .form-layout .form-column .input-add-guest #addCompanionButton {
 	position: relative;
 	top: -6px;
 	margin-left: 5px;
@@ -3993,104 +3996,10 @@ body .container .main-footer {
 	justify-content: space-between;
 	-ms-flex-pack: justify;
 }
-.tabs .tab-panel form .form-layout .form-column .guests-list li #removeGuestButton {
+.tabs .tab-panel form .form-layout .form-column .guests-list li #removeCompanionButton {
 	position: relative;
 	top: -6px;
 	margin-left: 5px;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card {
-	height: 190px;
-	max-width: 350px;
-	margin: 0 auto;
-	background-color: steelblue;
-	background: repeating-linear-gradient(50deg, steelblue, steelblue 6px, rgba(35, 29, 34, 0.9) 5px, rgba(35, 29, 34, 0.9) 7px);
-	position: relative;
-	border-radius: 10px;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card .card-logo {
-	height: 40px;
-	width: 40px;
-	border-radius: 50%;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #circle-1 {
-	position: absolute;
-	top: 9%;
-	right: 13%;
-	background-color: indianred;
-	z-index: 2;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #circle-2 {
-	position: absolute;
-	top: 9%;
-	right: 6%;
-	background-color: khaki;
-	z-index: 1;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #chip {
-	width: 50px;
-	height: 40px;
-	background-color: gainsboro;
-	position: absolute;
-	top: 17%;
-	left: 9%;
-	border-radius: 5px;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #card-number {
-	position: absolute;
-	top: 40%;
-	color: white;
-	font-size: 1.5rem;
-	white-space: nowrap;
-	width: 100%;
-	text-align: center;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #card-name {
-	position: absolute;
-	bottom: 2%;
-	left: 7%;
-	color: white;
-	text-transform: uppercase;
-	white-space: nowrap;
-	letter-spacing: -0.7px;
-}
-.tabs .tab-panel form .form-layout .form-column .img-wrapper .credit-card #card-date {
-	position: absolute;
-	right: 7%;
-	bottom: 2%;
-	color: white;
-	letter-spacing: -1px;
-}
-.tabs .tab-panel form .form-layout .form-column .card-cvv {
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
-}
-.tabs .tab-panel form .form-layout .form-column .card-cvv #card-cvv {
-	width: 61px;
-}
-.tabs .tab-panel form .form-layout .form-column .card-expiry-date {
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
-}
-.tabs .tab-panel form .form-layout .form-column .card-expiry-date .input-wrap-inline #month {
-	width: 61px;
-	margin-right: 5px;
-}
-.tabs .tab-panel form .form-layout .form-column .card-expiry-date .input-wrap-inline #year {
-	width: 81px;
 }
 .tabs label.tab-header:first-of-type {
 	border-top-left-radius: 3px;
@@ -4517,4 +4426,98 @@ body .container .main-footer {
 	-o-align-items: center;
 	align-items: center;
 	-ms-flex-align: center;
+}
+.img-wrapper .credit-card {
+	height: 190px;
+	max-width: 350px;
+	margin: 0 auto;
+	background-color: steelblue;
+	background: repeating-linear-gradient(50deg, steelblue, steelblue 6px, rgba(35, 29, 34, 0.9) 5px, rgba(35, 29, 34, 0.9) 7px);
+	position: relative;
+	border-radius: 10px;
+}
+.img-wrapper .credit-card .card-logo {
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+}
+.img-wrapper .credit-card #circle-1 {
+	position: absolute;
+	top: 9%;
+	right: 13%;
+	background-color: indianred;
+	z-index: 2;
+}
+.img-wrapper .credit-card #circle-2 {
+	position: absolute;
+	top: 9%;
+	right: 6%;
+	background-color: khaki;
+	z-index: 1;
+}
+.img-wrapper .credit-card #chip {
+	width: 50px;
+	height: 40px;
+	background-color: gainsboro;
+	position: absolute;
+	top: 17%;
+	left: 9%;
+	border-radius: 5px;
+}
+.img-wrapper .credit-card #card-number {
+	position: absolute;
+	top: 40%;
+	color: white;
+	font-size: 1.5rem;
+	white-space: nowrap;
+	width: 100%;
+	text-align: center;
+}
+.img-wrapper .credit-card #card-name {
+	position: absolute;
+	bottom: 2%;
+	left: 7%;
+	color: white;
+	text-transform: uppercase;
+	white-space: nowrap;
+	letter-spacing: -0.7px;
+}
+.img-wrapper .credit-card #card-date {
+	position: absolute;
+	right: 7%;
+	bottom: 2%;
+	color: white;
+	letter-spacing: -1px;
+}
+.img-wrapper .credit-card .card-cvv {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
+.img-wrapper .credit-card .card-cvv #card-cvv {
+	width: 61px;
+}
+.img-wrapper .credit-card .card-expiry-date {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
+.img-wrapper .credit-card .card-expiry-date .input-wrap-inline #month {
+	width: 61px;
+	margin-right: 5px;
+}
+.img-wrapper .credit-card .card-expiry-date .input-wrap-inline #year {
+	width: 81px;
 }

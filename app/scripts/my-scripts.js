@@ -130,60 +130,87 @@ angular.module('bandApp', [
         ]);
 
 }());
-;
-(function() {
+;(function() {
     'use strict';
     angular.module('myBandAppControllers')
         .controller('GigsController', [
             '$scope',
             'GigsDataService',
-            'GuestsDataService',
+            'FormsDataService',
             // 'CallToActionDataService',
             function(
                 $scope,
                 GigsDataService,
-                GuestsDataService
+                FormsDataService
                 // CallToActionDataService
             ) {
-                $scope.title = 'GIGS';
-                $scope.actions = GigsDataService.actions;
-                $scope.warning = 'Please fill all the required information and follow displayed patterns.';
-                $scope.subtitles = GigsDataService.subtitles;
+                $scope.title = GigsDataService.title;
                 $scope.maps = GigsDataService.maps.query();
-                $scope.getYears = GigsDataService.getYears();
-                $scope.initYear = $scope.getYears[0];
-                $scope.getMonths = GigsDataService.getMonths();
-                $scope.initMonth = $scope.getMonths[0];
-                $scope.guests = [];
-                $scope.initName = 'Name Surname';
-                $scope.ticketPrice = GuestsDataService.ticketPrice;
-                $scope.addGuest = function() {
-                    if (!$scope.name || $scope.name === '') {
+
+                // UNIVERSAL VALUES FOR FORMS
+                $scope.formHeaders = FormsDataService.formHeaders;
+                $scope.introWarning = FormsDataService.introWarning;
+                $scope.formsData = FormsDataService.formsData.query();
+                $scope.patterns = FormsDataService.patterns;
+
+                // GET DATES FOR DROPDOWN
+                $scope.getYears = FormsDataService.getYears();
+                $scope.getMonths = FormsDataService.getMonths();
+                $scope.initYear = FormsDataService.initYear;
+                $scope.initMonth = FormsDataService.initMonth;
+                
+                // BUY TICKET FORM - TAB 1 - VALUES TO SUBMIT
+                $scope.ticketPrice = FormsDataService.ticketPrice;
+                $scope.companions = [];
+                $scope.addCompanion = function() {
+                    if (!$scope.companion || $scope.companion === '' || $scope.companion === initName) {
                         return;
                     }
-                    $scope.guests.push({
-                        name: $scope.name
-                    });
-                    $scope.name = '';
-
+                    $scope.companions.push({ companion: $scope.companion });
+                    $scope.companion = '';
                 };
-                $scope.removeGuest = function(guest) {
-                    var selecetedGuest = $scope.guests.indexOf(guest);
-                    $scope.guests.splice(selecetedGuest, 1);
+                $scope.removeCompanion = function(companion) {
+                    var selectedCompanion = $scope.companions.indexOf(companion);
+                    $scope.companions.splice(selectedCompanion, 1);
                 };
-                $scope.submitted = false;
-                $scope.buyStuff = function(buyStuff) {
-                    if (buyStuff.$valid) {
-                        $scope.submitted = true;
+                $scope.guest = [];
+                $scope.submitGuests = function(buyTicket) {
+                    if ($scope.buyTicketForm.$valid) {
+                        $scope.guest.push({
+                            location: $scope.map,
+                            name: buyTicket.name,
+                            email: buyTicket.email,
+                            companions: $scope.companions,
+                            ticketPrice: $scope.ticketPrice,
+                            finalPrice: $scope.ticketPrice /*one buyer is for sure*/+ ($scope.ticketPrice * $scope.companions.length),
+                            card: {
+                                name: buyTicket.card.name,
+                                number: buyTicket.card.number,
+                                cvv: buyTicket.card.cvv,
+                                month: buyTicket.card.month,
+                                year: buyTicket.card.year
+                            },
+                            billingAddress: {
+                                street: buyTicket.billingAddress.street,
+                                city: buyTicket.billingAddress.city,
+                                postCode: buyTicket.billingAddress.postCode,
+                                country: buyTicket.billingAddress.country
+                            }
+                        });
+                        alert('Please check your email for purchase confirmation.');
                     } else {
-                        alert("Please check your form for mistakes.");
-                        $scope.submitted = true;
+                        alert('You\'ve made a mistake somewhere, please check your form again.');
                     }
                 };
+
+                // BOOK US FORM - TAB 2
                 $scope.rangeBase = 0;
                 $scope.setHonorarium = function() {
                     return $scope.rangeBase;
                 };
+
+                
+
                 // $scope.setHonorariumTwo = function() {
                 //     this.__defineGetter__($scope.rangeBase, function() {
                 //         return $scope.rangeBase;    
@@ -193,7 +220,7 @@ angular.module('bandApp', [
                 //     });
                 // };
 
-
+                
             }
         ]);
 }());
@@ -358,6 +385,62 @@ angular.module('bandApp', [
     ]);
 }());
 ;(function(){
+	angular.module('myBandAppServices')
+		.factory('FormsDataService', [
+			'$resource'
+			], function(
+				$resource
+				) {
+				var f = {
+					formHeaders: ['let\'s party!', 'book us!'],
+					introWarning: 'Please fill all the required information and follow displayed patterns.',
+					ticketPrice: 20,
+					formsData: $resource('data/json/forms/:itemId.json', {}, {
+	                    query: {
+	                        method: 'GET',
+	                        params: {
+	                            itemId: 'forms-data'
+	                        },
+	                        isArray: true
+	                    }
+	                }),
+	                patterns: {
+	                	email: "/\b\w{1,30}\b(\.\b\w{1,30}\b)?@\b[a-zA-Z0-9]{1,30}\b\.\b[a-zA-Z]{1,10}\b(\.\b[a-zA-Z]{1,10}\b)?(\s)?/",
+	                    card: "/\b(\d{4}(\s|-)?){3}\d{4}\b(\s)?/",
+	                    cvv: "/\b\d{3}\b(\s{0,1})?/",
+	                    name: "/^(\b[a-zA-Z]{1,20}\b\s{0,2}){2,4}$/m",
+	                    street: "/(\b[a-zA-Z]{1,20}\b\s){1,3}\b\d{1,5}\b(\/\b\d{1,5}\b)?(\s{0,2})/",
+	                    city: "/^(\b[a-zA-Z]{1,20}\b\s{0,2}){1,3}$/m",
+	                    postCode: "/b[a-zA-Z0-9]{2,12}\b/"
+	                },
+					getYears: function() {
+	                    var today = new Date();
+	                    var year = today.getFullYear();
+	                    var years = [];
+	                    var yearsSpan = 50;
+	                    for (var i = year; i < year + yearsSpan; i++) {
+	                        years.push(i);
+	                    }
+	                    return years;
+	                },
+	                initYear: years[0],
+	                getMonths: function() {
+	                    var numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+	                    var months = numberArray.map(function(month) {
+	                        if (month < 10) {
+	                            return '0' + month;
+	                        } else {
+	                            return month.toString();
+	                        }
+	                    });
+	                    return months;
+	                },
+	                initMonth: months[0],
+				};
+				return f;
+		});
+})();
+;(function(){
 	'use strict';
 	angular.module('myBandAppServices')
 		.factory('FamousQuotesDataService', [
@@ -383,14 +466,16 @@ angular.module('bandApp', [
     'use strict';
     angular.module('myBandAppServices')
         .factory('GigsDataService', [
-            '$rootScope',
+            // '$rootScope',
             '$resource',
             function(
-                $rootScope,
+                // $rootScope,
                 $resource
             ) {
                 var gigs = {
-                    subtitles: ['where', 'when'],
+                    title: 'gigs',
+                    locationTitle: 'where',
+                    timeTitle: 'when',
                     maps: $resource('data/json/:itemId.json', {}, {
                         query: {
                             method: 'GET',
@@ -400,45 +485,10 @@ angular.module('bandApp', [
                             isArray: true
                         }
                     }),
-                    getYears: function() {
-                        var today = new Date();
-                        var year = today.getFullYear();
-                        var years = [];
-                        for (var i = year; i < year + 50; i++) {
-                            years.push(i);
-                        }
-                        return years;
-                    },
-                    getMonths: function() {
-                        var numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-                        var months = numberArray.map(function(month) {
-                            if (month < 10) {
-                                return '0' + month;
-                            } else {
-                                return month.toString();
-                            }
-                        });
-                        return months;
-
-                    },
-                    actions: ['let\'s party!', 'book us!']
                 };
                 return gigs;
             }
         ]);
-}());
-;(function(){
-	'use strict';
-	angular.module('myBandAppServices')
-    .factory('GuestsDataService', [
-        function() {
-            var people = {
-                guests: [{}],
-                ticketPrice: 20
-            };
-            return people;
-        }
-    ]);
 }());
 ;(function(){
 	'use strict';

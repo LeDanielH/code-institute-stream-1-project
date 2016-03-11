@@ -1,0 +1,131 @@
+<!-- COLUMN 1 -->
+<fieldset class="form-column">
+	<label for="date">Pick up an available date.</label>
+	<input type="date" id="date" name="date" ng-required>
+	<label for="gig-type">What type of gig are you planning?</label>
+	<select name="gig-type" id="">
+		<option value="wedding">wedding</option>
+		<option value="wedding">proms</option>
+		<option value="wedding">company party</option>
+		<option value="wedding">other</option>
+	</select>
+	<h5>Location of the gig?</h5>
+	<input type="text" id="street" name="address" autocomplete="street-address"
+		title="{{formsData.street.title}}" 
+		placeholder="{{formsData.street.placeholder}}"  
+		ng-model="bookUs.gigAddress.street" 
+		ng-pattern="patterns.street" 
+		ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$dirty 
+		&& bookUsForm.gigAddress.street.$error.required">
+		{{formsData.street.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$dirty 
+		&& bookUsForm.gigAddress.street.$invalid">
+		{{formsData.street.errorMessages.invalid}}
+	</small>
+
+	<!-- GIG ADDRESS - CITY -->
+	<input type="text" id="city" name="city" autocomplete="address-level2"
+		title="{{formsData.city.title}}" 
+		placeholder="{{formsData.city.placeholder}}"
+		ng-model="bookUs.gigAddress.city" 
+		ng-pattern="patterns.city" 
+		ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$dirty 
+		&& bookUsForm.gigAddress.city.$error.required">
+		{{formsData.city.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$dirty 
+		&& bookUsForm.gigAddress.city.$invalid">
+		{{formsData.city.errorMessages.invalid}}
+	</small>
+
+	<!-- GIG ADDRESS - POSTCODE -->
+	<input type="text" id="post-code" name="post-code" autocomplete="postal-code"
+		title="{{formsData.postCode.title}}" 
+		placeholder="{{formsData.postCode.placeholder}}"   
+		ng-model="bookUs.gigAddress.postCode" 
+		ng-pattern="patterns.postCode" 
+		ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$dirty 
+		&& bookUsForm.gigAddress.postCode.$error.required">
+		{{formsData.postCode.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$dirty 
+		&& bookUsForm.gigAddress.postCode.$invalid">
+		{{formsData.postCode.errorMessages.invalid}}
+	</small>
+
+	<!-- GIG ADDRESS - COUNTRY -->
+	<select name="country" id="country" autocomplete="country"
+		title="{{formsData.country.title}}" 
+		ng-model="bookUs.gigAddress.country" 
+		ng-required="true" 
+		ng-include="'templates/directives/gigs-directives/countries.html'">
+	</select>
+	<small class="error-message" ng-show="bookUsForm.gigAddress.country.$dirty 
+		&& bookUsForm.gigAddress.country.$error.required">
+		{{formsData.country.errorMessages.required}}
+	</small>
+</fieldset>
+
+<!-- COLUMN 2 -->
+<fieldset class="form-column">
+
+	<!-- GUEST'S NAME -->
+	<label for="name">{{formsData.guest.label}}</label>
+	<input type="text" id="name" name="name" autocomplete="name" 
+		title="{{formsData.guest.title}}" 
+		placeholder="{{formsData.guest.placeholder}}" 
+		ng-init="bookUsForm.name=formsData.guest.placeholder" 
+		ng-model="bookUs.name"
+		ng-pattern="patterns.name" 
+		ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.name.$dirty 
+		&& bookUsForm.name.$error.required 
+		&& bookUsForm.name === initName">
+		{{formsData.guest.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.name.$dirty 
+		&& bookUsForm.name.$invalid">
+		{{formsData.guest.errorMessages.invalid}}
+	</small>
+	
+	<!-- GUEST'S EMAIL -->
+	<label for="email">{{formsData.email.label}}</label>
+	<input type="email" id="email" name="email" autocomplete="email" 
+		title="{{formsData.email.title}}" 
+		placeholder="{{formsData.email.title}}"
+		ng-model="bookUs.email"  
+		ng-pattern="patterns.email" 
+		ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.email.$dirty 
+		&& bookUsForm.email.$error.required">
+		{{formsData.email.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.email.$dirty 
+		&& bookUsForm.email.$invalid">
+		{{formsData.email.errorMessages.invalid}}	
+	</small>
+	
+	<!-- TELL US MORE ABOUT YOUR GIG -->
+	<label for="content">{{formsData.moreInfo.label}}</label>
+	<textarea form="bookUsForm" name="content" id="content" cols="30" rows="7"
+		title="{{formsData.moreInfo.title}}"
+		placeholder="{{formsData.moreInfo.placeholder}}"
+		ng-model="bookUs.content"
+		ng-maxlength=2000>
+	</textarea>
+	<small class="error-message" ng-show="bookUsForm.moreInfo.$dirty 
+		&& bookUsForm.moreInfo.$error.maxlength">
+		{{formsData.moreInfo.errorMessages.invalid}}
+	</small>
+
+	<!-- SET HONORARIUM -->
+	<label for="offer">Make us an offer</label>
+	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="rangeBase">
+	<label for="honorarium">Honorarium</label>
+	Honorarium: {{rangeBase}} $
+	<input type="number" ng-change="setHonorarium()" ng-model="rangeBase">
+</fieldset>

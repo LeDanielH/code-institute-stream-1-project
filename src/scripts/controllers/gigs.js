@@ -1,57 +1,84 @@
-;
-(function() {
+;(function() {
     'use strict';
     angular.module('myBandAppControllers')
         .controller('GigsController', [
             '$scope',
             'GigsDataService',
-            'GuestsDataService',
+            'FormsDataService',
             // 'CallToActionDataService',
             function(
                 $scope,
                 GigsDataService,
-                GuestsDataService
+                FormsDataService
                 // CallToActionDataService
             ) {
-                $scope.title = 'GIGS';
-                $scope.actions = GigsDataService.actions;
-                $scope.warning = 'Please fill all the required information and follow displayed patterns.';
-                $scope.subtitles = GigsDataService.subtitles;
+                $scope.title = GigsDataService.title;
                 $scope.maps = GigsDataService.maps.query();
-                $scope.getYears = GigsDataService.getYears();
-                $scope.initYear = $scope.getYears[0];
-                $scope.getMonths = GigsDataService.getMonths();
-                $scope.initMonth = $scope.getMonths[0];
-                $scope.guests = [];
-                $scope.initName = 'Name Surname';
-                $scope.ticketPrice = GuestsDataService.ticketPrice;
-                $scope.addGuest = function() {
-                    if (!$scope.name || $scope.name === '') {
+
+                // UNIVERSAL VALUES FOR FORMS
+                $scope.formHeaders = FormsDataService.formHeaders;
+                $scope.introWarning = FormsDataService.introWarning;
+                $scope.formsData = FormsDataService.formsData.query();
+                $scope.patterns = FormsDataService.patterns;
+
+                // GET DATES FOR DROPDOWN
+                $scope.getYears = FormsDataService.getYears();
+                $scope.getMonths = FormsDataService.getMonths();
+                $scope.initYear = FormsDataService.initYear;
+                $scope.initMonth = FormsDataService.initMonth;
+                
+                // BUY TICKET FORM - TAB 1 - VALUES TO SUBMIT
+                $scope.ticketPrice = FormsDataService.ticketPrice;
+                $scope.companions = [];
+                $scope.addCompanion = function() {
+                    if (!$scope.companion || $scope.companion === '' || $scope.companion === initName) {
                         return;
                     }
-                    $scope.guests.push({
-                        name: $scope.name
-                    });
-                    $scope.name = '';
-
+                    $scope.companions.push({ companion: $scope.companion });
+                    $scope.companion = '';
                 };
-                $scope.removeGuest = function(guest) {
-                    var selecetedGuest = $scope.guests.indexOf(guest);
-                    $scope.guests.splice(selecetedGuest, 1);
+                $scope.removeCompanion = function(companion) {
+                    var selectedCompanion = $scope.companions.indexOf(companion);
+                    $scope.companions.splice(selectedCompanion, 1);
                 };
-                $scope.submitted = false;
-                $scope.buyStuff = function(buyStuff) {
-                    if (buyStuff.$valid) {
-                        $scope.submitted = true;
+                $scope.guest = [];
+                $scope.submitGuests = function(buyTicket) {
+                    if ($scope.buyTicketForm.$valid) {
+                        $scope.guest.push({
+                            location: $scope.map,
+                            name: buyTicket.name,
+                            email: buyTicket.email,
+                            companions: $scope.companions,
+                            ticketPrice: $scope.ticketPrice,
+                            finalPrice: $scope.ticketPrice /*one buyer is for sure*/+ ($scope.ticketPrice * $scope.companions.length),
+                            card: {
+                                name: buyTicket.card.name,
+                                number: buyTicket.card.number,
+                                cvv: buyTicket.card.cvv,
+                                month: buyTicket.card.month,
+                                year: buyTicket.card.year
+                            },
+                            billingAddress: {
+                                street: buyTicket.billingAddress.street,
+                                city: buyTicket.billingAddress.city,
+                                postCode: buyTicket.billingAddress.postCode,
+                                country: buyTicket.billingAddress.country
+                            }
+                        });
+                        alert('Please check your email for purchase confirmation.');
                     } else {
-                        alert("Please check your form for mistakes.");
-                        $scope.submitted = true;
+                        alert('You\'ve made a mistake somewhere, please check your form again.');
                     }
                 };
+
+                // BOOK US FORM - TAB 2
                 $scope.rangeBase = 0;
                 $scope.setHonorarium = function() {
                     return $scope.rangeBase;
                 };
+
+                
+
                 // $scope.setHonorariumTwo = function() {
                 //     this.__defineGetter__($scope.rangeBase, function() {
                 //         return $scope.rangeBase;    
@@ -61,7 +88,7 @@
                 //     });
                 // };
 
-
+                
             }
         ]);
 }());

@@ -43,6 +43,9 @@
 .form-medium
 	max-width: 640px
 
+.plus-minus-button
+	padding: 2px 4px
+
 select
 	@extend input
 	option
@@ -50,3 +53,6 @@ select
 
 // .ng-invalid::before
 // 	content: "REQUIRED"
+
+input.ng-dirty.ng-invalid // when input box is edited
+	border-color: red
