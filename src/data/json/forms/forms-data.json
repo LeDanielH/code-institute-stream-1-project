@@ -1,4 +1,11 @@
 {
+	"tabsLabels": {
+		"buyTicket": "let's party!",
+		"bookUs": "book us!"
+	},
+	"introGuide": "Please fill all the required information and follow displayed patterns.",
+	"ticketPrice": 20,
+
 	"location": {
 		"label": "Where and when?",
 		"title":"Chose the date and location of the concert.",
@@ -107,13 +114,31 @@
 			"invalid": "Please enter valid post code."
 		}
 	},
+	"gigType": {
+		"label": "What type of gig are you planning?",
+		"title": "Choose gig type.",
+		"placeholder":"",
+		"errorMessages": {
+			"required": "Please choose the type of your gig.",
+			"invalid": ""
+		}
+	},
 	"moreInfo": {
 		"label": "Want to tell us more about your gig?",
 		"title": "Tell us more about your gig.",
-		"placeholder": "Write anything you can think of.",
+		"placeholder": "Do you want us to be naked? Do you want us to wear smurf costumes? Any special requests?",
 		"errorMessages": {
 			"required": "",
 			"invalid": "You have reached maximum of 2000 characters."
+		}
+	},
+	"honorarium": {
+		"label": "Make us an offer",
+		"title": "Make us an offer",
+		"placeholder": "enter number",
+		"errorMessages": {
+			"required": "",
+			"invalid": "Please enter numbers only"
 		}
 	}
 }

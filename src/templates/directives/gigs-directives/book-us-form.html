@@ -1,14 +1,28 @@
 <!-- COLUMN 1 -->
 <fieldset class="form-column">
+
+	<!-- CHOOSE AVAILABLE DATE -->
 	<label for="date">Pick up an available date.</label>
 	<input type="date" id="date" name="date" ng-required>
-	<label for="gig-type">What type of gig are you planning?</label>
-	<select name="gig-type" id="">
+
+	<!-- CHOOSE GIG TYPE -->
+	<label for="gig-type">{{formsData.gigType.label}}</label>
+	<select name="gig-type" id="gig-type"
+		title="{{formData.gigType.title}}"
+		placeholder="{{formData.gigType.placeholder}}"
+		ng-model="bookUs.gigType"
+		ng-required="true">
 		<option value="wedding">wedding</option>
 		<option value="wedding">proms</option>
 		<option value="wedding">company party</option>
 		<option value="wedding">other</option>
 	</select>
+	<small class="error-message" ng-show="bookUsForm.gigType.$dirty 
+		&& bookUsForm.gigType.$error.required">
+		{{formsData.city.errorMessages.required}}
+	</small>
+
+	<!-- CHOOSE LOCATION OF THE GIG -->
 	<h5>Location of the gig?</h5>
 	<input type="text" id="street" name="address" autocomplete="street-address"
 		title="{{formsData.street.title}}" 
@@ -123,9 +137,17 @@
 	</small>
 
 	<!-- SET HONORARIUM -->
-	<label for="offer">Make us an offer</label>
+	<label for="offer">{{formsData.honorarium.label}}</label>
 	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="rangeBase">
 	<label for="honorarium">Honorarium</label>
 	Honorarium: {{rangeBase}} $
-	<input type="number" ng-change="setHonorarium()" ng-model="rangeBase">
+	<input type="number"
+		title="{{formsData.honorarium.title}}"
+		placeholder="{{formsData.honorarium.placeholder}}" 
+		ng-change="setHonorarium()" 
+		ng-model="rangeBase">
+	<small class="error-message" ng-show="bookUsForm.honorarium.$dirty 
+		&& bookUsForm.honorarium.$invalid">
+		{{formsData.honorarium.errorMessages.invalid}}
+	</small>
 </fieldset>

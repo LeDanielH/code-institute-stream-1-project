@@ -14,7 +14,7 @@
                         params: {
                             itemId: 'calls-to-action'
                         },
-                        isArray: true
+                        isArray: false
                     }
                 })
             };

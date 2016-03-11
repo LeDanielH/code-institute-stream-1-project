@@ -5,12 +5,10 @@
             '$scope',
             'GigsDataService',
             'FormsDataService',
-            // 'CallToActionDataService',
             function(
                 $scope,
                 GigsDataService,
                 FormsDataService
-                // CallToActionDataService
             ) {
                 $scope.title = GigsDataService.title;
                 $scope.maps = GigsDataService.maps.query();
@@ -66,6 +64,25 @@
                             }
                         });
                         alert('Please check your email for purchase confirmation.');
+                    } else {
+                        alert('You\'ve made a mistake somewhere, please check your form again.');
+                    }
+                };
+                $scope.request = [];
+                $scope.submitRequest = function(bookUs) {
+                    if ($scope.bookUsForm.$valid) {
+                        $scope.request.push({
+                            name: bookUs.name,
+                            email: bookUs.email,
+                            gigType: bookUs.gigType,
+                            gigAddress: {
+                                street: bookUs.gigAddress.street,
+                                city: bookUs.gigAddress.city,
+                                postCode: bookUs.gigAddress.postCode,
+                                country: bookUs.gigAddress.country
+                            }
+                        });
+                        alert('Please check your email for request confirmation.');
                     } else {
                         alert('You\'ve made a mistake somewhere, please check your form again.');
                     }
