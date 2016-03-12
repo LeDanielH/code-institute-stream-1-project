@@ -1,9 +1,9 @@
 <h1 class="h2 c-text content-heading">{{title}}</h1>
 <section class="tabs">
 	<input id="tab-one" type="radio" name="grp" checked="checked">
-	<label class="tab-header" for="tab-one">{{formHeaders[0]}}</label>
+	<label class="tab-header" for="tab-one">{{formsData.tabsLabels.buyTicket}}</label>
 	<div class="tab-panel">
-		<p class="warning">{{introWarning}}</p>
+		<p class="warning">{{formsData.introGuide}}</p>
 
 		<form name="buyTicketForm" ng-submit="submitGuests(buyTicket)">
 			<div class="input-wrapper-inline form-layout" my-directive template-path="templates/directives/gigs-directives/buy-ticket-form.html"></div>
@@ -11,12 +11,12 @@
 
 			<div class="form-footer">
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-true-value="'I have checked the all my entered info.'" ng-required="true">
-					<p>I have checked all the entered information before submitting this form.</p>
+					<input type="checkbox" id="terms" ng-required="true">
+					<p>{{formsData.checkbox.formChecked}}</p>
 				</div>
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-true-value="'I have red the terms.'" ng-required="true">
-					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
+					<input type="checkbox" id="terms" ng-required="true">
+					<p>{{formsData.checkbox.termsConfirmed}}</p>
 				</div>
 				<button type="submit" ng-disabled="buyTicketForm.$invalid">Pay {{buyTicket.ticketPrice + (buyTicket.ticketPrice * buyTicket.companions.length)}} &euro;</button>
 
@@ -25,9 +25,9 @@
 	</div>
 
 	<input id="tab-two" type="radio" name="grp">
-	<label class="tab-header" for="tab-two">{{formHeaders[1]}}</label>
+	<label class="tab-header" for="tab-two">{{formsData.tabsLabels.bookUs}}</label>
 	<div class="tab-panel">
-		<p class="warning">{{introWarning}}</p>
+		<p class="warning">{{formsData.introGuide}}</p>
 
 		<form name="bookUsForm" novalidate ng-submit="submitRequest(bookUs)">
 			<div class="input-wrapper-inline form-layout" my-directive template-path="templates/directives/gigs-directives/book-us-form.html"></div>
@@ -35,14 +35,14 @@
 
 			<div class="form-footer">
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-model="book_us.confirmInfo" ng-true-value="'I have checked the all my entered info.'" ng-required="true">
-					<p>I have checked all the entered information before submitting this form.</p>
+					<input type="checkbox" id="terms" ng-model="bookUs.confirmInfo" ng-true-value="'I have checked the all my entered info.'" ng-required="true">
+					<p>{{formsData.checkbox.formChecked}}</p>
 				</div>
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-model="book_us.confirmTerms" ng-true-value="'I have red the terms.'" ng-required="true">
-					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
+					<input type="checkbox" id="terms" ng-model="bookUs.confirmTerms" ng-true-value="'I have red the terms.'" ng-required="true">
+					<p>{{formsData.checkbox.termsConfirmed}}</p>
 				</div>
-				<button type="submit" ng-disabled="book_us.$invalid">Send request</button>
+				<button type="submit" ng-disabled="bookUs.$invalid">Send request</button>
 			</div>
 		</form>
 	</div>

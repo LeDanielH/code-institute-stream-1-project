@@ -17,8 +17,7 @@
 		<option value="wedding">company party</option>
 		<option value="wedding">other</option>
 	</select>
-	<small class="error-message" ng-show="bookUsForm.gigType.$dirty 
-		&& bookUsForm.gigType.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigType.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</small>
 
@@ -30,12 +29,10 @@
 		ng-model="bookUs.gigAddress.street" 
 		ng-pattern="patterns.street" 
 		ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$dirty 
-		&& bookUsForm.gigAddress.street.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$error.required">
 		{{formsData.street.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$dirty 
-		&& bookUsForm.gigAddress.street.$invalid">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$invalid">
 		{{formsData.street.errorMessages.invalid}}
 	</small>
 
@@ -46,12 +43,10 @@
 		ng-model="bookUs.gigAddress.city" 
 		ng-pattern="patterns.city" 
 		ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$dirty 
-		&& bookUsForm.gigAddress.city.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$dirty 
-		&& bookUsForm.gigAddress.city.$invalid">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$invalid">
 		{{formsData.city.errorMessages.invalid}}
 	</small>
 
@@ -62,12 +57,10 @@
 		ng-model="bookUs.gigAddress.postCode" 
 		ng-pattern="patterns.postCode" 
 		ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$dirty 
-		&& bookUsForm.gigAddress.postCode.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$error.required">
 		{{formsData.postCode.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$dirty 
-		&& bookUsForm.gigAddress.postCode.$invalid">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$invalid">
 		{{formsData.postCode.errorMessages.invalid}}
 	</small>
 
@@ -78,8 +71,7 @@
 		ng-required="true" 
 		ng-include="'templates/directives/gigs-directives/countries.html'">
 	</select>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.country.$dirty 
-		&& bookUsForm.gigAddress.country.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.country.$error.required">
 		{{formsData.country.errorMessages.required}}
 	</small>
 </fieldset>
@@ -96,13 +88,11 @@
 		ng-model="bookUs.name"
 		ng-pattern="patterns.name" 
 		ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.name.$dirty 
-		&& bookUsForm.name.$error.required 
+	<small class="error-message" ng-show="bookUsForm.name.$error.required 
 		&& bookUsForm.name === initName">
 		{{formsData.guest.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.name.$dirty 
-		&& bookUsForm.name.$invalid">
+	<small class="error-message" ng-show="bookUsForm.name.$invalid">
 		{{formsData.guest.errorMessages.invalid}}
 	</small>
 	
@@ -114,40 +104,39 @@
 		ng-model="bookUs.email"  
 		ng-pattern="patterns.email" 
 		ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.email.$dirty 
-		&& bookUsForm.email.$error.required">
+	<small class="error-message" ng-show="bookUsForm.email.$error.required">
 		{{formsData.email.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.email.$dirty 
-		&& bookUsForm.email.$invalid">
+	<small class="error-message" ng-show="bookUsForm.email.$invalid">
 		{{formsData.email.errorMessages.invalid}}	
 	</small>
 	
 	<!-- TELL US MORE ABOUT YOUR GIG -->
-	<label for="content">{{formsData.moreInfo.label}}</label>
-	<textarea form="bookUsForm" name="content" id="content" cols="30" rows="7"
+	<label for="moreInfo">{{formsData.moreInfo.label}}</label>
+	<textarea form="bookUsForm" name="moreInfo" id="moreInfo" cols="30" rows="7"
 		title="{{formsData.moreInfo.title}}"
 		placeholder="{{formsData.moreInfo.placeholder}}"
-		ng-model="bookUs.content"
+		ng-model="bookUs.moreInfo"
 		ng-maxlength=2000>
 	</textarea>
-	<small class="error-message" ng-show="bookUsForm.moreInfo.$dirty 
-		&& bookUsForm.moreInfo.$error.maxlength">
+	<small class="error-message" ng-show="bookUsForm.moreInfo.$error.maxlength">
 		{{formsData.moreInfo.errorMessages.invalid}}
 	</small>
 
 	<!-- SET HONORARIUM -->
 	<label for="offer">{{formsData.honorarium.label}}</label>
-	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="rangeBase">
+	<input id="offer" type="range" min="0" max="1000000" 
+		ng-change="setHonorarium()" 
+		ng-model="bookUs.honorarium">
+		
 	<label for="honorarium">Honorarium</label>
-	Honorarium: {{rangeBase}} $
+	Honorarium: {{honorarium}} $
 	<input type="number"
 		title="{{formsData.honorarium.title}}"
 		placeholder="{{formsData.honorarium.placeholder}}" 
 		ng-change="setHonorarium()" 
 		ng-model="rangeBase">
-	<small class="error-message" ng-show="bookUsForm.honorarium.$dirty 
-		&& bookUsForm.honorarium.$invalid">
+	<small class="error-message" ng-show="bookUsForm.honorarium.$invalid">
 		{{formsData.honorarium.errorMessages.invalid}}
 	</small>
 </fieldset>

@@ -1,16 +1,16 @@
-;(function() {
-    'use strict';
+;(function () {
+	'use strict';
 
-    angular.module('myBandAppControllers')
-        .controller('HomeController', [
+	angular.module('myBandAppControllers')
+		.controller('HomeController', [
             '$scope',
             'BlogPostsDataService',
-            function(
-                $scope,
-                BlogPostsDataService
+            function (
+				$scope,
+				BlogPostsDataService
             ) {
-                $scope.title = BlogPostsDataService.title;
-                $scope.blogPosts = BlogPostsDataService.blogPosts.query();
+				$scope.title = BlogPostsDataService.title;
+				$scope.blogPosts = BlogPostsDataService.blogPosts.query();
             }
         ]);
 }());

@@ -2755,7 +2755,7 @@ span[class^="icon-circle"] {
 select option {
 	width: 100%;
 }
-input.ng-dirty.ng-invalid,select.ng-dirty.ng-invalid {
+input.ng-invalid,select.ng-invalid {
 	border-color: red;
 }
 table thead {

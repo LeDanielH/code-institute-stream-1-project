@@ -140,5 +140,9 @@
 			"required": "",
 			"invalid": "Please enter numbers only"
 		}
+	},
+	"checkbox": {
+		"formChecked": "I have checked all the entered information before submitting this form.",
+		"termsConfirmed": "Please check to agree to <a href=\"#\">terms &amp; conditions</a>."
 	}
 }

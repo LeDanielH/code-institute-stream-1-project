@@ -1,23 +1,23 @@
-;(function() {
-    'use strict';
-    angular.module('myBandAppServices')
-        .factory('TestimonialsDataService', [
+;(function () {
+	'use strict';
+	angular.module('myBandAppServices')
+		.factory('TestimonialsDataService', [
             '$resource',
-            function(
-                $resource
+            function (
+				$resource
             ) {
-                var testimonials = {
-                    images: $resource('data/json/:itemId.json', {}, {
-                        query: {
-                            method: 'GET',
-                            params: {
-                                itemId: 'testimonials'
-                            },
-                            isArray: true
-                        }
-                    })
-                };
-                return testimonials;
+				var testimonials = {
+					images: $resource('data/json/:itemId.json', {}, {
+						query: {
+							method: 'GET',
+							params: {
+								itemId: 'testimonials'
+							},
+							isArray: true
+						}
+					})
+				};
+				return testimonials;
             }
         ]);
 }());

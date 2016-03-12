@@ -10,46 +10,38 @@
 		<option value="wedding">company party</option>
 		<option value="wedding">other</option>
 	</select>
-	<small class="error-message" ng-show="bookUsForm.gigType.$dirty 
-		&& bookUsForm.gigType.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigType.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</small>
 
 	<h5>Location of the gig?</h5>
 	<input type="text" id="street" name="address" autocomplete="street-address" title="{{formsData.street.title}}" placeholder="{{formsData.street.placeholder}}" ng-model="bookUs.gigAddress.street" ng-pattern="patterns.street" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$dirty 
-		&& bookUsForm.gigAddress.street.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$error.required">
 		{{formsData.street.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$dirty 
-		&& bookUsForm.gigAddress.street.$invalid">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$invalid">
 		{{formsData.street.errorMessages.invalid}}
 	</small>
 
 	<input type="text" id="city" name="city" autocomplete="address-level2" title="{{formsData.city.title}}" placeholder="{{formsData.city.placeholder}}" ng-model="bookUs.gigAddress.city" ng-pattern="patterns.city" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$dirty 
-		&& bookUsForm.gigAddress.city.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$dirty 
-		&& bookUsForm.gigAddress.city.$invalid">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.city.$invalid">
 		{{formsData.city.errorMessages.invalid}}
 	</small>
 
 	<input type="text" id="post-code" name="post-code" autocomplete="postal-code" title="{{formsData.postCode.title}}" placeholder="{{formsData.postCode.placeholder}}" ng-model="bookUs.gigAddress.postCode" ng-pattern="patterns.postCode" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$dirty 
-		&& bookUsForm.gigAddress.postCode.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$error.required">
 		{{formsData.postCode.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$dirty 
-		&& bookUsForm.gigAddress.postCode.$invalid">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.postCode.$invalid">
 		{{formsData.postCode.errorMessages.invalid}}
 	</small>
 
 	<select name="country" id="country" autocomplete="country" title="{{formsData.country.title}}" ng-model="bookUs.gigAddress.country" ng-required="true" ng-include="'templates/directives/gigs-directives/countries.html'">
 	</select>
-	<small class="error-message" ng-show="bookUsForm.gigAddress.country.$dirty 
-		&& bookUsForm.gigAddress.country.$error.required">
+	<small class="error-message" ng-show="bookUsForm.gigAddress.country.$error.required">
 		{{formsData.country.errorMessages.required}}
 	</small>
 </fieldset>
@@ -58,42 +50,37 @@
 
 	<label for="name">{{formsData.guest.label}}</label>
 	<input type="text" id="name" name="name" autocomplete="name" title="{{formsData.guest.title}}" placeholder="{{formsData.guest.placeholder}}" ng-init="bookUsForm.name=formsData.guest.placeholder" ng-model="bookUs.name" ng-pattern="patterns.name" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.name.$dirty 
-		&& bookUsForm.name.$error.required 
+	<small class="error-message" ng-show="bookUsForm.name.$error.required 
 		&& bookUsForm.name === initName">
 		{{formsData.guest.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.name.$dirty 
-		&& bookUsForm.name.$invalid">
+	<small class="error-message" ng-show="bookUsForm.name.$invalid">
 		{{formsData.guest.errorMessages.invalid}}
 	</small>
 
 	<label for="email">{{formsData.email.label}}</label>
 	<input type="email" id="email" name="email" autocomplete="email" title="{{formsData.email.title}}" placeholder="{{formsData.email.title}}" ng-model="bookUs.email" ng-pattern="patterns.email" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.email.$dirty 
-		&& bookUsForm.email.$error.required">
+	<small class="error-message" ng-show="bookUsForm.email.$error.required">
 		{{formsData.email.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.email.$dirty 
-		&& bookUsForm.email.$invalid">
+	<small class="error-message" ng-show="bookUsForm.email.$invalid">
 		{{formsData.email.errorMessages.invalid}}	
 	</small>
 
-	<label for="content">{{formsData.moreInfo.label}}</label>
-	<textarea form="bookUsForm" name="content" id="content" cols="30" rows="7" title="{{formsData.moreInfo.title}}" placeholder="{{formsData.moreInfo.placeholder}}" ng-model="bookUs.content" ng-maxlength="2000">
+	<label for="moreInfo">{{formsData.moreInfo.label}}</label>
+	<textarea form="bookUsForm" name="moreInfo" id="moreInfo" cols="30" rows="7" title="{{formsData.moreInfo.title}}" placeholder="{{formsData.moreInfo.placeholder}}" ng-model="bookUs.moreInfo" ng-maxlength="2000">
 	</textarea>
-	<small class="error-message" ng-show="bookUsForm.moreInfo.$dirty 
-		&& bookUsForm.moreInfo.$error.maxlength">
+	<small class="error-message" ng-show="bookUsForm.moreInfo.$error.maxlength">
 		{{formsData.moreInfo.errorMessages.invalid}}
 	</small>
 
 	<label for="offer">{{formsData.honorarium.label}}</label>
-	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="rangeBase">
-	<label for="honorarium">Honorarium</label>
-	Honorarium: {{rangeBase}} $
+	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="bookUs.honorarium">
+
+			<label for="honorarium">Honorarium</label>
+	Honorarium: {{honorarium}} $
 	<input type="number" title="{{formsData.honorarium.title}}" placeholder="{{formsData.honorarium.placeholder}}" ng-change="setHonorarium()" ng-model="rangeBase">
-	<small class="error-message" ng-show="bookUsForm.honorarium.$dirty 
-		&& bookUsForm.honorarium.$invalid">
+	<small class="error-message" ng-show="bookUsForm.honorarium.$invalid">
 		{{formsData.honorarium.errorMessages.invalid}}
 	</small>
 </fieldset>

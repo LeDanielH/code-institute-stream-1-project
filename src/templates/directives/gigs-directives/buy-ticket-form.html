@@ -11,8 +11,7 @@
 			ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" 
 			ng-required="true"></select>
 		<label class="small-label">Address</label>
-		<small class="error-message" ng-show="buyTicketForm.map.$dirty 
-			&& buyTicketForm.map.$error.required">
+		<small class="error-message" ng-show="buyTicketForm.map.$error.required">
 			{{formsData.location.errorMessages.required}}
 		</small>
 
@@ -38,13 +37,11 @@
 		ng-model="buyTicket.name"
 		ng-pattern="patterns.name" 
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.name.$dirty 
-		&& buyTicketForm.name.$error.required 
+	<small class="error-message" ng-show="buyTicketForm.name.$error.required 
 		&& buyTicketForm.name === initName">
 		{{formsData.guest.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketForm.name.$dirty 
-		&& buyTicketForm.name.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.name.$invalid">
 		{{formsData.guest.errorMessages.invalid}}
 	</small>
 
@@ -64,12 +61,10 @@
 		ng-model="buyTicket.email"  
 		ng-pattern="patterns.email" 
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.email.$dirty 
-		&& buyTicketForm.email.$error.required">
+	<small class="error-message" ng-show="buyTicketForm.email.$error.required">
 		{{formsData.email.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketForm.email.$dirty 
-		&& buyTicketForm.email.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.email.$invalid">
 		{{formsData.email.errorMessages.invalid}}	
 	</small>
 
@@ -104,8 +99,7 @@
 			ng-click="addCompanion()"><i class="fa fa-plus-circle fa-2x"></i>
 		</button>
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.companion.$dirty 
-		&& buyTicketForm.companion.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.companion.$invalid">
 		{{formsData.companions.errorMessages.invalid}}
 	</small>
 </fieldset>
@@ -138,13 +132,11 @@
 			ng-pattern="patterns.name" 
 			ng-required="true">
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.card.name.$dirty 
-		&& buyTicketForm.card.name.$error.required 
+	<small class="error-message" ng-show="buyTicketForm.card.name.$error.required 
 		&& buyTicketForm.card.name === initName">
 		{{formsData.cardName.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketForm.card.name.$dirty 
-		&& buyTicketForm.card.name.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.card.name.$invalid">
 		{{formsData.cardName.errorMessages.invalid}}
 	</small>
 
@@ -159,13 +151,11 @@
 			ng-pattern="patterns.card" 
 			ng-required="true">
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.card.number.$dirty 
-		&& buyTicketForm.card.number.$error.required 
+	<small class="error-message" ng-show="buyTicketForm.card.number.$error.required 
 		&& buyTicketForm.card.number === initCardNumber">
 		{{formsData.cardNumber.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketForm.card.number.$dirty 
-		&& buyTicketForm.card.number.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.card.number.$invalid">
 		{{formsData.cardNumber.errorMessages.invalid}}
 	</small>
 
@@ -179,12 +169,10 @@
 			ng-pattern="patterns.cvv" 
 			ng-required="true">
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.card.cvv.$dirty 
-		&& buyTicketForm.card.cvv.$error.required">
+	<small class="error-message" ng-show="buyTicketForm.card.cvv.$error.required">
 		{{formsData.cardCvv.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketFormcard.card.cvv.$dirty 
-		&& buyTicketFormcard.card.cvv.$invalid">
+	<small class="error-message" ng-show="buyTicketFormcard.card.cvv.$invalid">
 		{{formsData.cardCvv.errorMessages.invalid}}
 	</small>
 
@@ -195,21 +183,17 @@
 			<select name="month" id="month" 
 				title="{{formsData.cardExpiryDate.title}}" 
 				ng-model="buyTicket.card.month" 
-				ng-options="month for month in getMonths" 
-				ng-init="buyTicket.month=initMonth">
+				ng-options="month for month in getMonths">
 			</select>
 			<select name="year" id="year"
 				title="{{formsData.cardExpiryDate.title}}" 
 				ng-model="buyTicket.card.year" 
-				ng-options="year for year in getYears" 
-				ng-init="buyTicket.year=initYear">
+				ng-options="year for year in getYears">
 				<!-- <option ng-repeat="year in getYears" value="{{year}}">{{year.toString().slice(2,4)}}</option> -->
 			</select>
 		</div>
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.card.month.$dirty 
-		&& buyTicketForm.card.year.$dirty 
-		&& buyTicketForm.card.month.$error.required 
+	<small class="error-message" ng-show="buyTicketForm.card.month.$error.required 
 		&& buyTicketForm.card.year.$error.required">
 		{{formsData.cardCvv.errorMessages.required}}
 	</small>
@@ -224,12 +208,10 @@
 		ng-model="buyTicket.billingAddress.street" 
 		ng-pattern="patterns.street" 
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.billingAddress.street.$dirty 
-		&& buyTicketForm.billingAddress.street.$error.required">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.street.$error.required">
 		{{formsData.street.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketForm.billingAddress.street.$dirty 
-		&& buyTicketForm.billingAddress.street.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.street.$invalid">
 		{{formsData.street.errorMessages.invalid}}
 	</small>
 
@@ -240,12 +222,10 @@
 		ng-model="buyTicket.billingAddress.city" 
 		ng-pattern="patterns.city" 
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.billingAddress.city.$dirty 
-		&& buyTicketForm.billingAddress.city.$error.required">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.city.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketForm.billingAddress.city.$dirty 
-		&& buyTicketForm.billingAddress.city.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.city.$invalid">
 		{{formsData.city.errorMessages.invalid}}
 	</small>
 
@@ -256,12 +236,10 @@
 		ng-model="buyTicket.billingAddress.postCode" 
 		ng-pattern="patterns.postCode" 
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.billingAddress.postCode.$dirty 
-		&& buyTicketForm.billingAddress.postCode.$error.required">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.postCode.$error.required">
 		{{formsData.postCode.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="buyTicketForm.billingAddress.postCode.$dirty 
-		&& buyTicketForm.billingAddress.postCode.$invalid">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.postCode.$invalid">
 		{{formsData.postCode.errorMessages.invalid}}
 	</small>
 
@@ -272,8 +250,7 @@
 		ng-required="true" 
 		ng-include="'templates/directives/gigs-directives/countries.html'">
 	</select>
-	<small class="error-message" ng-show="buyTicketForm.billingAddress.country.$dirty 
-		&& buyTicketForm.billingAddress.country.$error.required">
+	<small class="error-message" ng-show="buyTicketForm.billingAddress.country.$error.required">
 		{{formsData.country.errorMessages.required}}
 	</small>
 

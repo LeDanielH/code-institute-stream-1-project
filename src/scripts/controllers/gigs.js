@@ -22,8 +22,6 @@
                 // GET DATES FOR DROPDOWN
                 $scope.getYears = FormsDataService.getYears();
                 $scope.getMonths = FormsDataService.getMonths();
-                $scope.initYear = FormsDataService.initYear;
-                $scope.initMonth = FormsDataService.initMonth;
                 
                 // BUY TICKET FORM - TAB 1 - VALUES TO SUBMIT
                 $scope.ticketPrice = FormsDataService.ticketPrice;
@@ -80,7 +78,9 @@
                                 city: bookUs.gigAddress.city,
                                 postCode: bookUs.gigAddress.postCode,
                                 country: bookUs.gigAddress.country
-                            }
+                            },
+                            moreInfo: bookUs.moreInfo,
+                            setHonorarium: bookUs.honorarium
                         });
                         alert('Please check your email for request confirmation.');
                     } else {
@@ -89,9 +89,9 @@
                 };
 
                 // BOOK US FORM - TAB 2
-                $scope.rangeBase = 0;
+                $scope.honorarium = 0;
                 $scope.setHonorarium = function() {
-                    return $scope.rangeBase;
+                    return $scope.honorarium;
                 };
 
                 
