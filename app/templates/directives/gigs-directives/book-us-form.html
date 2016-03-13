@@ -15,6 +15,7 @@
 	</small>
 
 	<h5>Location of the gig?</h5>
+
 	<input type="text" id="street" name="address" autocomplete="street-address" title="{{formsData.street.title}}" placeholder="{{formsData.street.placeholder}}" ng-model="bookUs.gigAddress.street" ng-pattern="patterns.street" ng-required="true">
 	<small class="error-message" ng-show="bookUsForm.gigAddress.street.$error.required">
 		{{formsData.street.errorMessages.required}}
@@ -77,9 +78,9 @@
 	<label for="offer">{{formsData.honorarium.label}}</label>
 	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="bookUs.honorarium">
 
-			<label for="honorarium">Honorarium</label>
+	<label for="honorarium">Honorarium</label>
 	Honorarium: {{honorarium}} $
-	<input type="number" title="{{formsData.honorarium.title}}" placeholder="{{formsData.honorarium.placeholder}}" ng-change="setHonorarium()" ng-model="rangeBase">
+	<input type="number" title="{{formsData.honorarium.title}}" placeholder="{{formsData.honorarium.placeholder}}" ng-change="setHonorarium()" ng-model="honorarium">
 	<small class="error-message" ng-show="bookUsForm.honorarium.$invalid">
 		{{formsData.honorarium.errorMessages.invalid}}
 	</small>

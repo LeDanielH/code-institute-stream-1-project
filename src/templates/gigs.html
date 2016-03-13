@@ -1,5 +1,6 @@
 <h1 class="h2 c-text content-heading">{{title}}</h1>
 <section class="tabs">
+	
 <!-- TAB 1 -->
 	<input id="tab-one" type="radio" name="grp" checked="checked" />
 	<label class="tab-header" for="tab-one">{{formsData.tabsLabels.buyTicket}}</label>
@@ -14,14 +15,14 @@
 	<!-- BUY TICKET FORM SUBMIT AREA -->
 			<div class="form-footer">
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-required="true">
+					<input type="checkbox" id="terms" ng-model="buyTicket.confirmInfo" ng-required="true">
 					<p>{{formsData.checkbox.formChecked}}</p>
 				</div>
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-required="true">
+					<input type="checkbox" id="terms" ng-model="buyTicket.confirmTerms" ng-required="true">
 					<p>{{formsData.checkbox.termsConfirmed}}</p>
 				</div>
-				<button type="submit" ng-disabled="buyTicketForm.$invalid">Pay {{buyTicket.ticketPrice + (buyTicket.ticketPrice * buyTicket.companions.length)}} &euro;</button>
+				<button type="submit" ng-disabled="buyTicketForm.$invalid">Pay {ticketPrice + (ticketPrice * companions.length)}} &euro;</button>
 
 			</div>
 		</form>
@@ -34,21 +35,21 @@
 		<p class="warning">{{formsData.introGuide}}</p>
 
 	<!-- BOOK US FORM -->
-		<form name="bookUsForm" novalidate ng-submit="submitRequest(bookUs)">
+		<form name="bookUsForm" ng-submit="submitRequest(bookUs)">
 			<div class="input-wrapper-inline form-layout" my-directive template-path="templates/directives/gigs-directives/book-us-form.html"></div>
 			<br>
 
 	<!-- BOOK US FORM SUBMIT AREA -->
 			<div class="form-footer">
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-model="bookUs.confirmInfo" ng-true-value="'I have checked the all my entered info.'" ng-required="true">
+					<input type="checkbox" id="terms" ng-model="bookUs.confirmInfo" ng-required="true">
 					<p>{{formsData.checkbox.formChecked}}</p>
 				</div>
 				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" ng-model="bookUs.confirmTerms" ng-true-value="'I have red the terms.'" ng-required="true">
+					<input type="checkbox" id="terms" ng-model="bookUs.confirmTerms" ng-required="true">
 					<p>{{formsData.checkbox.termsConfirmed}}</p>
 				</div>
-				<button type="submit" ng-disabled="bookUs.$invalid">Send request</button>
+				<button type="submit" ng-disabled="bookUsForm.$invalid">Send request</button>
 			</div>
 		</form>
 	</div>

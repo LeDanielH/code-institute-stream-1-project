@@ -1,6 +1,6 @@
 <div class="img-wrapper img-map">
-	<a href="https://www.google.com/maps/place/{{mapAddress()}}/">
-		<img class="map-image" src="http://maps.googleapis.com/maps/api/staticmap?center={{mapAddress()}}&zoom={{map.zoom}}&scale=1&size={{mapDimensions()}}&maptype=roadmap&format=png&visual_refresh=true&markers=color:red|{{mapAddress()}}" alt="Google Map of {{mapAddress()}}">
+	<a ng-href="https://www.google.com/maps/place/{{mapAddress()}}/">
+		<img class="map-image" ng-src="http://maps.googleapis.com/maps/api/staticmap?center={{mapAddress()}}&zoom={{map.zoom}}&scale=1&size={{mapDimensions()}}&maptype=roadmap&format=png&visual_refresh=true&markers=color:red|{{mapAddress()}}" alt="Google Map of {{mapAddress()}}">
 	</a>
 
 		<div class="map-controls">

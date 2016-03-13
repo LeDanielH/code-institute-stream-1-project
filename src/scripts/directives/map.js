@@ -13,6 +13,15 @@
 				},
 				controller: ['$scope',
                 function mapController($scope) {
+                		/*
+                		
+                		GigsController
+                			my-directive
+                				{{map}}
+                				<make-map>
+                		
+                		*/
+                		
 
 						$scope.$watch('map', function () {
 							console.log("map directive controller watching map change", $scope.map);

@@ -21,8 +21,10 @@
 		{{formsData.city.errorMessages.required}}
 	</small>
 
-	<!-- CHOOSE LOCATION OF THE GIG -->
+	<!-- ADD LOCATION OF THE GIG -->
 	<h5>Location of the gig?</h5>
+	
+	<!-- GIG ADDRESS - STREET -->
 	<input type="text" id="street" name="address" autocomplete="street-address"
 		title="{{formsData.street.title}}" 
 		placeholder="{{formsData.street.placeholder}}"  
@@ -123,19 +125,20 @@
 		{{formsData.moreInfo.errorMessages.invalid}}
 	</small>
 
-	<!-- SET HONORARIUM -->
+	<!-- SET HONORARIUM - SLIDER -->
 	<label for="offer">{{formsData.honorarium.label}}</label>
 	<input id="offer" type="range" min="0" max="1000000" 
 		ng-change="setHonorarium()" 
 		ng-model="bookUs.honorarium">
 		
+	<!-- SET HONORARIUM - NUMBER INPUT -->
 	<label for="honorarium">Honorarium</label>
 	Honorarium: {{honorarium}} $
 	<input type="number"
 		title="{{formsData.honorarium.title}}"
 		placeholder="{{formsData.honorarium.placeholder}}" 
 		ng-change="setHonorarium()" 
-		ng-model="rangeBase">
+		ng-model="honorarium">
 	<small class="error-message" ng-show="bookUsForm.honorarium.$invalid">
 		{{formsData.honorarium.errorMessages.invalid}}
 	</small>

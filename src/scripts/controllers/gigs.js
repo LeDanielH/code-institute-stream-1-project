@@ -11,7 +11,45 @@
                 FormsDataService
             ) {
                 $scope.title = GigsDataService.title;
-                $scope.maps = GigsDataService.maps.query();
+                
+                // deferred pattern
+                // $q
+                // var dfd = $q.defer();
+                // dfd.resolve
+                // dfd.reject()
+                // new Promise(function(resolve, reject){
+                //   // what we use reject for
+                // });
+                
+                $scope.maps = [];
+                $scope.map = null;
+                
+                function load(maps){
+                    $scope.maps = maps;
+                    $scope.map = maps[0];
+                }
+                
+                GigsDataService.maps.query()
+                  .$promise.then(load);
+                
+                // $http.get
+                // GigsHttpService.getMaps()
+                //    .then(load);
+                
+                // GigsDataService.maps.query().$promise.then(function(maps){
+                //     $scope.maps = maps;
+                //     $scope.map = maps[0];
+                // });
+                
+                
+                // GigsDataService.maps.query().then(function(list){
+                //     debugger;
+                // });
+                
+                // console.log($scope.maps);
+                
+                // window._maps = $scope.maps;
+                // window._scope = $scope;
 
                 // UNIVERSAL VALUES FOR FORMS
                 $scope.formHeaders = FormsDataService.formHeaders;

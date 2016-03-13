@@ -6,17 +6,18 @@
 
 		<!-- SELECT LOCATION -->
 		<select name="where-and-when" id="where-and-when" autofocus
-			title="{{formsData.location.title}}" 
+			ng-attr-title="{{formsData.location.title}}" 
 			ng-model="map" 
 			ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" 
 			ng-required="true"></select>
+			
 		<label class="small-label">Address</label>
 		<small class="error-message" ng-show="buyTicketForm.map.$error.required">
 			{{formsData.location.errorMessages.required}}
 		</small>
 
 		<!-- SHOW ADDRESS -->
-		<div class="input-wrapper-inline map-and-address">
+		<div ng-if="map" class="input-wrapper-inline map-and-address">
 			<address>
 				{{map.address[0].street}} <br>
 				{{map.address[0].city}} <br>
@@ -31,7 +32,7 @@
 	<!-- GUEST'S NAME -->
 	<label for="name">{{formsData.guest.label}}</label>
 	<input type="text" id="name" name="name" autocomplete="name" 
-		title="{{formsData.guest.title}}" 
+		ng-attr-title="{{formsData.guest.title}}" 
 		placeholder="{{formsData.guest.placeholder}}" 
 		ng-init="buyTicketForm.name=formsData.guest.placeholder" 
 		ng-model="buyTicket.name"
@@ -48,15 +49,15 @@
 	<!-- SHOW GUEST NAME AND PRICE -->
 	<ul class="guests-list">
 		<li class="small-label divided-label base-transparent-medium">
-			<span>{{buyTicketForm.name}}</span>
-			<span class="price-label">{{buyTicketForm.ticketPrice}}&euro;</span>
+			<span>{{buyTicket.name}}</span>
+			<span class="price-label">{{ticketPrice}}&euro;</span>
 		</li>
 	</ul>
 
 	<!-- GUEST'S EMAIL -->
 	<label for="email">{{formsData.email.label}}</label>
 	<input type="email" id="email" name="email" autocomplete="email" 
-		title="{{formsData.email.title}}" 
+		ng-attr-title="{{formsData.email.title}}" 
 		placeholder="{{formsData.email.title}}"
 		ng-model="buyTicket.email"  
 		ng-pattern="patterns.email" 
@@ -82,7 +83,7 @@
 			</div>
 
 		<!-- REMOVE COMPANIONS -->
-			<button title="remove guest"  id="removeCompanionButton" class="plus-minus-button" 
+			<button ng-attr-title="remove guest"  id="removeCompanionButton" class="plus-minus-button" 
 				ng-click="removeCompanion()"><i class="fa fa-minus-circle fa-2x"></i>
 			</button>
 		</li>
@@ -91,7 +92,7 @@
 		<!-- ADD COMPANIONS -->
 	<div class="input-wrap-inline input-add-guest">
 		<input type="text" id="addCompanion" name="name" 
-			title="{{formsData.companions.title}}" 
+			ng-attr-title="{{formsData.companions.title}}" 
 			placeholder="{{formsData.companions.placeholder}}" 
 			ng-model="buyTicket.companion" 
 			ng-pattern="patterns.name">
@@ -125,7 +126,7 @@
 	<div class="input-wrap-inline card-name">
 		<label class="small-label" for="credit-card-name">{{formsData.cardName.label}}</label>
 		<input type="text" id="credit-card-name" autocomplete="name"
-			title="{{formsData.cardName.title}}" 
+			ng-attr-title="{{formsData.cardName.title}}" 
 			placeholder="{{formsData.cardName.placeholder}}"  
 			ng-init="buyTicket.card.name=formsData.cardName.placeholder" 
 			ng-model="buyTicket.card.name" 
@@ -144,7 +145,7 @@
 	<div class="input-wrap-inline card-number">
 		<label for="credit-card-number" class="small-label">{{formsData.cardNumber.label}}</label>
 		<input type="text" id="credit-card-number"  name="cardnumber" autocomplete="cc-number"
-			title="{{formsData.cardNumber.title}}" 
+			ng-attr-title="{{formsData.cardNumber.title}}" 
 			placeholder="{{formsData.cardNumber.placeholder}}" 
 			ng-init="buyTicket.card.number=formsData.cardNumber.placeholder" 
 			ng-model="buyTicket.card.number" 
@@ -163,7 +164,7 @@
 	<div class="input-wrap-inline card-cvv">
 		<label for="card-cvv" class="small-label">{{formsData.cardCvv.label}}</label>
 		<input type="text" id="card-cvv" name="cvv" autocomplete="cvv-number"
-			title="{{formsData.cardCvv.title}}" 
+			ng-attr-title="{{formsData.cardCvv.title}}" 
 			placeholder="{{formsData.cardCvv.placeholder}}"
 			ng-model="buyTicket.card.cvv" 
 			ng-pattern="patterns.cvv" 
@@ -181,12 +182,12 @@
 		<label for="month" class="small-label">{{formsData.cardExpiryDate.label}}</label>
 		<div class="input-wrap-inline">
 			<select name="month" id="month" 
-				title="{{formsData.cardExpiryDate.title}}" 
+				ng-attr-title="{{formsData.cardExpiryDate.title}}" 
 				ng-model="buyTicket.card.month" 
 				ng-options="month for month in getMonths">
 			</select>
 			<select name="year" id="year"
-				title="{{formsData.cardExpiryDate.title}}" 
+				ng-attr-title="{{formsData.cardExpiryDate.title}}" 
 				ng-model="buyTicket.card.year" 
 				ng-options="year for year in getYears">
 				<!-- <option ng-repeat="year in getYears" value="{{year}}">{{year.toString().slice(2,4)}}</option> -->
@@ -203,7 +204,7 @@
 
 	<!-- BILLING ADDRESS - STREET -->
 	<input type="text" id="street" name="address" autocomplete="street-address"
-		title="{{formsData.street.title}}" 
+		ng-attr-title="{{formsData.street.title}}" 
 		placeholder="{{formsData.street.placeholder}}"  
 		ng-model="buyTicket.billingAddress.street" 
 		ng-pattern="patterns.street" 
@@ -217,7 +218,7 @@
 
 	<!-- BILLING ADDRESS - CITY -->
 	<input type="text" id="city" name="city" autocomplete="address-level2"
-		title="{{formsData.city.title}}" 
+		ng-attr-title="{{formsData.city.title}}" 
 		placeholder="{{formsData.city.placeholder}}"
 		ng-model="buyTicket.billingAddress.city" 
 		ng-pattern="patterns.city" 
@@ -231,7 +232,7 @@
 
 	<!-- BILLING ADDRESS - POSTCODE -->
 	<input type="text" id="post-code" name="post-code" autocomplete="postal-code"
-		title="{{formsData.postCode.title}}" 
+		ng-attr-title="{{formsData.postCode.title}}" 
 		placeholder="{{formsData.postCode.placeholder}}"   
 		ng-model="buyTicket.billingAddress.postCode" 
 		ng-pattern="patterns.postCode" 
@@ -245,7 +246,7 @@
 
 	<!-- BILLING ADDRESS - COUNTRY -->
 	<select name="country" id="country" autocomplete="country"
-		title="{{formsData.country.title}}" 
+		ng-attr-title="{{formsData.country.title}}" 
 		ng-model="buyTicket.billingAddress.country" 
 		ng-required="true" 
 		ng-include="'templates/directives/gigs-directives/countries.html'">
