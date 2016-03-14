@@ -2763,6 +2763,18 @@ input.ng-invalid,select.ng-invalid {
 	margin-bottom: 10px;
 	color: red;
 }
+input.field-small,select.field-small {
+	max-width: 70px;
+}
+.field-medium {
+	max-width: 100px;
+}
+.field-large {
+	max-width: 140px;
+}
+.field-big {
+	max-width: 200px;
+}
 table thead {
 	width: 100%;
 }
@@ -4092,9 +4104,19 @@ body .container .main-footer {
 	-ms-flex-pack: justify;
 }
 .tabs .tab-panel form .form-layout .form-column .card-expiry-date #month {
-	width: 69px;
 	margin-right: 5px;
 	direction: rtl;
+}
+.tabs .tab-panel form .form-layout .form-column .more-info {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .tabs label.tab-header:first-of-type {
 	border-top-left-radius: 3px;

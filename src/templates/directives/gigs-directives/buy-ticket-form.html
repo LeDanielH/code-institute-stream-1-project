@@ -12,9 +12,9 @@
 			ng-required="true"></select>
 			
 		<label class="small-label">Address</label>
-		<small class="error-message" ng-show="buyTicketForm.map.$touched && buyTicketForm.map.$error.required">
+		<p class="error-message" ng-show="buyTicketForm.map.$touched && buyTicketForm.map.$error.required">
 			{{formsData.location.errorMessages.required}}
-		</small>
+		</p>
 
 		<!-- SHOW ADDRESS -->
 		<div ng-if="map" class="input-wrap-inline map-and-address">
@@ -37,13 +37,13 @@
 		ng-init="buyTicketForm.name=formsData.guest.placeholder"
 		ng-model="buyTicket.name"
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.name.$touched && buyTicketForm.name.$error.required ">
+	<p class="error-message" ng-show="buyTicketForm.name.$touched && buyTicketForm.name.$error.required ">
 		{{formsData.guest.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.name.$touched && buyTicketForm.name.$invalid
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.name.$touched && buyTicketForm.name.$invalid
 		&& !buyTicketForm.name.$pristine">
 		{{formsData.guest.errorMessages.invalid}}
-	</small>
+	</p>
 
 	<!-- SHOW GUEST NAME AND PRICE -->
 	<ul class="guests-list">
@@ -60,12 +60,12 @@
 		placeholder="{{formsData.email.title}}"
 		ng-model="buyTIcket.email"
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.email.$touched && buyTicketForm.email.$error.required">
+	<p class="error-message" ng-show="buyTicketForm.email.$touched && buyTicketForm.email.$error.required">
 		{{formsData.email.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.email.$touched && buyTicketForm.email.$invalid">
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.email.$touched && buyTicketForm.email.$invalid">
 		{{formsData.email.errorMessages.invalid}}	
-	</small>
+	</p>
 
 	<!-- GUEST'S COMPANIONS -->
 	<label for="addGuest">{{formsData.companions.label}}</label>
@@ -97,9 +97,9 @@
 			ng-click="addCompanion()"><i class="fa fa-plus-circle fa-2x"></i>
 		</button>
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.companion.$touched && buyTicketForm.companion.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.companion.$touched && buyTicketForm.companion.$invalid">
 		{{formsData.companions.errorMessages.invalid}}
-	</small>
+	</p>
 </fieldset>
 
 <!-- COLUMMN 2 -->
@@ -122,20 +122,20 @@
 	<!-- CARD NAME -->
 	<div class="input-wrap-inline card-name">
 		<label class="small-label" for="credit-card-name">{{formsData.cardName.label}}</label>
-		<input type="text" id="credit-card-name" name="cardName" autocomplete="name"
+		<input type="text" id="credit-card-name field-medium" name="cardName" autocomplete="name"
 			ng-attr-title="{{formsData.cardName.title}}" 
 			placeholder="{{formsData.cardName.placeholder}}"  
 			ng-init="card.name=formsData.cardName.placeholder" 
 			ng-model="card.name"
 			ng-required="true">
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.cardName.$touched && buyTicketForm.cardName.$error.required 
+	<p class="error-message" ng-show="buyTicketForm.cardName.$touched && buyTicketForm.cardName.$error.required 
 		&& buyTicketForm.cardName === initName">
 		{{formsData.cardName.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.card.name.$invalid">
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.card.name.$invalid">
 		{{formsData.cardName.errorMessages.invalid}}
-	</small>
+	</p>
 
 	<!-- CARD NUMBER -->
 	<div class="input-wrap-inline card-number">
@@ -147,13 +147,13 @@
 			ng-model="card.number" 
 			ng-required="true">
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$error.required 
+	<p class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$error.required 
 		&& buyTicketForm.card.number === initCardNumber">
 		{{formsData.cardNumber.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$invalid">
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$invalid">
 		{{formsData.cardNumber.errorMessages.invalid}}
-	</small>
+	</p>
 
 	<!-- CARD CVV -->
 	<div class="input-wrap-inline card-cvv">
@@ -164,12 +164,12 @@
 			ng-model="card.cvv"
 			ng-required="true">
 	</div>
-	<small class="error-message" ng-show="buyTicketForm.cvv.$touched && buyTicketForm.cvv.$error.required">
+	<p class="error-message" ng-show="buyTicketForm.cvv.$touched && buyTicketForm.cvv.$error.required">
 		{{formsData.cardCvv.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.cvv.$touched && buyTicketForm.cvv.$invalid">
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.cvv.$touched && buyTicketForm.cvv.$invalid">
 		{{formsData.cardCvv.errorMessages.invalid}}
-	</small>
+	</p>
 
 	<!-- CARD DATE -->
 	<div class="input-wrap-inline card-expiry-date">
@@ -190,11 +190,11 @@
 			</select>
 		</div>
 	</div>
-	<small class="error-message" ng-show="
+	<p class="error-message" ng-show="
 		buyTicketForm.cardMonth.$touched && buyTicketForm.cardYear.$touched 
 		&& buyTicketForm.cardMonth.$error.required && buyTicketForm.cardYear.$error.required">
 		{{formsData.cardCvv.errorMessages.required}}
-	</small>
+	</p>
 
 	<!-- BILLING ADDRESS -->
 	<h5>Billing Address</h5>
@@ -205,12 +205,12 @@
 		placeholder="{{formsData.street.placeholder}}"  
 		ng-model="billingAddress.street"
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.street.$touched && buyTicketForm.street.$error.required">
+	<p class="error-message" ng-show="buyTicketForm.street.$touched && buyTicketForm.street.$error.required">
 		{{formsData.street.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.street.$touched && buyTicketForm.street.$invalid">
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.street.$touched && buyTicketForm.street.$invalid">
 		{{formsData.street.errorMessages.invalid}}
-	</small>
+	</p>
 
 	<!-- BILLING ADDRESS - CITY -->
 	<input type="text" id="city" name="city" autocomplete="address-level2"
@@ -218,12 +218,12 @@
 		placeholder="{{formsData.city.placeholder}}"
 		ng-model="billingAddress.city"
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.city.$touched && buyTicketForm.city.$error.required">
+	<p class="error-message" ng-show="buyTicketForm.city.$touched && buyTicketForm.city.$error.required">
 		{{formsData.city.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.city.$touched && buyTicketForm.city.$invalid">
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.city.$touched && buyTicketForm.city.$invalid">
 		{{formsData.city.errorMessages.invalid}}
-	</small>
+	</p>
 
 	<!-- BILLING ADDRESS - POSTCODE -->
 	<input type="text" id="post-code" name="postCode" autocomplete="postal-code"
@@ -231,12 +231,12 @@
 		placeholder="{{formsData.postCode.placeholder}}"   
 		ng-model="billingAddress.postCode"
 		ng-required="true">
-	<small class="error-message" ng-show="buyTicketForm.postCode.$touched && buyTicketForm.postCode.$error.required">
+	<p class="error-message" ng-show="buyTicketForm.postCode.$touched && buyTicketForm.postCode.$error.required">
 		{{formsData.postCode.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="buyTicketForm.postCode.$touched && buyTicketForm.postCode.$invalid">
+	</p>
+	<p class="error-message" ng-show="buyTicketForm.postCode.$touched && buyTicketForm.postCode.$invalid">
 		{{formsData.postCode.errorMessages.invalid}}
-	</small>
+	</p>
 
 	<!-- BILLING ADDRESS - COUNTRY -->
 	<select name="country" id="country" autocomplete="country"
@@ -245,8 +245,8 @@
 		ng-required="true" 
 		ng-include="'templates/directives/gigs-directives/countries.html'">
 	</select>
-	<small class="error-message" ng-show="buyTicketForm.country.$touched && buyTicketForm.country.$error.required">
+	<p class="error-message" ng-show="buyTicketForm.country.$touched && buyTicketForm.country.$error.required">
 		{{formsData.country.errorMessages.required}}
-	</small>
+	</p>
 
 </fieldset>

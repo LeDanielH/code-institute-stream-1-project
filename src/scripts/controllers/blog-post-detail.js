@@ -19,6 +19,7 @@
 					$scope.mainImageUrl = imageUrl;
 				};
 				$scope.comments = BlogPostsDataService.comments;
+				$scope.getDateTime = new Date();
 				$scope.addComment = function () {
 					if (!$scope.content || $scope.content === '') {
 						return;
@@ -26,10 +27,12 @@
 					$scope.comments.push({
 						userName: $scope.userName,
 						content: $scope.content,
-						upVotes: 0
+						upVotes: 0,
+						dateTime: $scope.getDateTime
 					});
 					$scope.userName = '';
 					$scope.content = '';
+					$scope.dateTime = '';
 				};
 				$scope.upVote = BlogPostsDataService.upVote;
             }

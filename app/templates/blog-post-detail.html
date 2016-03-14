@@ -17,9 +17,9 @@
 			<input id="username" type="text" placeholder="enter your username" autocomplete="on" ng-model="userName" required>
 			<div class="input-wrap-inline post-comment">
 				<label for="content">your comment</label>
-				<small>Letter count left</small>
+				<p>{{formsData.textArea.maxLength - content.length}}</p>
 			</div>
-			<textarea form="comment" name="content" id="content" cols="30" rows="7" placeholder="add your comment" ng-model="content" required></textarea>
+			<textarea form="comment" name="content" id="content" cols="30" rows="7" placeholder="add your comment" ng-model="content" ng-trim="false" ng-maxlength="formsData.textArea.maxLength" ng-required="true"></textarea>
 			<button type="submit">Comment</button>
 		</form>
 		<br>

@@ -18,6 +18,7 @@
 		placeholder="{{formData.gigType.placeholder}}"
 		ng-model="gigType"
 		ng-required="true">
+		<option value='' disabled>gig type</option>
 	</select>
 	<small class="error-message" ng-show="bookUsForm.gigType.$touched && bookUsForm.gigType.$error.required">
 		{{formsData.city.errorMessages.required}}
@@ -111,12 +112,16 @@
 	</small>
 	
 	<!-- TELL US MORE ABOUT YOUR GIG -->
-	<label for="moreInfo">{{formsData.moreInfo.label}}</label>
+	<div class="input-wrap-inline more-info">
+		<label for="moreInfo">{{formsData.moreInfo.label}}</label>
+		<p>{{formsData.textArea.maxLength - moreInfo.length}} left</p>
+	</div>
 	<textarea form="bookUsForm" name="moreInfo" id="moreInfo" cols="30" rows="7"
 		title="{{formsData.moreInfo.title}}"
 		placeholder="{{formsData.moreInfo.placeholder}}"
 		ng-model="moreInfo"
-		ng-maxlength=2000>
+		ng-maxlength="formsData.textArea.maxLength"
+		ng-trim="false">
 	</textarea>
 	<small class="error-message" ng-show="bookUsForm.moreInfo.$touched && bookUsForm.moreInfo.$error.maxlength">
 		{{formsData.moreInfo.errorMessages.invalid}}

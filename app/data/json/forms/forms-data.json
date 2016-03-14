@@ -5,6 +5,9 @@
 	},
 	"introGuide": "Please fill all the required information and follow displayed patterns.",
 	"ticketPrice": 20,
+	"textArea": {
+		"maxLength": 1000
+	},
 
 	"location": {
 		"label": "Where and when?",
@@ -134,7 +137,7 @@
 		"select": ["wedding", "proms", "company party", "club", "concert hall", "other"]
 	},
 	"moreInfo": {
-		"label": "Want to tell us more about your gig?",
+		"label": "Tell us more about your gig",
 		"title": "Tell us more about your gig.",
 		"placeholder": "Do you want us to be naked? Do you want us to wear smurf costumes? Any special requests?",
 		"errorMessages": {
