@@ -26,6 +26,8 @@
 		.add-comment
 			+display(flex)
 			+flex-direction(column)
+			.post-comment
+				+justify-content(space-between)
 
 		.comments:not(:last-child)
 			margin-bottom: $base-padding
@@ -33,5 +35,16 @@
 		.comments
 			+display(flex)
 			+flex-direction(column)
-			button
-				+align-self(flex-end)
+			.comment-header
+				+display(flex)
+				+justify-content(space-between)
+			.comment-footer
+				+display(flex)
+				+justify-content(flex-end)
+				.like-button
+					+align-self(flex-end)
+					+size(40px)
+					border-radius: 50%
+					+display(flex)
+					+justify-content(center)
+					padding: $base-padding / 3

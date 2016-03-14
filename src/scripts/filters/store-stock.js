@@ -1,6 +1,6 @@
 ;(function () {
 	'use strict';
-	angular.module('myBandAppFilters', [])
+	angular.module('myBandAppFilters')
 		.filter('StockFilter', function () {
 			var trueMark = '\u2713';
 			var falseMark = '\u2718';

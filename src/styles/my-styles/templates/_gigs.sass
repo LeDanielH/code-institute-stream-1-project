@@ -44,19 +44,14 @@
 					+flex-direction(column)
 					margin-bottom: $base-padding / 2
 					margin-right: $base-padding / 2
-					margin-left: $base-padding / 2 
-					.input-location
-						.map-and-address
-							make-map
-								.img-map
-									+flex(4 4 150px)
-									margin-bottom: $base-padding
-									+position(relative)
-									border-right: 5px solid transparent
+					margin-left: $base-padding / 2
 
-									.map-controls
-										+position(absolute, null -6px 3px null)
-										+transform(scale(0.7))
+					.map-and-address
+						+justify-content(space-between)
+						+align-items(flex-start)
+
+					.map-and-address > *
+						+flex(1)
 
 					.input-add-guest
 						+justify-content(space-between)
@@ -80,6 +75,12 @@
 							#removeCompanionButton
 								+position(relative, -6px null null null)
 								margin-left: 5px
+					.card-expiry-date
+						+justify-content(space-between)
+						#month
+							width: 69px
+							margin-right: 5px
+							direction: rtl
 
 	label.tab-header:first-of-type
 		border-top-left-radius: $base-border-radius

@@ -11,45 +11,13 @@
                 FormsDataService
             ) {
                 $scope.title = GigsDataService.title;
-                
-                // deferred pattern
-                // $q
-                // var dfd = $q.defer();
-                // dfd.resolve
-                // dfd.reject()
-                // new Promise(function(resolve, reject){
-                //   // what we use reject for
-                // });
-                
                 $scope.maps = [];
                 $scope.map = null;
-                
                 function load(maps){
                     $scope.maps = maps;
                     $scope.map = maps[0];
                 }
-                
-                GigsDataService.maps.query()
-                  .$promise.then(load);
-                
-                // $http.get
-                // GigsHttpService.getMaps()
-                //    .then(load);
-                
-                // GigsDataService.maps.query().$promise.then(function(maps){
-                //     $scope.maps = maps;
-                //     $scope.map = maps[0];
-                // });
-                
-                
-                // GigsDataService.maps.query().then(function(list){
-                //     debugger;
-                // });
-                
-                // console.log($scope.maps);
-                
-                // window._maps = $scope.maps;
-                // window._scope = $scope;
+                GigsDataService.maps.query().$promise.then(load);
 
                 // UNIVERSAL VALUES FOR FORMS
                 $scope.formHeaders = FormsDataService.formHeaders;
@@ -62,63 +30,64 @@
                 $scope.getMonths = FormsDataService.getMonths();
                 
                 // BUY TICKET FORM - TAB 1 - VALUES TO SUBMIT
-                $scope.ticketPrice = FormsDataService.ticketPrice;
                 $scope.companions = [];
                 $scope.addCompanion = function() {
-                    if (!$scope.companion || $scope.companion === '' || $scope.companion === initName) {
+                    if (!$scope.companion || $scope.companion === '') {
                         return;
                     }
-                    $scope.companions.push({ companion: $scope.companion });
+                    $scope.companions.push($scope.companion);
                     $scope.companion = '';
                 };
                 $scope.removeCompanion = function(companion) {
                     var selectedCompanion = $scope.companions.indexOf(companion);
                     $scope.companions.splice(selectedCompanion, 1);
                 };
+                $scope.finalPrice = function(ticketPrice, companions) {
+                    return ticketPrice + (ticketPrice * companions);
+                };
                 $scope.guest = [];
-                $scope.submitGuests = function(buyTicket) {
+                $scope.submitGuest = function(buyTicket) {
                     if ($scope.buyTicketForm.$valid) {
                         $scope.guest.push({
                             location: $scope.map,
-                            name: buyTicket.name,
-                            email: buyTicket.email,
+                            name: $scope.buyTicket.name,
+                            email: $scope.buyTicket.email,
                             companions: $scope.companions,
-                            ticketPrice: $scope.ticketPrice,
-                            finalPrice: $scope.ticketPrice /*one buyer is for sure*/+ ($scope.ticketPrice * $scope.companions.length),
+                            finalPrice: $scope.finalPrice,
                             card: {
-                                name: buyTicket.card.name,
-                                number: buyTicket.card.number,
-                                cvv: buyTicket.card.cvv,
-                                month: buyTicket.card.month,
-                                year: buyTicket.card.year
+                                name: $scope.card.name,
+                                number: $scope.card.email,
+                                cvv: $scope.card.cvv,
+                                month: $scope.card.month,
+                                year: $scope.card.year
                             },
                             billingAddress: {
-                                street: buyTicket.billingAddress.street,
-                                city: buyTicket.billingAddress.city,
-                                postCode: buyTicket.billingAddress.postCode,
-                                country: buyTicket.billingAddress.country
+                                street: $scope.billingAddress.street,
+                                city: $scope.billingAddress.city,
+                                postCode: $scope.billingAddress.postCode,
+                                country: $scope.billingAddress.country
                             }
                         });
-                        alert('Please check your email for purchase confirmation.');
+                        alert('Go to your email to see your purchase confirmation.');
                     } else {
                         alert('You\'ve made a mistake somewhere, please check your form again.');
                     }
                 };
                 $scope.request = [];
-                $scope.submitRequest = function(bookUs) {
+                $scope.submitRequest = function() {
                     if ($scope.bookUsForm.$valid) {
                         $scope.request.push({
-                            name: bookUs.name,
-                            email: bookUs.email,
-                            gigType: bookUs.gigType,
+                            name: $scope.bookUs.name,
+                            email: $scope.bookUs.email,
+                            gigType: $scope.gigType,
                             gigAddress: {
-                                street: bookUs.gigAddress.street,
-                                city: bookUs.gigAddress.city,
-                                postCode: bookUs.gigAddress.postCode,
-                                country: bookUs.gigAddress.country
+                                street: $scope.gigAddress.street,
+                                city: $scope.gigAddress.city,
+                                postCode: $scope.gigAddress.postCode,
+                                country: $scope.gigAddress.country
                             },
-                            moreInfo: bookUs.moreInfo,
-                            setHonorarium: bookUs.honorarium
+                            moreInfo: $scope.moreInfo,
+                            setHonorarium: $scope.honorarium
                         });
                         alert('Please check your email for request confirmation.');
                     } else {

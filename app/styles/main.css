@@ -2758,6 +2758,11 @@ select option {
 input.ng-invalid,select.ng-invalid {
 	border-color: red;
 }
+.error-message {
+	text-align: right;
+	margin-bottom: 10px;
+	color: red;
+}
 table thead {
 	width: 100%;
 }
@@ -3738,6 +3743,17 @@ body .container .main-footer {
 	flex-direction: column;
 	-ms-flex-direction: column;
 }
+.blog-post .comments-wrapper .add-comment .post-comment {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
 .blog-post .comments-wrapper .comments:not(:last-child) {
 	margin-bottom: 20px;
 }
@@ -3760,11 +3776,67 @@ body .container .main-footer {
 	flex-direction: column;
 	-ms-flex-direction: column;
 }
-.blog-post .comments-wrapper .comments button {
+.blog-post .comments-wrapper .comments .comment-header {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
+.blog-post .comments-wrapper .comments .comment-footer {
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	box-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-justify-content: flex-end;
+	-ms-justify-content: flex-end;
+	-o-justify-content: flex-end;
+	justify-content: flex-end;
+	-ms-flex-pack: end;
+}
+.blog-post .comments-wrapper .comments .comment-footer .like-button {
 	-webkit-align-self: flex-end;
 	-moz-align-self: flex-end;
 	align-self: flex-end;
 	-ms-flex-item-align: end;
+	height: 40px;
+	width: 40px;
+	border-radius: 50%;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	box-pack: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	-o-justify-content: center;
+	justify-content: center;
+	-ms-flex-pack: center;
+	padding: 6.66667px;
 }
 .tabs {
 	display: -webkit-box;
@@ -3897,27 +3969,34 @@ body .container .main-footer {
 	margin-right: 10px;
 	margin-left: 10px;
 }
-.tabs .tab-panel form .form-layout .form-column .input-location .map-and-address make-map .img-map {
-	-webkit-box-flex: 4;
-	-moz-box-flex: 4;
-	box-flex: 4;
-	-webkit-flex: 4 4 150px;
-	-moz-flex: 4 4 150px;
-	-ms-flex: 4 4 150px;
-	flex: 4 4 150px;
-	margin-bottom: 20px;
-	position: relative;
-	border-right: 5px solid transparent;
+.tabs .tab-panel form .form-layout .form-column .map-and-address {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+	-webkit-box-align: start;
+	-moz-box-align: start;
+	box-align: start;
+	-webkit-align-items: flex-start;
+	-moz-align-items: flex-start;
+	-ms-align-items: flex-start;
+	-o-align-items: flex-start;
+	align-items: flex-start;
+	-ms-flex-align: start;
 }
-.tabs .tab-panel form .form-layout .form-column .input-location .map-and-address make-map .img-map .map-controls {
-	position: absolute;
-	right: -6px;
-	bottom: 3px;
-	-webkit-transform: scale(0.7);
-	-moz-transform: scale(0.7);
-	-ms-transform: scale(0.7);
-	-o-transform: scale(0.7);
-	transform: scale(0.7);
+.tabs .tab-panel form .form-layout .form-column .map-and-address > * {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 }
 .tabs .tab-panel form .form-layout .form-column .input-add-guest {
 	-webkit-box-pack: justify;
@@ -4000,6 +4079,22 @@ body .container .main-footer {
 	position: relative;
 	top: -6px;
 	margin-left: 5px;
+}
+.tabs .tab-panel form .form-layout .form-column .card-expiry-date {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
+.tabs .tab-panel form .form-layout .form-column .card-expiry-date #month {
+	width: 69px;
+	margin-right: 5px;
+	direction: rtl;
 }
 .tabs label.tab-header:first-of-type {
 	border-top-left-radius: 3px;
@@ -4520,4 +4615,43 @@ body .container .main-footer {
 }
 .img-wrapper .credit-card .card-expiry-date .input-wrap-inline #year {
 	width: 81px;
+}
+make-map {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+make-map .img-map {
+	margin-bottom: 20px;
+	position: relative;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	box-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-justify-content: flex-end;
+	-ms-justify-content: flex-end;
+	-o-justify-content: flex-end;
+	justify-content: flex-end;
+	-ms-flex-pack: end;
+}
+make-map .img-map .map-controls {
+	position: absolute;
+	right: -6px;
+	bottom: 6px;
+	-webkit-transform: scale(0.7);
+	-moz-transform: scale(0.7);
+	-ms-transform: scale(0.7);
+	-o-transform: scale(0.7);
+	transform: scale(0.7);
 }

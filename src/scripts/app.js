@@ -1,6 +1,7 @@
 angular.module('bandApp', [
 	'ngFitText',
     'ngRoute',
+    'ngSanitize',
     'myBandAppControllers',
     'myBandAppFilters',
     'myBandAppDirectives',

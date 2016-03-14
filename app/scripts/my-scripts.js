@@ -1,6 +1,7 @@
 angular.module('bandApp', [
 	'ngFitText',
     'ngRoute',
+    'ngSanitize',
     'myBandAppControllers',
     'myBandAppFilters',
     'myBandAppDirectives',
@@ -139,45 +140,13 @@ angular.module('bandApp', [
                 FormsDataService
             ) {
                 $scope.title = GigsDataService.title;
-                
-                // deferred pattern
-                // $q
-                // var dfd = $q.defer();
-                // dfd.resolve
-                // dfd.reject()
-                // new Promise(function(resolve, reject){
-                //   // what we use reject for
-                // });
-                
                 $scope.maps = [];
                 $scope.map = null;
-                
                 function load(maps){
                     $scope.maps = maps;
                     $scope.map = maps[0];
                 }
-                
-                GigsDataService.maps.query()
-                  .$promise.then(load);
-                
-                // $http.get
-                // GigsHttpService.getMaps()
-                //    .then(load);
-                
-                // GigsDataService.maps.query().$promise.then(function(maps){
-                //     $scope.maps = maps;
-                //     $scope.map = maps[0];
-                // });
-                
-                
-                // GigsDataService.maps.query().then(function(list){
-                //     debugger;
-                // });
-                
-                // console.log($scope.maps);
-                
-                // window._maps = $scope.maps;
-                // window._scope = $scope;
+                GigsDataService.maps.query().$promise.then(load);
 
                 // UNIVERSAL VALUES FOR FORMS
                 $scope.formHeaders = FormsDataService.formHeaders;
@@ -190,63 +159,64 @@ angular.module('bandApp', [
                 $scope.getMonths = FormsDataService.getMonths();
                 
                 // BUY TICKET FORM - TAB 1 - VALUES TO SUBMIT
-                $scope.ticketPrice = FormsDataService.ticketPrice;
                 $scope.companions = [];
                 $scope.addCompanion = function() {
-                    if (!$scope.companion || $scope.companion === '' || $scope.companion === initName) {
+                    if (!$scope.companion || $scope.companion === '') {
                         return;
                     }
-                    $scope.companions.push({ companion: $scope.companion });
+                    $scope.companions.push($scope.companion);
                     $scope.companion = '';
                 };
                 $scope.removeCompanion = function(companion) {
                     var selectedCompanion = $scope.companions.indexOf(companion);
                     $scope.companions.splice(selectedCompanion, 1);
                 };
+                $scope.finalPrice = function(ticketPrice, companions) {
+                    return ticketPrice + (ticketPrice * companions);
+                };
                 $scope.guest = [];
-                $scope.submitGuests = function(buyTicket) {
+                $scope.submitGuest = function(buyTicket) {
                     if ($scope.buyTicketForm.$valid) {
                         $scope.guest.push({
                             location: $scope.map,
-                            name: buyTicket.name,
-                            email: buyTicket.email,
+                            name: $scope.buyTicket.name,
+                            email: $scope.buyTicket.email,
                             companions: $scope.companions,
-                            ticketPrice: $scope.ticketPrice,
-                            finalPrice: $scope.ticketPrice /*one buyer is for sure*/+ ($scope.ticketPrice * $scope.companions.length),
+                            finalPrice: $scope.finalPrice,
                             card: {
-                                name: buyTicket.card.name,
-                                number: buyTicket.card.number,
-                                cvv: buyTicket.card.cvv,
-                                month: buyTicket.card.month,
-                                year: buyTicket.card.year
+                                name: $scope.card.name,
+                                number: $scope.card.email,
+                                cvv: $scope.card.cvv,
+                                month: $scope.card.month,
+                                year: $scope.card.year
                             },
                             billingAddress: {
-                                street: buyTicket.billingAddress.street,
-                                city: buyTicket.billingAddress.city,
-                                postCode: buyTicket.billingAddress.postCode,
-                                country: buyTicket.billingAddress.country
+                                street: $scope.billingAddress.street,
+                                city: $scope.billingAddress.city,
+                                postCode: $scope.billingAddress.postCode,
+                                country: $scope.billingAddress.country
                             }
                         });
-                        alert('Please check your email for purchase confirmation.');
+                        alert('Go to your email to see your purchase confirmation.');
                     } else {
                         alert('You\'ve made a mistake somewhere, please check your form again.');
                     }
                 };
                 $scope.request = [];
-                $scope.submitRequest = function(bookUs) {
+                $scope.submitRequest = function() {
                     if ($scope.bookUsForm.$valid) {
                         $scope.request.push({
-                            name: bookUs.name,
-                            email: bookUs.email,
-                            gigType: bookUs.gigType,
+                            name: $scope.bookUs.name,
+                            email: $scope.bookUs.email,
+                            gigType: $scope.gigType,
                             gigAddress: {
-                                street: bookUs.gigAddress.street,
-                                city: bookUs.gigAddress.city,
-                                postCode: bookUs.gigAddress.postCode,
-                                country: bookUs.gigAddress.country
+                                street: $scope.gigAddress.street,
+                                city: $scope.gigAddress.city,
+                                postCode: $scope.gigAddress.postCode,
+                                country: $scope.gigAddress.country
                             },
-                            moreInfo: bookUs.moreInfo,
-                            setHonorarium: bookUs.honorarium
+                            moreInfo: $scope.moreInfo,
+                            setHonorarium: $scope.honorarium
                         });
                         alert('Please check your email for request confirmation.');
                     } else {
@@ -435,60 +405,62 @@ angular.module('bandApp', [
         }
     ]);
 }());
-;(function () {
-	'use strict';
-	angular.module('myBandAppServices')
-		.factory('FormsDataService', [
+;(function() {
+    'use strict';
+    angular.module('myBandAppServices')
+        .factory('FormsDataService', [
             // '$rootScope',
             '$resource',
-            function (
-				// $rootScope,
-				$resource
+            function(
+                // $rootScope,
+                $resource
             ) {
-				var f = {
-					formsData: $resource('data/json/forms/:itemId.json', {}, {
-						query: {
-							method: 'GET',
-							params: {
-								itemId: 'forms-data'
-							},
-							isArray: false
-						}
-					}),
-					patterns: {
-						email: "/\b\w{1,30}\b(\.\b\w{1,30}\b)?@\b[a-zA-Z0-9]{1,30}\b\.\b[a-zA-Z]{1,10}\b(\.\b[a-zA-Z]{1,10}\b)?(\s)?/",
-						card: "/\b(\d{4}(\s|-)?){3}\d{4}\b(\s)?/",
-						cvv: "/\b\d{3}\b(\s{0,1})?/",
-						name: "/^(\b[a-zA-Z]{1,20}\b\s{0,2}){2,4}$/m",
-						street: "/(\b[a-zA-Z]{1,20}\b\s){1,3}\b\d{1,5}\b(\/\b\d{1,5}\b)?(\s{0,2})/",
-						city: "/^(\b[a-zA-Z]{1,20}\b\s{0,2}){1,3}$/m",
-						postCode: "/b[a-zA-Z0-9]{2,12}\b/",
-						username: "/\b\w{2,30}\b/"
-					},
-					getYears: function () {
-						var today = new Date();
-						var year = today.getFullYear();
-						var years = [];
-						var yearsSpan = 50;
-						for (var i = year; i < year + yearsSpan; i++) {
-							years.push(i);
-						}
-						return years;
-					},
-					
-					getMonths: function () {
-						var numberArray = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-						var months = numberArray.map(function (month) {
-							if (month < 10) {
-								return '0' + month;
-							} else {
-								return month.toString();
-							}
-						});
-						return months;
-					}
-				};
-				return f;
+                var f = {
+                    formsData: $resource('data/json/forms/:itemId.json', {}, {
+                        query: {
+                            method: 'GET',
+                            params: {
+                                itemId: 'forms-data'
+                            },
+                            isArray: false
+                        }
+                    }),
+                    patterns: {
+                        email: "/^\b\w{1,30}\b(\.\b\w{1,30}\b)?@\b[a-zA-Z0-9]{1,30}\b\.\b[a-zA-Z]{1,10}\b(\.\b[a-zA-Z]{1,10}\b)?(\s)?$/",
+                        card: "/^\b(\d{4}(\s|-)?){3}\d{4}\b(\s)?$/",
+                        cvv: "/^\b\d{3}\b(\s{0,1})?$/",
+                        name: "/^(\b[a-zA-Z]{1,20}\b\s{0,2}){2,4}$/",
+                        street: "/^(\b[a-zA-Z]{1,20}\b\s){1,3}\b\d{1,5}\b(\/\b\d{1,5}\b)?(\s{0,2})$/",
+                        city: "/^(\b[a-zA-Z]{1,20}\b\s{0,2}){1,3}$/",
+                        postCode: "/^\b[a-zA-Z0-9]{2,12}\b$/",
+                        username: "/^\b\w{2,30}\b$/"
+                    },
+                    getYears: function() {
+                        var today = new Date();
+                        var year = today.getFullYear();
+                        var years = [];
+                        var yearsSpan = 50;
+                        for (var i = year; i < year + yearsSpan; i++) {
+                            years.push(i);
+                        }
+                        return years;
+                    },
+
+                    getMonths: function() {
+                        var generatedMonths = [];
+                        for (var month = 1; month < 13; month++) {
+                            generatedMonths.push(month);
+                        }
+                        return generatedMonths.map(function(month) {
+                            if (month < 10) {
+                                return '0' + month;
+                            } else {
+                                return month.toString();
+                            }
+                        });
+                    }
+                };
+                return f;
             }
         ]);
 }());
@@ -617,7 +589,15 @@ angular.module('bandApp', [
 	'use strict';
 	angular.module('myBandAppDirectives', []);
 }());
-
+// ;(function () {
+// 	'use strict';
+// 	angular.module('myBandAppDirectives')
+// 		.directive('formDirective', function() {
+// 			var directive = {};
+// 			directive.restrict = 'E';
+// 			directive.template = '';
+//  		});
+// }());
 ;(function () {
 	'use strict';
 	angular.module('myBandAppDirectives')
@@ -755,7 +735,11 @@ angular.module('bandApp', [
 // }());
 ;(function () {
 	'use strict';
-	angular.module('myBandAppFilters', [])
+	angular.module('myBandAppFilters', []);
+}());
+;(function () {
+	'use strict';
+	angular.module('myBandAppFilters')
 		.filter('StockFilter', function () {
 			var trueMark = '\u2713';
 			var falseMark = '\u2718';

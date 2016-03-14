@@ -15,7 +15,10 @@
 		<form class="add-comment" ng-submit="addComment()" id="comment" novalidate>
 			<label for="username">your username</label>
 			<input id="username" type="text" placeholder="enter your username" autocomplete="on" ng-model="userName" required>
-			<label for="content">your comment</label>
+			<div class="input-wrap-inline post-comment">
+				<label for="content">your comment</label>
+				<small>Letter count left</small>
+			</div>
 			<textarea form="comment" name="content" id="content" cols="30" rows="7" placeholder="add your comment" ng-model="content" required></textarea>
 			<button type="submit">Comment</button>
 		</form>
@@ -23,9 +26,16 @@
 		<br>
 		<h3 class="c-text">Comments</h3>
 		<section class="comments base-transparent-medium divided" ng-repeat="comment in comments | orderBy: '-upVotes'">
-			<h5>{{comment.userName}}</h5>
-			<p>{{comment.content}}</p>
-			<button ng-click="upVote(comment)"><i class="fa fa-thumbs-o-up"></i> <span> {{ comment.upVotes }}</span></button>
+			<header class="comment-header">
+				<h5>{{comment.userName}}</h5>
+				<small class="post-date"><i class="fa fa-calendar"></i> {{post.date}}</small>
+			</header>
+			<article class="comment-content">
+				<p>{{comment.content}}</p>
+			</article>
+			<footer class="comment-footer">
+				<button class="like-button" ng-click="upVote(comment)"><i class="fa fa-thumbs-o-up"></i> <span> {{ comment.upVotes }}</span></button>
+			</footer>
 			<!-- <span>
 					<a href="#/posts/{{$index}}">Comments</a>
 			</span> -->

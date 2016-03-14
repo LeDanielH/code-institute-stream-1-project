@@ -9,7 +9,7 @@
 	"location": {
 		"label": "Where and when?",
 		"title":"Chose the date and location of the concert.",
-		"placeholder":"",
+		"placeholder":"Choose concert.",
 		"errorMessages": {
 			"required": "Must choose location.",
 			"invalid": ""
@@ -99,7 +99,7 @@
 	"postCode": {
 		"label": "post code",
 		"title":"Please enter post code.",
-		"placeholder":"",
+		"placeholder":"Enter postal code.",
 		"errorMessages": {
 			"required": "If you do not have a post code, enter: 00000",
 			"invalid": "Please enter valid post code."
@@ -114,6 +114,15 @@
 			"invalid": "Please enter valid post code."
 		}
 	},
+	"date": {
+		"label": "Pick up an available date.",
+		"title": "What date would you like your gig to take place",
+		"placeholder":"",
+		"errorMessages": {
+			"required": "Pickup a date even if you are not sure and let us now in the \"tell us more section.\"",
+			"invalid": ""
+		}
+	},
 	"gigType": {
 		"label": "What type of gig are you planning?",
 		"title": "Choose gig type.",
@@ -121,7 +130,8 @@
 		"errorMessages": {
 			"required": "Please choose the type of your gig.",
 			"invalid": ""
-		}
+		},
+		"select": ["wedding", "proms", "company party", "club", "concert hall", "other"]
 	},
 	"moreInfo": {
 		"label": "Want to tell us more about your gig?",
