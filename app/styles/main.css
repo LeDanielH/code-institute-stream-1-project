@@ -2894,6 +2894,9 @@ table tbody tr td {
 .text-button-wrapper > p {
 	margin: 10px 0 0;
 }
+::-webkit-scrollbar {
+	width: 20px;
+}
 body .empty-column {
 	min-width: 230px;
 }
@@ -3011,6 +3014,7 @@ body .container .columns-wrapper {
 	-moz-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	position: relative;
 }
 body .container .columns-wrapper .content {
 	padding: 20px;
@@ -3021,16 +3025,22 @@ body .container .columns-wrapper .content {
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
-	-webkit-box-orient: vertical;
-	-moz-box-orient: vertical;
-	box-orient: vertical;
-	-webkit-box-direction: normal;
-	-moz-box-direction: normal;
-	box-direction: normal;
-	-webkit-flex-direction: column;
-	-moz-flex-direction: column;
-	flex-direction: column;
-	-ms-flex-direction: column;
+	-webkit-box-lines: multiple;
+	-moz-box-lines: multiple;
+	box-lines: multiple;
+	-webkit-flex-wrap: wrap;
+	-moz-flex-wrap: wrap;
+	-ms-flex-wrap: wrap;
+	flex-wrap: wrap;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	box-pack: center;
+	-webkit-justify-content: center;
+	-moz-justify-content: center;
+	-ms-justify-content: center;
+	-o-justify-content: center;
+	justify-content: center;
+	-ms-flex-pack: center;
 	-webkit-box-align: center;
 	-moz-box-align: center;
 	box-align: center;
@@ -3051,6 +3061,11 @@ body .container .columns-wrapper .content {
 	padding-right: calc(15% - 100px);
 	padding-left: -webkit-calc(15% - 100px);
 	padding-left: calc(15% - 100px);
+	height: 600px;
+	overflow-y: scroll;
+}
+body .container .columns-wrapper .right-sidebar-substitute {
+	display: none;
 }
 body .container .main-footer {
 	display: -webkit-box;
@@ -3865,6 +3880,7 @@ body .container .main-footer {
 	-moz-flex-wrap: wrap;
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
+	padding: 0 20px;
 }
 .tabs .tab-header {
 	background-color: rgba(35, 29, 34, 0.9);

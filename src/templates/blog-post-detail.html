@@ -17,7 +17,7 @@
 			<input id="username" type="text" placeholder="enter your username" autocomplete="on" ng-model="userName" required>
 			<div class="input-wrap-inline post-comment">
 				<label for="content">your comment</label>
-				<p>{{formsData.textArea.maxLength - content.length}}</p>
+				<p>{{formsData.textArea.maxLength - content.length}} left</p>
 			</div>
 			<textarea form="comment" name="content" id="content" cols="30" rows="7" placeholder="add your comment" 
 				ng-model="content" 
@@ -29,10 +29,10 @@
 		<br>
 		<br>
 		<h3 class="c-text">Comments</h3>
-		<section class="comments base-transparent-medium divided" ng-repeat="comment in comments | orderBy: '-upVotes'">
+		<section class="comments base-transparent-medium divided" ng-repeat="comment in post.comments | orderBy: '-upVotes'">
 			<header class="comment-header">
 				<h5>{{comment.userName}}</h5>
-				<small class="post-date"><i class="fa fa-calendar"></i> {{post.date}}</small>
+				<small class="post-date"><i class="fa fa-calendar"></i> {{comment.dateTime}}</small>
 			</header>
 			<article class="comment-content">
 				<p>{{comment.content}}</p>

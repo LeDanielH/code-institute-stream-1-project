@@ -51,6 +51,16 @@
                                 return month.toString();
                             }
                         });
+                    },
+                    getDateTime: function() {
+                        var today = new Date();
+                        var day = today.getDate();
+                        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+                        var year = today.getFullYear();
+                        var hour = ('0' + today.getHours()).slice(-2);
+                        var minute = ('0' + today.getMinutes()).slice(-2);
+                        var dateTime = day + '/' + month + '/' + year + ' ' + hour + ':' + minute;
+                        return dateTime;
                     }
                 };
                 return f;

@@ -18,13 +18,14 @@
 			<header class="main-header">
 			<div class="slider" my-directive template-path="templates/directives/testimonials.html"></div>
 			<nav class="main-navigation base-transparent-medium" my-directive template-path="templates/directives/navbar.html"></nav>
-			<div class="sticky-alias"></div>
+			<div class="navbar-substitute"></div>
 		</header>
 
 				<div class="columns-wrapper">
 			<section class="content base-transparent-strong" ng-view>
 			</section>
 			<aside class="right-sidebar base-transparent-medium divided-no-border" my-directive template-path="templates/directives/right-sidebar.html"></aside>
+			<div class="right-sidebar-substitute"></div>
 		</div>
 
 				<footer class="main-footer base-transparent-medium">
@@ -35,6 +36,7 @@
 				<small id="copyYear" class="copyright">Monkees Copyright 2016</small>
 			</div>
 		</footer>
+		<div class="main-footer-substitute" style="display: none"></div>
 	</section>
 
 

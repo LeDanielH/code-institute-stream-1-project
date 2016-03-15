@@ -4,7 +4,7 @@ $(function() {
    $(window).scroll(function() {
        if ($(window).scrollTop() > stickyNav) {
            $('nav.main-navigation').addClass('main-navigation-fixed');
-           $('.sticky-alias').css('display', 'block');
+           $('.sticky-alias').css('display', 'flex');
        } else {
            $('nav.main-navigation').removeClass('main-navigation-fixed');
            $('.sticky-alias').css('display', 'none');
@@ -13,7 +13,7 @@ $(function() {
 });
 
 // mobile menu
-$(function() {
+($(function() {
    $('.main-navigation').on('click', '.menu-item:first-child', function(e) {
        e.preventDefault();
        if ($(this).nextAll().slice(0, 7).is('.menu-item')) {
@@ -26,7 +26,7 @@ $(function() {
            $('#nav-up').css('display', 'none');
        }
    });
-});
+})());
 
 // slider
 $(function() {

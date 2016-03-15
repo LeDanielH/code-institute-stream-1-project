@@ -96,6 +96,11 @@ var jsLibraries = {
     gsap: {
         min: paths.bower + 'gsap/src/minified/TweenMax.min.js',
         debug: paths.bower + 'gsap/src/uncompressed/TweenMax.js'
+    },
+    moment: {
+        min: paths.bower + 'moment/min/momemt.min.js',
+        debug: paths.bower + 'moment/src/momemt.js'
+
     }
 };
 

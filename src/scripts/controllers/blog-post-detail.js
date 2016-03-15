@@ -4,10 +4,12 @@
 		.controller('BlogPostDetailController', [
             '$scope',
             'BlogPostsDataService',
+            'FormsDataService',
             '$routeParams',
             function (
 				$scope,
 				BlogPostsDataService,
+				FormsDataService,
 				$routeParams
             ) {
 				$scope.post = BlogPostsDataService.blogPosts.get({
@@ -18,17 +20,17 @@
 				$scope.setMainImage = function (imageUrl) {
 					$scope.mainImageUrl = imageUrl;
 				};
-				$scope.comments = BlogPostsDataService.comments;
-				$scope.getDateTime = new Date();
+				$scope.dateTime = FormsDataService.getDateTime();
+				$scope.formsData = FormsDataService.formsData.query();
 				$scope.addComment = function () {
 					if (!$scope.content || $scope.content === '') {
 						return;
 					}
-					$scope.comments.push({
+					$scope.post.comments.push({
 						userName: $scope.userName,
 						content: $scope.content,
 						upVotes: 0,
-						dateTime: $scope.getDateTime
+						dateTime: $scope.dateTime
 					});
 					$scope.userName = '';
 					$scope.content = '';

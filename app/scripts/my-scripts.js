@@ -95,10 +95,12 @@ angular.module('bandApp', [
 		.controller('BlogPostDetailController', [
             '$scope',
             'BlogPostsDataService',
+            'FormsDataService',
             '$routeParams',
             function (
 				$scope,
 				BlogPostsDataService,
+				FormsDataService,
 				$routeParams
             ) {
 				$scope.post = BlogPostsDataService.blogPosts.get({
@@ -109,17 +111,17 @@ angular.module('bandApp', [
 				$scope.setMainImage = function (imageUrl) {
 					$scope.mainImageUrl = imageUrl;
 				};
-				$scope.comments = BlogPostsDataService.comments;
-				$scope.getDateTime = new Date();
+				$scope.dateTime = FormsDataService.getDateTime();
+				$scope.formsData = FormsDataService.formsData.query();
 				$scope.addComment = function () {
 					if (!$scope.content || $scope.content === '') {
 						return;
 					}
-					$scope.comments.push({
+					$scope.post.comments.push({
 						userName: $scope.userName,
 						content: $scope.content,
 						upVotes: 0,
-						dateTime: $scope.getDateTime
+						dateTime: $scope.dateTime
 					});
 					$scope.userName = '';
 					$scope.content = '';
@@ -363,22 +365,7 @@ angular.module('bandApp', [
 					}),
 					upVote: function (post) {
 						post.upVotes += 1;
-					},
-					comments: [{
-							userName: 'Adela',
-							content: 'This is an amazing post!',
-							upVotes: 2
-                        }, {
-							userName: 'Daniel',
-							content: 'This website sucks!',
-							upVotes: 10
-                        }, {
-							userName: 'Oliver',
-							content: 'This is so cool!',
-							upVotes: 3
-                        }
-
-                    ]
+					}
 				};
 				return posts;
             }
@@ -461,6 +448,16 @@ angular.module('bandApp', [
                                 return month.toString();
                             }
                         });
+                    },
+                    getDateTime: function() {
+                        var today = new Date();
+                        var day = today.getDate();
+                        var month = ('0' + (today.getMonth() + 1)).slice(-2);
+                        var year = today.getFullYear();
+                        var hour = ('0' + today.getHours()).slice(-2);
+                        var minute = ('0' + today.getMinutes()).slice(-2);
+                        var dateTime = day + '/' + month + '/' + year + ' ' + hour + ':' + minute;
+                        return dateTime;
                     }
                 };
                 return f;
