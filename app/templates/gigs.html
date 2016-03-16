@@ -1,21 +1,21 @@
 <h1 class="h2 c-text content-heading">{{title}}</h1>
-<section class="tabs">
+<section class="tabs row">
 
 	<input id="tab-one" type="radio" name="grp" checked="checked">
 	<label class="tab-header" for="tab-one">{{formsData.tabsLabels.buyTicket}}</label>
 	<div class="tab-panel">
 		<p class="warning">{{formsData.introGuide}}</p>
 
-		<form name="buyTicketForm" ng-submit="submitGuest(buyTicket)" novalidate>
-			<div class="input-wrapper-inline form-layout" my-directive template-path="templates/directives/gigs-directives/buy-ticket-form.html"></div>
+		<form class="column" name="buyTicketForm" ng-submit="submitGuest(buyTicket)" novalidate>
+			<div class="row form-layout" my-directive template-path="templates/directives/gigs-directives/buy-ticket-form.html"></div>
 			<br>
 
-			<div class="form-footer">
-				<div class="input-wrap-inline">
+			<div class="form-footer wrapped-box-margin">
+				<div class="row center-inline">
 					<input type="checkbox" id="terms" ng-model="confirmInfo" ng-required="true">
 					<p>{{formsData.checkbox.formChecked}}</p>
 				</div>
-				<div class="input-wrap-inline">
+				<div class="row center-inline">
 					<input type="checkbox" id="terms" ng-model="confirmTerms" ng-required="true">
 					<p ng-bind-html="formsData.checkbox.termsConfirmed"></p>
 				</div>
@@ -30,16 +30,16 @@
 	<div class="tab-panel">
 		<p class="warning">{{formsData.introGuide}}</p>
 
-		<form name="bookUsForm" ng-submit="submitRequest()" novalidate>
-			<div class="input-wrapper-inline form-layout" my-directive template-path="templates/directives/gigs-directives/book-us-form.html"></div>
+		<form class="column" name="bookUsForm" ng-submit="submitRequest()" novalidate>
+			<div class="row form-layout" my-directive template-path="templates/directives/gigs-directives/book-us-form.html"></div>
 			<br>
 
-			<div class="form-footer">
-				<div class="input-wrap-inline">
+			<div class="form-footer wrapped-box-margin">
+				<div class="row center-inline">
 					<input type="checkbox" id="terms" ng-model="confirmInfo" ng-required="true">
 					<p>{{formsData.checkbox.formChecked}}</p>
 				</div>
-				<div class="input-wrap-inline">
+				<div class="row center-inline">
 					<input type="checkbox" id="terms" ng-model="confirmTerms" ng-required="true">
 					<p ng-bind-html="formsData.checkbox.termsConfirmed"></p>
 				</div>

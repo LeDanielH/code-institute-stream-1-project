@@ -1,21 +1,21 @@
-<h1 class="h2 c-text content-heading">{{post.heading}}</h1>
-<article class="blog-post base-transparent-medium divided">
-	<header class="post-header">
+<h1 class="h2 c-text">{{post.heading}}</h1>
+<article class="column blog-post base-transparent-medium divided">
+	<header class="row post-header">
 		<small class="post-date"><i class="fa fa-calendar"></i> {{post.date}}</small>
 	</header>
 	<article class="post-content">
-		<div class="img-wrapper">
-			<img ng-src="{{post.images[0]}}.jpg" alt="blog cover" class="blog-img filter-image">
+		<div class="image-wrapper">
+			<img ng-src="{{post.images[0]}}.jpg" alt="blog cover" class="blog-image filter-image">
 		</div>
 		<p>{{post.content}}</p>
 	</article>
 	<br>
 	<h3 class="c-text">Post Comment</h3>
-	<footer class="comments-wrapper">
-		<form class="add-comment" ng-submit="addComment()" id="comment" novalidate>
+	<footer class="column comments-wrapper">
+		<form class="column add-comment" ng-submit="addComment()" id="comment" novalidate>
 			<label for="username">your username</label>
 			<input id="username" type="text" placeholder="enter your username" autocomplete="on" ng-model="userName" required>
-			<div class="input-wrap-inline post-comment">
+			<div class="row post-comment">
 				<label for="content">your comment</label>
 				<p>{{formsData.textArea.maxLength - content.length}} left</p>
 			</div>
@@ -25,18 +25,17 @@
 		<br>
 		<br>
 		<h3 class="c-text">Comments</h3>
-		<section class="comments base-transparent-medium divided" ng-repeat="comment in post.comments | orderBy: '-upVotes'">
-			<header class="comment-header">
+		<section class="column comments base-transparent-medium divided" ng-repeat="comment in post.comments | orderBy: '-upVotes'">
+			<header class="row comment-header">
 				<h5>{{comment.userName}}</h5>
 				<small class="post-date"><i class="fa fa-calendar"></i> {{comment.dateTime}}</small>
 			</header>
 			<article class="comment-content">
 				<p>{{comment.content}}</p>
 			</article>
-			<footer class="comment-footer">
-				<button class="like-button" ng-click="upVote(comment)"><i class="fa fa-thumbs-o-up"></i> <span> {{ comment.upVotes }}</span></button>
+			<footer class="row comment-footer">
+				<button class="circle-button" ng-click="upVote(comment)"><i class="fa fa-thumbs-o-up"></i> <span> {{ comment.upVotes }}</span></button>
 			</footer>
 		</section>
-
 	</footer>
 </article>

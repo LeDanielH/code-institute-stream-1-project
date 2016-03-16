@@ -1,5 +1,5 @@
-<fieldset class="form-column">
-	<div class="input-wrap input-location">
+<fieldset class="column wrapped-box-margin form-column">
+	<div class="column input-location">
 		<label for="where-and-when">{{formsData.location.label}}</label>
 
 		<select name="where-and-when" id="where-and-when" name="map" autofocus ng-attr-title="{{formsData.location.title}}" ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" ng-required="true"></select>
@@ -9,7 +9,7 @@
 			{{formsData.location.errorMessages.required}}
 		</p>
 
-		<div ng-if="map" class="input-wrap-inline map-and-address">
+		<div ng-if="map" class="row map-and-address">
 			<address>
 				{{map.address[0].street}} <br>
 				{{map.address[0].city}} <br>
@@ -31,7 +31,7 @@
 	</p>
 
 	<ul class="guests-list">
-		<li class="small-label divided-label base-transparent-medium">
+		<li class="row small-label divided-label base-transparent-medium">
 			<span>{{buyTicket.name}}</span>
 			<span class="price-label">{{formsData.ticketPrice | currency}}</span>
 		</li>
@@ -48,9 +48,9 @@
 
 	<label for="addGuest">{{formsData.companions.label}}</label>
 	<ul class="guests-list">
-		<li class="small-label input-wrap-inline" ng-repeat="companion in companions" ng-model="companion">
+		<li class="small-label row center-inline" ng-repeat="companion in companions" ng-model="companion">
 
-			<div class="divided-label input-wrap-inline base-transparent-medium added-guests">
+			<div class="row center-inline divided-label base-transparent-medium">
 				<span>{{companion}}</span>
 				<span class="price-label">{{formsData.ticketPrice | currency}}</span>
 			</div>
@@ -60,7 +60,7 @@
 		</li>
 	</ul>
 
-	<div class="input-wrap-inline input-add-guest">
+	<div class="row center-inline input-add-guest">
 		<input type="text" id="addCompanion" name="companion" ng-attr-title="{{formsData.companions.title}}" placeholder="{{formsData.companions.placeholder}}" ng-model="companion">
 		<button type="button" id="addCompanionButton" class="plus-minus-button" ng-click="addCompanion()"><i class="fa fa-plus-circle fa-2x"></i>
 		</button>
@@ -73,7 +73,7 @@
 <fieldset class="form-column">
 	<h5>Credit Card Details:</h5>
 
-	<div class="img-wrapper">
+	<div class="image-wrapper">
 		<div class="credit-card">
 			<div class="card-logo" id="circle-1"></div>
 			<div class="card-logo" id="circle-2"></div>
@@ -85,7 +85,7 @@
 	</div>
 	<br>
 
-	<div class="input-wrap-inline card-name">
+	<div class="row center-inline card-name">
 		<label class="small-label" for="credit-card-name">{{formsData.cardName.label}}</label>
 		<input type="text" id="credit-card-name field-medium" name="cardName" autocomplete="name" ng-attr-title="{{formsData.cardName.title}}" placeholder="{{formsData.cardName.placeholder}}" ng-init="card.name=formsData.cardName.placeholder" ng-model="card.name" ng-required="true">
 	</div>
@@ -97,7 +97,7 @@
 		{{formsData.cardName.errorMessages.invalid}}
 	</p>
 
-	<div class="input-wrap-inline card-number">
+	<div class="row center-inline card-number">
 		<label for="credit-card-number" class="small-label">{{formsData.cardNumber.label}}</label>
 		<input type="text" id="credit-card-number" name="cardNumber" autocomplete="cc-number" ng-attr-title="{{formsData.cardNumber.title}}" placeholder="{{formsData.cardNumber.placeholder}}" ng-init="card.number=formsData.cardNumber.placeholder" ng-model="card.number" ng-required="true">
 	</div>
@@ -109,7 +109,7 @@
 		{{formsData.cardNumber.errorMessages.invalid}}
 	</p>
 
-	<div class="input-wrap-inline card-cvv">
+	<div class="row center-inline card-cvv">
 		<label for="card-cvv" class="small-label">{{formsData.cardCvv.label}}</label>
 		<input type="text" id="card-cvv" name="cvv" autocomplete="cvv-number" ng-attr-title="{{formsData.cardCvv.title}}" placeholder="{{formsData.cardCvv.placeholder}}" ng-model="card.cvv" ng-required="true">
 	</div>
@@ -120,9 +120,9 @@
 		{{formsData.cardCvv.errorMessages.invalid}}
 	</p>
 
-	<div class="input-wrap-inline card-expiry-date">
+	<div class="row center-inline card-expiry-date">
 		<label for="month" class="small-label">{{formsData.cardExpiryDate.label}}</label>
-		<div class="input-wrap-inline">
+		<div class="row center-inline">
 			<select name="cardMonth" id="month" placeholder="month" ng-attr-title="{{formsData.cardExpiryDate.title}}" ng-model="card.month" ng-options="month for month in getMonths">
 				<option value disabled="disabled">mm</option>
 			</select>

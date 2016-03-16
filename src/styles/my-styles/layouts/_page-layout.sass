@@ -1,5 +1,4 @@
 body
-	+display(flex)
 	+justify-content(space-between)
 	background-image: url("../data/images/monkees-fans.jpg")
 	background-size: cover
@@ -12,43 +11,32 @@ body
 
 	.left-sidebar
 		position: fixed
-		+display(flex)
-		+flex-direction(column)
 		+justify-content(space-between)
-		+align-items(center)
 		max-width: 230px
 		height: 100vh
 
 	.container
-		+display(flex)
-		+flex-direction(column)
-		+flex(1)
 		+calc(padding-right, "20% - 100px")
 		+calc(padding-left, "20% - 100px")
+		+flex(1)
 
 		.main-header
-			+display(flex)
-			+flex-direction(column)
 			width: 100%
 
 		.columns-wrapper
-			+display(flex)
 			+justify-content(space-between)
 			+flex-wrap(wrap)
 			+position(relative)
 	
-			.content
-				padding: $base-padding
-				+display(flex)
+			.page-content
 				+flex-wrap(wrap)
-				+justify-content(center)
-				// +flex-direction(column)
-				+align-items(center)
 				+flex(10 10 400px)
+				padding-top: $base-padding
+				padding-bottom: $base-padding
 				+calc(padding-right, "15% - 100px")
 				+calc(padding-left, "15% - 100px")
-				height: 600px
-				overflow-y: scroll
+				max-height: 600px
+				overflow-y: auto
 
 			// .right-sidebar
 			// 	+position(fixed)
@@ -60,8 +48,6 @@ body
 	
 	
 		.main-footer
-			+display(flex)
-			+flex-direction(column)
 			+justify-content(space-between)
 			width: 100%
 			padding: $base-padding

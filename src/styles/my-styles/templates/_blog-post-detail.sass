@@ -1,11 +1,8 @@
 .blog-post
-	margin: $base-padding
-	+display(flex)
-	+flex-direction(column)
+	margin: 0 $base-padding
 	max-width: 650px
 
 	.post-header
-		+display(flex)
 		+justify-content(space-between)
 		+flex-wrap(wrap)
 		h2
@@ -20,12 +17,7 @@
 			margin: 0 $base-padding $base-padding 0
 
 	.comments-wrapper
-		+display(flex)
-		+flex-direction(column)
-
 		.add-comment
-			+display(flex)
-			+flex-direction(column)
 			.post-comment
 				+justify-content(space-between)
 
@@ -33,18 +25,8 @@
 			margin-bottom: $base-padding
 
 		.comments
-			+display(flex)
-			+flex-direction(column)
 			.comment-header
-				+display(flex)
 				+justify-content(space-between)
 			.comment-footer
-				+display(flex)
 				+justify-content(flex-end)
-				.like-button
-					+align-self(flex-end)
-					+size(40px)
-					border-radius: 50%
-					+display(flex)
-					+justify-content(center)
-					padding: $base-padding / 3
+					

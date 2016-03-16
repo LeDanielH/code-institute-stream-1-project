@@ -8,5 +8,9 @@
 	<option value="name">name</option>
 </select>
 <ul class="store-items-list">
-	<li ng-repeat="item in storeItems | filter:searchQuery | orderBy:sortByCategory">{{item.name}}</li>
+	<li class="item-box" ng-repeat="item in storeItems | filter:searchQuery | orderBy:sortByCategory">
+		<h5>{{item.name}}</h5>
+		<img ng-src="{{item.image}}.jpg" alt="{{item.name}}">
+		<p>{{item.price | currency}}</p>
+	</li>
 </ul>

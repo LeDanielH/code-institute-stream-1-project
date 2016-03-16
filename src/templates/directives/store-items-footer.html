@@ -1,20 +1,20 @@
-<header>
+<header class="row center-inline">
 	<h3 class="h4">{{sortByCategory}}</h3>
-	<div class="input-wrap-inline">
-		<label class="sort-by" for="sortBy"><h5>Sort by:&nbsp;</h5></label>
+	<div class="row center-inline">
+		<label class="sort-by dont-wrap" for="sortBy"><h5>Sort by:&nbsp;</h5></label>
 		<select ng-model="sortByCategory" ng-options="category for category in sortByCategories" name="sortBy" id="sortBy">
 		</select>
 	</div>
 </header>
-<section class="store-items-area-wrapper">
+<section class="row center-both store-items-area-wrapper">
 	<span class="icon-circle-left">
 		<i class="fa fa-chevron-left fa-2x"></i>
 	</span>
-	<div class="store-items-wrapper">
-		<div class="store-item" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory">
-			<a href="#/store/{{item.id}}">
+	<div class="row store-items-wrapper">
+		<div class="column center-inline store-item" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory">
+			<a class="column" href="#/store/{{item.id}}">
 				<!-- <i class="fa fa-soundcloud fa-2x"></i> -->
-				<div class="img-wrapper"><img class="store-item-thumbnail filter-image" ng-src="{{item.imgSrc}}.jpg" alt="{{item.name}}"></div>
+				<div class="image-wrapper"><img class="store-item-thumbnail filter-image" ng-src="{{item.imgSrc}}.jpg" alt="{{item.name}}"></div>
 				<p>{{item.name}} - {{item.price}}&euro;</p>
 			</a>
 		</div>
@@ -23,6 +23,6 @@
 		<i class="fa fa-chevron-right fa-2x"></i>
 	</span>
 </section>
-<footer class="store-items-footer">
+<footer class="row store-items-footer">
 	<a class="visit-store" href="#/store/">Go to store <i class="fa fa-chevron-right"></i></a>
 </footer>

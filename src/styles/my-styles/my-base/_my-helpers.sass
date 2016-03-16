@@ -37,7 +37,7 @@ img
 	float: right
 	margin-right: 0
 
-.img-wrapper, figure
+.image-wrapper, figure
 	width: 100%
 
 .video-wrapper
@@ -48,3 +48,29 @@ img
 
 .inline
 	display: inline-block
+
+.center-inline
+	+align-items(center)
+
+.center-blocks
+	+justify-content(center)
+
+.center-both
+	+align-items(center)
+	+justify-content(center)
+
+.dont-wrap
+	white-space: nowrap
+
+.row
+	+display(flex)
+
+.column
+	+display(flex)
+	+flex-direction(column)
+
+.wrapped-box-margin
+	margin-bottom: $base-padding / 2
+	margin-right: $base-padding / 2
+	margin-left: $base-padding / 2
+

@@ -1,17 +1,11 @@
 // regular navigation
 .main-navigation
 	z-index: 99
-	+display(flex)
 	+justify-content(space-around)
-	+align-items(center)
 
 	.menu-item
 		height: 40px
 		width: 100%
-		+display(flex)
-		+justify-content(center)
-		+align-items(center)
-		white-space: nowrap
 
 	#menu-toggle
 		height: 40px
@@ -35,8 +29,6 @@
 			+display(none)
 		#menu-toggle
 			+display(flex)
-			+justify-content(center)
-			+align-items(center)
 			&:hover
 				.menu-item
 					visibility: null

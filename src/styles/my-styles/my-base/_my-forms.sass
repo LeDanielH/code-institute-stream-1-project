@@ -9,33 +9,11 @@
 		span
 			font-family: $font-content
 
-.input-wrap-inline
-	+display(flex)
-	+align-items(center)
+
 	// white-space: nowrap
-	input[type="checkbox"]
-		+flex-shrink(0)
-		+position(relative, -6px null null null)
-
-//	+align-items(center)
-	
-//	+flex-wrap(wrap)
-//	input
-//		+flex(7)
-//		+flex-shrink(1)
-//		+flex-basis(220px)
-//		+align-self(center)
-//		white-space: nowrap
-//		+align-self(center)
-//		+flex(1)
-//		+flex-shrink(2)
-//		+flex-basis(140px)
-
-.input-wrap
-	+display(flex)
-	+flex-direction(column)
-	margin-bottom: $small-spacing
-	
+input[type="checkbox"]
+	+flex-shrink(0)
+	+position(relative, -6px null null null)
 	
 .form-small
 	max-width: 320px
@@ -55,7 +33,7 @@ select
 // 	content: "REQUIRED"
 
 input.ng-invalid // when input box is edited
-	border-color: red
+	border-color: $selection-color
 
 .error-message
 	text-align: right
@@ -73,3 +51,10 @@ input.field-small
 
 .field-big
 	max-width: 200px
+
+.circle-button
+	+display(flex)
+	+size(40px)
+	border-radius: 50%
+	+justify-content(center)
+	padding: $base-padding / 3

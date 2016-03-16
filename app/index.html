@@ -9,27 +9,26 @@
 	<meta name="description" content="stream-1 angular app project">
 	<link rel="stylesheet" href="styles/main.min.css">
 </head>
-<body>
-	<aside class="left-sidebar base-transparent-medium divided-no-border" my-directive template-path="templates/directives/left-sidebar.html"></aside>
+<body class="row">
+	<aside class="column center-inline left-sidebar base-transparent-medium divided-no-border" my-directive template-path="templates/directives/left-sidebar.html"></aside>
 	<div class="empty-column"></div>
 
-	<section class="container">
+	<section class="column container">
 
-			<header class="main-header">
+			<header class="column main-header">
 			<div class="slider" my-directive template-path="templates/directives/testimonials.html"></div>
-			<nav class="main-navigation base-transparent-medium" my-directive template-path="templates/directives/navbar.html"></nav>
-			<div class="navbar-substitute"></div>
+			<nav class="row center-inline main-navigation base-transparent-medium" my-directive template-path="templates/directives/navbar.html"></nav>
 		</header>
 
-				<div class="columns-wrapper">
-			<section class="content base-transparent-strong" ng-view>
+			<div class="row columns-wrapper">
+			<section class="row center-both page-content base-transparent-strong" ng-view>
 			</section>
-			<aside class="right-sidebar base-transparent-medium divided-no-border" my-directive template-path="templates/directives/right-sidebar.html"></aside>
+			<aside class="column center-inline right-sidebar base-transparent-medium divided-no-border" my-directive template-path="templates/directives/right-sidebar.html"></aside>
 			<div class="right-sidebar-substitute"></div>
 		</div>
 
-				<footer class="main-footer base-transparent-medium">
-			<div class="store-items base-transparent-medium" my-directive template-path="templates/directives/store-items-footer.html"></div>
+				<footer class="column main-footer base-transparent-medium">
+			<div class="column store-items base-transparent-medium" my-directive template-path="templates/directives/store-items-footer.html"></div>
 			<div class="sign-up-mobile base-transparent-medium divided-no-border" my-directive template-path="templates/directives/sign-up.html"></div>
 			<section class="social-links-mobile divided-no-border" my-directive template-path="templates/directives/social-icons.html"></section>
 			<div class="footer-copyright">
