@@ -2,6 +2,7 @@ angular.module('bandApp', [
 	'ngFitText',
     'ngRoute',
     'ngSanitize',
+    'ngAnimate',
     'myBandAppControllers',
     'myBandAppFilters',
     'myBandAppDirectives',

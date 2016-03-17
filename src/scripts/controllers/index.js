@@ -33,7 +33,36 @@
 				$scope.sortByCategories = StoreDataService.sortByCategories;
 
 				//TESTIMONIALS
+				// $scope.images = [];
+				// $scope.image = null;
+				// function load(images) {
+				// 	$scope.images = images;
+				// 	$scope.image = images[0];
+				// }
+				// TestimonialsDataService.images.query().$promise.then(load);
 				$scope.images = TestimonialsDataService.images.query();
+				// $scope.currentIndex = 0;
+				// $scope.imagesLength = $scope.images.length - 1;
+				// $scope.next = function() {
+				// 	if ($scope.currentIndex < $scope.imagesLength) {
+				// 		$scope.currentIndex++;
+				// 	} else {
+				// 		$scope.currentIndex = 0;
+				// 	}
+				// };
+				// $scope.previous = function() {
+				// 	if ($scope.currentIndex > 0) {
+				// 		$scope.currentIndex--;
+				// 	} else {
+				// 		$scope.currentIndex = $scope.imagesLength;
+				// 	}
+				// };
+				// $scope.$watch('currentIndex', function() {
+				// 	$scope.images.forEach(function(image) {
+				// 		image.visible = false;
+				// 	});
+				// 	$scope.images[$scope.currentIndex].visible = true;
+				// });
 
 				//SOCIAL LINKS
 				$scope.socialLinkstitle = SocialLinksDataService.title;

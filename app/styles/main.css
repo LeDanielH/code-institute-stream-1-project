@@ -2621,7 +2621,7 @@ span[class^="icon-circle"] {
 	border-radius: 3px;
 }
 .divided-label {
-	padding: 5px 9px;
+	padding: 5px;
 	border: 1px solid #ddd;
 	border-radius: 3px;
 	margin-bottom: 0.75rem;
@@ -2648,9 +2648,6 @@ span[class^="icon-circle"] {
 	padding-bottom: 56.25%;
 	margin-bottom: 30px;
 	width: 100%;
-}
-.inline {
-	display: inline-block;
 }
 .center-inline {
 	-webkit-box-align: center;
@@ -2793,14 +2790,14 @@ select option {
 	width: 100%;
 }
 input.ng-invalid,select.ng-invalid {
-	border-color: #E5BCD3;
+	border-color: red;
 }
 .error-message {
 	text-align: right;
 	margin-bottom: 10px;
 	color: red;
 }
-input.field-small,select.field-small {
+.field-small {
 	max-width: 70px;
 }
 .field-medium {
@@ -3632,6 +3629,17 @@ body .container .main-footer {
 	top: -6px;
 	margin-left: 5px;
 }
+.tabs .tab-panel form .form-layout .form-column .card-cvv {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
 .tabs .tab-panel form .form-layout .form-column .card-expiry-date {
 	-webkit-box-pack: justify;
 	-moz-box-pack: justify;
@@ -3711,7 +3719,13 @@ body .container .main-footer {
 }
 .slider .slide-viewer .slide {
 	position: absolute;
-	display: none;
+	display: -webkit-box;
+	display: -moz-box;
+	display: box;
+	display: -webkit-flex;
+	display: -moz-flex;
+	display: -ms-flexbox;
+	display: flex;
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -3730,15 +3744,6 @@ body .container .main-footer {
 .slider .slide-viewer .slide.slide-4 {
 	background-image: url("../data/images/monkees-fans.jpg");
 }
-.slider .slide-viewer .slide:first-child {
-	display: -webkit-box;
-	display: -moz-box;
-	display: box;
-	display: -webkit-flex;
-	display: -moz-flex;
-	display: -ms-flexbox;
-	display: flex;
-}
 .slider .slide-viewer .slide .quote-wrapper {
 	position: absolute;
 	right: 10%;
@@ -3753,6 +3758,20 @@ body .container .main-footer {
 .slider .slide-viewer .slide .quote-wrapper cite {
 	align-self: flex-end;
 	font-style: normal;
+}
+.slide.ng-hide-add,.slide.ng-hide-remove {
+	-webkit-transition: 0.5s;
+	-moz-transition: 0.5s;
+	transition: 0.5s;
+	display: -webkit-flex !important;
+	display: -ms-flexbox !important;
+	display: flex !important;
+}
+.slide.ng-hide-add.ng-hide-add-active,.slide.ng-hide-remove {
+	opacity: 0;
+}
+.slide.ng-hide-add,.slide.ng-hide-remove.ng-hide-remove-active {
+	opacity: 1;
 }
 
 @media (max-width: 690px) {
@@ -4020,8 +4039,6 @@ make-map {
 	flex: 1;
 }
 make-map .image-map {
-	margin-bottom: 20px;
-	position: relative;
 	display: -webkit-box;
 	display: -moz-box;
 	display: box;
@@ -4029,6 +4046,8 @@ make-map .image-map {
 	display: -moz-flex;
 	display: -ms-flexbox;
 	display: flex;
+	margin-bottom: 20px;
+	position: relative;
 	-webkit-box-pack: end;
 	-moz-box-pack: end;
 	box-pack: end;

@@ -2,6 +2,7 @@ angular.module('bandApp', [
 	'ngFitText',
     'ngRoute',
     'ngSanitize',
+    'ngAnimate',
     'myBandAppControllers',
     'myBandAppFilters',
     'myBandAppDirectives',
@@ -72,7 +73,36 @@ angular.module('bandApp', [
 				$scope.sortByCategories = StoreDataService.sortByCategories;
 
 				//TESTIMONIALS
+				// $scope.images = [];
+				// $scope.image = null;
+				// function load(images) {
+				// 	$scope.images = images;
+				// 	$scope.image = images[0];
+				// }
+				// TestimonialsDataService.images.query().$promise.then(load);
 				$scope.images = TestimonialsDataService.images.query();
+				// $scope.currentIndex = 0;
+				// $scope.imagesLength = $scope.images.length - 1;
+				// $scope.next = function() {
+				// 	if ($scope.currentIndex < $scope.imagesLength) {
+				// 		$scope.currentIndex++;
+				// 	} else {
+				// 		$scope.currentIndex = 0;
+				// 	}
+				// };
+				// $scope.previous = function() {
+				// 	if ($scope.currentIndex > 0) {
+				// 		$scope.currentIndex--;
+				// 	} else {
+				// 		$scope.currentIndex = $scope.imagesLength;
+				// 	}
+				// };
+				// $scope.$watch('currentIndex', function() {
+				// 	$scope.images.forEach(function(image) {
+				// 		image.visible = false;
+				// 	});
+				// 	$scope.images[$scope.currentIndex].visible = true;
+				// });
 
 				//SOCIAL LINKS
 				$scope.socialLinkstitle = SocialLinksDataService.title;
@@ -681,58 +711,59 @@ angular.module('bandApp', [
 			};
 		});
 }());
-// ;(function() {
-//     'use strict';
-//     angular.module('myBandAppDirectives')
-//         .directive('photoSlider', ['$timeout',
-//             function($timeout) {
-//                 return {
-//                     restrict: 'AE',
-//                     replace: true,
-//                     templateUrl: 'templates/directives/testimonials.html',
-//                     scope: {
-//                         images: '='
-//                     },
-//                     link: function(scope, elem, attrs) {
-//                         scope.currentIndex = 0;
-//                         scope.next = function() {
-//                             if (scope.currentIndex < scope.images.length - 1) {
-//                                 scope.currentIndex++;
-//                             } else {
-//                                 scope.currentIndex = 0;
-//                             }
-//                         };
-//                         scope.prev = function() {
-//                             if (scope.currentIndex > 0) {
-//                                 scope.currentIndex--;
-//                             } else {
-//                                 scope.currentIndex = scope.images.length - 1;
-//                             }
-//                         };
-//                         scope.$watch('currentIndex', function() {
-//                             scope.images.forEach(function(image) {
-//                                 image.visible = false;
-//                             });
-//                             scope.images[scope.currentIndex].visible = true;
-//                         });
+;(function () {
+	'use strict';
+	angular.module('myBandAppDirectives')
+		.directive('testimonials', function($timeout) {
+			return {
+				restrict: 'AE',
+				replace: true,
+				scope: {
+					images: '='
+				},
+				link: function(scope, elem, attrs) {
 
-//                         var timer;
-//                         var sliderFunc = function() {
-//                             timer = $timeout(function() {
-//                                 scope.next();
-//                                 timer = $timeout(sliderFunc, 5000);
-//                             }, 5000);
-//                         };
-//                         sliderFunc();
-//                         scope.$on('$destroy', function() {
-//                             $timeout.cancel(timer);
-//                         });
-//                     },
+					scope.currentIndex = 0;
 
-//                 };
-//             }
-//         ]);
-// }());
+					scope.next = function() {
+						scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+					};
+
+					scope.previous = function() {
+						scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+					};
+
+					scope.$watch('currentIndex', function() {
+						scope.images.forEach(function(image) {
+							image.visible = false;
+						});
+						scope.images[scope.currentIndex].visible = true;
+					});
+
+					/* Start: For Automatic slideshow*/
+
+					var timer;
+
+					var sliderFunc = function() {
+						timer = $timeout(function() {
+							scope.next();
+							timer = $timeout(sliderFunc, 2000);
+						}, 2000);
+					};
+
+					sliderFunc();
+
+					scope.$on('$destroy', function() {
+						$timeout.cancel(timer);
+					});
+
+					/* End : For Automatic slideshow*/
+
+				},
+				templateUrl: 'templates/directives/testimonials.html'
+			};
+		});
+}());
 ;(function () {
 	'use strict';
 	angular.module('myBandAppFilters', []);

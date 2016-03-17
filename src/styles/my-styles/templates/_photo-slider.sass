@@ -14,7 +14,7 @@
 
 		.slide
 			+position(absolute)
-			+display(none)
+			+display(flex)
 			//+calc(height, "50vh - 100px")
 			background-repeat: no-repeat
 			background-position: center
@@ -34,8 +34,8 @@
 			&.slide-4
 				background-image: url("../data/images/monkees-fans.jpg")
 
-			&:first-child
-				+display(flex)
+			// &:first-child
+			// 	+display(flex)
 
 			.quote-wrapper
 				+position(absolute, null 10% $base-padding null)
@@ -49,6 +49,17 @@
 				cite
 					align-self: flex-end
 					font-style: normal
+.slide.ng-hide-add, .slide.ng-hide-remove
+	+transition(0.5s)
+	display: -webkit-flex !important
+	display: -ms-flexbox !important
+	display: flex !important
+
+.slide.ng-hide-add.ng-hide-add-active, .slide.ng-hide-remove
+	opacity: 0
+
+.slide.ng-hide-add, .slide.ng-hide-remove.ng-hide-remove-active
+	opacity: 1
 	
 @media (max-width: $query-small)
 	.slider
