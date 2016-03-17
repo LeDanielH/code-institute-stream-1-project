@@ -3,10 +3,12 @@ angular.module('bandApp', [
     'ngRoute',
     'ngSanitize',
     'ngAnimate',
+    'ngTouch',
     'myBandAppControllers',
     'myBandAppFilters',
     'myBandAppDirectives',
-    'myBandAppServices'
+    'myBandAppServices',
+    'myBandAppAnimations'
     // 'templates'
     // 'myBandAppAnimations',
 ])

@@ -1,7 +1,7 @@
 ;(function () {
 	'use strict';
 	angular.module('myBandAppDirectives')
-		.directive('testimonials', function($timeout) {
+		.directive('testimonials', function($interval) {
 			return {
 				restrict: 'AE',
 				replace: true,
@@ -9,44 +9,50 @@
 					images: '='
 				},
 				link: function(scope, elem, attrs) {
-
 					scope.currentIndex = 0;
+					scope.direction = 'left';
+					scope.setCurrentSlideIndex = function(index) {
+						scope.direction = (index > scope.currentIndex) ? 'left' : 'right';
+						scope.currentIndex = index;
+					};
 
-					scope.next = function() {
-						scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+					scope.loopDelay = 5000;
+					scope.loopCount = 12;
+
+					scope.isCurrentSlideIndex = function(index) {
+						return scope.currentIndex === index;
 					};
 
 					scope.previous = function() {
-						scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+						scope.direction = 'right';
+						scope.currentIndex = (scope.currentIndex > 0) ? --scope.currentIndex : scope.images.length - 1;
+					};
+					scope.next = function() {
+						scope.direction = 'left';
+						scope.currentIndex = (scope.currentIndex < scope.images.length - 1) ? ++scope.currentIndex : 0;
+					};
+					// $interval(scope.next, scope.loopDelay, scope.loopCount);
+					var promise;
+					scope.loopSlider = function() {
+						scope.stopSlider();
+						promise = $interval(scope.next, scope.loopDelay, scope.loopCount);
 					};
 
-					scope.$watch('currentIndex', function() {
-						scope.images.forEach(function(image) {
-							image.visible = false;
-						});
-						scope.images[scope.currentIndex].visible = true;
-					});
-
-					/* Start: For Automatic slideshow*/
-
-					var timer;
-
-					var sliderFunc = function() {
-						timer = $timeout(function() {
-							scope.next();
-							timer = $timeout(sliderFunc, 2000);
-						}, 2000);
+					scope.stopSlider = function() {
+						$interval.cancel(promise);
 					};
 
-					sliderFunc();
+					scope.resetSlider = function() {
+						$interval.cancel(promise);
+						scope.loopSlider();
+					};
 
+					scope.loopSlider();
 					scope.$on('$destroy', function() {
-						$timeout.cancel(timer);
+						$interval.cancel(promise);
 					});
-
-					/* End : For Automatic slideshow*/
-
 				},
+
 				templateUrl: 'templates/directives/testimonials.html'
 			};
 		});

@@ -14,10 +14,11 @@ gulp.task('process-js-libraries', function() {
             vars.jsLibraries.angularResource.min,
             vars.jsLibraries.angularSanitize.min,
             vars.jsLibraries.angularAnimate.min,
+            vars.jsLibraries.angularTouch.min,
             vars.jsLibraries.angularFitText.min,
-            vars.jsLibraries.moment.min
+            // vars.jsLibraries.moment.min,
             // vars.jsLibraries.d3.min,
-            // vars.jsLibraries.gsap.min
+            vars.jsLibraries.gsap.min
         ])
         .pipe(concat(vars.renderedJsNames.javascript.min))
         .pipe(uglifyJs())
@@ -32,10 +33,11 @@ gulp.task('process-js-debug-libraries', function() {
             vars.jsLibraries.angularResource.debug,
             vars.jsLibraries.angularSanitize.debug,
             vars.jsLibraries.angularAnimate.debug,
+            vars.jsLibraries.angularTouch.debug,
             vars.jsLibraries.angularFitText.min,
-            vars.jsLibraries.moment.debug
+            // vars.jsLibraries.moment.debug,
             // vars.jsLibraries.d3.debug,
-            // vars.jsLibraries.gsap.debug
+            vars.jsLibraries.gsap.debug
         ])
         .pipe(concat(vars.renderedJsNames.javascript.debug))
         .pipe(gulp.dest(vars.paths.scripts.app));

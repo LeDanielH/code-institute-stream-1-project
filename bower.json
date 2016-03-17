@@ -26,6 +26,7 @@
     "angular-resource": "^1.5.0",
     "ngFitText": "^4.1.1",
     "promise-js": "^0.0.6",
-    "moment": "^2.12.0"
+    "moment": "^2.12.0",
+    "angular-touch": "^1.5.1"
   }
 }

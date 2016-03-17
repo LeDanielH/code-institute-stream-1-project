@@ -33,6 +33,8 @@
 
 			&.slide-4
 				background-image: url("../data/images/monkees-fans.jpg")
+			&.nonDraggableImage
+    			-webkit-user-drag: none;
 
 			// &:first-child
 			// 	+display(flex)
@@ -49,18 +51,18 @@
 				cite
 					align-self: flex-end
 					font-style: normal
-.slide.ng-hide-add, .slide.ng-hide-remove
-	+transition(0.5s)
-	display: -webkit-flex !important
-	display: -ms-flexbox !important
-	display: flex !important
+// .slide.ng-hide-add, .slide.ng-hide-remove
+// 	+transition(0.5s)
+// 	display: -webkit-flex !important
+// 	display: -ms-flexbox !important
+// 	display: flex !important
 
-.slide.ng-hide-add.ng-hide-add-active, .slide.ng-hide-remove
-	opacity: 0
+// .slide.ng-hide-add.ng-hide-add-active, .slide.ng-hide-remove
+// 	opacity: 0
 
-.slide.ng-hide-add, .slide.ng-hide-remove.ng-hide-remove-active
-	opacity: 1
-	
+// .slide.ng-hide-add, .slide.ng-hide-remove.ng-hide-remove-active
+// 	opacity: 1
+
 @media (max-width: $query-small)
 	.slider
 		height: 50vw

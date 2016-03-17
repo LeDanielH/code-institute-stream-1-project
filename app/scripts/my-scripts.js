@@ -3,10 +3,12 @@ angular.module('bandApp', [
     'ngRoute',
     'ngSanitize',
     'ngAnimate',
+    'ngTouch',
     'myBandAppControllers',
     'myBandAppFilters',
     'myBandAppDirectives',
-    'myBandAppServices'
+    'myBandAppServices',
+    'myBandAppAnimations'
     // 'templates'
     // 'myBandAppAnimations',
 ])
@@ -38,22 +40,24 @@ angular.module('bandApp', [
 				});
         }
     ]);
-;(function () {
+;(function() {
 	'use strict';
 	angular.module('myBandAppControllers', ['myBandAppServices'])
 		.controller('IndexController', [
-            '$scope',
-            '$location',
-            // '$http',
-            'GigsDataService',
-            'StoreDataService',
-            'TestimonialsDataService',
-            'SocialLinksDataService',
-            'CallToActionDataService',
-            'FamousQuotesDataService',
-            function (
+			'$scope',
+			'$location',
+			'$interval',
+			// '$http',
+			'GigsDataService',
+			'StoreDataService',
+			'TestimonialsDataService',
+			'SocialLinksDataService',
+			'CallToActionDataService',
+			'FamousQuotesDataService',
+			function(
 				$scope,
 				$location,
+				$interval,
 				// $http,
 				GigsDataService,
 				StoreDataService,
@@ -61,49 +65,20 @@ angular.module('bandApp', [
 				SocialLinksDataService,
 				CallToActionDataService,
 				FamousQuotesDataService
-            ) {
+			) {
 				// $scope.getDocumentWidth = window.matchMedia(width);
 				//GIGS
 				$scope.subtitles = GigsDataService.subtitles;
 				$scope.maps = GigsDataService.maps.query();
-				
+
 				//STORE
 				$scope.storeItems = StoreDataService.storeItems.query();
 				$scope.sortByCategory = StoreDataService.sortByCategory;
 				$scope.sortByCategories = StoreDataService.sortByCategories;
 
 				//TESTIMONIALS
-				// $scope.images = [];
-				// $scope.image = null;
-				// function load(images) {
-				// 	$scope.images = images;
-				// 	$scope.image = images[0];
-				// }
-				// TestimonialsDataService.images.query().$promise.then(load);
 				$scope.images = TestimonialsDataService.images.query();
-				// $scope.currentIndex = 0;
-				// $scope.imagesLength = $scope.images.length - 1;
-				// $scope.next = function() {
-				// 	if ($scope.currentIndex < $scope.imagesLength) {
-				// 		$scope.currentIndex++;
-				// 	} else {
-				// 		$scope.currentIndex = 0;
-				// 	}
-				// };
-				// $scope.previous = function() {
-				// 	if ($scope.currentIndex > 0) {
-				// 		$scope.currentIndex--;
-				// 	} else {
-				// 		$scope.currentIndex = $scope.imagesLength;
-				// 	}
-				// };
-				// $scope.$watch('currentIndex', function() {
-				// 	$scope.images.forEach(function(image) {
-				// 		image.visible = false;
-				// 	});
-				// 	$scope.images[$scope.currentIndex].visible = true;
-				// });
-
+				
 				//SOCIAL LINKS
 				$scope.socialLinkstitle = SocialLinksDataService.title;
 				$scope.socialIcons = SocialLinksDataService.socialIcons.query();
@@ -115,8 +90,8 @@ angular.module('bandApp', [
 				//LEFT SIDEBAR FAMOUS QUOTES
 				$scope.fQuotes = FamousQuotesDataService.quotes.query();
 				$scope.randomQuotes = $scope.fQuotes[Math.floor(Math.random() * $scope.fQuotes.length)];
-            }
-        ]);
+			}
+		]);
 
 }());
 ;(function () {
@@ -714,7 +689,7 @@ angular.module('bandApp', [
 ;(function () {
 	'use strict';
 	angular.module('myBandAppDirectives')
-		.directive('testimonials', function($timeout) {
+		.directive('testimonials', function($interval) {
 			return {
 				restrict: 'AE',
 				replace: true,
@@ -722,44 +697,50 @@ angular.module('bandApp', [
 					images: '='
 				},
 				link: function(scope, elem, attrs) {
-
 					scope.currentIndex = 0;
+					scope.direction = 'left';
+					scope.setCurrentSlideIndex = function(index) {
+						scope.direction = (index > scope.currentIndex) ? 'left' : 'right';
+						scope.currentIndex = index;
+					};
 
-					scope.next = function() {
-						scope.currentIndex < scope.images.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+					scope.loopDelay = 5000;
+					scope.loopCount = 12;
+
+					scope.isCurrentSlideIndex = function(index) {
+						return scope.currentIndex === index;
 					};
 
 					scope.previous = function() {
-						scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.images.length - 1;
+						scope.direction = 'right';
+						scope.currentIndex = (scope.currentIndex > 0) ? --scope.currentIndex : scope.images.length - 1;
+					};
+					scope.next = function() {
+						scope.direction = 'left';
+						scope.currentIndex = (scope.currentIndex < scope.images.length - 1) ? ++scope.currentIndex : 0;
+					};
+					// $interval(scope.next, scope.loopDelay, scope.loopCount);
+					var promise;
+					scope.loopSlider = function() {
+						scope.stopSlider();
+						promise = $interval(scope.next, scope.loopDelay, scope.loopCount);
 					};
 
-					scope.$watch('currentIndex', function() {
-						scope.images.forEach(function(image) {
-							image.visible = false;
-						});
-						scope.images[scope.currentIndex].visible = true;
-					});
-
-					/* Start: For Automatic slideshow*/
-
-					var timer;
-
-					var sliderFunc = function() {
-						timer = $timeout(function() {
-							scope.next();
-							timer = $timeout(sliderFunc, 2000);
-						}, 2000);
+					scope.stopSlider = function() {
+						$interval.cancel(promise);
 					};
 
-					sliderFunc();
+					scope.resetSlider = function() {
+						$interval.cancel(promise);
+						scope.loopSlider();
+					};
 
+					scope.loopSlider();
 					scope.$on('$destroy', function() {
-						$timeout.cancel(timer);
+						$interval.cancel(promise);
 					});
-
-					/* End : For Automatic slideshow*/
-
 				},
+
 				templateUrl: 'templates/directives/testimonials.html'
 			};
 		});
@@ -779,6 +760,46 @@ angular.module('bandApp', [
 					return trueMark;
 				} else {
 					return falseMark;
+				}
+			};
+		});
+}());
+;(function () {
+	'use strict';
+	angular.module('myBandAppAnimations', []);
+}());
+;(function () {
+	'use strict';
+	angular.module('myBandAppAnimations')
+		.animation('.testimonials-animation', function() {
+			return {
+				addClass: function(element, className, done) {
+					var scope = element.scope();
+					var parentWidth = angular.element(document.querySelectorAll(".slide-viewer"))[0].getBoundingClientRect().width;
+					if (className === 'ng-hide') {
+						var finishPoint = parentWidth;
+						if (scope.direction !=='right') {
+							finishPoint = -finishPoint;
+						}
+						TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
+					} else {
+						done();
+					}
+				},
+				removeClass: function(element, className, done) {
+					var scope = element.scope();
+					var parentWidth = angular.element(document.querySelectorAll(".slide-viewer"))[0].getBoundingClientRect().width;
+					if (className === 'ng-hide') {
+						element.removeClass('ng-hide');
+						var startPoint = parentWidth;
+						if (scope.direction === 'right') {
+							startPoint = -startPoint;
+						}
+						TweenMax.set(element, {left: startPoint});
+						TweenMax.to(element, 0.5, {left: 0, onComplete: done});
+					} else {
+						done();
+					}
 				}
 			};
 		});

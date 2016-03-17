@@ -84,6 +84,11 @@ var jsLibraries = {
         debug: paths.bower + 'angular-animate/angular-animate.js'
     },
 
+    angularTouch: {
+        min: paths.bower + 'angular-touch/angular-touch.min.js',
+        debug: paths.bower + 'angular-touch/angular-touch.js'
+    },
+
     angularFitText: {
         min: paths.bower + 'ngFitText/dist/ng-FitText.min.js'
     },

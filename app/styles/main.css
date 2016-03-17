@@ -3744,6 +3744,9 @@ body .container .main-footer {
 .slider .slide-viewer .slide.slide-4 {
 	background-image: url("../data/images/monkees-fans.jpg");
 }
+.slider .slide-viewer .slide.nonDraggableImage {
+	-webkit-user-drag: none;
+}
 .slider .slide-viewer .slide .quote-wrapper {
 	position: absolute;
 	right: 10%;
@@ -3758,20 +3761,6 @@ body .container .main-footer {
 .slider .slide-viewer .slide .quote-wrapper cite {
 	align-self: flex-end;
 	font-style: normal;
-}
-.slide.ng-hide-add,.slide.ng-hide-remove {
-	-webkit-transition: 0.5s;
-	-moz-transition: 0.5s;
-	transition: 0.5s;
-	display: -webkit-flex !important;
-	display: -ms-flexbox !important;
-	display: flex !important;
-}
-.slide.ng-hide-add.ng-hide-add-active,.slide.ng-hide-remove {
-	opacity: 0;
-}
-.slide.ng-hide-add,.slide.ng-hide-remove.ng-hide-remove-active {
-	opacity: 1;
 }
 
 @media (max-width: 690px) {
