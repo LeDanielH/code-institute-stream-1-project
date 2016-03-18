@@ -1,51 +1,50 @@
 <h1 class="h2 c-text content-heading">{{title}}</h1>
-<section class="tabs">
-	
-	<input id="tab-one" type="radio" name="grp" checked="checked" />
-	<label class="tab-header" for="tab-one">Buy a ticket</label>
+<section class="tabs row">
+
+	<input id="tab-one" type="radio" name="grp" checked="checked">
+	<label class="tab-header" for="tab-one">{{formsData.tabsLabels.buyTicket}}</label>
 	<div class="tab-panel">
-		<p>Please fill all the required information.</p>
-		<form action="">
-			<fieldset>
-				<div class="input-wrap">
-					<div class="input-wrap">
-						<label for="where-and-when">{{subtitles[0]}} and {{subtitles[1]}}?</label>
-						<select ng-model="map" ng-options="mapview.clubName + ' - ' + mapview.date for mapview in maps" name="where-and-when" id="where-and-when">
-						</select>
-					</div>
-					<div class="input-wrap-inline location-wrapper">
-						<div class="input-wrap">
-							<h5>Address</h5>
-							<address>
-								{{map.address[0].street}} <br>
-								{{map.address[0].city}} <br>
-								{{map.address[0].country}}
-							</address>
-						</div>
-						<make-map map="map"></make-map>
-					</div>
+		<p class="warning">{{formsData.introGuide}}</p>
+
+		<form class="column" name="buyTicketForm" ng-submit="submitGuest(buyTicket)" novalidate>
+			<div class="row form-layout" my-directive template-path="templates/directives/gigs-directives/buy-ticket-form.html"></div>
+			<br>
+
+			<div class="form-footer wrapped-box-margin">
+				<div class="row center-inline">
+					<input type="checkbox" id="terms" ng-model="confirmInfo" ng-required="true">
+					<p>{{formsData.checkbox.formChecked}}</p>
 				</div>
-				<div class="input-wrap">
-					<label for="email">Your email?</label>
-					<input type="email" id="email" name="email" placeholder="example@example.com" autocomplete="on" required>
+				<div class="row center-inline">
+					<input type="checkbox" id="terms" ng-model="confirmTerms" ng-required="true">
+					<p ng-bind-html="formsData.checkbox.termsConfirmed"></p>
 				</div>
-				<div class="input-wrap add-person">
-					<label for="addPerson">Add another person</label>
-					<div class="input-wrap-inline">
-						<input type="text" id="addPerson" name="addPerson" placeholder="John Doe">
-						<button id="addPersonButton" class="plus-button"><i class="fa fa-plus-circle fa-2x"></i></button>
-					</div>
-				</div>
-				<div class="input-wrap-inline">
-					<input type="checkbox" id="terms" />
-					<p>Please check to agree to <a href="#">terms &amp; conditions</a>.</p>
-				</div>
-			</fieldset>
+				<button type="submit" ng-disabled="buyTicketForm.$invalid" ng-model="finalPrice">Pay {{finalPrice(formsData.ticketPrice, companions.length) | currency}}</button>
+
+			</div>
 		</form>
 	</div>
-	<input id="tab-two" type="radio" name="grp" />
-	<label class="tab-header" for="tab-two">Book us now</label>
+
+	<input id="tab-two" type="radio" name="grp">
+	<label class="tab-header" for="tab-two">{{formsData.tabsLabels.bookUs}}</label>
 	<div class="tab-panel">
-		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim deserunt perferendis magni. Molestias nostrum aspernatur voluptatum nisi, facere sint aliquid, debitis temporibus porro modi fugiat dignissimos labore qui, voluptatem deleniti.</p>
+		<p class="warning">{{formsData.introGuide}}</p>
+
+		<form class="column" name="bookUsForm" ng-submit="submitRequest()" novalidate>
+			<div class="row form-layout" my-directive template-path="templates/directives/gigs-directives/book-us-form.html"></div>
+			<br>
+
+			<div class="form-footer wrapped-box-margin">
+				<div class="row center-inline">
+					<input type="checkbox" id="terms" ng-model="confirmInfo" ng-required="true">
+					<p>{{formsData.checkbox.formChecked}}</p>
+				</div>
+				<div class="row center-inline">
+					<input type="checkbox" id="terms" ng-model="confirmTerms" ng-required="true">
+					<p ng-bind-html="formsData.checkbox.termsConfirmed"></p>
+				</div>
+				<button type="submit" ng-disabled="bookUsForm.$invalid">Send request</button>
+			</div>
+		</form>
 	</div>
 </section>

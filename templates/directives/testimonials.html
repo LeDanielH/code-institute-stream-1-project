@@ -1,0 +1,22 @@
+<div class="slider">
+	<span class="icon-circle-left" ng-click="previous(); resetSlider()">
+		<i class="fa fa-chevron-left fa-2x"></i>
+	</span>
+
+	<div class="slide-viewer">
+		<figure ng-repeat="image in images" ng-hide="!isCurrentSlideIndex($index)" class="slide dark-transparent-medium slide-{{image.id}} testimonials-animation nonDraggableImage" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()">
+			<div class="quote-wrapper">
+				<q class="bq-over-image">
+				<i class="fa fa-quote-left fa-pull-left"></i>
+				<br>{{image.quote}}<br>
+				<i class="fa fa-quote-right fa-pull-right"></i>
+				</q>
+				<cite>- {{image.cite}}</cite>
+			</div>
+		</figure>
+	</div>
+
+	<span class="icon-circle-right" ng-click="next(); resetSlider()">
+		<i class="fa fa-chevron-right fa-2x"></i>
+	</span>
+</div>

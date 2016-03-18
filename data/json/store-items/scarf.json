@@ -1,0 +1,11 @@
+{
+	"name": "scarf",
+	"description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni harum, excepturi fugit numquam, corporis voluptates asperiores molestiae, vero quasi ad voluptas temporibus fuga impedit velit recusandae corrupti quidem? Dicta, porro.",
+	"images": [
+		"data/images/store-items/scarf-1",
+		"data/images/store-items/scarf-2",
+		"data/images/store-items/scarf-3"
+	],
+	"stock": 0,
+	"price": 10
+}

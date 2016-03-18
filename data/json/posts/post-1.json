@@ -1,0 +1,23 @@
+{
+    "heading": "New band member!",
+    "title-image": "data/images/album.jpg",
+    "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima dolorum eveniet amet aperiam eaque esse animi error facilis eum reiciendis quod modi cumque debitis neque quis, tempore, exercitationem molestias minus.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequuntur sint similique beatae eius, reprehenderit corporis officiis vitae sequi, optio facere quis culpa perspiciatis voluptate, ratione vero commodi enim. Saepe, assumenda., Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique, Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam omnis reiciendis id voluptas libero praesentium, molestias porro alias reprehenderit quidem dolores fuga quod inventore tempora commodi odio, delectus voluptates similique",
+    "images": ["data/images/dj"],
+    "date": "01/02/2015",
+    "comments": [{
+    	"userName": "Richard",
+    	"content": "Good luck to your new member!",
+    	"upVotes": 14,
+    	"dateTime": "03/02/2015 16:33"
+    }, {
+    	"userName": "Barney",
+    	"content": "He is a good looking fella, don't you think laides?",
+    	"upVotes": 12,
+    	"dateTime": "04/02/2015 16:20"
+    }, {
+    	"userName": "Richard",
+    	"content": "Finally, can't wait to hear more of your music guys",
+    	"upVotes": 20,
+    	"dateTime": "15/02/2015 15:10"
+    }]
+}

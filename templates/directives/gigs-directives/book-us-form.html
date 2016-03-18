@@ -1,0 +1,90 @@
+<fieldset class="form-column wrapped-box-margin">
+
+	<label for="date">Pick up an available date.</label>
+	<input type="date" id="date" name="date" title="{{formsData.date.title}}" ng-model="pickUpdate" ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.date.$touched && bookUsForm.date.$error.required">
+		{{formsData.date.errorMessages.required}}
+	</small>
+
+	<label for="gig-type">{{formsData.gigType.label}}</label>
+	<select ng-options="concert for concert in formsData.gigType.select" name="gigType" id="gig-type" title="{{formData.gigType.title}}" placeholder="{{formData.gigType.placeholder}}" ng-model="gigType" ng-required="true">
+		<option value disabled="disabled">gig type</option>
+	</select>
+	<small class="error-message" ng-show="bookUsForm.gigType.$touched && bookUsForm.gigType.$error.required">
+		{{formsData.city.errorMessages.required}}
+	</small>
+
+	<h5>Location of the gig?</h5>
+
+	<input type="text" id="street" name="street" autocomplete="street-address" title="{{formsData.street.title}}" placeholder="{{formsData.street.placeholder}}" ng-model="gigAddress.street" ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$error.required">
+		{{formsData.street.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$invalid">
+		{{formsData.street.errorMessages.invalid}}
+	</small>
+
+	<input type="text" id="city" name="city" autocomplete="address-level2" title="{{formsData.city.title}}" placeholder="{{formsData.city.placeholder}}" ng-model="gigAddress.city" ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$error.required">
+		{{formsData.city.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$invalid">
+		{{formsData.city.errorMessages.invalid}}
+	</small>
+
+	<input type="text" id="post-code" name="postCode" autocomplete="postal-code" title="{{formsData.postCode.title}}" placeholder="{{formsData.postCode.placeholder}}" ng-model="gigAddress.postCode" ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$error.required">
+		{{formsData.postCode.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$invalid">
+		{{formsData.postCode.errorMessages.invalid}}
+	</small>
+
+	<select name="country" id="country" autocomplete="country" title="{{formsData.country.title}}" ng-model="gigAddress.country" ng-required="true" ng-include="'templates/directives/gigs-directives/countries.html'">
+	</select>
+	<small class="error-message" ng-show="bookUsForm.country.$touched && bookUsForm.country.$error.required">
+		{{formsData.country.errorMessages.required}}
+	</small>
+</fieldset>
+
+<fieldset class="form-column wrapped-box-margin">
+
+	<label for="name">{{formsData.guest.label}}</label>
+	<input type="text" id="name" name="name" autocomplete="name" title="{{formsData.guest.title}}" placeholder="{{formsData.guest.placeholder}}" ng-init="bookUsForm.name=formsData.guest.placeholder" ng-model="bookUs.name" ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.name.$touched && bookUsForm.name.$error.required 
+		&& bookUsForm.name === initName">
+		{{formsData.guest.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.name.$touched && bookUsForm.name.$invalid">
+		{{formsData.guest.errorMessages.invalid}}
+	</small>
+
+	<label for="email">{{formsData.email.label}}</label>
+	<input type="email" id="email" name="email" autocomplete="email" title="{{formsData.email.title}}" placeholder="{{formsData.email.title}}" ng-model="bookUs.email" ng-required="true">
+	<small class="error-message" ng-show="bookUsForm.email.$touched && bookUsForm.email.$error.required">
+		{{formsData.email.errorMessages.required}}
+	</small>
+	<small class="error-message" ng-show="bookUsForm.email.$touched && bookUsForm.email.$invalid">
+		{{formsData.email.errorMessages.invalid}}	
+	</small>
+
+	<div class="input-wrapper-inline more-info">
+		<label for="moreInfo">{{formsData.moreInfo.label}}</label>
+		<p>{{formsData.textArea.maxLength - moreInfo.length}} left</p>
+	</div>
+	<textarea form="bookUsForm" name="moreInfo" id="moreInfo" cols="30" rows="7" title="{{formsData.moreInfo.title}}" placeholder="{{formsData.moreInfo.placeholder}}" ng-model="moreInfo" ng-maxlength="formsData.textArea.maxLength" ng-trim="false">
+	</textarea>
+	<small class="error-message" ng-show="bookUsForm.moreInfo.$touched && bookUsForm.moreInfo.$error.maxlength">
+		{{formsData.moreInfo.errorMessages.invalid}}
+	</small>
+
+	<label for="offer">{{formsData.honorarium.label}}</label>
+	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="honorarium">
+
+	<label for="honorarium">Honorarium</label>
+	Honorarium: {{honorarium}} $
+	<input type="number" id="honorarium" name="honorarium" title="{{formsData.honorarium.title}}" placeholder="{{formsData.honorarium.placeholder}}" ng-change="setHonorarium()" ng-model="honorarium">
+	<small class="error-message" ng-show="bookUsForm.honorarium.$touched && bookUsForm.honorarium.$invalid">
+		{{formsData.honorarium.errorMessages.invalid}}
+	</small>
+</fieldset>
