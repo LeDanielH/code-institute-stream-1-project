@@ -3357,7 +3357,7 @@ aside > a {
     color: rgba(119, 98, 115, 0.9); }
 
 /* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-colors-and-transitions.sass */
-header > nav > a:hover {
+header > nav > div > a:hover, header > nav > a:hover {
   background-color: rgba(35, 29, 34, 0.9);
   color: #fff; }
 
@@ -3593,11 +3593,11 @@ span[class^="icon-circle"] {
   cursor: pointer;
   z-index: 10; }
 
-/* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 * {
   box-sizing: border-box; }
 
-/* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 10, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 img {
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
@@ -3607,51 +3607,132 @@ img {
   -ms-flex: 1;
   flex: 1; }
 
-/* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 13, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 .divided {
   padding: 20px;
   border: 1px solid #ddd;
   border-radius: 3px; }
 
-/* line 19, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 .divided-label {
-  padding: 5px 9px;
+  padding: 5px;
   border: 1px solid #ddd;
   border-radius: 3px;
   margin-bottom: 0.75rem; }
 
-/* line 26, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 24, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 .space-between {
   width: 20px; }
 
-/* line 29, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 27, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 .divided-no-border {
   padding: 20px; }
 
-/* line 32, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 30, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 .align-left {
   float: left;
   margin-left: 0; }
 
-/* line 36, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 .align-right {
   float: right;
   margin-right: 0; }
 
-/* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
-.img-wrapper, figure {
+/* line 38, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.image-wrapper, figure {
   width: 100%; }
 
-/* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+/* line 41, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
 .video-wrapper {
   position: relative;
   padding-bottom: 56.25%;
   margin-bottom: 30px;
   width: 100%; }
 
-/* line 49, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
-.inline {
-  display: inline-block; }
+/* line 47, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.center-inline {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center; }
+
+/* line 50, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.center-blocks {
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+
+/* line 53, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.center-both {
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center; }
+
+/* line 57, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.dont-wrap {
+  white-space: nowrap; }
+
+/* line 60, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.row {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex; }
+
+/* line 63, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.column {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -moz-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  -moz-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column; }
+
+/* line 67, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-helpers.sass */
+.wrapped-box-margin {
+  margin-bottom: 10px;
+  margin-right: 10px;
+  margin-left: 10px; }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .choice-wrapper {
@@ -3704,73 +3785,83 @@ img {
     .choice-wrapper .inline-check span {
       font-family: "Roboto", sans-serif; }
 
-/* line 12, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
-.input-wrap-inline {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center; }
-  /* line 16, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
-  .input-wrap-inline input[type="checkbox"], .input-wrap-inline select[type="checkbox"] {
-    -webkit-flex-shrink: 0;
-    -moz-flex-shrink: 0;
-    flex-shrink: 0;
-    -ms-flex-negative: 0;
-    position: relative;
-    top: -6px; }
+/* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+input[type="checkbox"], select[type="checkbox"] {
+  -webkit-flex-shrink: 0;
+  -moz-flex-shrink: 0;
+  flex-shrink: 0;
+  -ms-flex-negative: 0;
+  position: relative;
+  top: -6px; }
 
-/* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
-.input-wrap {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  margin-bottom: 0.75rem; }
-
-/* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .form-small {
   max-width: 320px; }
 
-/* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .form-medium {
   max-width: 640px; }
 
-/* line 46, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 24, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .plus-minus-button {
   padding: 2px 4px; }
 
-/* line 51, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 29, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 select option {
   width: 100%; }
 
-/* line 57, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
-input.ng-invalid, select.ng-invalid {
-  border-color: red; }
+/* line 35, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+input.ng-required, select.ng-required {
+  background-color: #fbe3e4; }
+
+/* line 38, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+input.ng-valid, select.ng-valid {
+  background-color: #e6efc2; }
+
+/* line 41, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+.error-message {
+  text-align: right;
+  margin-bottom: 10px;
+  color: red; }
+
+/* line 46, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+.field-small {
+  max-width: 70px; }
+
+/* line 49, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+.field-medium {
+  max-width: 100px; }
+
+/* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+.field-large {
+  max-width: 140px; }
+
+/* line 55, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+.field-big {
+  max-width: 200px; }
+
+/* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+.circle-button {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  -ms-justify-content: center;
+  -o-justify-content: center;
+  justify-content: center;
+  -ms-flex-pack: center;
+  padding: 6.66667px; }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-tables.sass */
 table {
@@ -3929,15 +4020,20 @@ table {
   border-left: none;
   border-right: none; }
 
+/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_scrollbar.sass */
+::-webkit-scrollbar {
+  width: 20px; }
+
+/* line 4, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_scrollbar.sass */
+::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.2); }
+
+/* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_scrollbar.sass */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(35, 29, 34, 0.9); }
+
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
 body {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-pack: justify;
   -moz-box-pack: justify;
   box-pack: justify;
@@ -3952,29 +4048,12 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed; }
-  /* line 10, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+  /* line 9, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
   body .empty-column {
     min-width: 230px; }
-  /* line 13, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+  /* line 12, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
   body .left-sidebar {
     position: fixed;
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    box-orient: vertical;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-direction: column;
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     box-pack: justify;
@@ -3984,76 +4063,26 @@ body {
     -o-justify-content: space-between;
     justify-content: space-between;
     -ms-flex-pack: justify;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    box-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-    -ms-flex-align: center;
     max-width: 230px;
     height: 100vh; }
-  /* line 22, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+  /* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
   body .container {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    box-orient: vertical;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-direction: column;
+    padding-right: -webkit-calc(20% - 100px);
+    padding-right: calc(20% - 100px);
+    padding-left: -webkit-calc(20% - 100px);
+    padding-left: calc(20% - 100px);
     -webkit-box-flex: 1;
     -moz-box-flex: 1;
     box-flex: 1;
     -webkit-flex: 1;
     -moz-flex: 1;
     -ms-flex: 1;
-    flex: 1;
-    padding-right: -webkit-calc(20% - 100px);
-    padding-right: calc(20% - 100px);
-    padding-left: -webkit-calc(20% - 100px);
-    padding-left: calc(20% - 100px); }
-    /* line 29, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+    flex: 1; }
+    /* line 23, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
     body .container .main-header {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      box-direction: normal;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      flex-direction: column;
-      -ms-flex-direction: column;
       width: 100%; }
-    /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+    /* line 26, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
     body .container .columns-wrapper {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
       -webkit-box-pack: justify;
       -moz-box-pack: justify;
       box-pack: justify;
@@ -4070,35 +4099,15 @@ body {
       -moz-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
       flex-wrap: wrap; }
-      /* line 39, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
-      body .container .columns-wrapper .content {
-        padding: 20px;
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        box-orient: vertical;
-        -webkit-box-direction: normal;
-        -moz-box-direction: normal;
-        box-direction: normal;
-        -webkit-flex-direction: column;
-        -moz-flex-direction: column;
-        flex-direction: column;
-        -ms-flex-direction: column;
-        -webkit-box-align: center;
-        -moz-box-align: center;
-        box-align: center;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        -ms-align-items: center;
-        -o-align-items: center;
-        align-items: center;
-        -ms-flex-align: center;
+      /* line 30, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+      body .container .columns-wrapper .page-content {
+        -webkit-box-lines: multiple;
+        -moz-box-lines: multiple;
+        box-lines: multiple;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
         -webkit-box-flex: 10;
         -moz-box-flex: 10;
         box-flex: 10;
@@ -4106,29 +4115,19 @@ body {
         -moz-flex: 10 10 400px;
         -ms-flex: 10 10 400px;
         flex: 10 10 400px;
+        padding-top: 20px;
+        padding-bottom: 20px;
         padding-right: -webkit-calc(15% - 100px);
         padding-right: calc(15% - 100px);
         padding-left: -webkit-calc(15% - 100px);
-        padding-left: calc(15% - 100px); }
+        padding-left: calc(15% - 100px);
+        max-height: 600px;
+        overflow-y: auto; }
+      /* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+      body .container .columns-wrapper .right-sidebar-substitute {
+        display: none; }
     /* line 49, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
     body .container .main-footer {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      box-direction: normal;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      flex-direction: column;
-      -ms-flex-direction: column;
       -webkit-box-pack: justify;
       -moz-box-pack: justify;
       box-pack: justify;
@@ -4142,20 +4141,13 @@ body {
       padding: 20px; }
 
 @media (max-width: 690px) {
-  /* line 57, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
+  /* line 55, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_page-layout.sass */
   .left-sidebar, .empty-column {
     display: none !important; } }
 
 /* line 2, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
 .main-navigation {
-  z-index: 99;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
+  z-index: 10;
   -webkit-box-pack: distribute;
   -moz-box-pack: distribute;
   box-pack: distribute;
@@ -4165,19 +4157,34 @@ body {
   -o-justify-content: space-around;
   justify-content: space-around;
   -ms-flex-pack: distribute;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center; }
-  /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
-  .main-navigation .menu-item {
+  position: relative; }
+  /* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+  .main-navigation #menu-toggle {
     height: 40px;
     width: 100%;
+    position: relative;
+    display: none; }
+    /* line 12, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation #menu-toggle i#nav-down {
+      position: absolute;
+      top: 30%;
+      right: 3%;
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      transition: 300ms; }
+    /* line 16, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation #menu-toggle i#nav-up {
+      position: absolute;
+      top: 30%;
+      right: 3%;
+      display: none;
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      transition: 300ms;
+      opacity: 1;
+      visibility: none; }
+  /* line 23, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+  .main-navigation .menu-items-wrapper {
     display: -webkit-box;
     display: -moz-box;
     display: box;
@@ -4185,15 +4192,15 @@ body {
     display: -moz-flex;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    box-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -ms-flex-pack: center;
+    -webkit-box-pack: distribute;
+    -moz-box-pack: distribute;
+    box-pack: distribute;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;
+    -ms-flex-pack: distribute;
     -webkit-box-align: center;
     -moz-box-align: center;
     box-align: center;
@@ -4203,30 +4210,54 @@ body {
     -o-align-items: center;
     align-items: center;
     -ms-flex-align: center;
-    white-space: nowrap; }
-  /* line 16, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
-  .main-navigation #menu-toggle {
-    height: 40px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
     width: 100%;
-    position: relative;
-    display: none; }
-    /* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
-    .main-navigation #menu-toggle i#nav-down {
-      position: absolute;
-      top: 30%;
-      right: 3%; }
-    /* line 24, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
-    .main-navigation #menu-toggle i#nav-up {
-      position: absolute;
-      top: 30%;
-      right: 3%;
+    z-index: 20;
+    -webkit-transition: 300ms;
+    -moz-transition: 300ms;
+    transition: 300ms; }
+    /* line 31, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation .menu-items-wrapper .menu-item {
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -moz-box-align: center;
+      box-align: center;
+      -webkit-align-items: center;
+      -moz-align-items: center;
+      -ms-align-items: center;
+      -o-align-items: center;
+      align-items: center;
+      -ms-flex-align: center;
+      -webkit-box-pack: center;
+      -moz-box-pack: center;
+      box-pack: center;
+      -webkit-justify-content: center;
+      -moz-justify-content: center;
+      -ms-justify-content: center;
+      -o-justify-content: center;
+      justify-content: center;
+      -ms-flex-pack: center;
+      white-space: nowrap;
+      height: 40px;
+      width: 100%; }
+    /* line 39, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation .menu-items-wrapper .menu-item:last-child {
       display: none; }
-  /* line 28, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
-  .main-navigation .menu-item:last-child {
-    display: none; }
 
 @media (max-width: 1116px) {
-  /* line 32, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+  /* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
   .main-navigation {
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
@@ -4238,10 +4269,28 @@ body {
     -moz-flex-direction: column;
     flex-direction: column;
     -ms-flex-direction: column; }
-    /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
-    .main-navigation .menu-item {
-      display: none; }
-    /* line 36, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    /* line 45, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation .menu-items-wrapper {
+      position: absolute;
+      top: 40px;
+      left: 0px;
+      background-color: rgba(255, 255, 255, 0.7);
+      -webkit-box-orient: vertical;
+      -moz-box-orient: vertical;
+      box-orient: vertical;
+      -webkit-box-direction: normal;
+      -moz-box-direction: normal;
+      box-direction: normal;
+      -webkit-flex-direction: column;
+      -moz-flex-direction: column;
+      flex-direction: column;
+      -ms-flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      transition: 300ms; }
+    /* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
     .main-navigation #menu-toggle {
       display: -webkit-box;
       display: -moz-box;
@@ -4249,180 +4298,64 @@ body {
       display: -webkit-flex;
       display: -moz-flex;
       display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -moz-box-pack: center;
-      box-pack: center;
-      -webkit-justify-content: center;
-      -moz-justify-content: center;
-      -ms-justify-content: center;
-      -o-justify-content: center;
-      justify-content: center;
-      -ms-flex-pack: center;
-      -webkit-box-align: center;
-      -moz-box-align: center;
-      box-align: center;
-      -webkit-align-items: center;
-      -moz-align-items: center;
-      -ms-align-items: center;
-      -o-align-items: center;
-      align-items: center;
-      -ms-flex-align: center; }
-      /* line 41, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
-      .main-navigation #menu-toggle:hover .menu-item {
-        visibility: null;
-        height: 40 !important;
-        width: 100% !important; } }
+      display: flex; }
+    /* line 56, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation:hover i#nav-down {
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      transition: 300ms;
+      display: none;
+      opacity: 0;
+      visibility: none; }
+    /* line 62, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation:hover i#nav-up {
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      transition: 300ms;
+      display: -webkit-flex !important;
+      display: -ms-flexbox !important;
+      display: flex !important;
+      opacity: 1;
+      visibility: visible; }
+    /* line 70, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation:hover .menu-items-wrapper {
+      opacity: 1;
+      visibility: visible;
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      transition: 300ms; }
+    /* line 75, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_navbar.sass */
+    .main-navigation:hover .columns-wrapper {
+      -webkit-transition: 300ms;
+      -moz-transition: 300ms;
+      transition: 300ms;
+      position: relative;
+      top: 280px; } }
 
-/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-.aside-logo {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  box-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center; }
-  /* line 4, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-  .aside-logo .img-wrapper {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    box-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -ms-flex-pack: center;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    box-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-    -ms-flex-align: center; }
-    /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-    .aside-logo .img-wrapper .img-logo {
-      -webkit-box-flex: 1;
-      -moz-box-flex: 1;
-      box-flex: 1;
-      -webkit-flex: 1;
-      -moz-flex: 1;
-      -ms-flex: 1;
-      flex: 1; }
+/* line 2, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+.quote-wrapper .bq-left-sidebar > em {
+  text-indent: 20px; }
 
-/* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-.quote-wrapper {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center; }
-  /* line 15, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-  .quote-wrapper .bq-left-sidebar > em {
-    text-indent: 20px; }
-  /* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-  .quote-wrapper strong {
-    align-self: flex-end; }
+/* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+.quote-wrapper strong {
+  align-self: flex-end; }
 
-/* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+/* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
 .song-list {
   font-size: 0.8rem; }
-  /* line 25, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+  /* line 12, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
   .song-list tbody tr td {
     width: auto; }
 
-/* line 29, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+/* line 16, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
 .text-button-wrapper p {
   font-size: 0.7rem; }
 
-/* line 32, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+/* line 19, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
 .social-links {
-  width: 100%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center; }
-  /* line 38, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+  width: 100%; }
+  /* line 22, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
   .social-links .social-icons {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -moz-box-orient: horizontal;
-    box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    box-direction: normal;
-    -webkit-flex-direction: row;
-    -moz-flex-direction: row;
-    flex-direction: row;
-    -ms-flex-direction: row;
     -webkit-box-pack: distribute;
     -moz-box-pack: distribute;
     box-pack: distribute;
@@ -4435,22 +4368,22 @@ body {
     width: 80%; }
 
 @media screen and (max-width: 1116px) {
-  /* line 46, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+  /* line 28, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
   .text-button-wrapper button {
     width: 100%; } }
 
 @media screen and (max-height: 900px) {
-  /* line 50, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+  /* line 32, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
   #greeting {
     display: none; } }
 
 @media screen and (max-height: 800px) {
-  /* line 54, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+  /* line 36, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
   .aside-logo {
     display: none; } }
 
 @media screen and (max-height: 690px) {
-  /* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
+  /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
   .quote-wrapper {
     display: none; } }
 
@@ -4596,75 +4529,25 @@ body {
   -webkit-flex: 1 1 230px;
   -moz-flex: 1 1 230px;
   -ms-flex: 1 1 230px;
-  flex: 1 1 230px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  box-align: center;
-  -webkit-align-items: center;
-  -moz-align-items: center;
-  -ms-align-items: center;
-  -o-align-items: center;
-  align-items: center;
-  -ms-flex-align: center; }
-  /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
+  flex: 1 1 230px; }
+  /* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
   .right-sidebar .text-button-wrapper {
     margin: 15px 0; }
-  /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
+  /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
   .right-sidebar .sign-up-mobile {
     display: none; }
 
 @media (max-width: 1116px) {
-  /* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
+  /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_right-sidebar.sass */
   .right-sidebar {
     max-width: 100%; } }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
 .blog-intro-post {
-  margin: 20px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
+  margin: 0 20px 20px;
   max-width: 650px; }
-  /* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
+  /* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
   .blog-intro-post .blog-intro-header {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     box-pack: justify;
@@ -4681,25 +4564,18 @@ body {
     -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
+    /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
     .blog-intro-post .blog-intro-header h2 {
       padding-right: 20px; }
-    /* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
+    /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
     .blog-intro-post .blog-intro-header .blog-intro-date {
       padding-bottom: 20px; }
-  /* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
+  /* line 15, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
   .blog-intro-post .blog-intro-content img {
     float: left;
     margin: 0 20px 20px 0; }
-  /* line 22, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
+  /* line 19, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-intro.sass */
   .blog-intro-post footer {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: end;
     -moz-box-pack: end;
     box-pack: end;
@@ -4712,34 +4588,10 @@ body {
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
 .blog-post {
-  margin: 20px;
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
+  margin: 0 20px;
   max-width: 650px; }
-  /* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+  /* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
   .blog-post .post-header {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     box-pack: justify;
@@ -4756,99 +4608,63 @@ body {
     -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+    /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
     .blog-post .post-header h2 {
       padding-right: 20px; }
-    /* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+    /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
     .blog-post .post-header .post-date {
       padding-bottom: 20px; }
-  /* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+  /* line 15, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
   .blog-post .post-content img {
     float: left;
     margin: 0 20px 20px 0; }
-  /* line 22, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
-  .blog-post .comments-wrapper {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -moz-box-orient: vertical;
-    box-orient: vertical;
-    -webkit-box-direction: normal;
-    -moz-box-direction: normal;
-    box-direction: normal;
-    -webkit-flex-direction: column;
-    -moz-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-direction: column; }
-    /* line 26, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
-    .blog-post .comments-wrapper .add-comment {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      box-direction: normal;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      flex-direction: column;
-      -ms-flex-direction: column; }
-    /* line 30, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
-    .blog-post .comments-wrapper .comments:not(:last-child) {
-      margin-bottom: 20px; }
-    /* line 33, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
-    .blog-post .comments-wrapper .comments {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      box-direction: normal;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      flex-direction: column;
-      -ms-flex-direction: column; }
-      /* line 36, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
-      .blog-post .comments-wrapper .comments button {
-        -webkit-align-self: flex-end;
-        -moz-align-self: flex-end;
-        align-self: flex-end;
-        -ms-flex-item-align: end; }
+  /* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+  .blog-post .comments-wrapper .add-comment .post-comment {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify; }
+  /* line 24, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+  .blog-post .comments-wrapper .comments:not(:last-child) {
+    margin-bottom: 20px; }
+  /* line 28, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+  .blog-post .comments-wrapper .comments .comment-header {
+    -webkit-box-pack: justify;
+    -moz-box-pack: justify;
+    box-pack: justify;
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    -o-justify-content: space-between;
+    justify-content: space-between;
+    -ms-flex-pack: justify; }
+  /* line 30, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_blog-post-detail.sass */
+  .blog-post .comments-wrapper .comments .comment-footer {
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
 .tabs {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
   -webkit-box-lines: multiple;
   -moz-box-lines: multiple;
   box-lines: multiple;
   -webkit-flex-wrap: wrap;
   -moz-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
+  flex-wrap: wrap;
+  padding: 0 20px; }
   /* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
   .tabs .tab-header {
     background-color: rgba(35, 29, 34, 0.9);
@@ -4883,41 +4699,12 @@ body {
       margin-left: 20px; }
     /* line 25, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
     .tabs .tab-panel form {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-orient: vertical;
-      -moz-box-orient: vertical;
-      box-orient: vertical;
-      -webkit-box-direction: normal;
-      -moz-box-direction: normal;
-      box-direction: normal;
-      -webkit-flex-direction: column;
-      -moz-flex-direction: column;
-      flex-direction: column;
-      -ms-flex-direction: column;
       padding: 10px; }
-      /* line 29, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
-      .tabs .tab-panel form .form-footer {
-        margin-bottom: 10px;
-        margin-right: 10px;
-        margin-left: 10px; }
-        /* line 33, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
-        .tabs .tab-panel form .form-footer button {
-          width: 100%; }
-      /* line 35, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+      /* line 28, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+      .tabs .tab-panel form .form-footer button {
+        width: 100%; }
+      /* line 30, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
       .tabs .tab-panel form .form-layout {
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flexbox;
-        display: flex;
         -webkit-box-pack: justify;
         -moz-box-pack: justify;
         box-pack: justify;
@@ -4934,7 +4721,7 @@ body {
         -moz-flex-wrap: wrap;
         -ms-flex-wrap: wrap;
         flex-wrap: wrap; }
-        /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+        /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
         .tabs .tab-panel form .form-layout .form-column {
           -webkit-box-flex: 1;
           -moz-box-flex: 1;
@@ -4943,50 +4730,37 @@ body {
           -moz-flex: 1;
           -ms-flex: 1;
           flex: 1;
-          min-width: 250px;
-          display: -webkit-box;
-          display: -moz-box;
-          display: box;
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -moz-box-orient: vertical;
-          box-orient: vertical;
-          -webkit-box-direction: normal;
-          -moz-box-direction: normal;
-          box-direction: normal;
-          -webkit-flex-direction: column;
-          -moz-flex-direction: column;
-          flex-direction: column;
-          -ms-flex-direction: column;
-          margin-bottom: 10px;
-          margin-right: 10px;
-          margin-left: 10px; }
-          /* line 51, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
-          .tabs .tab-panel form .form-layout .form-column .input-location .map-and-address make-map .img-map {
-            -webkit-box-flex: 4;
-            -moz-box-flex: 4;
-            box-flex: 4;
-            -webkit-flex: 4 4 150px;
-            -moz-flex: 4 4 150px;
-            -ms-flex: 4 4 150px;
-            flex: 4 4 150px;
-            margin-bottom: 20px;
-            position: relative;
-            border-right: 5px solid transparent; }
-            /* line 57, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
-            .tabs .tab-panel form .form-layout .form-column .input-location .map-and-address make-map .img-map .map-controls {
-              position: absolute;
-              right: -6px;
-              bottom: 3px;
-              -webkit-transform: scale(0.7);
-              -moz-transform: scale(0.7);
-              -ms-transform: scale(0.7);
-              -o-transform: scale(0.7);
-              transform: scale(0.7); }
-          /* line 61, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          min-width: 250px; }
+          /* line 38, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          .tabs .tab-panel form .form-layout .form-column .map-and-address {
+            -webkit-box-pack: justify;
+            -moz-box-pack: justify;
+            box-pack: justify;
+            -webkit-justify-content: space-between;
+            -moz-justify-content: space-between;
+            -ms-justify-content: space-between;
+            -o-justify-content: space-between;
+            justify-content: space-between;
+            -ms-flex-pack: justify;
+            -webkit-box-align: start;
+            -moz-box-align: start;
+            box-align: start;
+            -webkit-align-items: flex-start;
+            -moz-align-items: flex-start;
+            -ms-align-items: flex-start;
+            -o-align-items: flex-start;
+            align-items: flex-start;
+            -ms-flex-align: start; }
+          /* line 42, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          .tabs .tab-panel form .form-layout .form-column .map-and-address > * {
+            -webkit-box-flex: 1;
+            -moz-box-flex: 1;
+            box-flex: 1;
+            -webkit-flex: 1;
+            -moz-flex: 1;
+            -ms-flex: 1;
+            flex: 1; }
+          /* line 45, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
           .tabs .tab-panel form .form-layout .form-column .input-add-guest {
             -webkit-box-pack: justify;
             -moz-box-pack: justify;
@@ -4997,24 +4771,17 @@ body {
             -o-justify-content: space-between;
             justify-content: space-between;
             -ms-flex-pack: justify; }
-            /* line 63, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+            /* line 47, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
             .tabs .tab-panel form .form-layout .form-column .input-add-guest #addCompanionButton {
               position: relative;
               top: -6px;
               margin-left: 5px; }
-          /* line 67, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          /* line 51, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
           .tabs .tab-panel form .form-layout .form-column .guests-list {
             list-style-type: none; }
-            /* line 69, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+            /* line 53, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
             .tabs .tab-panel form .form-layout .form-column .guests-list li {
               width: 100%;
-              display: -webkit-box;
-              display: -moz-box;
-              display: box;
-              display: -webkit-flex;
-              display: -moz-flex;
-              display: -ms-flexbox;
-              display: flex;
               -webkit-box-pack: justify;
               -moz-box-pack: justify;
               box-pack: justify;
@@ -5038,15 +4805,8 @@ body {
               -moz-flex: 1;
               -ms-flex: 1;
               flex: 1; }
-              /* line 75, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+              /* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
               .tabs .tab-panel form .form-layout .form-column .guests-list li .added-guests {
-                display: -webkit-box;
-                display: -moz-box;
-                display: box;
-                display: -webkit-flex;
-                display: -moz-flex;
-                display: -ms-flexbox;
-                display: flex;
                 -webkit-box-flex: 1;
                 -moz-box-flex: 1;
                 box-flex: 1;
@@ -5063,25 +4823,62 @@ body {
                 -o-justify-content: space-between;
                 justify-content: space-between;
                 -ms-flex-pack: justify; }
-              /* line 80, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+              /* line 62, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
               .tabs .tab-panel form .form-layout .form-column .guests-list li #removeCompanionButton {
                 position: relative;
                 top: -6px;
                 margin-left: 5px; }
-  /* line 84, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          /* line 65, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          .tabs .tab-panel form .form-layout .form-column .card-cvv {
+            -webkit-box-pack: justify;
+            -moz-box-pack: justify;
+            box-pack: justify;
+            -webkit-justify-content: space-between;
+            -moz-justify-content: space-between;
+            -ms-justify-content: space-between;
+            -o-justify-content: space-between;
+            justify-content: space-between;
+            -ms-flex-pack: justify; }
+          /* line 68, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          .tabs .tab-panel form .form-layout .form-column .card-expiry-date {
+            -webkit-box-pack: justify;
+            -moz-box-pack: justify;
+            box-pack: justify;
+            -webkit-justify-content: space-between;
+            -moz-justify-content: space-between;
+            -ms-justify-content: space-between;
+            -o-justify-content: space-between;
+            justify-content: space-between;
+            -ms-flex-pack: justify; }
+            /* line 70, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+            .tabs .tab-panel form .form-layout .form-column .card-expiry-date #month {
+              margin-right: 5px;
+              direction: rtl; }
+          /* line 73, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+          .tabs .tab-panel form .form-layout .form-column .more-info {
+            -webkit-box-pack: justify;
+            -moz-box-pack: justify;
+            box-pack: justify;
+            -webkit-justify-content: space-between;
+            -moz-justify-content: space-between;
+            -ms-justify-content: space-between;
+            -o-justify-content: space-between;
+            justify-content: space-between;
+            -ms-flex-pack: justify; }
+  /* line 76, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
   .tabs label.tab-header:first-of-type {
     border-top-left-radius: 3px; }
-  /* line 87, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+  /* line 79, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
   .tabs label.tab-header:last-of-type {
     border-top-right-radius: 3px; }
-  /* line 90, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+  /* line 82, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
   .tabs input[type=radio], .tabs select[type=radio], .tabs .tab-panel {
     display: none; }
-  /* line 93, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+  /* line 85, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
   .tabs input[type=radio]:checked + .tab-header, .tabs select[type=radio]:checked + .tab-header {
     background-color: rgba(255, 255, 255, 0.7);
     color: rgba(35, 29, 34, 0.9); }
-  /* line 97, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
+  /* line 89, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_gigs.sass */
   .tabs input[type=radio]:checked + .tab-header + .tab-panel, .tabs select[type=radio]:checked + .tab-header + .tab-panel {
     display: -webkit-box;
     display: -moz-box;
@@ -5123,7 +4920,13 @@ body {
     /* line 15, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
     .slider .slide-viewer .slide {
       position: absolute;
-      display: none;
+      display: -webkit-box;
+      display: -moz-box;
+      display: box;
+      display: -webkit-flex;
+      display: -moz-flex;
+      display: -ms-flexbox;
+      display: flex;
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
@@ -5141,16 +4944,10 @@ body {
       /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
       .slider .slide-viewer .slide.slide-4 {
         background-image: url("../data/images/monkees-fans.jpg"); }
-      /* line 37, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
-      .slider .slide-viewer .slide:first-child {
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flexbox;
-        display: flex; }
-      /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
+      /* line 36, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
+      .slider .slide-viewer .slide.nonDraggableImage {
+        -webkit-user-drag: none; }
+      /* line 42, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
       .slider .slide-viewer .slide .quote-wrapper {
         position: absolute;
         right: 10%;
@@ -5158,49 +4955,25 @@ body {
         padding: 20px;
         max-width: 300px;
         border-radius: 3px; }
-        /* line 46, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
-        .slider .slide-viewer .slide .quote-wrapper .bq-over-img {
+        /* line 48, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
+        .slider .slide-viewer .slide .quote-wrapper .bq-over-image {
           quotes: none; }
-        /* line 49, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
+        /* line 51, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
         .slider .slide-viewer .slide .quote-wrapper cite {
           align-self: flex-end;
           font-style: normal; }
 
 @media (max-width: 690px) {
-  /* line 54, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
+  /* line 67, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_photo-slider.sass */
   .slider {
     height: 50vw; } }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
 .store-items {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
   padding: 20px;
   border-radius: 3px; }
-  /* line 7, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+  /* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
   .store-items header {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     box-pack: justify;
@@ -5209,109 +4982,47 @@ body {
     -ms-justify-content: space-between;
     -o-justify-content: space-between;
     justify-content: space-between;
-    -ms-flex-pack: justify;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    box-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-    -ms-flex-align: center; }
-    /* line 12, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-    .store-items header div .sort-by {
-      white-space: nowrap; }
-  /* line 15, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-  .store-items .store-items-area-wrapper {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -moz-box-pack: center;
-    box-pack: center;
-    -webkit-justify-content: center;
-    -moz-justify-content: center;
-    -ms-justify-content: center;
-    -o-justify-content: center;
-    justify-content: center;
-    -ms-flex-pack: center;
-    -webkit-box-align: center;
-    -moz-box-align: center;
-    box-align: center;
-    -webkit-align-items: center;
-    -moz-align-items: center;
-    -ms-align-items: center;
-    -o-align-items: center;
-    align-items: center;
-    -ms-flex-align: center; }
-    /* line 20, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-    .store-items .store-items-area-wrapper .store-items-wrapper {
-      display: -webkit-box;
-      display: -moz-box;
-      display: box;
-      display: -webkit-flex;
-      display: -moz-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: distribute;
-      -moz-box-pack: distribute;
-      box-pack: distribute;
-      -webkit-justify-content: space-around;
-      -moz-justify-content: space-around;
-      -ms-justify-content: space-around;
-      -o-justify-content: space-around;
-      justify-content: space-around;
-      -ms-flex-pack: distribute;
-      -webkit-box-align: baseline;
-      -moz-box-align: baseline;
-      box-align: baseline;
-      -webkit-align-items: baseline;
-      -moz-align-items: baseline;
-      -ms-align-items: baseline;
-      -o-align-items: baseline;
-      align-items: baseline;
-      -ms-flex-align: baseline;
+    -ms-flex-pack: justify; }
+  /* line 10, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+  .store-items .store-items-area-wrapper .store-items-wrapper {
+    -webkit-box-pack: distribute;
+    -moz-box-pack: distribute;
+    box-pack: distribute;
+    -webkit-justify-content: space-around;
+    -moz-justify-content: space-around;
+    -ms-justify-content: space-around;
+    -o-justify-content: space-around;
+    justify-content: space-around;
+    -ms-flex-pack: distribute;
+    -webkit-box-align: baseline;
+    -moz-box-align: baseline;
+    box-align: baseline;
+    -webkit-align-items: baseline;
+    -moz-align-items: baseline;
+    -ms-align-items: baseline;
+    -o-align-items: baseline;
+    align-items: baseline;
+    -ms-flex-align: baseline;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+    /* line 15, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+    .store-items .store-items-area-wrapper .store-items-wrapper .store-item {
+      text-align: center;
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
       box-flex: 1;
       -webkit-flex: 1;
       -moz-flex: 1;
       -ms-flex: 1;
-      flex: 1; }
-      /* line 26, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-      .store-items .store-items-area-wrapper .store-items-wrapper .store-item {
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-orient: vertical;
-        -moz-box-orient: vertical;
-        box-orient: vertical;
-        -webkit-box-direction: normal;
-        -moz-box-direction: normal;
-        box-direction: normal;
-        -webkit-flex-direction: column;
-        -moz-flex-direction: column;
-        flex-direction: column;
-        -ms-flex-direction: column;
-        -webkit-box-align: center;
-        -moz-box-align: center;
-        box-align: center;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        -ms-align-items: center;
-        -o-align-items: center;
-        align-items: center;
-        -ms-flex-align: center;
-        text-align: center;
+      flex: 1;
+      width: 100%; }
+      /* line 20, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+      .store-items .store-items-area-wrapper .store-items-wrapper .store-item a {
         -webkit-box-flex: 1;
         -moz-box-flex: 1;
         box-flex: 1;
@@ -5319,51 +5030,17 @@ body {
         -moz-flex: 1;
         -ms-flex: 1;
         flex: 1;
-        width: 100%; }
-        /* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-        .store-items .store-items-area-wrapper .store-items-wrapper .store-item a {
-          display: -webkit-box;
-          display: -moz-box;
-          display: box;
-          display: -webkit-flex;
-          display: -moz-flex;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: vertical;
-          -moz-box-orient: vertical;
-          box-orient: vertical;
-          -webkit-box-direction: normal;
-          -moz-box-direction: normal;
-          box-direction: normal;
-          -webkit-flex-direction: column;
-          -moz-flex-direction: column;
-          flex-direction: column;
-          -ms-flex-direction: column;
-          -webkit-box-flex: 1;
-          -moz-box-flex: 1;
-          box-flex: 1;
-          -webkit-flex: 1;
-          -moz-flex: 1;
-          -ms-flex: 1;
-          flex: 1;
-          width: 100%;
-          text-transform: uppercase; }
-          /* line 42, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-          .store-items .store-items-area-wrapper .store-items-wrapper .store-item a .img-wrapper .store-item-thumbnail {
-            height: 90px;
-            width: 90px; }
-          /* line 45, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-          .store-items .store-items-area-wrapper .store-items-wrapper .store-item a p {
-            font-size: 0.75rem; }
-  /* line 48, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+        width: 100%;
+        text-transform: uppercase; }
+        /* line 26, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+        .store-items .store-items-area-wrapper .store-items-wrapper .store-item a .image-wrapper .store-item-thumbnail {
+          height: 90px;
+          width: 90px; }
+        /* line 29, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+        .store-items .store-items-area-wrapper .store-items-wrapper .store-item a p {
+          font-size: 0.75rem; }
+  /* line 32, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
   .store-items .store-items-footer {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-pack: end;
     -moz-box-pack: end;
     box-pack: end;
@@ -5377,55 +5054,23 @@ body {
     font-size: 0.9rem; }
 
 @media screen and (max-width: 1116px) {
-  /* line 57, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+  /* line 40, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
   .store-items .store-items-wrapper div.store-item:last-child, .store-items .store-items-wrapper div.store-item:first-child {
     display: none; } }
 
 @media screen and (max-width: 980px) {
-  /* line 65, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
-  .store-items .store-items-wrapper .store-item .img-wrapper .store-item-thumbnail {
+  /* line 48, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-items-footer.sass */
+  .store-items .store-items-wrapper .store-item .image-wrapper .store-item-thumbnail {
     width: 70px !important;
     height: 70px !important; } }
 
 /* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
 .store-item-detail {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -moz-box-orient: vertical;
-  box-orient: vertical;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: column;
-  -moz-flex-direction: column;
-  flex-direction: column;
-  -ms-flex-direction: column;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  box-pack: center;
-  -webkit-justify-content: center;
-  -moz-justify-content: center;
-  -ms-justify-content: center;
-  -o-justify-content: center;
-  justify-content: center;
-  -ms-flex-pack: center;
+  margin: 0 20px;
   padding: 10px;
   border-radius: 3px; }
-  /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
+  /* line 6, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
   .store-item-detail .item-main {
-    display: -webkit-box;
-    display: -moz-box;
-    display: box;
-    display: -webkit-flex;
-    display: -moz-flex;
-    display: -ms-flexbox;
-    display: flex;
     -webkit-box-lines: multiple;
     -moz-box-lines: multiple;
     box-lines: multiple;
@@ -5433,7 +5078,7 @@ body {
     -moz-flex-wrap: wrap;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap; }
-    /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
+    /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
     .store-item-detail .item-main .item-image {
       -webkit-box-flex: 1;
       -moz-box-flex: 1;
@@ -5443,15 +5088,15 @@ body {
       -ms-flex: 1 3 190px;
       flex: 1 3 190px;
       margin: 10px; }
-      /* line 14, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
-      .store-item-detail .item-main .item-image .img-main {
+      /* line 11, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
+      .store-item-detail .item-main .item-image .image-main {
         width: 100%;
         display: none;
         border-radius: 3px; }
-      /* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
-      .store-item-detail .item-main .item-image .img-main:first-child {
+      /* line 15, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
+      .store-item-detail .item-main .item-image .image-main:first-child {
         display: block; }
-    /* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
+    /* line 18, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
     .store-item-detail .item-main .item-description {
       -webkit-box-flex: 4;
       -moz-box-flex: 4;
@@ -5461,15 +5106,8 @@ body {
       -ms-flex: 4 1 200px;
       flex: 4 1 200px;
       margin: 10px; }
-      /* line 24, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
+      /* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_store-item-detail.sass */
       .store-item-detail .item-main .item-description .stock {
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
-        display: -webkit-flex;
-        display: -moz-flex;
-        display: -ms-flexbox;
-        display: flex;
         -webkit-box-pack: justify;
         -moz-box-pack: justify;
         box-pack: justify;
@@ -5478,19 +5116,10 @@ body {
         -ms-justify-content: space-between;
         -o-justify-content: space-between;
         justify-content: space-between;
-        -ms-flex-pack: justify;
-        -webkit-box-align: center;
-        -moz-box-align: center;
-        box-align: center;
-        -webkit-align-items: center;
-        -moz-align-items: center;
-        -ms-align-items: center;
-        -o-align-items: center;
-        align-items: center;
-        -ms-flex-align: center; }
+        -ms-flex-pack: justify; }
 
 /* line 2, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-.img-wrapper .credit-card {
+.image-wrapper .credit-card {
   height: 190px;
   max-width: 350px;
   margin: 0 auto;
@@ -5499,26 +5128,26 @@ body {
   position: relative;
   border-radius: 10px; }
   /* line 10, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card .card-logo {
+  .image-wrapper .credit-card .card-logo {
     height: 40px;
     width: 40px;
     border-radius: 50%; }
   /* line 13, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card #circle-1 {
+  .image-wrapper .credit-card #circle-1 {
     position: absolute;
     top: 9%;
     right: 13%;
     background-color: indianred;
     z-index: 2; }
   /* line 17, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card #circle-2 {
+  .image-wrapper .credit-card #circle-2 {
     position: absolute;
     top: 9%;
     right: 6%;
     background-color: khaki;
     z-index: 1; }
   /* line 21, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card #chip {
+  .image-wrapper .credit-card #chip {
     width: 50px;
     height: 40px;
     background-color: gainsboro;
@@ -5527,7 +5156,7 @@ body {
     left: 9%;
     border-radius: 5px; }
   /* line 27, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card #card-number {
+  .image-wrapper .credit-card #card-number {
     position: absolute;
     top: 40%;
     color: white;
@@ -5536,7 +5165,7 @@ body {
     width: 100%;
     text-align: center; }
   /* line 35, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card #card-name {
+  .image-wrapper .credit-card #card-name {
     position: absolute;
     bottom: 2%;
     left: 7%;
@@ -5545,14 +5174,14 @@ body {
     white-space: nowrap;
     letter-spacing: -0.7px; }
   /* line 42, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card #card-date {
+  .image-wrapper .credit-card #card-date {
     position: absolute;
     right: 7%;
     bottom: 2%;
     color: white;
     letter-spacing: -1px; }
   /* line 47, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card .card-cvv {
+  .image-wrapper .credit-card .card-cvv {
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     box-pack: justify;
@@ -5563,10 +5192,10 @@ body {
     justify-content: space-between;
     -ms-flex-pack: justify; }
     /* line 49, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-    .img-wrapper .credit-card .card-cvv #card-cvv {
+    .image-wrapper .credit-card .card-cvv #card-cvv {
       width: 61px; }
   /* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-  .img-wrapper .credit-card .card-expiry-date {
+  .image-wrapper .credit-card .card-expiry-date {
     -webkit-box-pack: justify;
     -moz-box-pack: justify;
     box-pack: justify;
@@ -5577,11 +5206,51 @@ body {
     justify-content: space-between;
     -ms-flex-pack: justify; }
     /* line 55, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-    .img-wrapper .credit-card .card-expiry-date .input-wrap-inline #month {
+    .image-wrapper .credit-card .card-expiry-date .input-wrapper-inline #month {
       width: 61px;
       margin-right: 5px; }
     /* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_credit-card.sass */
-    .img-wrapper .credit-card .card-expiry-date .input-wrap-inline #year {
+    .image-wrapper .credit-card .card-expiry-date .input-wrapper-inline #year {
       width: 81px; }
+
+/* line 1, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_maps.sass */
+make-map {
+  -webkit-box-flex: 1;
+  -moz-box-flex: 1;
+  box-flex: 1;
+  -webkit-flex: 1;
+  -moz-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+  /* line 3, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_maps.sass */
+  make-map .image-map {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+    -webkit-box-pack: end;
+    -moz-box-pack: end;
+    box-pack: end;
+    -webkit-justify-content: flex-end;
+    -moz-justify-content: flex-end;
+    -ms-justify-content: flex-end;
+    -o-justify-content: flex-end;
+    justify-content: flex-end;
+    -ms-flex-pack: end; }
+    /* line 10, D:/Github/code-institute-stream-1-project/src/styles/my-styles/templates/_maps.sass */
+    make-map .image-map .map-controls {
+      position: absolute;
+      right: -6px;
+      bottom: 6px;
+      -webkit-transform: scale(0.7);
+      -moz-transform: scale(0.7);
+      -ms-transform: scale(0.7);
+      -o-transform: scale(0.7);
+      transform: scale(0.7); }
 
 /*# sourceMappingURL=main.css.map */

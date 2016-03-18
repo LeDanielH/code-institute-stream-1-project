@@ -13,7 +13,7 @@
 	<div class="row store-items-wrapper">
 		<div class="column center-inline store-item" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory">
 			<a class="column" href="#/store/{{item.id}}">
-				<div class="image-wrapper"><img class="store-item-thumbnail filter-image" ng-src="{{item.imgSrc}}.jpg" alt="{{item.name}}"></div>
+				<div class="image-wrapper"><img class="store-item-thumbnail filter-image" ng-src="{{item.image}}.jpg" alt="{{item.name}}"></div>
 				<p>{{item.name}} - {{item.price}}&euro;</p>
 			</a>
 		</div>

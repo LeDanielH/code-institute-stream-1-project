@@ -75,7 +75,7 @@
 			ng-model="companion">
 
 		<!-- DISPLAY COMPANIONS NAMES AND PRICE -->
-			<div class="row center-inline divided-label base-transparent-medium">
+			<div class="row center-inline divided-label base-transparent-medium added-guests">
 				<span>{{companion}}</span>
 				<span class="price-label">{{formsData.ticketPrice | currency}}</span>
 			</div>
@@ -191,8 +191,7 @@
 		</div>
 	</div>
 	<p class="error-message" ng-show="
-		buyTicketForm.cardMonth.$touched && buyTicketForm.cardYear.$touched 
-		&& buyTicketForm.cardMonth.$error.required && buyTicketForm.cardYear.$error.required">
+		buyTicketForm.cardMonth.$error.required && buyTicketForm.cardYear.$error.required">
 		{{formsData.cardCvv.errorMessages.required}}
 	</p>
 

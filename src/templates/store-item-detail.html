@@ -2,7 +2,7 @@
 <article class="column center-blocks store-item-detail base-transparent-medium">
 	<div class="row item-main">
 		<div class="image-wrapper item-image">
-			<img class="image-main filter-image" ng-repeat="image in item.images" ng-src="{{item.image}}.jpg" alt="{{item.name}}" ng-class="{active:mainImageUrl==image}">
+			<img class="image-main filter-image" ng-repeat="image in item.images" ng-src="{{image}}.jpg" alt="{{item.name}}" ng-class="{active:mainImageUrl==image}">
 		</div>
 		<div class="item-description">
 			<p>{{item.description}}</p>

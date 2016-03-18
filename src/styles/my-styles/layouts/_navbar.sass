@@ -1,11 +1,8 @@
 // regular navigation
 .main-navigation
-	z-index: 99
+	z-index: 10
 	+justify-content(space-around)
-
-	.menu-item
-		height: 40px
-		width: 100%
+	+position(relative)
 
 	#menu-toggle
 		height: 40px
@@ -14,26 +11,70 @@
 		+display(none)
 		i#nav-down
 			+position(absolute, 30% 3% null null)
+			+transition($base-transition-duration)
 
 		i#nav-up
 			+position(absolute, 30% 3% null null)
 			+display(none)
+			+transition($base-transition-duration)
+			opacity: 1
+			visibility: none
 
-	.menu-item:last-child
-		+display(none)
+	.menu-items-wrapper
+		+display(flex)
+		+justify-content(space-around)
+		+align-items(center)
+		+flex(1)
+		width: 100%
+		z-index: 20
+		+transition($base-transition-duration)
+		.menu-item
+			+display(flex)
+			+align-items(center)
+			+justify-content(center)
+			white-space: nowrap
+			height: 40px
+			width: 100%
+
+		.menu-item:last-child
+			+display(none)
 
 @media (max-width: $query-large)
 	.main-navigation
 		+flex-direction(column)
-		.menu-item
-			+display(none)
+		.menu-items-wrapper
+			+position(absolute, 40px null null 0px)
+			background-color: $base-transparent-medium
+			+flex-direction(column)
+			opacity: 0
+			visibility: hidden
+			+transition($base-transition-duration)
 		#menu-toggle
 			+display(flex)
-			&:hover
-				.menu-item
-					visibility: null
-					height: 40 !important
-					width: 100% !important
+
+		&:hover
+			i#nav-down
+				+transition($base-transition-duration)
+				+display(none)
+				opacity: 0
+				visibility: none
+
+			i#nav-up
+				+transition($base-transition-duration)
+				display: -webkit-flex !important
+				display: -ms-flexbox !important
+				display: flex !important
+				opacity: 1
+				visibility: visible
+				
+			.menu-items-wrapper
+				opacity: 1
+				visibility: visible
+				+transition($base-transition-duration)
+
+			.columns-wrapper
+				+transition($base-transition-duration)
+				+position(relative, 280px null null null)
 
 //mobile navigation
 
