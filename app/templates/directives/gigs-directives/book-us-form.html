@@ -1,4 +1,4 @@
-<fieldset class="form-column">
+<fieldset class="form-column wrapped-box-margin">
 
 	<label for="date">Pick up an available date.</label>
 	<input type="date" id="date" name="date" title="{{formsData.date.title}}" ng-model="pickUpdate" ng-required="true">
@@ -47,7 +47,7 @@
 	</small>
 </fieldset>
 
-<fieldset class="form-column">
+<fieldset class="form-column wrapped-box-margin">
 
 	<label for="name">{{formsData.guest.label}}</label>
 	<input type="text" id="name" name="name" autocomplete="name" title="{{formsData.guest.title}}" placeholder="{{formsData.guest.placeholder}}" ng-init="bookUsForm.name=formsData.guest.placeholder" ng-model="bookUs.name" ng-required="true">
