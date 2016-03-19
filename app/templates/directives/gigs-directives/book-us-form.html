@@ -82,7 +82,7 @@
 	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="honorarium">
 
 	<label for="honorarium">Honorarium</label>
-	Honorarium: {{honorarium}} $
+	Honorarium: {{honorarium | currency}}
 	<input type="number" id="honorarium" name="honorarium" title="{{formsData.honorarium.title}}" placeholder="{{formsData.honorarium.placeholder}}" ng-change="setHonorarium()" ng-model="honorarium">
 	<small class="error-message" ng-show="bookUsForm.honorarium.$touched && bookUsForm.honorarium.$invalid">
 		{{formsData.honorarium.errorMessages.invalid}}

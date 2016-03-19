@@ -3810,37 +3810,37 @@ input[type="checkbox"], select[type="checkbox"] {
 select option {
   width: 100%; }
 
-/* line 35, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
-input.ng-required, select.ng-required {
+/* line 34, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+input.ng-pristine, select.ng-pristine, input.ng-dirty, select.ng-dirty, input.ng-valid, select.ng-valid, input.ng-untouched, select.ng-untouched {
+  background-color: rgba(255, 255, 255, 0.9); }
+
+/* line 37, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+input.ng-required, select.ng-required, input.ng-invalid.ng-touched, select.ng-invalid.ng-touched {
   background-color: #fbe3e4; }
 
-/* line 38, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
-input.ng-valid, select.ng-valid {
-  background-color: #e6efc2; }
-
-/* line 41, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 43, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .error-message {
   text-align: right;
   margin-bottom: 10px;
   color: red; }
 
-/* line 46, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 48, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .field-small {
   max-width: 70px; }
 
-/* line 49, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 51, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .field-medium {
   max-width: 100px; }
 
-/* line 52, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 54, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .field-large {
   max-width: 140px; }
 
-/* line 55, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 57, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .field-big {
   max-width: 200px; }
 
-/* line 58, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
+/* line 60, D:/Github/code-institute-stream-1-project/src/styles/my-styles/my-base/_my-forms.sass */
 .circle-button {
   display: -webkit-box;
   display: -moz-box;
@@ -4333,12 +4333,15 @@ body {
       top: 280px; } }
 
 /* line 2, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-.quote-wrapper .bq-left-sidebar > em {
+.quote-wrapper .bq-left-sidebar {
   text-indent: 20px; }
 
 /* line 5, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
-.quote-wrapper strong {
-  align-self: flex-end; }
+.quote-wrapper cite {
+  -webkit-align-self: flex-end;
+  -moz-align-self: flex-end;
+  align-self: flex-end;
+  -ms-flex-item-align: end; }
 
 /* line 8, D:/Github/code-institute-stream-1-project/src/styles/my-styles/layouts/_left-sidebar.sass */
 .song-list {

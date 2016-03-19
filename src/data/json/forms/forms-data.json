@@ -139,7 +139,7 @@
 	"moreInfo": {
 		"label": "Tell us more about your gig",
 		"title": "Tell us more about your gig.",
-		"placeholder": "Do you want us to be naked? Do you want us to wear smurf costumes? Any special requests?",
+		"placeholder": "Do you want us to wear smurf costumes? Any special requests?",
 		"errorMessages": {
 			"required": "",
 			"invalid": "You have reached maximum of 2000 characters."

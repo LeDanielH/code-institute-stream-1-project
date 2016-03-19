@@ -15,7 +15,7 @@
 			<a class="column" href="#/store/{{item.id}}">
 				<!-- <i class="fa fa-soundcloud fa-2x"></i> -->
 				<div class="image-wrapper"><img class="store-item-thumbnail filter-image" ng-src="{{item.image}}.jpg" alt="{{item.name}}"></div>
-				<p>{{item.name}} - {{item.price}}&euro;</p>
+				<p>{{item.name}}<br>{{item.price | currency}}</p>
 			</a>
 		</div>
 	</div>
