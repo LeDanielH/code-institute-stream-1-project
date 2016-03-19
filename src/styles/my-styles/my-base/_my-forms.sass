@@ -31,12 +31,14 @@ select
 
 // .ng-invalid::before
 // 	content: "REQUIRED"
-
-input.ng-required// when input box is edited
+input.ng-pristine, input.ng-dirty, input.ng-valid, input.ng-untouched
+	background-color: $base-transparent-light
+	
+input.ng-required, input.ng-invalid.ng-touched// when input box is edited
 	background-color: $error-color
 
-input.ng-valid // when input box is edited
-	background-color: $success-color
+// input.ng-valid // when input box is edited
+// 	background-color: $success-color
 
 .error-message
 	text-align: right
