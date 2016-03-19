@@ -2789,11 +2789,11 @@ span[class^="icon-circle"] {
 select option {
 	width: 100%;
 }
-input.ng-required,select.ng-required {
-	background-color: #fbe3e4;
+input.ng-pristine,select.ng-pristine,input.ng-dirty,select.ng-dirty,input.ng-valid,select.ng-valid,input.ng-untouched,select.ng-untouched {
+	background-color: rgba(255, 255, 255, 0.9);
 }
-input.ng-valid,select.ng-valid {
-	background-color: #e6efc2;
+input.ng-required,select.ng-required,input.ng-invalid.ng-touched,select.ng-invalid.ng-touched {
+	background-color: #fbe3e4;
 }
 .error-message {
 	text-align: right;
