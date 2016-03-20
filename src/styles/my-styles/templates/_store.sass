@@ -1,0 +1,82 @@
+.store-content
+	padding: $base-padding
+	width: 100%
+	.store-inputs
+		width: 100%
+		+justify-content(space-between)
+	.store-items-list
+		+flex-wrap(wrap)
+		.item-box
+			+display(flex)
+			+position(relative)
+			+size(120px)
+			cursor: pointer
+			+perspective(500)
+			overflow: hidden
+			color: $base-background-color
+			margin: $base-padding / 2
+			border-radius: $base-border-radius
+
+			.item-box-overlay
+				+position(absolute, -50% 0px null 0px)
+				text-align: center
+				+size(100%)
+				+transition($base-transition-duration)
+
+			&:hover
+				.item-box-overlay
+					top: 0%
+					+transform(rotateX(0deg))
+
+
+
+
+// .project-unit
+//         display: block
+//         margin: 0 auto
+//         min-width: 50%
+//         height: 170px
+//         float: left
+//         position: relative
+//         +perspective(500)
+//         @if $animation != "bounceOut"
+//         overflow: hidden
+            
+//         @media screen and (max-width: 840px)
+//             max-width: 380px
+//             min-width: 300px
+//             height: 170px
+//             float: none
+            
+//         @media screen and (max-width: 480px)
+//             height: 160px
+            
+//         @media screen and (max-width: 340px)
+//             height: 150px
+            
+//         background:
+//             size: cover
+//             repeat: no-repeat
+//             position: center center
+                
+//         .project-overlay
+//             +position(absolute, 0px)
+//             background: fade-out($red, 0.2)
+//             cursor: pointer
+//             +display(flex)
+//             +align-items(center)
+//             @extend %animationstart_#{$animation}
+            
+//             strong
+//                 display: block
+//                 color: $white
+//                 text-transform: uppercase
+//                 font-size: 20px
+//                 margin: 0 auto
+                
+        // &:hover 
+        //     z-index: 1
+        //     .project-overlay
+        //         @extend %#{$animation}
+        //         +display(flex)
+//     

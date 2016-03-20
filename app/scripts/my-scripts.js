@@ -47,7 +47,7 @@ angular.module('bandApp', [
 			'$scope',
 			'$location',
 			'$interval',
-			// '$http',
+			'IndexDataService',
 			'GigsDataService',
 			'StoreDataService',
 			'TestimonialsDataService',
@@ -58,7 +58,7 @@ angular.module('bandApp', [
 				$scope,
 				$location,
 				$interval,
-				// $http,
+				IndexDataService,
 				GigsDataService,
 				StoreDataService,
 				TestimonialsDataService,
@@ -67,6 +67,10 @@ angular.module('bandApp', [
 				FamousQuotesDataService
 			) {
 				// $scope.getDocumentWidth = window.matchMedia(width);
+				//NAVBAR
+
+				$scope.navlinks = IndexDataService.nav.query();
+				$scope.mobileIcon = {name: "menu",};
 				//GIGS
 				$scope.subtitles = GigsDataService.subtitles;
 				$scope.maps = GigsDataService.maps.query();
@@ -347,7 +351,26 @@ angular.module('bandApp', [
 
 ;(function () {
 	'use strict';
-	angular.module('myBandAppServices', ['ngResource']);
+	angular.module('myBandAppServices', ['ngResource'])
+		.factory('IndexDataService', [
+            '$resource',
+            function (
+				$resource
+            ) {
+				var navbar = {
+					nav: $resource('data/json/:itemId.json', {}, {
+						query: {
+							method: 'GET',
+							params: {
+								itemId: 'navbar'
+							},
+							isArray: true
+						}
+					}),
+				};
+				return navbar;
+            }
+        ]);
 }());
 ;(function () {
 	'use strict';

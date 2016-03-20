@@ -1,16 +1,31 @@
 <h1>Store</h1>
-<label for="search">Search</label>
-<input id="search" ng-model="searchQuery">
+<section class="column center-inline store-content base-transparent-medium">
+	<header class="row store-inputs">
+		<div class="column">
+			<label for="search">Search</label>
+			<input id="search" ng-model="searchQuery">
+		</div>
 
-<label for="sortBy"></label>
-<select name="sortBy" ng-model="sortByCategory" id="sortBy">
-	<option value="price">price</option>
-	<option value="name">name</option>
-</select>
-<ul class="store-items-list">
-	<li class="item-box" ng-repeat="item in storeItems | filter:searchQuery | orderBy:sortByCategory">
-		<h5>{{item.name}}</h5>
-		<img ng-src="{{item.image}}.jpg" alt="{{item.name}}">
-		<p>{{item.price | currency}}</p>
-	</li>
-</ul>
+				<div class="column">
+			<label for="sortBy">Sort By</label>
+			<select name="sortBy" ng-model="sortByCategory" id="sortBy">
+				<option value="price">price</option>
+				<option value="name">name</option>
+			</select>
+		</div>
+	</header>
+	<article class="row center-both store-items-list">
+		<a ng-repeat="item in storeItems | filter:searchQuery | orderBy:sortByCategory" ng-href="#/store/{{item.id}}">
+			<figure class="item-box">
+				<img class="filter-image" ng-src="{{item.image}}.jpg" alt="{{item.name}}">
+				<figcaption class="item-box-overlay dark-transparent-medium column center-both">
+					<p>{{item.price | currency}}</p>
+					<h5>{{item.name}}</h5>
+				</figcaption>
+			</figure>
+		</a>
+	</article>
+	<footer>
+
+			</footer>
+</section>

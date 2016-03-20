@@ -5,7 +5,7 @@
 			'$scope',
 			'$location',
 			'$interval',
-			// '$http',
+			'IndexDataService',
 			'GigsDataService',
 			'StoreDataService',
 			'TestimonialsDataService',
@@ -16,7 +16,7 @@
 				$scope,
 				$location,
 				$interval,
-				// $http,
+				IndexDataService,
 				GigsDataService,
 				StoreDataService,
 				TestimonialsDataService,
@@ -25,6 +25,10 @@
 				FamousQuotesDataService
 			) {
 				// $scope.getDocumentWidth = window.matchMedia(width);
+				//NAVBAR
+
+				$scope.navlinks = IndexDataService.nav.query();
+				$scope.mobileIcon = {name: "menu",};
 				//GIGS
 				$scope.subtitles = GigsDataService.subtitles;
 				$scope.maps = GigsDataService.maps.query();
