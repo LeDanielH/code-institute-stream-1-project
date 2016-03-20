@@ -112,7 +112,7 @@
 	</small>
 	
 	<!-- TELL US MORE ABOUT YOUR GIG -->
-	<div class="input-wrapper-inline more-info">
+	<div class="row center-inline more-info">
 		<label for="moreInfo">{{formsData.moreInfo.label}}</label>
 		<p>{{formsData.textArea.maxLength - moreInfo.length}} left</p>
 	</div>
@@ -129,7 +129,7 @@
 
 	<!-- SET HONORARIUM - SLIDER -->
 	<label for="offer">{{formsData.honorarium.label}}</label>
-	<input id="offer" type="range" min="0" max="1000000" 
+	<input id="offer" type="range" min="0" max="1000000" step="100"
 		ng-change="setHonorarium()" 
 		ng-model="honorarium">
 		
