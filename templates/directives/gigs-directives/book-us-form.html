@@ -68,7 +68,7 @@
 		{{formsData.email.errorMessages.invalid}}	
 	</small>
 
-	<div class="input-wrapper-inline more-info">
+	<div class="row center-inline more-info">
 		<label for="moreInfo">{{formsData.moreInfo.label}}</label>
 		<p>{{formsData.textArea.maxLength - moreInfo.length}} left</p>
 	</div>
@@ -79,7 +79,7 @@
 	</small>
 
 	<label for="offer">{{formsData.honorarium.label}}</label>
-	<input id="offer" type="range" min="0" max="1000000" ng-change="setHonorarium()" ng-model="honorarium">
+	<input id="offer" type="range" min="0" max="1000000" step="100" ng-change="setHonorarium()" ng-model="honorarium">
 
 	<label for="honorarium">Honorarium</label>
 	Honorarium: {{honorarium | currency}}
