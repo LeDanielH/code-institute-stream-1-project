@@ -32,8 +32,8 @@
     }, {
         "name": "gift coupon",
         "id": "gift-coupon",
-        "image":"data/images/store-items/gift-coupon",
-        "price": "choose value"
+        "image":"data/images/store-items/gift-coupon-1",
+        "price": 0
     }, {
         "name": "dvd",
         "id": "dvd",

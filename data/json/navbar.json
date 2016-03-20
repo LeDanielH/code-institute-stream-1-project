@@ -1,0 +1,23 @@
+[
+	{
+		"link": "home", 
+		"name": "home"
+	},
+	{
+		"link": "gigs", 
+		"name": "gigs"
+	},
+	{
+		"link": "biography", 
+		"name": "biography"
+	},
+	{
+		"link": "lyrics", 
+		"name": "lyrics"
+	},
+	{
+		"link": "store", 
+		"name": "store"
+	}
+
+]
