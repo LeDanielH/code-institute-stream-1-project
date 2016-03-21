@@ -3910,39 +3910,50 @@ body .container .main-footer {
 	justify-content: space-between;
 	-ms-flex-pack: justify;
 }
-.store-items .store-items-list {
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
+.store-items .slider {
+	position: relative;
+	height: 120px;
 }
-.store-items .store-items-list .item-box-link {
-	display: block;
-	-webkit-box-flex: 1;
-	-moz-box-flex: 1;
-	box-flex: 1;
-	-webkit-flex: 1;
-	-moz-flex: 1;
-	-ms-flex: 1;
-	flex: 1;
-	max-height: 100px;
-	max-width: 100px;
+.store-items .slider .icon-circle-left {
+	position: absolute;
+	top: 47%;
+	left: -10px;
+}
+.store-items .slider .icon-circle-right {
+	position: absolute;
+	top: 47%;
+	right: -10px;
+}
+.store-items .slider .slide-viewer {
+	position: relative;
+	overflow-x: auto;
+	overflow-y: hidden;
+	height: 100%;
+	width: 80%;
+	margin: 0 auto;
+}
+.store-items .slider .slide-viewer .slide {
+	position: absolute;
+	width: 100%;
+}
+.store-items .slider .slide-viewer .slide .item-box-link {
+	height: 100px;
+	width: 100px;
+	-webkit-flex-shrink: 0;
+	-moz-flex-shrink: 0;
+	flex-shrink: 0;
+	-ms-flex-negative: 0;
 	margin: 5px;
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
 }
-.store-items .store-items-list .item-box-link .item-box {
+.store-items .slider .slide-viewer .slide .item-box-link .item-box {
 	position: relative;
 	overflow: hidden;
 	border-radius: 3px;
 }
-.store-items .store-items-list .item-box-link .item-box .item-box-overlay {
+.store-items .slider .slide-viewer .slide .item-box-link .item-box .item-box-overlay {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
@@ -3961,19 +3972,22 @@ body .container .main-footer {
 	-ms-flex-wrap: wrap;
 	flex-wrap: wrap;
 }
-.store-items .store-items-list .item-box-link .item-box .item-box-overlay > * {
+.store-items .slider .slide-viewer .slide .item-box-link .item-box .item-box-overlay > * {
 	position: relative;
 	top: 0px;
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
 }
-.store-items .store-items-list .item-box-link .item-box:hover .item-box-overlay {
+.store-items .slider .slide-viewer .slide .item-box-link .item-box:hover .item-box-overlay {
 	bottom: 0px;
 }
-.store-items .store-items-list .item-box-link .item-box:hover .item-box-overlay > * {
+.store-items .slider .slide-viewer .slide .item-box-link .item-box:hover .item-box-overlay > * {
 	position: relative;
 	top: 10px;
+}
+.store-items .slider .slide-viewer .slide.nonDraggableImage {
+	-webkit-user-drag: none;
 }
 .store-items .store-items-footer {
 	margin-top: 10px;
