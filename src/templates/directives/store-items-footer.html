@@ -6,19 +6,19 @@
 		</select>
 	</div>
 </header>
-<section class="row center-both store-items-area-wrapper">
+<section class="row center-inline store-items-list">
 	<span class="icon-circle-left">
 		<i class="fa fa-chevron-left fa-2x"></i>
 	</span>
-	<div class="row store-items-wrapper">
-		<div class="column center-inline store-item" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory">
-			<a class="column" ng-href="#/store/{{item.id}}">
-				<!-- <i class="fa fa-soundcloud fa-2x"></i> -->
-				<div class="image-wrapper"><img class="store-item-thumbnail filter-image" ng-src="{{item.image}}.jpg" alt="{{item.name}}"></div>
-				<p>{{item.name}}<br>{{item.price | currency}}</p>
-			</a>
-		</div>
-	</div>
+	<a class="item-box-link" ng-repeat="item in storeItems | limitTo: 5 | orderBy:sortByCategory" ng-href="#/store/{{item.id}}">
+		<figure class="item-box">
+			<img class="filter-image" ng-src="{{item.image}}.jpg" alt="{{item.name}}">
+			<figcaption class="item-box-overlay dark-transparent-medium column center-both">
+				<h5 class="small-label">{{item.name}}</h5>
+				<p>{{item.price | currency}}</p>
+			</figcaption>
+		</figure>
+	</a>
 	<span class="icon-circle-right">
 		<i class="fa fa-chevron-right fa-2x"></i>
 	</span>

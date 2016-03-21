@@ -22,11 +22,16 @@
 				text-align: center
 				+size(100%)
 				+transition($base-transition-duration)
+			.item-box-overlay > *
+				+position(relative, 10px null null null)
+				+transition($base-transition-duration)
 
 			&:hover
 				.item-box-overlay
 					top: 0%
 					+transform(rotateX(0deg))
+				.item-box-overlay > *
+					+position(relative, 0px null null null)
 
 
 
