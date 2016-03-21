@@ -5,35 +5,55 @@
 	header
 		+justify-content(space-between)
 	
-	.store-items-list
-		+justify-content(space-between)
-		.item-box-link
-			+display(block)
-			+flex(1)
-			max-height: 100px
-			max-width: 100px
-			margin: $base-padding / 4
-			+transition($base-transition-duration)
-			.item-box
-				+position(relative)
-				overflow: hidden
-				border-radius: $base-border-radius
-				.item-box-overlay
-					+transition($base-transition-duration)
-					+position(absolute, null 0px -50% 0px)
-					+size(100%)
-					color: $base-background-color
-					+flex-wrap(wrap)
+	.slider
+		+position(relative)
+		height: 120px
+		.icon-circle-left
+			+position(absolute, 47% null null -10px)
 
-				.item-box-overlay > *
-					+position(relative, 0px null null null)
-					+transition($base-transition-duration)
+		.icon-circle-right
+			+position(absolute, 47% -10px null null)
 
-				&:hover
-					.item-box-overlay
-						bottom: 0px
-					.item-box-overlay > *
-						+position(relative, 10px null null null)
+		.slide-viewer
+			+position(relative)
+			overflow-x: auto
+			overflow-y: hidden
+			height: 100%
+			width: 80%
+			margin: 0 auto
+
+			.slide
+				+position(absolute)
+				width: 100%
+				.item-box-link
+					// +display(flex)
+					// +flex(1)
+					+size(100px)
+					+flex-shrink(0)
+					margin: $base-padding / 4
+					+transition($base-transition-duration)
+					.item-box
+						+position(relative)
+						overflow: hidden
+						border-radius: $base-border-radius
+						.item-box-overlay
+							+transition($base-transition-duration)
+							+position(absolute, null 0px -50% 0px)
+							+size(100%)
+							color: $base-background-color
+							+flex-wrap(wrap)
+
+						.item-box-overlay > *
+							+position(relative, 0px null null null)
+							+transition($base-transition-duration)
+
+						&:hover
+							.item-box-overlay
+								bottom: 0px
+							.item-box-overlay > *
+								+position(relative, 10px null null null)
+				&.nonDraggableImage
+    				-webkit-user-drag: none
 
 	.store-items-footer
 		margin-top: $base-padding / 2
