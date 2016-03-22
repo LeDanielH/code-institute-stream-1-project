@@ -9,6 +9,10 @@ $query-small: 690px
 	
 img
 	+flex(1)
+.content-box
+	margin: $base-padding
+	padding: $base-padding
+	border-radius: $base-border-radius
 
 .divided
 	padding: $base-padding
@@ -47,6 +51,10 @@ img
 .center-inline
 	+align-items(center)
 
+.center-inline-split
+	+align-items(center)
+	+justify-content(space-between)
+
 .center-blocks
 	+justify-content(center)
 
@@ -54,6 +62,9 @@ img
 	+align-items(center)
 	+justify-content(center)
 
+.split
+	+justify-content(space-between)
+	
 .dont-wrap
 	white-space: nowrap
 

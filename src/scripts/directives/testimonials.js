@@ -1,7 +1,7 @@
 ;(function () {
 	'use strict';
 	angular.module('myBandAppDirectives')
-		.directive('testimonials', function($interval) {
+		.directive('testimonials', ['$interval', function($interval) {
 			return {
 				restrict: 'AE',
 				replace: true,
@@ -63,5 +63,5 @@
 
 				templateUrl: 'templates/directives/testimonials.html'
 			};
-		});
+		}]);
 }());

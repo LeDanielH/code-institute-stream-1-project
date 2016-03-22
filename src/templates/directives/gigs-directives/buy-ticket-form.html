@@ -47,7 +47,7 @@
 
 	<!-- SHOW GUEST NAME AND PRICE -->
 	<ul class="guests-list">
-		<li class="row small-label divided-label base-transparent-medium">
+		<li class="row divided-label base-transparent-medium split">
 			<span>{{buyTicket.name}}</span>
 			<span class="price-label">{{formsData.ticketPrice | currency}}</span>
 		</li>
@@ -63,19 +63,19 @@
 	<p class="error-message" ng-show="buyTicketForm.email.$touched && buyTicketForm.email.$error.required">
 		{{formsData.email.errorMessages.required}}
 	</p>
-	<p class="error-message" ng-show="buyTicketForm.email.$touched && buyTicketForm.email.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.email.$touched && buyTicketForm.email.$invalid && !buyTicketForm.email.$pristine">
 		{{formsData.email.errorMessages.invalid}}	
 	</p>
 
 	<!-- GUEST'S COMPANIONS -->
 	<label for="addGuest">{{formsData.companions.label}}</label>
 	<ul class="guests-list">
-		<li class="small-label row center-inline"  
+		<li class="row center-inline-split"  
 			ng-repeat="companion in companions" 
 			ng-model="companion">
 
 		<!-- DISPLAY COMPANIONS NAMES AND PRICE -->
-			<div class="row center-inline divided-label base-transparent-medium added-guests">
+			<div class="row split divided-label base-transparent-medium added-guests">
 				<span>{{companion}}</span>
 				<span class="price-label">{{formsData.ticketPrice | currency}}</span>
 			</div>
@@ -88,7 +88,7 @@
 	</ul>
 
 		<!-- ADD COMPANIONS -->
-	<div class="row center-inline input-add-guest">
+	<div class="row center-inline-split input-add-guest">
 		<input type="text" id="addCompanion" name="companion" 
 			ng-attr-title="{{formsData.companions.title}}" 
 			placeholder="{{formsData.companions.placeholder}}" 
@@ -100,11 +100,12 @@
 	<p class="error-message" ng-show="buyTicketForm.companion.$touched && buyTicketForm.companion.$invalid">
 		{{formsData.companions.errorMessages.invalid}}
 	</p>
+	<br>
 </fieldset>
 
 <!-- COLUMMN 2 -->
-<fieldset class="form-column wrapped-box-margin">
-	<h5>Credit Card Details:</h5>
+<fieldset class="form-column wrapped-box-margin">	
+	<h4>Credit Card Details:</h4>
 
 	<!-- CARD DESIGN -->
 	<div class="image-wrapper">
@@ -120,45 +121,41 @@
 	<br>
 
 	<!-- CARD NAME -->
-	<div class="row center-inline card-name">
+	<div class="row center-inline-split card-name">
 		<label class="small-label" for="credit-card-name">{{formsData.cardName.label}}</label>
-		<input type="text" id="credit-card-name field-medium" name="cardName" autocomplete="name"
+		<input type="text" id="credit-card-name" class="field-xxl" name="cardName" autocomplete="name"
 			ng-attr-title="{{formsData.cardName.title}}" 
 			placeholder="{{formsData.cardName.placeholder}}"  
-			ng-init="card.name=formsData.cardName.placeholder" 
 			ng-model="card.name"
 			ng-required="true">
 	</div>
-	<p class="error-message" ng-show="buyTicketForm.cardName.$touched && buyTicketForm.cardName.$error.required 
-		&& buyTicketForm.cardName === initName">
+	<p class="error-message" ng-show="buyTicketForm.cardName.$touched && buyTicketForm.cardName.$error.required">
 		{{formsData.cardName.errorMessages.required}}
 	</p>
-	<p class="error-message" ng-show="buyTicketForm.card.name.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.cardName.$touched && buyTicketForm.cardName.$invalid && !buyTicketForm.cardName.$pristine">
 		{{formsData.cardName.errorMessages.invalid}}
 	</p>
 
 	<!-- CARD NUMBER -->
-	<div class="row center-inline card-number">
+	<div class="row center-inline-split card-number">
 		<label for="credit-card-number" class="small-label">{{formsData.cardNumber.label}}</label>
-		<input type="text" id="credit-card-number"  name="cardNumber" autocomplete="cc-number"
+		<input type="text" id="credit-card-number" class="field-xxl" name="cardNumber" autocomplete="cc-number"
 			ng-attr-title="{{formsData.cardNumber.title}}" 
 			placeholder="{{formsData.cardNumber.placeholder}}" 
-			ng-init="card.number=formsData.cardNumber.placeholder" 
 			ng-model="card.number" 
 			ng-required="true">
 	</div>
-	<p class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$error.required 
-		&& buyTicketForm.card.number === initCardNumber">
+	<p class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$error.required">
 		{{formsData.cardNumber.errorMessages.required}}
 	</p>
-	<p class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.cardNumber.$touched && buyTicketForm.cardNumber.$invalid && !buyTicketForm.cardNumber.$pristine">
 		{{formsData.cardNumber.errorMessages.invalid}}
 	</p>
 
 	<!-- CARD CVV -->
-	<div class="row center-inline card-cvv">
+	<div class="row center-inline-split card-cvv">
 		<label for="card-cvv" class="small-label">{{formsData.cardCvv.label}}</label>
-		<input type="text" id="card-cvv" name="cvv" autocomplete="cvv-number"
+		<input type="text" id="card-cvv" class="field-xs" name="cvv" autocomplete="cvv-number"
 			ng-attr-title="{{formsData.cardCvv.title}}" 
 			placeholder="{{formsData.cardCvv.placeholder}}"
 			ng-model="card.cvv"
@@ -167,21 +164,21 @@
 	<p class="error-message" ng-show="buyTicketForm.cvv.$touched && buyTicketForm.cvv.$error.required">
 		{{formsData.cardCvv.errorMessages.required}}
 	</p>
-	<p class="error-message" ng-show="buyTicketForm.cvv.$touched && buyTicketForm.cvv.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.cvv.$touched && buyTicketForm.cvv.$invalid && !buyTicketForm.cvv.$pristine">
 		{{formsData.cardCvv.errorMessages.invalid}}
 	</p>
 
 	<!-- CARD DATE -->
-	<div class="row center-inline card-expiry-date">
+	<div class="row center-inline-split card-expiry-date">
 		<label for="month" class="small-label">{{formsData.cardExpiryDate.label}}</label>
-		<div class="row center-inline" >
-			<select name="cardMonth" id="month" placeholder="month"
+		<div class="row select-year" >
+			<select name="cardMonth" id="month" class="field-s" placeholder="month"
 				ng-attr-title="{{formsData.cardExpiryDate.title}}" 
 				ng-model="card.month" 
 				ng-options="month for month in getMonths">
 				<option value='' disabled>mm</option>
 			</select>
-			<select name="cardYear" id="year" placeholder="year"
+			<select name="cardYear" id="year" class="field-m" placeholder="year"
 				ng-attr-title="{{formsData.cardExpiryDate.title}}" 
 				ng-model="card.year" 
 				ng-options="year for year in getYears">
@@ -196,54 +193,67 @@
 	</p>
 
 	<!-- BILLING ADDRESS -->
-	<h5>Billing Address</h5>
+	<br>	
+	<h4>Billing Address</h4>
 
 	<!-- BILLING ADDRESS - STREET -->
-	<input type="text" id="street" name="address" autocomplete="street-address"
-		ng-attr-title="{{formsData.street.title}}" 
-		placeholder="{{formsData.street.placeholder}}"  
-		ng-model="billingAddress.street"
-		ng-required="true">
+	<div class="row center-inline-split">
+		<label for="street" class="small-label">{{formsData.street.label}}</label>
+		<input type="text" class="field-xxl" id="street" name="street" autocomplete="street-address"
+			ng-attr-title="{{formsData.street.title}}" 
+			placeholder="{{formsData.street.placeholder}}"  
+			ng-model="billingAddress.street"
+			ng-required="true">
+	</div>
 	<p class="error-message" ng-show="buyTicketForm.street.$touched && buyTicketForm.street.$error.required">
 		{{formsData.street.errorMessages.required}}
 	</p>
-	<p class="error-message" ng-show="buyTicketForm.street.$touched && buyTicketForm.street.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.street.$touched && buyTicketForm.street.$invalid && !buyTicketForm.street.$pristine">
 		{{formsData.street.errorMessages.invalid}}
 	</p>
 
 	<!-- BILLING ADDRESS - CITY -->
-	<input type="text" id="city" name="city" autocomplete="address-level2"
-		ng-attr-title="{{formsData.city.title}}" 
-		placeholder="{{formsData.city.placeholder}}"
-		ng-model="billingAddress.city"
-		ng-required="true">
+	<div class="row center-inline-split">
+		<label for="city" class="small-label">{{formsData.city.label}}</label>
+		<input type="text" class="field-xl" id="city" name="city" autocomplete="address-level2"
+			ng-attr-title="{{formsData.city.title}}" 
+			placeholder="{{formsData.city.placeholder}}"
+			ng-model="billingAddress.city"
+			ng-required="true">
+	</div>
 	<p class="error-message" ng-show="buyTicketForm.city.$touched && buyTicketForm.city.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</p>
-	<p class="error-message" ng-show="buyTicketForm.city.$touched && buyTicketForm.city.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.city.$touched && buyTicketForm.city.$invalid && !buyTicketForm.city.$pristine">
 		{{formsData.city.errorMessages.invalid}}
 	</p>
 
 	<!-- BILLING ADDRESS - POSTCODE -->
-	<input type="text" id="post-code" name="postCode" autocomplete="postal-code"
-		ng-attr-title="{{formsData.postCode.title}}" 
-		placeholder="{{formsData.postCode.placeholder}}"   
-		ng-model="billingAddress.postCode"
-		ng-required="true">
+	<div class="row center-inline-split">
+		<label for="post-code" class="small-label">{{formsData.postCode.label}}</label>
+		<input type="text" class="field-l" id="post-code" name="postCode" autocomplete="postal-code"
+			ng-attr-title="{{formsData.postCode.title}}" 
+			placeholder="{{formsData.postCode.placeholder}}"   
+			ng-model="billingAddress.postCode"
+			ng-required="true">
+	</div>
 	<p class="error-message" ng-show="buyTicketForm.postCode.$touched && buyTicketForm.postCode.$error.required">
 		{{formsData.postCode.errorMessages.required}}
 	</p>
-	<p class="error-message" ng-show="buyTicketForm.postCode.$touched && buyTicketForm.postCode.$invalid">
+	<p class="error-message" ng-show="buyTicketForm.postCode.$touched && buyTicketForm.postCode.$invalid && !buyTicketForm.postCode.$pristine">
 		{{formsData.postCode.errorMessages.invalid}}
 	</p>
 
 	<!-- BILLING ADDRESS - COUNTRY -->
-	<select name="country" id="country" autocomplete="country"
-		ng-attr-title="{{formsData.country.title}}" 
-		ng-model="billingAddress.country" 
-		ng-required="true" 
-		ng-include="'templates/directives/gigs-directives/countries.html'">
-	</select>
+	<div class="row center-inline-split">
+		<label for="country" class="small-label">{{formsData.country.label}}</label>
+		<select name="country" class="field-xxl" id="country" autocomplete="country"
+			ng-attr-title="{{formsData.country.title}}" 
+			ng-model="billingAddress.country" 
+			ng-required="true" 
+			ng-include="'templates/directives/gigs-directives/countries.html'">
+		</select>
+	</div>
 	<p class="error-message" ng-show="buyTicketForm.country.$touched && buyTicketForm.country.$error.required">
 		{{formsData.country.errorMessages.required}}
 	</p>

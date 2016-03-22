@@ -35,6 +35,22 @@ angular.module('bandApp', [
 					templateUrl: 'templates/blog-post-detail.html',
 					controller: 'BlogPostDetailController'
 				})
+				.when('/cart', {
+					templateUrl: 'templates/cart.html',
+					controller: 'CartController'
+				})
+				.when('/biography', {
+					templateUrl: 'templates/biography.html',
+					controller: 'BioController'
+				})
+				.when('/lyrics', {
+					templateUrl: 'templates/lyrics.html',
+					controller: 'LyricsController'
+				})
+				.when('/sing-in', {
+					templateUrl: 'templates/sing-in.html',
+					controller: 'SignUpController'
+				})
 				.otherwise({
 					redirectTo: '/home'
 				});

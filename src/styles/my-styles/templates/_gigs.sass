@@ -43,35 +43,34 @@
 						+flex(1)
 
 					.input-add-guest
-						+justify-content(space-between)
 						#addCompanionButton
 							+position(relative, -6px null null null)
 							margin-left: 5px
 
 					.guests-list
 						list-style-type: none
+						font-weight: 700
+						.price-label
 						li
 							width: 100%
-							+justify-content(space-between)
 							+flex-wrap(wrap)
 							+flex(1)
 							.added-guests
 								+flex(1)
-								+justify-content(space-between)
 
 							#removeCompanionButton
 								+position(relative, -6px null null null)
 								margin-left: 5px
-					.card-cvv
-						+justify-content(space-between)
 
 					.card-expiry-date
-						+justify-content(space-between)
-						#month
-							margin-right: 5px
-							direction: rtl
-					.more-info
-						+justify-content(space-between)
+						label
+							+flex(1)
+						.select-year
+							+flex(2)
+							+justify-content(flex-end)
+							#month
+								margin-right: 5px
+								direction: rtl
 
 	label.tab-header:first-of-type
 		border-top-left-radius: $base-border-radius

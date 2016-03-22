@@ -44,18 +44,25 @@ input.ng-required, input.ng-invalid.ng-touched// when input box is edited
 	text-align: right
 	margin-bottom: $base-padding / 2
 	color: red
+	font-size: 0.8rem
 
-.field-small
+.field-xs
+	max-width: 50px
+
+.field-s
 	max-width: 70px
 
-.field-medium
-	max-width: 100px
+.field-m
+	max-width: 90px
 
-.field-large
-	max-width: 140px
+.field-l
+	max-width: 150px
 
-.field-big
+.field-xl
 	max-width: 200px
+
+.field-xxl
+	max-width: 250px
 
 .circle-button
 	+display(flex)
@@ -63,3 +70,9 @@ input.ng-required, input.ng-invalid.ng-touched// when input box is edited
 	border-radius: 50%
 	+justify-content(center)
 	padding: $base-padding / 3
+
+.small-label
+	text-indent: $small-spacing
+	white-space: nowrap
+	&:after
+		content: "\00a0\00a0"

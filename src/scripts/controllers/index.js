@@ -25,8 +25,10 @@
 				FamousQuotesDataService
 			) {
 				// $scope.getDocumentWidth = window.matchMedia(width);
-				//NAVBAR
+				//Explanation
+				$scope.explanation = "Thank You for visiting my project! This project is meant to demonstrate my ability to work with AngularJs and I believe I already did so. I know there is still a lot to learn! I have decided to leave this one alone for now and continue my learning (D3, MongoDB, Django) as my main goal is to get a job first. See my completed projects at <a href=\"http://ledanielh.github.io\" target=\"_blank\">ledanielh.github.io.</a>";
 
+				//NAVBAR
 				$scope.navlinks = IndexDataService.nav.query();
 				$scope.mobileIcon = {name: "menu",};
 
