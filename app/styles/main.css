@@ -3932,7 +3932,7 @@ body .container .main-footer {
 }
 .store-items .slider {
 	position: relative;
-	height: 120px;
+	height: 140px;
 }
 .store-items .slider .icon-circle-left {
 	position: absolute;
@@ -4237,6 +4237,7 @@ make-map .image-map .map-controls {
 .store-content {
 	padding: 20px;
 	width: 100%;
+	border-radius: 3px;
 }
 .store-content .store-inputs {
 	width: 100%;

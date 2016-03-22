@@ -5,7 +5,7 @@
 	<small class="error-message" ng-show="bookUsForm.date.$touched && bookUsForm.date.$error.required">
 		{{formsData.date.errorMessages.required}}
 	</small>
-
+	<br>
 	<label for="gig-type">{{formsData.gigType.label}}</label>
 	<select ng-options="concert for concert in formsData.gigType.select" name="gigType" id="gig-type" title="{{formData.gigType.title}}" placeholder="{{formData.gigType.placeholder}}" ng-model="gigType" ng-required="true">
 		<option value disabled="disabled">gig type</option>
@@ -13,38 +13,50 @@
 	<small class="error-message" ng-show="bookUsForm.gigType.$touched && bookUsForm.gigType.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</small>
+	<br>
+	<h4>Location of the gig?</h4>
 
-	<h5>Location of the gig?</h5>
-
-	<input type="text" id="street" name="street" autocomplete="street-address" title="{{formsData.street.title}}" placeholder="{{formsData.street.placeholder}}" ng-model="gigAddress.street" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$error.required">
+	<div class="row center-inline-split">
+		<label for="street" class="small-label">{{formsData.street.label}}</label>
+		<input type="text" class="field-xxl" id="street" name="street" autocomplete="street-address" ng-attr-title="{{formsData.street.title}}" placeholder="{{formsData.street.placeholder}}" ng-model="gigAddress.street" ng-required="true">
+	</div>
+	<p class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$error.required">
 		{{formsData.street.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$invalid && !bookUsForm.street.$pristine">
+	</p>
+	<p class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$invalid && !bookUsForm.street.$pristine">
 		{{formsData.street.errorMessages.invalid}}
-	</small>
+	</p>
 
-	<input type="text" id="city" name="city" autocomplete="address-level2" title="{{formsData.city.title}}" placeholder="{{formsData.city.placeholder}}" ng-model="gigAddress.city" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$error.required">
+	<div class="row center-inline-split">
+		<label for="city" class="small-label">{{formsData.city.label}}</label>
+		<input type="text" class="field-xl" id="city" name="city" autocomplete="address-level2" ng-attr-title="{{formsData.city.title}}" placeholder="{{formsData.city.placeholder}}" ng-model="gigAddress.city" ng-required="true">
+	</div>
+	<p class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$error.required">
 		{{formsData.city.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$invalid && !bookUsForm.city.$pristine">
+	</p>
+	<p class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$invalid && !bookUsForm.city.$pristine">
 		{{formsData.city.errorMessages.invalid}}
-	</small>
+	</p>
 
-	<input type="text" id="post-code" name="postCode" autocomplete="postal-code" title="{{formsData.postCode.title}}" placeholder="{{formsData.postCode.placeholder}}" ng-model="gigAddress.postCode" ng-required="true">
-	<small class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$error.required">
+	<div class="row center-inline-split">
+		<label for="post-code" class="small-label">{{formsData.postCode.label}}</label>
+		<input type="text" class="field-l" id="post-code" name="postCode" autocomplete="postal-code" ng-attr-title="{{formsData.postCode.title}}" placeholder="{{formsData.postCode.placeholder}}" ng-model="gigAddress.postCode" ng-required="true">
+	</div>
+	<p class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$error.required">
 		{{formsData.postCode.errorMessages.required}}
-	</small>
-	<small class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$invalid && !bookUsForm.postCode.$pristine">
+	</p>
+	<p class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$invalid && !bookUsForm.postCode.$pristine">
 		{{formsData.postCode.errorMessages.invalid}}
-	</small>
+	</p>
 
-	<select name="country" id="country" autocomplete="country" title="{{formsData.country.title}}" ng-model="gigAddress.country" ng-required="true" ng-include="'templates/directives/gigs-directives/countries.html'">
-	</select>
-	<small class="error-message" ng-show="bookUsForm.country.$touched && bookUsForm.country.$error.required">
+	<div class="row center-inline-split">
+		<label for="country" class="small-label">{{formsData.country.label}}</label>
+		<select name="country" class="field-xxl" id="country" autocomplete="country" ng-attr-title="{{formsData.country.title}}" ng-model="gigAddress.country" ng-required="true" ng-include="'templates/directives/gigs-directives/countries.html'">
+		</select>
+	</div>
+	<p class="error-message" ng-show="bookUsForm.country.$touched && bookUsForm.country.$error.required">
 		{{formsData.country.errorMessages.required}}
-	</small>
+	</p>
 </fieldset>
 
 <fieldset class="form-column wrapped-box-margin">
