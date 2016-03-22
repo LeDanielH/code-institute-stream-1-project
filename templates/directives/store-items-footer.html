@@ -1,29 +1,29 @@
 <header class="row center-inline">
 	<h3 class="h4">{{sortByCategory}}</h3>
 	<div class="row center-inline">
-		<label class="sort-by dont-wrap" for="sortBy"></label><h5>Sort by:&nbsp;</h5>
+		<label class="sort-by dont-wrap h5" for="sortBy">Sort by:&nbsp;</label>
 		<select ng-model="sortByCategory" ng-options="category for category in sortByCategories" name="sortBy" id="sortBy">
 		</select>
 	</div>
 </header>
 <section class="slider">
-	<span class="icon-circle-left" ng-click="previous()">
+	<span class="icon-circle-left">
 		<i class="fa fa-chevron-left fa-2x"></i>
 	</span>
 	<div class="slide-viewer">
 		<div class="slide">
-			<a class="item-box-link testimonials-animation nonDraggableImage" ng-repeat="item in storeItems | orderBy:sortByCategory" ng-href="#/store/{{item.id}}" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()">
+			<a class="item-box-link" ng-repeat="item in storeItems | orderBy:sortByCategory" ng-href="#/store/{{item.id}}">
 				<figure class="item-box">
 					<img class="filter-image" ng-src="{{item.image}}.jpg" alt="{{item.name}}">
 					<figcaption class="item-box-overlay dark-transparent-medium column center-both">
-						<h5 class="small-label">{{item.name}}</h5>
+						<h3 class="h6 c-text">{{item.name}}</h3>
 						<p>{{item.price | currency}}</p>
 					</figcaption>
 				</figure>
 			</a>
 		</div>
 	</div>
-	<span class="icon-circle-right" ng-click="next()">
+	<span class="icon-circle-right">
 		<i class="fa fa-chevron-right fa-2x"></i>
 	</span>
 </section>

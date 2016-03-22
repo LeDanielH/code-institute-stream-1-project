@@ -20,7 +20,7 @@
 	<small class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$error.required">
 		{{formsData.street.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$invalid">
+	<small class="error-message" ng-show="bookUsForm.street.$touched && bookUsForm.street.$invalid && !bookUsForm.street.$pristine">
 		{{formsData.street.errorMessages.invalid}}
 	</small>
 
@@ -28,7 +28,7 @@
 	<small class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$error.required">
 		{{formsData.city.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$invalid">
+	<small class="error-message" ng-show="bookUsForm.city.$touched && bookUsForm.city.$invalid && !bookUsForm.city.$pristine">
 		{{formsData.city.errorMessages.invalid}}
 	</small>
 
@@ -36,7 +36,7 @@
 	<small class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$error.required">
 		{{formsData.postCode.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$invalid">
+	<small class="error-message" ng-show="bookUsForm.postCode.$touched && bookUsForm.postCode.$invalid && !bookUsForm.postCode.$pristine">
 		{{formsData.postCode.errorMessages.invalid}}
 	</small>
 
@@ -55,7 +55,7 @@
 		&& bookUsForm.name === initName">
 		{{formsData.guest.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.name.$touched && bookUsForm.name.$invalid">
+	<small class="error-message" ng-show="bookUsForm.name.$touched && bookUsForm.name.$invalid && !bookUsForm.name.$pristine">
 		{{formsData.guest.errorMessages.invalid}}
 	</small>
 
@@ -64,11 +64,11 @@
 	<small class="error-message" ng-show="bookUsForm.email.$touched && bookUsForm.email.$error.required">
 		{{formsData.email.errorMessages.required}}
 	</small>
-	<small class="error-message" ng-show="bookUsForm.email.$touched && bookUsForm.email.$invalid">
+	<small class="error-message" ng-show="bookUsForm.email.$touched && bookUsForm.email.$invalid && !bookUsForm.email.$pristine">
 		{{formsData.email.errorMessages.invalid}}	
 	</small>
 
-	<div class="row center-inline more-info">
+	<div class="row center-inline-split more-info">
 		<label for="moreInfo">{{formsData.moreInfo.label}}</label>
 		<p>{{formsData.textArea.maxLength - moreInfo.length}} left</p>
 	</div>
@@ -84,7 +84,7 @@
 	<label for="honorarium">Honorarium</label>
 	Honorarium: {{honorarium | currency}}
 	<input type="number" id="honorarium" name="honorarium" title="{{formsData.honorarium.title}}" placeholder="{{formsData.honorarium.placeholder}}" ng-change="setHonorarium()" ng-model="honorarium">
-	<small class="error-message" ng-show="bookUsForm.honorarium.$touched && bookUsForm.honorarium.$invalid">
+	<small class="error-message" ng-show="bookUsForm.honorarium.$touched && bookUsForm.honorarium.$invalid && !bookUsForm.street.$pristine">
 		{{formsData.honorarium.errorMessages.invalid}}
 	</small>
 </fieldset>

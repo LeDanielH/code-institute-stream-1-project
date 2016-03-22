@@ -35,6 +35,22 @@ angular.module('bandApp', [
 					templateUrl: 'templates/blog-post-detail.html',
 					controller: 'BlogPostDetailController'
 				})
+				.when('/cart', {
+					templateUrl: 'templates/cart.html',
+					controller: 'CartController'
+				})
+				.when('/biography', {
+					templateUrl: 'templates/biography.html',
+					controller: 'BioController'
+				})
+				.when('/lyrics', {
+					templateUrl: 'templates/lyrics.html',
+					controller: 'LyricsController'
+				})
+				.when('/sing-in', {
+					templateUrl: 'templates/sing-in.html',
+					controller: 'SignUpController'
+				})
 				.otherwise({
 					redirectTo: '/home'
 				});
@@ -67,15 +83,18 @@ angular.module('bandApp', [
 				FamousQuotesDataService
 			) {
 				// $scope.getDocumentWidth = window.matchMedia(width);
-				//NAVBAR
+				//Explanation
+				$scope.explanation = "Thank You for visiting my project! This project is meant to demonstrate my ability to work with AngularJs and I believe I already did so. I know there is still a lot to learn! I have decided to leave this one alone for now and continue my learning (D3, MongoDB, Django) as my main goal is to get a job first. See my completed projects at <a href=\"http://ledanielh.github.io\" target=\"_blank\">ledanielh.github.io.</a>";
 
+				//NAVBAR
 				$scope.navlinks = IndexDataService.nav.query();
 				$scope.mobileIcon = {name: "menu",};
+
 				//GIGS
 				$scope.subtitles = GigsDataService.subtitles;
 				$scope.maps = GigsDataService.maps.query();
-
-				//STORE
+				
+				//STORE ITEMS FOOTER
 				$scope.storeItems = StoreDataService.storeItems.query();
 				$scope.sortByCategory = StoreDataService.sortByCategory;
 				$scope.sortByCategories = StoreDataService.sortByCategories;
@@ -94,9 +113,19 @@ angular.module('bandApp', [
 				//LEFT SIDEBAR FAMOUS QUOTES
 				$scope.fQuotes = FamousQuotesDataService.quotes.query();
 				$scope.randomQuotes = $scope.fQuotes[Math.floor(Math.random() * $scope.fQuotes.length)];
+
+
 			}
 		]);
 
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppControllers')
+		.controller('BioController', [
+			'$scope', function($scope){
+			
+		}]);
 }());
 ;(function () {
 	'use strict';
@@ -140,6 +169,14 @@ angular.module('bandApp', [
             }
         ]);
 
+}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppControllers')
+		.controller('CartController', [
+			'$scope', function($scope){
+			
+		}]);
 }());
 ;(function() {
     'use strict';
@@ -275,37 +312,45 @@ angular.module('bandApp', [
             }
         ]);
 }());
-//;(function() {
-//    'use strict';
-//    angular.module('myBandAppControllers')
-//        .controller('SignUpController', [
-//            '$scope',
-//            function(
-//                $scope
-//            ) {
-//
-//                $scope.register = {};
-//                $scope.submitted = false;
-//                $scope.uniqueusername = true;
-//                $scope.uniqueemail = true;
-//
-//
-//                $scope.signUpForm = function(signUpForm) {
-//                    if (signUpForm.$valid) {
-//                        $scope.submitted = true;
-//                        $scope.uniqueusername = false;
-//                        $scope.uniqueemail = true;
-//                        if ($scope.uniqueusername && $scope.uniqueemail) {
-//                            // proceed to process form via backend service
-//                        }
-//                    } else {
-//                        alert("Have you made a mistake somewhere? Please, check your details again.");
-//                        $scope.submitted = true;
-//                    }
-//                };
-//            }
-//        ]);
-//}());
+;(function(){
+	'use strict';
+	angular.module('myBandAppControllers')
+		.controller('LyricsController', [
+			'$scope', function($scope){
+			
+		}]);
+}());
+;(function() {
+   'use strict';
+   angular.module('myBandAppControllers')
+       .controller('SignUpController', [
+           '$scope',
+           function(
+               $scope
+           ) {
+
+               $scope.register = {};
+               $scope.submitted = false;
+               $scope.uniqueusername = true;
+               $scope.uniqueemail = true;
+
+
+               $scope.signUpForm = function(signUpForm) {
+                   if (signUpForm.$valid) {
+                       $scope.submitted = true;
+                       $scope.uniqueusername = false;
+                       $scope.uniqueemail = true;
+                       if ($scope.uniqueusername && $scope.uniqueemail) {
+                           // proceed to process form via backend service
+                       }
+                   } else {
+                       alert("Have you made a mistake somewhere? Please, check your details again.");
+                       $scope.submitted = true;
+                   }
+               };
+           }
+       ]);
+}());
 ;(function () {
 	'use strict';
 	angular.module('myBandAppControllers')
@@ -710,27 +755,36 @@ angular.module('bandApp', [
 			};
 		});
 }());
+
 ;(function () {
 	'use strict';
 	angular.module('myBandAppDirectives')
-		.directive('testimonials', function($interval) {
+		.directive('testimonials', ['$interval', function($interval) {
 			return {
 				restrict: 'AE',
 				replace: true,
 				scope: {
-					images: '='
+					images: '=',
+					delay: '=',
+					startwith: '='
 				},
 				link: function(scope, elem, attrs) {
-					scope.currentIndex = 0;
+					console.log('>>elem:', elem);
 					scope.direction = 'left';
+					if(!angular.isNumber(scope.delay)){
+						scope.delay = 5000;
+					}
+					if(angular.isNumber(scope.startwith)){
+						scope.currentIndex = scope.startwith;
+					} else {
+						scope.currentIndex = 0;
+					}
+					scope.loopDelay = 5000;
+					scope.loopCount = 12;
 					scope.setCurrentSlideIndex = function(index) {
 						scope.direction = (index > scope.currentIndex) ? 'left' : 'right';
 						scope.currentIndex = index;
 					};
-
-					scope.loopDelay = 5000;
-					scope.loopCount = 12;
-
 					scope.isCurrentSlideIndex = function(index) {
 						return scope.currentIndex === index;
 					};
@@ -767,7 +821,7 @@ angular.module('bandApp', [
 
 				templateUrl: 'templates/directives/testimonials.html'
 			};
-		});
+		}]);
 }());
 ;(function () {
 	'use strict';
@@ -791,6 +845,42 @@ angular.module('bandApp', [
 ;(function () {
 	'use strict';
 	angular.module('myBandAppAnimations', []);
+}());
+;(function () {
+	'use strict';
+	angular.module('myBandAppAnimations')
+		.animation('.store-items-slider-animation', function() {
+			return {
+				addClass: function(element, className, done) {
+					var scope = element.scope();
+					var itemWidth = angular.element(document.querySelectorAll(".slider-viewer"))[0].getBoundingClientRect().width;
+					if (className === 'ng-hide') {
+						var finishPoint = itemWidth;
+						if (scope.direction !=='right') {
+							finishPoint = -finishPoint;
+						}
+						TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
+					} else {
+						done();
+					}
+				},
+				removeClass: function(element, className, done) {
+					var scope = element.scope();
+					var itemWidth = angular.element(document.querySelectorAll(".slider-viewer"))[0].getBoundingClientRect().width;
+					if (className === 'ng-hide') {
+						element.removeClass('ng-hide');
+						var startPoint = itemWidth;
+						if (scope.direction === 'right') {
+							startPoint = -startPoint;
+						}
+						TweenMax.set(element, {left: startPoint});
+						TweenMax.to(element, 0.5, {left: 0, onComplete: done});
+					} else {
+						done();
+					}
+				}
+			};
+		});
 }());
 ;(function () {
 	'use strict';

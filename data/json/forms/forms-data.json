@@ -19,12 +19,12 @@
 		}
 	},
 	"guest": {
-		"label": "Your name?",
+		"label": "Your name",
 		"title": "Enter your name",
 		"placeholder": "Name Surname",
 		"errorMessages": {
 			"required": "Must enter name.",
-			"invalid": "Please check your name again for unwanted additional spaces."
+			"invalid": "Please make sure your name does not contain nubmers, special characters or additional spaces."
 		}
 	},
 	"companions": {
@@ -33,20 +33,20 @@
 		"placeholder":"Name Surname",
 		"errorMessages": {
 			"required": "",
-			"invalid": "Please check your name again for unwanted additional spaces."
+			"invalid": "Please make sure your name does not contain nubmers, special characters or additional spaces."
 		}
 	},
 	"cardName": {
-		"label": "Name on your card?",
+		"label": "Name",
 		"title":"Enter the name displayed on your payment card.",
 		"placeholder":"NAME SURNAME",
 		"errorMessages": {
 			"required": "Must enter your name on the credit/debit card.",
-			"invalid": "Name is either too long or too short or has too many spaces."
+			"invalid": "Please make sure your name does not contain nubmers, special characters or additional spaces."
 		}
 	},
 	"email": {
-		"label": "Your email?",
+		"label": "Your email",
 		"title":"Enter your email.",
 		"placeholder":"name@example.com",
 		"errorMessages": {
@@ -55,7 +55,7 @@
 		}
 	},
 	"cardNumber": {
-		"label": "Your card number?",
+		"label": "number",
 		"title":"Enter your card number",
 		"placeholder":"0000 0000 0000 0000",
 		"errorMessages": {
@@ -64,7 +64,7 @@
 		}
 	},
 	"cardCvv": {
-		"label": "Your card security code?",
+		"label": "security code",
 		"title":"Enter 3 digit number displayed on the back of your card. Avoid entering spaces.",
 		"placeholder":"000",
 		"errorMessages": {
@@ -73,7 +73,7 @@
 		}
 	},
 	"cardExpiryDate": {
-		"label": "card expiry date?",
+		"label": "expiry date",
 		"title": "Choose expiry date displayed on your payment card.",
 		"placeholder": "",
 		"errorMessages": {

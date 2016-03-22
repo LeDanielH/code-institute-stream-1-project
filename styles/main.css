@@ -2432,13 +2432,13 @@ header > nav > div > a:hover,header > nav > a:hover {
 	background-color: rgba(255, 255, 255, 0.7);
 	color: rgba(35, 29, 34, 0.9);
 }
-.store-items-list > span[class^="icon-circle"] {
+.slider > span[class^="icon-circle"] {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
 	color: rgba(35, 29, 34, 0.9);
 }
-.store-items-list > span[class^="icon-circle"]:hover {
+.slider > span[class^="icon-circle"]:hover {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
@@ -2515,7 +2515,7 @@ img::selection {
 img::-moz-selection {
 	background: transparent;
 }
-h1,h2,h3,h4,h5,label,.small-label,legend,input[type="submit"],select[type="submit"],th,.menu-icon > span {
+h1,h2,h3,h4,h5,h6,label,.small-label,legend,input[type="submit"],select[type="submit"],th,.menu-icon > span {
 	font-family: "Roboto Condensed", sans-serif;
 	text-transform: uppercase;
 	font-weight: 700;
@@ -2544,7 +2544,7 @@ h5,.h5,th {
 b,label,strong {
 	font-weight: 600;
 }
-p,input,select,select,.small-label {
+p,.h6,input,select,select,.small-label {
 	font-size: 1rem;
 }
 cite {
@@ -2615,6 +2615,11 @@ span[class^="icon-circle"] {
 * {
 	box-sizing: border-box;
 }
+.content-box {
+	margin: 20px;
+	padding: 20px;
+	border-radius: 3px;
+}
 .divided {
 	padding: 20px;
 	border: 1px solid #ddd;
@@ -2660,6 +2665,26 @@ span[class^="icon-circle"] {
 	align-items: center;
 	-ms-flex-align: center;
 }
+.center-inline-split {
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	box-align: center;
+	-webkit-align-items: center;
+	-moz-align-items: center;
+	-ms-align-items: center;
+	-o-align-items: center;
+	align-items: center;
+	-ms-flex-align: center;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
+}
 .center-blocks {
 	-webkit-box-pack: center;
 	-moz-box-pack: center;
@@ -2690,6 +2715,17 @@ span[class^="icon-circle"] {
 	-o-justify-content: center;
 	justify-content: center;
 	-ms-flex-pack: center;
+}
+.split {
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	box-pack: justify;
+	-webkit-justify-content: space-between;
+	-moz-justify-content: space-between;
+	-ms-justify-content: space-between;
+	-o-justify-content: space-between;
+	justify-content: space-between;
+	-ms-flex-pack: justify;
 }
 .dont-wrap {
 	white-space: nowrap;
@@ -2799,18 +2835,25 @@ input.ng-required,select.ng-required,input.ng-invalid.ng-touched,select.ng-inval
 	text-align: right;
 	margin-bottom: 10px;
 	color: red;
+	font-size: 0.8rem;
 }
-.field-small {
+.field-xs {
+	max-width: 50px;
+}
+.field-s {
 	max-width: 70px;
 }
-.field-medium {
-	max-width: 100px;
+.field-m {
+	max-width: 90px;
 }
-.field-large {
-	max-width: 140px;
+.field-l {
+	max-width: 150px;
 }
-.field-big {
+.field-xl {
 	max-width: 200px;
+}
+.field-xxl {
+	max-width: 250px;
 }
 .circle-button {
 	display: -webkit-box;
@@ -2833,6 +2876,13 @@ input.ng-required,select.ng-required,input.ng-invalid.ng-touched,select.ng-inval
 	justify-content: center;
 	-ms-flex-pack: center;
 	padding: 6.66667px;
+}
+.small-label {
+	text-indent: 0.75rem;
+	white-space: nowrap;
+}
+.small-label:after {
+	content: "\00a0\00a0";
 }
 table thead {
 	width: 100%;
@@ -3686,17 +3736,6 @@ body .container .main-footer {
 	-ms-flex: 1;
 	flex: 1;
 }
-.tabs .tab-panel form .form-layout .form-column .input-add-guest {
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
-}
 .tabs .tab-panel form .form-layout .form-column .input-add-guest #addCompanionButton {
 	position: relative;
 	top: -6px;
@@ -3704,18 +3743,10 @@ body .container .main-footer {
 }
 .tabs .tab-panel form .form-layout .form-column .guests-list {
 	list-style-type: none;
+	font-weight: 700;
 }
 .tabs .tab-panel form .form-layout .form-column .guests-list li {
 	width: 100%;
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
 	-webkit-box-lines: multiple;
 	-moz-box-lines: multiple;
 	box-lines: multiple;
@@ -3739,57 +3770,42 @@ body .container .main-footer {
 	-moz-flex: 1;
 	-ms-flex: 1;
 	flex: 1;
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
 }
 .tabs .tab-panel form .form-layout .form-column .guests-list li #removeCompanionButton {
 	position: relative;
 	top: -6px;
 	margin-left: 5px;
 }
-.tabs .tab-panel form .form-layout .form-column .card-cvv {
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
+.tabs .tab-panel form .form-layout .form-column .card-expiry-date label {
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	box-flex: 1;
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
 }
-.tabs .tab-panel form .form-layout .form-column .card-expiry-date {
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
+.tabs .tab-panel form .form-layout .form-column .card-expiry-date .select-year {
+	-webkit-box-flex: 2;
+	-moz-box-flex: 2;
+	box-flex: 2;
+	-webkit-flex: 2;
+	-moz-flex: 2;
+	-ms-flex: 2;
+	flex: 2;
+	-webkit-box-pack: end;
+	-moz-box-pack: end;
+	box-pack: end;
+	-webkit-justify-content: flex-end;
+	-moz-justify-content: flex-end;
+	-ms-justify-content: flex-end;
+	-o-justify-content: flex-end;
+	justify-content: flex-end;
+	-ms-flex-pack: end;
 }
-.tabs .tab-panel form .form-layout .form-column .card-expiry-date #month {
+.tabs .tab-panel form .form-layout .form-column .card-expiry-date .select-year #month {
 	margin-right: 5px;
 	direction: rtl;
-}
-.tabs .tab-panel form .form-layout .form-column .more-info {
-	-webkit-box-pack: justify;
-	-moz-box-pack: justify;
-	box-pack: justify;
-	-webkit-justify-content: space-between;
-	-moz-justify-content: space-between;
-	-ms-justify-content: space-between;
-	-o-justify-content: space-between;
-	justify-content: space-between;
-	-ms-flex-pack: justify;
 }
 .tabs label.tab-header:first-of-type {
 	border-top-left-radius: 3px;
@@ -3910,19 +3926,23 @@ body .container .main-footer {
 	justify-content: space-between;
 	-ms-flex-pack: justify;
 }
+.store-items header .sort-by {
+	position: relative;
+	top: -3px;
+}
 .store-items .slider {
 	position: relative;
 	height: 120px;
 }
 .store-items .slider .icon-circle-left {
 	position: absolute;
-	top: 47%;
-	left: -10px;
+	top: 38%;
+	left: 0px;
 }
 .store-items .slider .icon-circle-right {
 	position: absolute;
-	top: 47%;
-	right: -10px;
+	top: 38%;
+	right: 0px;
 }
 .store-items .slider .slide-viewer {
 	position: relative;
@@ -3986,9 +4006,6 @@ body .container .main-footer {
 	position: relative;
 	top: 10px;
 }
-.store-items .slider .slide-viewer .slide.nonDraggableImage {
-	-webkit-user-drag: none;
-}
 .store-items .store-items-footer {
 	margin-top: 10px;
 	-webkit-box-pack: end;
@@ -4002,6 +4019,26 @@ body .container .main-footer {
 	-ms-flex-pack: end;
 	text-transform: uppercase;
 	font-size: 0.9rem;
+}
+.css-class-add,.css-class-remove {
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
+}
+.slided-css-class,.css-class-add.css-class-add-active {
+	-webkit-transform: translate3d(-25%, 0, 0);
+	-moz-transform: translate3d(-25%, 0, 0);
+	-ms-transform: translate3d(-25%, 0, 0);
+	-o-transform: translate3d(-25%, 0, 0);
+	transform: translate3d(-25%, 0, 0);
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
+}
+.css-class-remove.css-class-remove-active {
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
 }
 
 @media (max-width: 1116px) {
