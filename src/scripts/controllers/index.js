@@ -29,11 +29,12 @@
 
 				$scope.navlinks = IndexDataService.nav.query();
 				$scope.mobileIcon = {name: "menu",};
+
 				//GIGS
 				$scope.subtitles = GigsDataService.subtitles;
 				$scope.maps = GigsDataService.maps.query();
-
-				//STORE
+				
+				//STORE ITEMS FOOTER
 				$scope.storeItems = StoreDataService.storeItems.query();
 				$scope.sortByCategory = StoreDataService.sortByCategory;
 				$scope.sortByCategories = StoreDataService.sortByCategories;
@@ -52,6 +53,8 @@
 				//LEFT SIDEBAR FAMOUS QUOTES
 				$scope.fQuotes = FamousQuotesDataService.quotes.query();
 				$scope.randomQuotes = $scope.fQuotes[Math.floor(Math.random() * $scope.fQuotes.length)];
+
+
 			}
 		]);
 

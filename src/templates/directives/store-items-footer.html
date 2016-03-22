@@ -7,12 +7,14 @@
 	</div>
 </header>
 <section class="slider">
-	<span class="icon-circle-left" ng-click="previous()">
+	<!-- <span class="icon-circle-left" ng-init="left=0" ng-click="left = left-20"> -->
+	<span class="icon-circle-left">
 		<i class="fa fa-chevron-left fa-2x"></i>
 	</span>
 	<div class="slide-viewer">
+		<!-- <div class="slide" style="left:{{left}}%;right:{{right}}%" > -->
 		<div class="slide">
-			<a class="item-box-link testimonials-animation nonDraggableImage" ng-repeat="item in storeItems | orderBy:sortByCategory" ng-href="#/store/{{item.id}}" ng-swipe-right="nextSlide()" ng-swipe-left="prevSlide()">
+			<a class="item-box-link" ng-repeat="item in storeItems | orderBy:sortByCategory" ng-href="#/store/{{item.id}}">
 				<figure class="item-box">
 					<img class="filter-image" ng-src="{{item.image}}.jpg" alt="{{item.name}}">
 					<figcaption class="item-box-overlay dark-transparent-medium column center-both">
@@ -23,7 +25,8 @@
 			</a>
 		</div>
 	</div>
-	<span class="icon-circle-right" ng-click="next()">
+	<!-- <span class="icon-circle-right"  ng-init="right=0" ng-click="right = right+20"> -->
+	<span class="icon-circle-right">
 		<i class="fa fa-chevron-right fa-2x"></i>
 	</span>
 </section>

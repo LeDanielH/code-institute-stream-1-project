@@ -9,10 +9,10 @@
 		+position(relative)
 		height: 120px
 		.icon-circle-left
-			+position(absolute, 47% null null -10px)
+			+position(absolute, 38% null null 0px)
 
 		.icon-circle-right
-			+position(absolute, 47% -10px null null)
+			+position(absolute, 38% 0px null null)
 
 		.slide-viewer
 			+position(relative)
@@ -52,14 +52,27 @@
 								bottom: 0px
 							.item-box-overlay > *
 								+position(relative, 10px null null null)
-				&.nonDraggableImage
-    				-webkit-user-drag: none
+
+    			// &.slided
+    			// 	+transform(translate3d(-50%, 0, 0))
 
 	.store-items-footer
 		margin-top: $base-padding / 2
 		+justify-content(flex-end)
 		text-transform: uppercase
 		font-size: 0.9rem
+
+.css-class-add, .css-class-remove
+	+transition($base-transition-duration)
+
+
+.slided-css-class, .css-class-add.css-class-add-active
+	+transform(translate3d(-25%, 0, 0))
+	+transition($base-transition-duration)
+
+.css-class-remove.css-class-remove-active
+	// +transform(translate3d(25%, 0, 0))
+	+transition($base-transition-duration)	
 
 @media (max-width: $query-large)
 	.store-items

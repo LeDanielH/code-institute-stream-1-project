@@ -6,19 +6,27 @@
 				restrict: 'AE',
 				replace: true,
 				scope: {
-					images: '='
+					images: '=',
+					delay: '=',
+					startwith: '='
 				},
 				link: function(scope, elem, attrs) {
-					scope.currentIndex = 0;
+					console.log('>>elem:', elem);
 					scope.direction = 'left';
+					if(!angular.isNumber(scope.delay)){
+						scope.delay = 5000;
+					}
+					if(angular.isNumber(scope.startwith)){
+						scope.currentIndex = scope.startwith;
+					} else {
+						scope.currentIndex = 0;
+					}
+					scope.loopDelay = 5000;
+					scope.loopCount = 12;
 					scope.setCurrentSlideIndex = function(index) {
 						scope.direction = (index > scope.currentIndex) ? 'left' : 'right';
 						scope.currentIndex = index;
 					};
-
-					scope.loopDelay = 5000;
-					scope.loopCount = 12;
-
 					scope.isCurrentSlideIndex = function(index) {
 						return scope.currentIndex === index;
 					};

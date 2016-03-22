@@ -2432,13 +2432,13 @@ header > nav > div > a:hover,header > nav > a:hover {
 	background-color: rgba(255, 255, 255, 0.7);
 	color: rgba(35, 29, 34, 0.9);
 }
-.store-items-list > span[class^="icon-circle"] {
+.slider > span[class^="icon-circle"] {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
 	color: rgba(35, 29, 34, 0.9);
 }
-.store-items-list > span[class^="icon-circle"]:hover {
+.slider > span[class^="icon-circle"]:hover {
 	-webkit-transition: 300ms;
 	-moz-transition: 300ms;
 	transition: 300ms;
@@ -3916,13 +3916,13 @@ body .container .main-footer {
 }
 .store-items .slider .icon-circle-left {
 	position: absolute;
-	top: 47%;
-	left: -10px;
+	top: 38%;
+	left: 0px;
 }
 .store-items .slider .icon-circle-right {
 	position: absolute;
-	top: 47%;
-	right: -10px;
+	top: 38%;
+	right: 0px;
 }
 .store-items .slider .slide-viewer {
 	position: relative;
@@ -3986,9 +3986,6 @@ body .container .main-footer {
 	position: relative;
 	top: 10px;
 }
-.store-items .slider .slide-viewer .slide.nonDraggableImage {
-	-webkit-user-drag: none;
-}
 .store-items .store-items-footer {
 	margin-top: 10px;
 	-webkit-box-pack: end;
@@ -4002,6 +3999,26 @@ body .container .main-footer {
 	-ms-flex-pack: end;
 	text-transform: uppercase;
 	font-size: 0.9rem;
+}
+.css-class-add,.css-class-remove {
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
+}
+.slided-css-class,.css-class-add.css-class-add-active {
+	-webkit-transform: translate3d(-25%, 0, 0);
+	-moz-transform: translate3d(-25%, 0, 0);
+	-ms-transform: translate3d(-25%, 0, 0);
+	-o-transform: translate3d(-25%, 0, 0);
+	transform: translate3d(-25%, 0, 0);
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
+}
+.css-class-remove.css-class-remove-active {
+	-webkit-transition: 300ms;
+	-moz-transition: 300ms;
+	transition: 300ms;
 }
 
 @media (max-width: 1116px) {

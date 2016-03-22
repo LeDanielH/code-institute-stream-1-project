@@ -71,11 +71,12 @@ angular.module('bandApp', [
 
 				$scope.navlinks = IndexDataService.nav.query();
 				$scope.mobileIcon = {name: "menu",};
+
 				//GIGS
 				$scope.subtitles = GigsDataService.subtitles;
 				$scope.maps = GigsDataService.maps.query();
-
-				//STORE
+				
+				//STORE ITEMS FOOTER
 				$scope.storeItems = StoreDataService.storeItems.query();
 				$scope.sortByCategory = StoreDataService.sortByCategory;
 				$scope.sortByCategories = StoreDataService.sortByCategories;
@@ -94,6 +95,8 @@ angular.module('bandApp', [
 				//LEFT SIDEBAR FAMOUS QUOTES
 				$scope.fQuotes = FamousQuotesDataService.quotes.query();
 				$scope.randomQuotes = $scope.fQuotes[Math.floor(Math.random() * $scope.fQuotes.length)];
+
+
 			}
 		]);
 
@@ -710,6 +713,7 @@ angular.module('bandApp', [
 			};
 		});
 }());
+
 ;(function () {
 	'use strict';
 	angular.module('myBandAppDirectives')
@@ -718,19 +722,27 @@ angular.module('bandApp', [
 				restrict: 'AE',
 				replace: true,
 				scope: {
-					images: '='
+					images: '=',
+					delay: '=',
+					startwith: '='
 				},
 				link: function(scope, elem, attrs) {
-					scope.currentIndex = 0;
+					console.log('>>elem:', elem);
 					scope.direction = 'left';
+					if(!angular.isNumber(scope.delay)){
+						scope.delay = 5000;
+					}
+					if(angular.isNumber(scope.startwith)){
+						scope.currentIndex = scope.startwith;
+					} else {
+						scope.currentIndex = 0;
+					}
+					scope.loopDelay = 5000;
+					scope.loopCount = 12;
 					scope.setCurrentSlideIndex = function(index) {
 						scope.direction = (index > scope.currentIndex) ? 'left' : 'right';
 						scope.currentIndex = index;
 					};
-
-					scope.loopDelay = 5000;
-					scope.loopCount = 12;
-
 					scope.isCurrentSlideIndex = function(index) {
 						return scope.currentIndex === index;
 					};
@@ -791,6 +803,42 @@ angular.module('bandApp', [
 ;(function () {
 	'use strict';
 	angular.module('myBandAppAnimations', []);
+}());
+;(function () {
+	'use strict';
+	angular.module('myBandAppAnimations')
+		.animation('.store-items-slider-animation', function() {
+			return {
+				addClass: function(element, className, done) {
+					var scope = element.scope();
+					var itemWidth = angular.element(document.querySelectorAll(".slider-viewer"))[0].getBoundingClientRect().width;
+					if (className === 'ng-hide') {
+						var finishPoint = itemWidth;
+						if (scope.direction !=='right') {
+							finishPoint = -finishPoint;
+						}
+						TweenMax.to(element, 0.5, {left: finishPoint, onComplete: done });
+					} else {
+						done();
+					}
+				},
+				removeClass: function(element, className, done) {
+					var scope = element.scope();
+					var itemWidth = angular.element(document.querySelectorAll(".slider-viewer"))[0].getBoundingClientRect().width;
+					if (className === 'ng-hide') {
+						element.removeClass('ng-hide');
+						var startPoint = itemWidth;
+						if (scope.direction === 'right') {
+							startPoint = -startPoint;
+						}
+						TweenMax.set(element, {left: startPoint});
+						TweenMax.to(element, 0.5, {left: 0, onComplete: done});
+					} else {
+						done();
+					}
+				}
+			};
+		});
 }());
 ;(function () {
 	'use strict';
