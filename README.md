@@ -1,7 +1,7 @@
 ## AngularJS project
 
 + Things I have learned by making this project: JavaScript, JSON, AngularJS, GSAP, Gulp (checkout my gulpfile.js), Bower, NPM. 
-+ Stuff I knew but I have learned more about: HTML, Sass (Bourbon), Flex Box, assets optimization (Gulp).
++ Stuff I knew but I have learned more about: HTML, Sass (Bourbon), Flex Box, Git, assets optimization (Gulp).
 
 ###Project Structure
 + Work folder: src
