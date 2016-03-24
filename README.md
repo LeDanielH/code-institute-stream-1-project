@@ -12,7 +12,7 @@
 + blog posts (home)
 + blog post (home -> read more): add comments with current time, upvote comments, form validation
 + gigs (buy ticket form, book us form): validate and submit forms, add and remove companions, calculate ticket price
-+ store page: sort by functionality
++ store page: "sort by" and "search" functionality
 + store item page
 
 
