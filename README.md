@@ -1,5 +1,7 @@
 # AngularJS project
 
+##You can see my progress [here](http://ledanielh.github.io/code-institute-stream-1-project/).
+
 + Things I have learned by making this project: JavaScript, JSON, AngularJS, REGEX, GSAP animation, Gulp (checkout my gulpfile.js), Bower, NPM. 
 + Stuff I knew but I have learned more about: HTML, CSS (Sass - Bourbon, Flex Box), Git, assets optimization (Gulp).
 
@@ -21,5 +23,3 @@
 + sign in page: sign out functionality
 + lyrics page: slider animations
 + biography page: tabs
-
-You can checkout my progress [here](http://ledanielh.github.io/code-institute-stream-1-project/).
