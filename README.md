@@ -1,7 +1,7 @@
 # AngularJS project
 
-+ Things I have learned by making this project: JavaScript, JSON, AngularJS, GSAP, Gulp (checkout my gulpfile.js), Bower, NPM. 
-+ Stuff I knew but I have learned more about: HTML, Sass (Bourbon), Flex Box, Git, assets optimization (Gulp).
++ Things I have learned by making this project: JavaScript, JSON, AngularJS, REGEX, GSAP animation, Gulp (checkout my gulpfile.js), Bower, NPM. 
++ Stuff I knew but I have learned more about: HTML, CSS (Sass - Bourbon, Flex Box), Git, assets optimization (Gulp).
 
 ###Project Structure
 + Work folder: src
@@ -11,7 +11,7 @@
 ###Pages and its features:
 + blog posts (home)
 + blog post (home -> read more): add comments with current time, upvote comments, form validation
-+ gigs (buy ticket form, book us form): validate and submit forms, add and remove companions, calculate ticket price
++ gigs (buy ticket form, book us form): validate and submit forms, add and remove companions, calculate ticket price, zoom in/out map - change google map from dropdown
 + store page: "sort by" and "search" functionality
 + store item page
 
