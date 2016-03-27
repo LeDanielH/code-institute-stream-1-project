@@ -33,4 +33,52 @@
     }],
     "zoom": 14,
     "width": 200
+}, {
+
+    "clubName": "Bus Palladium ",
+    "date": "05/02/2017",
+    "time": "20:00",
+    "address": [{
+        "street": "6 Rue Pierre Fontaine",
+        "city": "Paris",
+        "country": "France"
+    }],
+    "zoom": 14,
+    "width": 200
+}, {
+
+    "clubName": "Sub Club",
+    "date": "02/03/2017",
+    "time": "20:00",
+    "address": [{
+        "street": "22 Jamaica St",
+        "city": "Glasgow",
+        "country": "United Kingdom"
+    }],
+    "zoom": 14,
+    "width": 200
+}, {
+
+    "clubName": "Culture Box",
+    "date": "12/03/2017",
+    "time": "21:00",
+    "address": [{
+        "street": "Kronprinsessegade 54",
+        "city": "Copenhagen",
+        "country": "Denmark"
+    }],
+    "zoom": 14,
+    "width": 200
+}, {
+
+    "clubName": "Húrra",
+    "date": "10/04/2017",
+    "time": "20:00",
+    "address": [{
+        "street": "Hverfisgata 50",
+        "city": "Reykjavík",
+        "country": "Iceland"
+    }],
+    "zoom": 14,
+    "width": 200
 }]

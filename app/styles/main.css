@@ -3084,7 +3084,7 @@ body .container .columns-wrapper .page-content {
 	padding-right: calc(15% - 100px);
 	padding-left: -webkit-calc(15% - 100px);
 	padding-left: calc(15% - 100px);
-	max-height: 600px;
+	max-height: 800px;
 	overflow-y: auto;
 }
 body .container .columns-wrapper .right-sidebar-substitute {
