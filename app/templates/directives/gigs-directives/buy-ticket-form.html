@@ -123,10 +123,10 @@
 		<label for="month" class="small-label">{{formsData.cardExpiryDate.label}}</label>
 		<div class="row select-year">
 			<select name="cardMonth" id="month" class="field-s" placeholder="month" ng-attr-title="{{formsData.cardExpiryDate.title}}" ng-model="card.month" ng-options="month for month in getMonths">
-				<option value disabled="disabled">mm</option>
+				<option value="" disabled="disabled">mm</option>
 			</select>
 			<select name="cardYear" id="year" class="field-m" placeholder="year" ng-attr-title="{{formsData.cardExpiryDate.title}}" ng-model="card.year" ng-options="year for year in getYears">
-				<option value disabled="disabled">yyyy</option>
+				<option value="" disabled="disabled">yyyy</option>
 			</select>
 		</div>
 	</div>
